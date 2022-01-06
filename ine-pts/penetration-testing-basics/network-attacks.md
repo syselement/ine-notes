@@ -1,0 +1,3 @@
+# Network Attacks
+
+#### You've now finished all the courses on Penetration Testing Student. Now is time to get ready for the [eJPT certification](https://elearnsecurity.com/product/ejpt-certification/). There's a difference between what you've done so far on PTS and the eJPT certification. For eJPT, your exam lab environment won't be browser based as it's been so far. You'll be to use your own Kali VM and connect through a VPN that the exam provides. Don't worry, the first video of this course explains how that all works. All the labs that follow are VPN based and you'll need to set up your own computer. Best of luck!
