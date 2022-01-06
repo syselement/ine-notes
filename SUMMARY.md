@@ -26,11 +26,9 @@
   * [Black Box Test #1](ine-pts/exam-preparation-labs/black-box-test-1.md)
   * [Black Box Test #2](ine-pts/exam-preparation-labs/black-box-test-2.md)
   * [Black Box Test #3](ine-pts/exam-preparation-labs/black-box-test-3.md)
-
-***
-
-* [📜 Glossary](glossary.md)
+* [📜 Glossary](ine-pts/glossary.md)
 
 ## Other GitBooks
 
-* [Blog Home](https://syselement.gitbook.io/blog/)
+* [eLearnSecurity / INE](https://syselement.gitbook.io/blog/certifications/elearnsecurity-ine)
+* [🏠 Syselement's Blog Home](https://syselement.gitbook.io/blog/)
