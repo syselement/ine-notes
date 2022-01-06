@@ -2,19 +2,11 @@
 
 * [eJPT Certification](README.md)
 
-## Daily Syncs
+## INE PTS
 
-* [Page 1](daily-syncs/page-1.md)
-* [Design Standups](daily-syncs/design-standups/README.md)
-  * [September 2021](daily-syncs/design-standups/september-2021/README.md)
-    * [Week 1 (6 - 10 Sept)](daily-syncs/design-standups/september-2021/week-1-6-10-sept.md)
-
-## Weekly Syncs
-
-* [Company Weeklies](weekly-syncs/company-weeklies/README.md)
-  * [1st September 2021](weekly-syncs/company-weeklies/1st-september-2021.md)
+* [Penetration Testing Prerequisites](ine-pts/penetration-testing-prerequisites.md)
+* [Preliminary Skills & Programming](ine-pts/preliminary-skills-and-programming.md)
+* [Penetration Testing Basics](ine-pts/penetration-testing-basics.md)
+* [Exam Preparation](ine-pts/exam-preparation.md)
 
 ## Other Regulars
-
-* [Company Weeklies](other-regulars/company-weeklies/README.md)
-  * [September 14th 2021](other-regulars/company-weeklies/september-14th-2021.md)
