@@ -18,11 +18,3 @@
 
 * [Company Weeklies](other-regulars/company-weeklies/README.md)
   * [September 14th 2021](other-regulars/company-weeklies/september-14th-2021.md)
-
-***
-
-* [Page 2](page-2.md)
-
-## Group 1
-
-* [Page 3](group-1/page-3.md)
