@@ -31,4 +31,7 @@
 ## Other GitBooks
 
 * [eLearnSecurity / INE](https://syselement.gitbook.io/blog/certifications/elearnsecurity-ine)
+
+***
+
 * [🏠 syselement's Blog Home](https://syselement.gitbook.io/blog/)
