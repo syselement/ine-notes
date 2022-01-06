@@ -21,11 +21,11 @@
   * [Web Attacks](ine-pts/penetration-testing-basics/web-attacks.md)
   * [System Attacks](ine-pts/penetration-testing-basics/system-attacks.md)
   * [Network Attacks](ine-pts/penetration-testing-basics/network-attacks.md)
-* [🔬 Exam Preparation - Study Guide - Labs](ine-pts/exam-preparation-study-guide-labs/README.md)
-  * [Prerequisites & Pentesting](ine-pts/exam-preparation-study-guide-labs/prerequisites-and-pentesting.md)
-  * [Black Box Test #1](ine-pts/exam-preparation-study-guide-labs/black-box-test-1.md)
-  * [Black Box Test #2](ine-pts/exam-preparation-study-guide-labs/black-box-test-2.md)
-  * [Black Box Test #3](ine-pts/exam-preparation-study-guide-labs/black-box-test-3.md)
+* [🔬 Exam Preparation - Labs](ine-pts/exam-preparation-labs/README.md)
+  * [Prerequisites & Pentesting](ine-pts/exam-preparation-labs/prerequisites-and-pentesting.md)
+  * [Black Box Test #1](ine-pts/exam-preparation-labs/black-box-test-1.md)
+  * [Black Box Test #2](ine-pts/exam-preparation-labs/black-box-test-2.md)
+  * [Black Box Test #3](ine-pts/exam-preparation-labs/black-box-test-3.md)
 
 ***
 
