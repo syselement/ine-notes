@@ -30,7 +30,7 @@
 
 ## Other GitBooks
 
-* [eLearnSecurity / INE](https://syselement.gitbook.io/blog/certifications/elearnsecurity-ine)
+* [📖 eLearnSecurity / INE](https://syselement.gitbook.io/blog/certifications/elearnsecurity-ine)
 
 ***
 
