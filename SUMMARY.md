@@ -14,7 +14,7 @@
   * [C++](ine-pts/preliminary-skills-and-programming/c++.md)
   * [Python](ine-pts/preliminary-skills-and-programming/python.md)
   * [Bash](ine-pts/preliminary-skills-and-programming/bash.md)
-* [3⃣ 3⃣ Penetration Testing Basics](ine-pts/penetration-testing-basics/README.md)
+* [Penetration Testing Basics](ine-pts/penetration-testing-basics/README.md)
   * [Information Gathering](ine-pts/penetration-testing-basics/information-gathering.md)
   * [Footprinting & Scanning](ine-pts/penetration-testing-basics/footprinting-and-scanning.md)
   * [Vulnerability Assessment](ine-pts/penetration-testing-basics/vulnerability-assessment.md)
