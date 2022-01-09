@@ -7,19 +7,13 @@ description: >-
 
 # **eJPT Certification**
 
-![eJPT](D:\Documents\_SYSELEMENT_\GITBOOKS\GITHUB\eJPT-eng\README.assets\eJPT.png)
+![eJPT](.gitbook/assets/eJPT.png)
 
-------
-
-## PTS LEARNING PATH:
+### PTS LEARNING PATH:
 
 - covers prerequisite topics introducing information security, programming and pentesting.
-
 - prepares for the eJPT exam & certification.
-
 - provides info to start a pentesting career.
-
-  
 
 ### Course duration:
 
@@ -27,8 +21,6 @@ description: >-
 2. Penetration testing: Preliminary skills and programming ~ 15 hours
 3. Penetration testing basics ~ 40 hours
 4. eJPT Exam preparation ~ 4 hours
-
-------
 
 ### Useful links:
 
