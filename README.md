@@ -24,5 +24,5 @@ description: >-
 
 ### Useful links:
 
-[Where to find the PTS course?]: https://my.ine.com/learning-paths	"INE Learning Paths"
-[Where to find the eJPT certification exam?]: https://elearnsecurity.com/product/ejpt-certification	"eLearnSecurity eJPT Certification"
+- Where to find the PTS course? - [INE Learning Paths](https://my.ine.com/learning-paths)
+- Where to find the eJPT certification exam? - [eLearnSecurity eJPT Certification](https://elearnsecurity.com/product/ejpt-certification)
