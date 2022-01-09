@@ -4,7 +4,7 @@
 
 ## INE PTS
 
-* [1⃣ Penetration Testing Prerequisites](ine-pts/penetration-testing-prerequisites/README.md)
+* [Penetration Testing Prerequisites](ine-pts/penetration-testing-prerequisites/README.md)
   * [Introduction](ine-pts/penetration-testing-prerequisites/introduction.md)
   * [Networking](ine-pts/penetration-testing-prerequisites/networking.md)
   * [Web Applications](ine-pts/penetration-testing-prerequisites/web-applications.md)
