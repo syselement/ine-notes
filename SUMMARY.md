@@ -9,7 +9,7 @@
   * [Networking](ine-pts/penetration-testing-prerequisites/networking.md)
   * [Web Applications](ine-pts/penetration-testing-prerequisites/web-applications.md)
   * [Penetration Testing](ine-pts/penetration-testing-prerequisites/penetration-testing.md)
-* [2⃣ 2⃣ Preliminary Skills & Programming](ine-pts/preliminary-skills-and-programming/README.md)
+* [Preliminary Skills & Programming](ine-pts/preliminary-skills-and-programming/README.md)
   * [Introduction](ine-pts/preliminary-skills-and-programming/introduction.md)
   * [C++](ine-pts/preliminary-skills-and-programming/c++.md)
   * [Python](ine-pts/preliminary-skills-and-programming/python.md)
