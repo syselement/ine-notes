@@ -7,7 +7,7 @@ description: >-
 
 # **eJPT Certification**
 
-![eJPT](.gitbook/assets/eJPT.png)
+![](.gitbook/assets/eJPT.png)
 
 ### PTS LEARNING PATH:
 
