@@ -24,7 +24,7 @@ Usually a hacker approaches systems with curiosity, so he can:
 
 *Being a Hacker* means **improving** skills everyday, pushed by **curiosity** and hunger for **knowledge**.
 
-> There is always something new to learn!
+> 📕 There is always something new to learn!
 
 *Hacking* is more of an approach, a lifestyle.
 
@@ -51,31 +51,30 @@ Companies and government bodies are using advanced tech to store and process con
 
 *Train the organization* to make sure:
 
-- - secure applications are developed
-  - proper defensive measures are taken
-  - proper use of the company's data is in place
+- secure applications are developed
+- proper defensive measures are taken
+- proper use of the company's data is in place
 
 *Hire a penetration tester* to ensure that a system is secure from cyber-attacks.
 
 `Penetration Testers` (a.k.a. **`pentesters`**) = are professionals hired to simulate a hacking attack against a network, a computer system, a web application or the entire organization. They discover vulnerabilities across the tested systems by mastering the same tools and techniques used by malicious hackers. They often work:
 
-- - as freelancers
-  - in an IT Security services company
-  - as in-house employees
+- as freelancers
+- in an IT Security services company
+- as in-house employees
 
 Pentesters can specialize in specific InfoSec sectors:
 
-- - Systems attacks
-  - Web Applications
-  - Malware Analysis
-  - Reverse Engineering
-  - Mobile Applications
-  - Access Control
-  - Network Pentesting
-  - Social Engineering
-  - Other...
+- Systems attacks
+- Web Applications
+- Malware Analysis
+- Reverse Engineering
+- Mobile Applications
+- Network Pentesting
+- Social Engineering
+- Other...
 
-> Be passionate, skilled and hungry for knowledge.
+> 📌 Be passionate, skilled and hungry for knowledge!
 
 ### Information Security Terms
 
