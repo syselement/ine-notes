@@ -22,7 +22,7 @@ Usually a hacker approaches systems with curiosity, so he can:
 
 *Performing an attack* means to **understand** the technology and the functioning of the target system.
 
-*Being a Hacker* means **improving** skills everyday, pushed by **curiosity** and hunger for **knowledge**.
+*Being a Hacker* means **improving** skills every day, pushed by **curiosity** and hunger for **knowledge**.
 
 > 📕 There is always something new to learn!
 
@@ -110,7 +110,7 @@ It is fundamental to speak the InfoSec domain language.
 
 ------
 
-**`ROOT / ADMINISTATOR`**
+**`ROOT / ADMINISTRATOR`**
 
 - are the users who manage IT networks or single systems.
 - they have *maximum privileges* over a system.
