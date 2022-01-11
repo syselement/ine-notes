@@ -8,8 +8,6 @@ Pentesting career, supported by:
 - career opportunities
 - talking with colleagues
 
-------
-
 ### InfoSec Culture
 
 Deep roots in the underground hacking scene.
@@ -35,8 +33,6 @@ Usually a hacker approaches systems with curiosity, so he can:
 - To have an idea about the ideals of the underground hacking community read [The Conscience of a Hacker](http://phrack.org/issues/7/3.html).
 
 ![](.gitbook/assets/TheConscienceOfAHacker_TheMentor.jpg)
-
-------
 
 ### Career Opportunities
 
@@ -86,54 +82,55 @@ Pentesters can specialize in specific InfoSec sectors:
 
 It is fundamental to speak the InfoSec domain language.
 
-
+------
 
 **`WHITE HAT HACKER`**
 
 - is a professional pentester or ***ethical hacker*** who performs *authorized* attacks against a system helping the client *solve* their security issues.
 - they do NOT perform illegal actions.
 
-
+------
 
 **`BLACK HAT HACKER`**
 
 - is a hacker who performs *unauthorized* attacks against a system with the purpose of *causing damage* or gaining *profit*.
 - a category of black hat hackers is called "*crackers*".
 
-
+------
 
 **`USER`**
 
 - is a computer system user (an employee of your client of an external user).
 
-
+------
 
 **`MALICIOUS USER`**
 
 - is a user who *misuses* or *attacks* computer systems and applications.
 
-
+------
 
 **`ROOT / ADMINISTATOR`**
 
 - are the users who manage IT networks or single systems.
 - they have *maximum privileges* over a system.
 
-
+------
 
 **`PRIVILEGES`**
 
-- identify the action that a user is *allowed* to do.
+: identify the action that a user is *allowed* to do.
+
 - the higher the privileges, the more control.
 
-
+------
 
 **`SECURITY THROUGH OBSCURITY`**
 
 - is the use of *secrecy of design*, implementation or configuration in order to provide security.
 - it *cannot stop* a skilled and motivated attacker.
 
-
+------
 
 **`ATTACK`**
 
@@ -143,26 +140,26 @@ It is fundamental to speak the InfoSec domain language.
   - causing denial of service
   - eavesdropping or communications
 
-
+------
 
 **`PRIVILEGE ESCALATION`**
 
 - **`privesc`** is an attack where a malicious user *gains elevated privileges* over a system.
 
-
+------
 
 **`DENIAL OF SERVICE`**
 
 - a **`DoS attack`** is used by an attacker to make a system or a service unavailable / unresponsive, causing a service crash or resources saturation.
 
-
+------
 
 **`REMOTE CODE EXECUTION`**
 
 - during a **`RCE attack`** a malicious user executes some attacker-controlled *code* on a victim *remote* machine.
 - RCE vulnerabilities can be *exploited* over the network by a remote attacker.
 
-
+------
 
 **`SHELL CODE`**
 
