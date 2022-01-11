@@ -119,8 +119,7 @@ It is fundamental to speak the InfoSec domain language.
 
 **`PRIVILEGES`**
 
-: identify the action that a user is *allowed* to do.
-
+- identify the action that a user is *allowed* to do.
 - the higher the privileges, the more control.
 
 ------
