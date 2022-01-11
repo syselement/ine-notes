@@ -32,7 +32,7 @@ Usually a hacker approach systems with curiosity, so he can:
 
 - To have an idea about the ideals of the underground hacking community read "[The Conscience of a Hacker](http://phrack.org/issues/7/3.html)" or in the picture below.
 
-![TheConscienceOfAHacker_TheMentor](.gitbook/assets/TheConscienceOfAHacker_TheMentor.jpg)
+![](.gitbook/assets/TheConscienceOfAHacker_TheMentor.jpg)
 
 ### Career Opportunities
 
