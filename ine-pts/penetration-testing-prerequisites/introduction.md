@@ -34,7 +34,7 @@ Usually a hacker approach systems with curiosity, so he can:
 
 ![TheConscienceOfAHacker_TheMentor](.gitbook/assets/TheConscienceOfAHacker_TheMentor.jpg)
 
-## Career Opportunities
+### Career Opportunities
 
 Companies, government bodies are using advanced tech to store and process confidential data.
 
@@ -48,3 +48,4 @@ Companies, government bodies are using advanced tech to store and process confid
   - hacktivists
   - terrorists
   - state-sponsored hackers
+
