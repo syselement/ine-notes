@@ -61,7 +61,7 @@ Companies and government bodies are using advanced tech to store and process con
 
 *Hire a penetration tester* to ensure that a system is secure from cyber-attacks.
 
-`Penetration Testers` (a.k.a. **`pentesters`**) = are professionals hired to simulate a hacking attack against a network, a computer system, a web application or the entire organization. They discover vulnerabilities across the tested systems by mastering the same tools and techniques used by malicious hackers. They often work:
+**`Penetration Testers`** (a.k.a. **`pentesters`**) = are professionals hired to simulate a hacking attack against a network, a computer system, a web application or the entire organization. They discover vulnerabilities across the tested systems by mastering the same tools and techniques used by malicious hackers. They often work:
 
 - as freelancers
 - in an IT Security services company
