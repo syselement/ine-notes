@@ -103,8 +103,6 @@ but you can't stop us all... after all, we're all alike.
 _______________________________________________________________________________
 ```
 
-------
-
 ### Career Opportunities
 
 Companies and government bodies are using advanced tech to store and process confidential data. Using hacking skills for good has become critical for the safety of nations too.
