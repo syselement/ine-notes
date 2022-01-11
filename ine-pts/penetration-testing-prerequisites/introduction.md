@@ -1,6 +1,10 @@
 # Introduction
 
-------
+## The Information Security Field
 
-## THE INFORMATION SECURITY FIELD
+Pentesting career, supported by:
+
+- knowing the information security (**infosec**) field
+- career opportunities
+- talking with colleagues
 
