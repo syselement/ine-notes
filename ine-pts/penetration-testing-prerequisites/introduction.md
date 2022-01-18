@@ -28,7 +28,7 @@ Usually a hacker approaches systems with curiosity, so he can:
 
 *Being an InfoSec professional* means pursuing knowledge by keeping challenging yourself and your colleagues, being honest with yourself and never stop. 
 
-- To have an idea about the ideals of the underground hacking community read [The Conscience of a Hacker](http://phrack.org/issues/7/3.html).![](.gitbook/assets/TheConscienceOfAHacker_TheMentor-16425382733292.jpg)
+- To have an idea about the ideals of the underground hacking community read [The Conscience of a Hacker](http://phrack.org/issues/7/3.html).![](.gitbook/assets/TheConscienceOfAHacker_TheMentor_pic.jpg)
 
 ### Career Opportunities
 
