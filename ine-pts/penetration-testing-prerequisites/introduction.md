@@ -162,5 +162,83 @@ It is fundamental to speak the InfoSec domain language.
 
 - is a piece of custom code which provides the attacker a **`shell`** on the victim machine, generally used during RCE attacks.
 
+------
+
 ## Cryptography Protocols & VPNs
+
+Pentesting career, supported by:
+
+- knowing how info is transmitted over networks, by using the right protocol for the transmission
+- protection of the traffic
+
+### Clear-text Protocols
+
+- They should **not** be used for the transmission of critical or private info, since it's easy to intercept.
+- Use clear-text protocols only on trusted networks, if really necessary.
+
+### Cryptographic Protocols
+
+- They are used to protect the communication by *encrypting* the transmitted information, in case of eavesdropping.
+- Always use a cryptographic protocol for usernames and passwords.
+
+A Clear-text protocol information can be wrapped into a cryptographic protocol, like a *VPN tunnel*.
+
+### Virtual Private Networks (VPN)
+
+A **`VPN`** establish a secure, encrypted and protected connection between a private network and a public one (or the Internet), using a private tunnel for the data.
+
+- The client is directly connected to the private network.
+
+------
+
+## Wireshark
+
+- **`Wireshark`** is a network sniffer tool and packet analyzer, that allows to capture the data transmitted over the network.
+
+### HTTP(s) Traffic Sniffing
+
+0. Connect to the Lab VPN (INE in this case) by using OpenVpn and the **.ovpn** file provided. (in my case INE provided a direct Lab Link / Kali GUI instance opened in another tab).
+
+   - From terminal, check if the machines are reachable:
+
+     `ping demo.ine.local`
+
+     `ping demossl.ine.local`
+
+   - Check open ports with nmap tool:
+
+     `nmap demo.ine.local`
+
+     `nmap demossl.ine.local`
+
+     Check the Kali Machine interface name:
+
+     `ifconfig`
+
+     ![](.gitbook/assets/image-20220126224915778.png)
+
+1. Open Wireshark and start the capture on the Vpn network interface.
+
+   - or use the terminal: `wireshark -i eth1 `
+
+2. Generate traffic from the browser by browsing to the **HTTP** web page (`http://demo.ine.local`) and try a login.
+
+3. The sniffer records the traffic between the browser and the server. Right click on a packet and `Follow TCP Stream` to see the traffic exchange.
+   - In case of HTTP protocol, the clear-text traffic can be sniffed easily. The content of the packets is in human readable form.
+   
+     <img src=".gitbook/assets/image-20220126221608902.png" style="zoom: 80%;" />
+   
+4. Restart the capture to clean the results. Try the same login into the **HTTPS** web page (`https://demossl.ine.local`) and check the TCP Stream in the captured traffic.
+   
+   - Check the certificate with the lock icon.
+   - In case of HTTPS protocol, the traffic is encrypted, unreadable and protected.
+   - HTTPS (HTTP over TLS) protects the content
+   
+   <img src=".gitbook/assets/image-20220126222042593.png" style="zoom:80%;" />
+
+5. Captured traffic can be filtered in Wireshark with *display filters*.
+
+------
+
+## Binary Arithmetic Basics
 
