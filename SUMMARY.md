@@ -22,11 +22,14 @@
   * [System Attacks](ine-pts/penetration-testing-basics/system-attacks.md)
   * [Network Attacks](ine-pts/penetration-testing-basics/network-attacks.md)
 * [🔬 Exam Preparation - Labs](ine-pts/exam-preparation-labs/README.md)
+  * [Lab #0](ine-pts/exam-preparation-labs/lab-0.md)
   * [Prerequisites & Pentesting](ine-pts/exam-preparation-labs/prerequisites-and-pentesting.md)
   * [Black Box Test #1](ine-pts/exam-preparation-labs/black-box-test-1.md)
   * [Black Box Test #2](ine-pts/exam-preparation-labs/black-box-test-2.md)
   * [Black Box Test #3](ine-pts/exam-preparation-labs/black-box-test-3.md)
+
 * [📜 Glossary](ine-pts/glossary.md)
+* [References](ine-pts/references.md)
 
 ## Other GitBooks
 
