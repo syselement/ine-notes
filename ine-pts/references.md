@@ -1,4 +1,4 @@
-# 📜 References
+#References
 
 - [INE Starter Pass](https://checkout.ine.com/starter-pass)
 - [The Conscience of a Hacker](http://phrack.org/issues/7/3.html)
