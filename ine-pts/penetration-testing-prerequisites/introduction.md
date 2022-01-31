@@ -226,7 +226,7 @@ A **`VPN`** establish a secure, encrypted and protected connection between a pri
 3. The sniffer records the traffic between the browser and the server. Right click on a packet and `Follow TCP Stream` to see the traffic exchange.
    - In case of HTTP protocol, the clear-text traffic can be sniffed easily. The content of the packets is in human readable form.
    
-     <img src=".gitbook/assets/image-20220126221608902.png" style="zoom: 80%;" />
+     ​	<img src=".gitbook/assets/image-20220126221608902.png" style="zoom: 80%;" />
    
 4. Restart the capture to clean the results. Try the same login into the **HTTPS** web page (`https://demossl.ine.local`) and check the TCP Stream in the captured traffic.
    

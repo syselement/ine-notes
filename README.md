@@ -9,7 +9,7 @@ description: >-
 
 ![](.gitbook/assets/eJPT.png)
 
-### PTS LEARNING PATH:
+### PTS (Penetration Testing Student) LEARNING PATH:
 
 - covers prerequisite topics introducing information security, programming and pentesting.
 - prepares for the eJPT exam & certification.
