@@ -226,16 +226,18 @@ A **`VPN`** establish a secure, encrypted and protected connection between a pri
 3. The sniffer records the traffic between the browser and the server. Right click on a packet and `Follow TCP Stream` to see the traffic exchange.
    - In case of HTTP protocol, the clear-text traffic can be sniffed easily. The content of the packets is in human readable form.
    
-     ​	<img src=".gitbook/assets/image-20220126221608902.png" style="zoom: 80%;" />
+     <img src=".gitbook/assets/image-20220126221608902.png" style="zoom: 80%;" />
    
 4. Restart the capture to clean the results. Try the same login into the **HTTPS** web page (`https://demossl.ine.local`) and check the TCP Stream in the captured traffic.
    
    - Check the certificate with the lock icon.
-   - In case of HTTPS protocol, the traffic is encrypted, unreadable and protected.
-   - HTTPS (HTTP over TLS) protects the content
    
-   <img src=".gitbook/assets/image-20220126222042593.png" style="zoom:80%;" />
+   - In case of HTTPS protocol, the traffic is encrypted, unreadable and protected.
+   
+   - HTTPS (HTTP over TLS) protects the content
 
+     <img src=".gitbook/assets/image-20220126222042593.png" style="zoom:80%;" />
+   
 5. Captured traffic can be filtered in Wireshark with *display filters*.
 
 ------
