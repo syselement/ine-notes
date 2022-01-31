@@ -282,9 +282,14 @@ Pentesting career, supported by:
   \\
   1/2=0
   \\remainder\ is\ 1
-  \\\\
+  \\
+  $$
+  $$
   26_{(10)}=11010(_2)
   $$
+  
+  
+  
   - Or use the powers of two in a "base 2 table":
   
   $$
@@ -321,7 +326,9 @@ Pentesting career, supported by:
   2^{14}=16384
   \\
   2^{15}=32768
-  \\\\
+  $$
+  
+  $$
   {Example\ }
   \\
   2^4+2^3+2^1=16+8+2=26
@@ -338,6 +345,7 @@ Pentesting career, supported by:
   \\
   26_{(10)}=11010(_2)
   $$
+  
   
 
 ### Bitwise operations
@@ -358,7 +366,9 @@ Pentesting career, supported by:
   1\ \&\ 0\ = 0
   \\
   1\ \&\ 1\ = 1
-  \\\\
+  $$
+  
+  $$
   1010\ \&\ 1101\ = 1000
   $$
   
@@ -373,7 +383,9 @@ Pentesting career, supported by:
   1\ |\ 0\ = 1
   \\
   1\ |\ 1\ = 1
-  \\\\
+  $$
+  
+  $$
   1010\ |\ 1100\ = 1110
   $$
   
@@ -388,7 +400,9 @@ Pentesting career, supported by:
   1 \oplus  0\ = 1
   \\
   1 \oplus  1\ = 0
-  \\\\
+  $$
+  
+  $$
   1010 \oplus 1101\ = 0111 = 111
   $$
 
@@ -414,28 +428,30 @@ To distinguish hexadecimal number from decimal, "**0x**" at the beginning or "**
 - *Converting* from **dec**imal to **hex**adecimal:
 
   - by subsequently dividing the decimal number by 16 (base 16), write the remainder, continue like this until reaching 0.
-    $$ {From decimal 1185 to hexadecimal}
-    1185/16=74,0625
-    \\remainder\ is\ 0,0625
-    \\
-    74/16=4,625
-    \\remainder\ is\ 0,625
-    \\
-    4/16=0,25
-    \\remainder\ is\ 0,25
-    \\
-    0/16=can't\ divide\ 0.
-    \\
-    \\
-    0.25*16=4
-    \\
-    0.625*16=10\ (a)
-    \\
-    0.0625*16=1
-    \\*
-    \\
-    1185_{(10)}=4a1_{(16)}=0x4a1
-    $$
+  $$ {From decimal 1185 to hexadecimal}
+  1185/16=74,0625
+  \\remainder\ is\ 0,0625
+  \\
+  74/16=4,625
+  \\remainder\ is\ 0,625
+  \\
+  4/16=0,25
+  \\remainder\ is\ 0,25
+  \\
+  0/16=can't\ divide\ 0.
+  $$
+  
+  $$
+  0.25*16=4
+  \\
+  0.625*16=10\ (a)
+  \\
+  0.0625*16=1
+  $$
+  
+  $$
+  1185_{(10)}=4a1_{(16)}=0x4a1
+  $$
 
 Online converters can help to speed up the calculations, for example here you can find some conversion tools [Binary Hex Converters](https://www.binaryhexconverter.com/).
 
