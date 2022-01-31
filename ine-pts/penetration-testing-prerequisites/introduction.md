@@ -282,8 +282,7 @@ Pentesting career, supported by:
   \\
   1/2=0
   \\remainder\ is\ 1
-  \\
-  \\
+  \\\\
   26_{(10)}=11010(_2)
   $$
   - Or use the powers of two in a "base 2 table":
@@ -322,19 +321,18 @@ Pentesting career, supported by:
   2^{14}=16384
   \\
   2^{15}=32768
-  \\
-  \\
+  \\\\
   {Example\ }
   \\
   2^4+2^3+2^1=16+8+2=26
   \\
-  2^4\ YES\ - 1
+  2^4\ YES\ \dashrightarrow 1
   \\
-  2^3\ YES\ - 1
+  2^3\ YES\ \dashrightarrow 1
   \\
-  2^2\ NO\ - 0
+  2^2\ NO\ \dashrightarrow 0
   \\
-  2^1\ YES\ - 1
+  2^1\ YES\ \dashrightarrow 1
   \\
   2^0\ NO\ - 0
   \\
@@ -360,8 +358,7 @@ Pentesting career, supported by:
   1\ \&\ 0\ = 0
   \\
   1\ \&\ 1\ = 1
-  \\
-  \\
+  \\\\
   1010\ \&\ 1101\ = 1000
   $$
   
@@ -376,8 +373,7 @@ Pentesting career, supported by:
   1\ |\ 0\ = 1
   \\
   1\ |\ 1\ = 1
-  \\
-  \\
+  \\\\
   1010\ |\ 1100\ = 1110
   $$
   
@@ -392,8 +388,7 @@ Pentesting career, supported by:
   1 \oplus  0\ = 1
   \\
   1 \oplus  1\ = 0
-  \\
-  \\
+  \\\\
   1010 \oplus 1101\ = 0111 = 111
   $$
 
@@ -437,8 +432,7 @@ To distinguish hexadecimal number from decimal, "**0x**" at the beginning or "**
     0.625*16=10\ (a)
     \\
     0.0625*16=1
-    \\
-    \\
+    \\\\
     1185_{(10)}=4a1_{(16)}=0x4a1
     $$
 
