@@ -2,4 +2,6 @@
 - [The Conscience of a Hacker](http://phrack.org/issues/7/3.html)
 - [Wireshark](https://www.wireshark.org/)
   - [Learn Wireshark](https://www.wireshark.org/#learnWS)
+- [Binary Hex Converters](https://www.binaryhexconverter.com/)
 - 
+
