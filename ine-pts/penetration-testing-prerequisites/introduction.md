@@ -416,7 +416,7 @@ Windows calculator can help with calculations in "Programmer" mode.
 
 - `0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F`
 
-To distinguish hexadecimal number from decimal, "**0x**" at the beginning or "**h**" at the end is added.
+To distinguish a hexadecimal number from a decimal number, "**0x**" at the beginning or "**h**" at the end is added.
 
 - *Converting* from **hex**adecimal to **dec**imal: by using the position of the digits.
   $$
