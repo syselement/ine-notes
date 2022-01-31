@@ -432,12 +432,12 @@ To distinguish hexadecimal number from decimal, "**0x**" at the beginning or "**
     0.625*16=10\ (a)
     \\
     0.0625*16=1
-    \\\\
+    \\*
+    \\
     1185_{(10)}=4a1_{(16)}=0x4a1
     $$
 
 Online converters can help to speed up the calculations, for example here you can find some conversion tools [Binary Hex Converters](https://www.binaryhexconverter.com/).
 
-------
 ------
 
