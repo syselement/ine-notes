@@ -244,3 +244,206 @@ A **`VPN`** establish a secure, encrypted and protected connection between a pri
 
 ## Binary Arithmetic Basics
 
+Pentesting career, supported by:
+
+- Computer/Boolean logic, data is represented in binary format
+- Network addressing
+
+### Binary and Decimal Bases
+
+**`Binary`** notation uses only two symbols to represent numbers, **0** (**zero**) and **1** (**one**).
+
+**`Decimal`** notation uses ten symbols (0 to 9).
+
+- *Counting* in binary: start counting from 0, when reach 1, you increment the digit to the left of it.
+  - 0, 1, 10, 11, 100, 101, 110, 111, 1000 ... and so on.
+
+- *Converting* from **bin**ary to **dec**imal: by using the position of the digits.
+  $$ {From binary 11011 to decimal}
+  11011(_2) = 1*2^0+1*2^1+0*2^2+1*2^3+1*2^4=27_{(10)}
+  $$
+
+- *Converting* from **dec**imal to **bin**ary:
+  
+  - by dividing the decimal number by 2 (base 2), write the remainder, continue like this until reaching 0 as dividend.
+  
+  $$ {From decimal 26 to binary}
+  26/2=13
+  \\remainder\ is\ 0
+  \\
+  13/2=6
+  \\remainder\ is\ 1
+  \\
+  6/2=3
+  \\remainder\ is\ 0
+  \\
+  3/2=1
+  \\remainder\ is\ 1
+  \\
+  1/2=0
+  \\remainder\ is\ 1
+  \\
+  \\
+  26_{(10)}=11010(_2)
+  $$
+  - Or use the powers of two in a "base 2 table":
+  
+  $$
+  {Powers\ of\ 2}
+  \\
+  2^0=1
+  \\
+  2^1=2
+  \\
+  2^2=4
+  \\
+  2^3=8
+  \\
+  2^4=16
+  \\
+  2^5=32
+  \\
+  2^6=64
+  \\
+  2^7=128
+  \\
+  2^8=256
+  \\
+  2^9=512
+  \\
+  2^{10}=1024
+  \\
+  2^{11}=2048
+  \\
+  2^{12}=4096
+  \\
+  2^{13}=8192
+  \\
+  2^{14}=16384
+  \\
+  2^{15}=32768
+  \\
+  \\
+  {Example\ }
+  \\
+  2^4+2^3+2^1=16+8+2=26
+  \\
+  2^4\ YES\ - 1
+  \\
+  2^3\ YES\ - 1
+  \\
+  2^2\ NO\ - 0
+  \\
+  2^1\ YES\ - 1
+  \\
+  2^0\ NO\ - 0
+  \\
+  26_{(10)}=11010(_2)
+  $$
+  
+
+### Bitwise operations
+
+- **`NOT`** flips the bits - zero to one, and one to zero.
+  $$
+  NOT(11011)=00100
+  $$
+  
+- **`AND`** logical AND (**&**) between the bits of the operands.
+  $$
+  {If\ both\ bits\ are\ =1, result\ is\ 1.}
+  \\
+  0\ \&\ 0\ = 0
+  \\
+  0\ \&\ 1\ = 0
+  \\
+  1\ \&\ 0\ = 0
+  \\
+  1\ \&\ 1\ = 1
+  \\
+  \\
+  1010\ \&\ 1101\ = 1000
+  $$
+  
+- **`OR`** logical OR (**|**) between the bits of the operands.
+  $$
+  {If\ at\ least\ one\ bit\ is\ =1, result\ is\ 1.}
+  \\
+  0\ |\ 0\ = 0
+  \\
+  0\ |\ 1\ = 1
+  \\
+  1\ |\ 0\ = 1
+  \\
+  1\ |\ 1\ = 1
+  \\
+  \\
+  1010\ |\ 1100\ = 1110
+  $$
+  
+- **`XOR`** logical Exclusive OR (**^ , ⊕ **) between the bits of the operands.
+  $$
+  {If\ just\ one\ bit\ is\ =1, result\ is\ 1.}
+  \\
+  0 \oplus 0\ = 0
+  \\
+  0 \oplus  1\ = 1
+  \\
+  1 \oplus  0\ = 1
+  \\
+  1 \oplus  1\ = 0
+  \\
+  \\
+  1010 \oplus 1101\ = 0111 = 111
+  $$
+
+Windows calculator can help with calculations in "Programmer" mode.
+
+<img src=".gitbook/assets/image-20220131231201595.png" style="zoom: 67%;" />
+
+### Hexadecimal arithmetic
+
+**`Hexadecimal`** system is used too in computer science. It uses 16 symbols (with letters for double-digit numbers):
+
+- `0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F`
+
+To distinguish hexadecimal number from decimal, "**0x**" at the beginning or "**h**" at the end is added.
+
+- *Converting* from **hex**adecimal to **dec**imal: by using the position of the digits.
+  $$
+  0x4a1 = 0x(4\ 10\ 1)
+  \\
+  0x4a1 = 1*16^0 + 10*16^1 + 4*16^2 = 1 + 160 + 1024 = 1185_{(10)}
+  $$
+
+- *Converting* from **dec**imal to **hex**adecimal:
+
+  - by subsequently dividing the decimal number by 16 (base 16), write the remainder, continue like this until reaching 0.
+    $$ {From decimal 1185 to hexadecimal}
+    1185/16=74,0625
+    \\remainder\ is\ 0,0625
+    \\
+    74/16=4,625
+    \\remainder\ is\ 0,625
+    \\
+    4/16=0,25
+    \\remainder\ is\ 0,25
+    \\
+    0/16=can't\ divide\ 0.
+    \\
+    \\
+    0.25*16=4
+    \\
+    0.625*16=10\ (a)
+    \\
+    0.0625*16=1
+    \\
+    \\
+    1185_{(10)}=4a1_{(16)}=0x4a1
+    $$
+
+Online converters can help to speed up the calculations, for example here you can find some conversion tools [Binary Hex Converters](https://www.binaryhexconverter.com/).
+
+------
+------
+
