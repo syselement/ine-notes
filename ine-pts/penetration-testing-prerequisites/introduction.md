@@ -389,7 +389,7 @@ Pentesting career, supported by:
   1010\ |\ 1100\ = 1110
   $$
   
-- **`XOR`** logical Exclusive OR (**^ , ⊕ **) between the bits of the operands.
+- **`XOR`** logical Exclusive OR (**^** , **⊕**) between the bits of the operands.
   $$
   {If\ just\ one\ bit\ is\ =1, result\ is\ 1.}
   \\
