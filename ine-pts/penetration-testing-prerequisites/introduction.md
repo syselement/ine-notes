@@ -1,9 +1,5 @@
 # Introduction
 
-[TOC]
-
-
-
 ## The Information Security Field
 
 Pentesting career, supported by:

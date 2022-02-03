@@ -4,6 +4,8 @@
 
 Computers have to use a wide variety of networking **protocols**, to ensure that different types of hardware and software can communicate between each other.
 
+
+
 ### Packets
 
 **`Packets`** carry the information exchanged in networking.
@@ -24,7 +26,7 @@ A packet's structure consists of a **`header`** and a **`payload`**.
 
 ![](.gitbook/assets/image-20220203230835178.png)
 
-------
+
 
 ### Protocol Layers
 
@@ -46,9 +48,9 @@ These features are structured as a protocol stack, in a series of layers.
 |  Network / Internet   |
 |  Physical Interface   |
 
-> 📕 Each layer has its own protocol and servers the one above it.
+   > 📕 Each layer has its own protocol and servers the one above it.
 
-------
+
 
 ### ISO/OSI
 
@@ -67,6 +69,8 @@ The Open System Interconnection (**`OSI`**) is a logical and conceptual model pu
 - TCP/IP vs ISO/OSI model:
 
 ![](.gitbook/assets/image-20220204000600475.png)
+
+
 
 ### Encapsulation
 
