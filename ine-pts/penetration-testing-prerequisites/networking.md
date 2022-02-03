@@ -48,7 +48,7 @@ These features are structured as a protocol stack, in a series of layers.
 |  Network / Internet   |
 |  Physical Interface   |
 
-   > 📕 Each layer has its own protocol and servers the one above it.
+   > 📕 Each layer has its own protocol and serves the one above it.
 
 
 
