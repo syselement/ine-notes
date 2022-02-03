@@ -1,5 +1,9 @@
 # Introduction
 
+[TOC]
+
+
+
 ## The Information Security Field
 
 Pentesting career, supported by:
@@ -72,7 +76,7 @@ Pentesters can specialize in specific InfoSec sectors:
 - Social Engineering
 - Other...
 
-> 📌 Be passionate, skilled and hungry for knowledge!
+> 📌Be passionate, skilled and hungry for knowledge!
 
 ------
 
@@ -179,7 +183,7 @@ Pentesting career, supported by:
 ### Cryptographic Protocols
 
 - They are used to protect the communication by *encrypting* the transmitted information, in case of eavesdropping.
-- Always use a cryptographic protocol for usernames and passwords.
+- Always use a **cryptographic** protocol for usernames and passwords.
 
 A Clear-text protocol information can be wrapped into a cryptographic protocol, like a *VPN tunnel*.
 
@@ -453,7 +457,7 @@ To distinguish a hexadecimal number from a decimal number, "**0x**" at the begin
   1185_{(10)}=4a1_{(16)}=0x4a1
   $$
 
-Online converters can help to speed up the calculations, for example here you can find some conversion tools [Binary Hex Converters](https://www.binaryhexconverter.com/).
+> 📌Online converters can help to speed up the calculations, for example here you can find some conversion tools [Binary Hex Converters](https://www.binaryhexconverter.com/).
 
 ------
 
