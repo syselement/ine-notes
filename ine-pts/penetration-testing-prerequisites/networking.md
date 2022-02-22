@@ -139,8 +139,13 @@ $$
 
 ### IPv6
 
-- An **IPv6 address** is a 128 bits address, consisting of 16 bits hexadecimal numbers (case insensitive) = 8 segments, separated by a colon (**:**).
+- An **IPv6 address** is a 128 bits address, consisting of 16 bits hexadecimal numbers (case insensitive) grouped in 8 segments, separated by a colon (**:**).
 - Zeros can be skipped.
+- The first half of an address is the *network* part, the other half is the *device* part:
+  - The first 3 segments (upper 48 bits) are used for the Internet global network addresses.
+  - The 4th segment of 16 bits is the Subnet Id, defining subnets.
+  - The last 4 segments of 64 bits are the Interface/Device Id.
+
 
 $$
 IPv6\ Example
@@ -156,4 +161,23 @@ Loopback\ address\dashrightarrow\ ::1/128
 IPv4\ Mapped\ addresses\dashrightarrow\ ::FFFF:0:0/96
 $$
 
-- Refer to the [RFC 3513](https://datatracker.ietf.org/doc/html/rfc3513) for more examples and details.
+- Types of IPv6 address formats:
+  - **`Global Unicast` ** - start with "2001:", routable on the Internet (equivalent of IPv4 public addresses).
+  - **`Unique Local`** - used inside an internal network, routed only internally.
+  - **`Link Local`** - start with "fe80:", used inside an internal network, not routed, self assigned (no DHCP server).
+- The number of bits used for the prefix is the **`prefix length`** , like the IPv4 subnet mask.
+
+$$
+2001:1234:5678:1234:5678:ABCD:EF12:1234/64
+\\
+Prefix\ is\dashrightarrow\ 2001:1234:5678:1234::/64
+\\
+Host\dashrightarrow\ 5678:ABCD:EF12:1234
+$$
+
+- Refer to the [RFC 3513](https://datatracker.ietf.org/doc/html/rfc3513) for more examples and details and practice with an [IPv6 Subnet Calculator](https://www.vultr.com/resources/subnet-calculator-ipv6).
+
+------
+
+## Routing
+
