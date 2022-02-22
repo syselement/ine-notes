@@ -27,9 +27,8 @@
   * [Black Box Test #1](ine-pts/exam-preparation-labs/black-box-test-1.md)
   * [Black Box Test #2](ine-pts/exam-preparation-labs/black-box-test-2.md)
   * [Black Box Test #3](ine-pts/exam-preparation-labs/black-box-test-3.md)
-
 * [📜 Glossary](ine-pts/glossary.md)
-* [References](ine-pts/references.md)
+* [🌐 References](ine-pts/references.md)
 
 ## Other GitBooks
 
