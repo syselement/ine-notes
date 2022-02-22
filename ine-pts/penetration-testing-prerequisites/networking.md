@@ -162,7 +162,7 @@ IPv4\ Mapped\ addresses\dashrightarrow\ ::FFFF:0:0/96
 $$
 
 - Types of IPv6 address formats:
-  - **`Global Unicast` ** - start with "2001:", routable on the Internet (equivalent of IPv4 public addresses).
+  - **`Global Unicast`** - start with "2001:", routable on the Internet (equivalent of IPv4 public addresses).
   - **`Unique Local`** - used inside an internal network, routed only internally.
   - **`Link Local`** - start with "fe80:", used inside an internal network, not routed, self assigned (no DHCP server).
 - The number of bits used for the prefix is the **`prefix length`** , like the IPv4 subnet mask.
