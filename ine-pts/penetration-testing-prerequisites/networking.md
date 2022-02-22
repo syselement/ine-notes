@@ -22,7 +22,7 @@ A packet's structure consists of a **`header`** and a **`payload`**.
 
 - First 4 bits - version of IP protocol.
 - Source Address - 32 bits (4 Bytes), in position 96.
-- Destination Address - 32bits (4 Bytes) after Source Address.
+- Destination Address - 32 bits (4 Bytes) after Source Address.
 
 ![](.gitbook/assets/image-20220203230835178.png)
 
@@ -81,6 +81,79 @@ During the process of **`encapsulation`**, a lower-layer protocol places the ent
 
 ------
 
-## Internet Protocols (IP)
+## Internet Protocol (IP)
 
-....
+The Internet Protocol (**`IP`**) runs on the Internet layer of the TCP/IP stack, by delivering the **datagrams** (IP packets) to the hosts participating in the communication.
+
+- Every host is identified by a unique **`IP address`**.
+
+### IPv4
+
+**`IP version 4`** is widely used in networking and is considered the primary Internet Protocol.
+
+- An **IPv4 address** is a 32 bits address, consisting of 4 Bytes/octets, separated by a dot (**.**) . 
+
+$$
+1\ Byte = 8\ bits
+\\
+2^8=256\ values\ that\ can\ be\ represented\ from\ 0\ to\ 255
+\\
+IP\ Example\dashrightarrow\ 216.58.208.142
+$$
+
+- There are some IPv4 addresses with reserved intervals:
+
+$$
+10.0.0.0/8\ (10.0.0.0\to\ 0.255.255.255)\dashrightarrow\ Private\ networks\
+\\
+127.0.0.0/8\ (127.0.0.0\to\ 127.255.255.255)\dashrightarrow\ Internet\ host\ loopback\
+\\
+192.168.0.0/16\ (192.168.0.0\to\ 192.168.255.255)\dashrightarrow\ Private\ networks\
+$$
+
+- Refer to the [RFC 5735](https://datatracker.ietf.org/doc/html/rfc5735) for more examples and details.
+
+### IP/Mask
+
+The **`network`** of a host is identified using a **`netmask`** (subnet mask) paired with the IP.
+
+- The network part of the IP is found with a bitwise AND operation between the IP and the Mask.
+- The address/host part of the IP is found with a bitwise AND between the IP and the inverse of the Netmask.
+- For example 192.168.44.22 with 255.255.224.0 subnet mask is part of the 192.168.32.0/19 network.
+- Check an [Online IP Subnet Calculator](https://www.calculator.net/ip-subnet-calculator.html).
+- **`CIDR`** notation = **C**lassless **I**nter-**D**omain **R**outing notation
+
+$$
+Notation \to 192.168.32.0/255.255.224.0
+\\
+CIDR\ notation \to 192.168.32.0/19
+\\
+192.168.32.0 \to network\ address
+\\
+192.168.32.255 \to broadcast\ address
+\\
+Total\ number\ of\ hosts\ contained\ =\ 2^{13}=8192\
+\\
+Total\ number\ of\ usable\ hosts =8190
+$$
+
+### IPv6
+
+- An **IPv6 address** is a 128 bits address, consisting of 16 bits hexadecimal numbers (case insensitive) = 8 segments, separated by a colon (**:**).
+- Zeros can be skipped.
+
+$$
+IPv6\ Example
+\\Regular form\dashrightarrow\ 2001:0db8:0000:0000:0000:ff00:0042:7879
+\\Compressed form\dashrightarrow\ 2001:0db8::ff00:0042:7879
+$$
+
+- Reserved addresses:
+
+$$
+Loopback\ address\dashrightarrow\ ::1/128
+\\
+IPv4\ Mapped\ addresses\dashrightarrow\ ::FFFF:0:0/96
+$$
+
+- Refer to the [RFC 3513](https://datatracker.ietf.org/doc/html/rfc3513) for more examples and details.

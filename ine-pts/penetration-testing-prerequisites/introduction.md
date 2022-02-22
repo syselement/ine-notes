@@ -341,7 +341,7 @@ Pentesting career, supported by:
   \\
   2^1\ YES\ \dashrightarrow 1
   \\
-  2^0\ NO\ - 0
+  2^0\ NO\ \dashrightarrow 0
   \\
   26_{(10)}=11010(_2)
   $$
