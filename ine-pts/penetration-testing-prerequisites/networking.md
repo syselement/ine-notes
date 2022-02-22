@@ -165,7 +165,7 @@ $$
   - **`Global Unicast`** - start with "2001:", routable on the Internet (equivalent of IPv4 public addresses).
   - **`Unique Local`** - used inside an internal network, routed only internally.
   - **`Link Local`** - start with "fe80:", used inside an internal network, not routed, self assigned (no DHCP server).
-- The number of bits used for the prefix is the **`prefix length`** , like the IPv4 subnet mask.
+- The number of bits used for the prefix is the **`prefix length`**, like the IPv4 subnet mask.
 
 $$
 2001:1234:5678:1234:5678:ABCD:EF12:1234/64
@@ -175,7 +175,8 @@ Prefix\ is\dashrightarrow\ 2001:1234:5678:1234::/64
 Host\dashrightarrow\ 5678:ABCD:EF12:1234
 $$
 
-- Refer to the [RFC 3513](https://datatracker.ietf.org/doc/html/rfc3513) for more examples and details and practice with an [IPv6 Subnet Calculator](https://www.vultr.com/resources/subnet-calculator-ipv6).
+- Refer to the [RFC 3513](https://datatracker.ietf.org/doc/html/rfc3513) for more examples and details.
+- Practice with an [IPv6 Subnet Calculator](https://www.vultr.com/resources/subnet-calculator-ipv6).
 
 ------
 
