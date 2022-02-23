@@ -28,4 +28,11 @@
 - [TCP vs UDP](https://www.guru99.com/tcp-vs-udp-understanding-the-difference.html)
   - [guru99 - TCP 3-Way Handshake](https://www.guru99.com/tcp-3-way-handshake.html)
   - [mlytics - TCP 3-Way Handshake](https://learning.mlytics.com/the-internet/tcp-3-way-handshake/)
+- [Firewall](https://usa.kaspersky.com/resource-center/definitions/firewall)
+  - [Top free Firewall Software](https://www.guru99.com/best-free-firewall.html)
+  - [The 5 types of Firewalls](https://www.techtarget.com/searchsecurity/feature/The-five-different-types-of-firewalls)
+  - [Network design: Firewall - IDS - IPS](https://resources.infosecinstitute.com/topic/network-design-firewall-idsips/)
+  - [IDS vs IPS vs Firewall](https://ipwithease.com/firewall-vs-ips-vs-ids/)
+  - [LinuxSecurity HOWTOs](https://linuxsecurity.com/howtos)
+  - [What is NAT](https://whatismyipaddress.com/nat)
 - 
