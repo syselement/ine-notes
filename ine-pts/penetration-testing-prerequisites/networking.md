@@ -416,7 +416,7 @@ To **`forward a packet`**, the switch:
 |     3306      |         MySQL         |
 |     3389      | RDP (Terminal Server) |
 
-<img src=".gitbook/assets/image-20220223180555807.png" style="zoom:80%;" />
+![](.gitbook/assets/image-20220223180555807.png)
 
 > 💻 Check *listening ports* and TCP connections on a host with the commands below:
 
