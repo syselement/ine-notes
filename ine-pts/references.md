@@ -20,4 +20,5 @@
   - [IPv6 Explained for Beginners](http://www.steves-internet-guide.com/ipv6-guide/)
   - [How to find IPv6 Prefix](https://networklessons.com/ipv6/how-to-find-ipv6-prefix/)
   - [IPv6 Subnet Calculator](https://www.vultr.com/resources/subnet-calculator-ipv6/)
+- [IP Routing](https://www.guru99.com/ip-routing.html)
 - 

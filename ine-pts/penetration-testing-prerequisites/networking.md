@@ -2,6 +2,8 @@
 
 ## Protocols
 
+> ⚡ P.T. Usage: know how protocols work in order to learn how to exploit them.
+
 Computers have to use a wide variety of networking **protocols**, to ensure that different types of hardware and software can communicate between each other.
 
 
@@ -82,6 +84,8 @@ During the process of **`encapsulation`**, a lower-layer protocol places the ent
 ------
 
 ## Internet Protocol (IP)
+
+> ⚡ P.T. Usage: understand network attacks and use network attack tools, studying other networking protocols.
 
 The Internet Protocol (**`IP`**) runs on the Internet layer of the TCP/IP stack, by delivering the **datagrams** (IP packets) to the hosts participating in the communication.
 
@@ -184,6 +188,8 @@ $$
 
 ## Routing
 
+> ⚡ P.T. Usage: Perform network traffic inspection, understand routing protocol attacks.
+
 The *forwarding* policy of the IP datagrams through **`routers`** is base on **routing protocols** which determine the best path to reach a network.
 
 - The destination address of every incoming packet is *inspected* and *forwarded* through a router interface.
@@ -191,7 +197,7 @@ The *forwarding* policy of the IP datagrams through **`routers`** is base on **r
 - A router performs a lookup in the routing table and choose the right interface to forward the packets.
 - When the destination is an unknown network, the **default address** is used for the forwarding (**0.0.0.0**). This entry is contained in the routing table.
 
-### Routing table example
+### Routing table
 
 Let's have 3 different interfaces on a router with this routing table as a result:
 
@@ -229,3 +235,43 @@ During path discovery a **`metric`** is assigned to each link, to make sure the 
 ------
 
 ## Link Layer Devices & Protocols
+
+> ⚡ P.T. Usage: MAC Spoofing, Sniffing techniques, MITM (Man in the middle) attacks, testing switches security.
+
+**`Link layer`** devices and protocols only deal with the next-hop, in the link layer of the TCP/IP stack, working with **`frames`** (layer 2 packets).
+
+- Hubs/Switches forward frames on a local network.
+- They work with MAC addresses.
+
+### MAC Addresses
+
+While IP addresses are the Layer 3 (Network layer) addressing scheme, **`MAC addresses`** *uniquely identify a network card* on the **Layer 2**.
+
+- A **MAC** (**M**edia **A**ccess **C**ontrol) address is known as the **physical address**.
+- A MAC Address is 48 bits (6 bytes) long, expressed in hexadecimal form - `00:0C:AA:4F:79:6E`
+- Every host on a network has a MAC and an IP address.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
