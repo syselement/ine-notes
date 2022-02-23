@@ -169,7 +169,7 @@ It is fundamental to speak the InfoSec domain language.
 > ⚡ P.T. Usage: 
 >
 > - Knowing how info is transmitted over networks, by using the right protocol for the transmission
-> - Protection of the traffic
+> - Traffic protection
 
 ### Clear-text Protocols
 
