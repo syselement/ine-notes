@@ -208,21 +208,21 @@ During path discovery a **`metric`** is assigned to each link, to make sure the 
 
 - Routing tables are stored by every host. Commands below are used to check the routing table on different operating systems:
 
-  `ip route` - Linux OS
+`ip route` - Linux OS
+
+![](.gitbook/assets/image-20220223110129363.png)
+
   
-  ![](.gitbook/assets/image-20220223110129363.png)
+
+`route print` - Windows OS
+
+![](.gitbook/assets/image-20220223111446780.png)
+
   
-  
-  
-  `route print` - Windows OS
-  
-  ![](.gitbook/assets/image-20220223111446780.png)
-  
-  
-  
-  `netstat -r` - Mac OS X / Linux
-  
-  ![](.gitbook/assets/image-20220223110040133.png)
+
+`netstat -r` - Mac OS X / Linux
+
+![](.gitbook/assets/image-20220223110040133.png)
 
 ------
 
