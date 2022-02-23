@@ -11,6 +11,7 @@
 
 - [IP Header](https://www.guru99.com/ip-header.html)
 - [TCP/IP Model Stack - Layers & Protocols](https://www.guru99.com/tcp-ip-model.html)
+  - [TCP/IP Model](https://learning.mlytics.com/the-internet/what-is-the-tcp-ip-model/)
 - [ISO/OSI Model](https://www.guru99.com/layers-of-osi-model.html)
   - [TCP/IP vs OSI Model](https://www.guru99.com/difference-tcp-ip-vs-osi-model.html)
   - [Windows Network Architecture and the OSI Model](https://docs.microsoft.com/en-US/windows-hardware/drivers/network/windows-network-architecture-and-the-osi-model)
@@ -25,5 +26,6 @@
   - [Layer 2-3 Switching](https://www.guru99.com/layer-3-layer-2-switch.html)
   - [ARP](https://www.guru99.com/address-resolution-protocol.html)
 - [TCP vs UDP](https://www.guru99.com/tcp-vs-udp-understanding-the-difference.html)
-  - [TCP 3-Way Handshake](https://www.guru99.com/tcp-3-way-handshake.html)
-  - 
+  - [guru99 - TCP 3-Way Handshake](https://www.guru99.com/tcp-3-way-handshake.html)
+  - [mlytics - TCP 3-Way Handshake](https://learning.mlytics.com/the-internet/tcp-3-way-handshake/)
+- 

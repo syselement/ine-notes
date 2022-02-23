@@ -438,3 +438,34 @@ To **`forward a packet`**, the switch:
 
 ### TCP 3-Way Handshake
 
+A **`three-way handshake`** process is necessary to establish a connection between two hosts running TCP (server/client).
+
+- The TCP header fields involved in the handshake are:
+  - Sequence number
+  - Acknowledgment number
+  - ACK flag
+  - SYN flag
+- The 3 steps in the handshake synchronize the sequence and acknowledgment numbers between the server and the client:
+  1. Client sends a TCP packet (**`SYN segment`**) to the server with:
+     - SYN=1 (flag enabled) - request to establish connection and data synchronization with server
+     - ACK=0 (flag disabled) - no acknowledgment of request
+     - ISN=7001 - Random initial sequence number set
+     - ACK # = NULL - acknowledgment number set to null
+  2. Server replies by sending a TCP packet (**`SYN/ACK segment`**) with:
+     - SYN=1 (flag enabled) - request to establish connection and data synchronization with client
+     - ACK=1 (flag enabled) - acknowledgment of request
+     - ISN=3001 - Random initial sequence number set
+     - ACK # = [client ISN + 1] = 7002 - adding 1 to the client's ISN and acknowledge the client's request
+  3. Client replies with a TCP packet (**`ACK segment`**) with:
+     - SYN=0 (flag disabled) - no more requests
+     - ACK=1 (flag enabled) - acknowledgment of request
+     - ISN=7002 - Server's sequence number received
+     - ACK # = [server ISN + 1] = 3002 - adding 1 to the server's ISN and acknowledge the server's request
+
+![](.gitbook/assets/image-20220223194102388.png)
+
+> 📌 *By performing the above 3-way handshake, the client-server connection is fully established and the data transfer process can begin. TCP automatically terminates the connection after the data transmission process is over.*
+
+------
+
+## Firewall & Defense
