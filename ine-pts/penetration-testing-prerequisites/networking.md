@@ -204,21 +204,21 @@ Let's have 3 different interfaces on a router with this routing table as a resul
 - A packet arriving on interface #3 for *192.168.15.100* is forwarded on the Interface #2, since it matches the second entry in the table.
 - A packet arriving on interface #1 for *2.215.47.3* is routed through Interface #3, the **default route**.
 
-During path discovery a **`metric`** is assigned to each link, to make sure the *fastest route* is selected in case of the same number of hops in two or more paths, according the the channel's estimated bandwidth and congestion.
+During path discovery a **`metric`** is assigned to each link, to make sure the *fastest route* is selected in case of the same number of hops in two or more paths, according to the channel's estimated bandwidth and congestion.
 
 - Routing tables are stored by every host. Commands below are used to check the routing table on different operating systems:
 
   `ip route` - Linux OS
-
-  <img src=".gitbook/assets/image-20220223110129363.png" style="zoom:80%;" />
-
+  
+  <img src=".gitbook/assets/image-20220223110129363.png"  />
+  
   `route print` - Windows OS
-
-  <img src=".gitbook/assets/image-20220223111446780.png" style="zoom: 80%;" />
-
+  
+  <img src=".gitbook/assets/image-20220223111446780.png"  />
+  
   `netstat -r` - Mac OS X / Linux
-
-<img src=".gitbook/assets/image-20220223110040133.png" style="zoom:80%;" />
+  
+  <img src=".gitbook/assets/image-20220223110040133.png"  />
 
 ------
 
