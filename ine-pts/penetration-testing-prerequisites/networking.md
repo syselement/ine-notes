@@ -106,7 +106,7 @@ $$
 $$
 10.0.0.0/8\ (10.0.0.0\to\ 0.255.255.255)\dashrightarrow\ Private\ networks\
 \\
-127.0.0.0/8\ (127.0.0.0\to\ 127.255.255.255)\dashrightarrow\ Internet\ host\ loopback\
+127.0.0.0/8\ (127.0.0.0\to\ 127.255.255.255)\dashrightarrow\ Internet\ host\ loopback\ / \ Local\ host
 \\
 192.168.0.0/16\ (192.168.0.0\to\ 192.168.255.255)\dashrightarrow\ Private\ networks\
 $$
@@ -120,7 +120,6 @@ The **`network`** of a host is identified using a **`netmask`** (subnet mask) pa
 - The network part of the IP is found with a bitwise AND operation between the IP and the Mask.
 - The address/host part of the IP is found with a bitwise AND between the IP and the inverse of the Netmask.
 - For example 192.168.44.22 with 255.255.224.0 subnet mask is part of the 192.168.32.0/19 network.
-- Check an [Online IP Subnet Calculator](https://www.calculator.net/ip-subnet-calculator.html).
 - **`CIDR`** notation = **C**lassless **I**nter-**D**omain **R**outing notation
 
 $$
@@ -136,6 +135,8 @@ Total\ number\ of\ hosts\ contained\ =\ 2^{13}=8192\
 \\
 Total\ number\ of\ usable\ hosts =8190
 $$
+
+> 📌 Practice with an [Online IP Subnet Calculator](https://www.calculator.net/ip-subnet-calculator.html).
 
 ### IPv6
 
@@ -176,9 +177,49 @@ Host\dashrightarrow\ 5678:ABCD:EF12:1234
 $$
 
 - Refer to the [RFC 3513](https://datatracker.ietf.org/doc/html/rfc3513) for more examples and details.
-- Practice with an [IPv6 Subnet Calculator](https://www.vultr.com/resources/subnet-calculator-ipv6).
+
+> 📌 Practice with an [IPv6 Subnet Calculator](https://www.vultr.com/resources/subnet-calculator-ipv6).
 
 ------
 
 ## Routing
 
+The *forwarding* policy of the IP datagrams through **`routers`** is base on **routing protocols** which determine the best path to reach a network.
+
+- The destination address of every incoming packet is *inspected* and *forwarded* through a router interface.
+- IP-to-interface bindings are written in the **`routing table`**.
+- A router performs a lookup in the routing table and choose the right interface to forward the packets.
+- When the destination is an unknown network, the **default address** is used for the forwarding (**0.0.0.0**). This entry is contained in the routing table.
+
+### Routing table example
+
+Let's have 3 different interfaces on a router with this routing table as a result:
+
+|    IP (CIDR)    |    Netmask    |    Interface #    |
+| :-------------: | :-----------: | :---------------: |
+|  210.95.0.0/16  |  255.255.0.0  |         1         |
+| 192.168.15.0/24 | 255.255.255.0 |         2         |
+|    0.0.0.0/0    |    0.0.0.0    | 3 "default route" |
+
+- A packet arriving on interface #3 for *192.168.15.100* is forwarded on the Interface #2, since it matches the second entry in the table.
+- A packet arriving on interface #1 for *2.215.47.3* is routed through Interface #3, the **default route**.
+
+During path discovery a **`metric`** is assigned to each link, to make sure the *fastest route* is selected in case of the same number of hops in two or more paths, according the the channel's estimated bandwidth and congestion.
+
+- Routing tables are stored by every host. Commands below are used to check the routing table on different operating systems:
+
+  `ip route` - Linux OS
+
+  <img src=".gitbook/assets/image-20220223110129363.png" style="zoom:80%;" />
+
+  `route print` - Windows OS
+
+  <img src=".gitbook/assets/image-20220223111446780.png" style="zoom: 80%;" />
+
+  `netstat -r` - Mac OS X / Linux
+
+<img src=".gitbook/assets/image-20220223110040133.png" style="zoom:80%;" />
+
+------
+
+## Link Layer Devices & Protocols
