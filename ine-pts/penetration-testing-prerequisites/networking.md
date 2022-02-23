@@ -220,7 +220,7 @@ Let's have 3 different interfaces on a router with this routing table as a resul
 
 During path discovery a **`metric`** is assigned to each link, to make sure the *fastest route* is selected in case of the same number of hops in two or more paths, according to the channel's estimated bandwidth and congestion.
 
-- Routing tables are stored by every host. Commands below are used to check the routing table on different operating systems:
+> 💻 Routing tables are stored by every host. Commands below are used to check the routing table on different operating systems:
 
 |      Command      | Operating System |
 | :---------------: | :--------------: |
@@ -262,7 +262,9 @@ While IP addresses are the Layer 3 (Network layer) addressing scheme, **`MAC add
 
 - **MAC** (**M**edia **A**ccess **C**ontrol) address is known as the **physical address**.
 - A MAC Address is 48 bits (6 bytes) long, expressed in hexadecimal form - `00:0C:AA:4F:79:6E`
-- Every host on a network has a MAC and an IP address. Discover network cards MAC address with the commands below:
+- Every host on a network has a MAC and an IP address.
+
+> 💻 Discover network cards MAC address with the commands below:
 
 |       Command       |               Operating System               |
 | :-----------------: | :------------------------------------------: |
