@@ -260,21 +260,20 @@ During path discovery a **`metric`** is assigned to each link, to make sure the 
 
 While IP addresses are the Layer 3 (Network layer) addressing scheme, **`MAC addresses`** *uniquely identify a network card* on the **Layer 2**.
 
-- A **MAC** (**M**edia **A**ccess **C**ontrol) address is known as the **physical address**.
+- **MAC** (**M**edia **A**ccess **C**ontrol) address is known as the **physical address**.
 - A MAC Address is 48 bits (6 bytes) long, expressed in hexadecimal form - `00:0C:AA:4F:79:6E`
 - Every host on a network has a MAC and an IP address. Discover network cards MAC address with the commands below:
 
-|       Command       | Operating System |
-| :-----------------: | :--------------: |
-|     **`ip a`**      |      Linux       |
-| **`ipconfig /all`** |     Windows      |
-|   **`ifconfig`**    | *nix / Mac OS X  |
+|       Command       |               Operating System               |
+| :-----------------: | :------------------------------------------: |
+|     **`ip a`**      |                    Linux                     |
+| **`ipconfig /all`** |                   Windows                    |
+|   **`ifconfig`**    |               *nix / Mac OS X                |
+|  **`ip -br -c a`**  | Linux - useful for fast finding IP interface |
 
 ​	*Linux OS*
 
 ![](.gitbook/assets/image-20220223122209696.png)
-
-- **`ip -br -c a`** - useful for fast finding IP interface
 
 ![image-20220223122244901](.gitbook/assets/image-20220223122244901.png)
 
