@@ -4,7 +4,7 @@
 
 > ⚡ P.T. Usage:
 >
-> - Know how protocols work in order to learn how to exploit them.
+> - Know how protocols work in order to learn how to exploit them
 
 Computers have to use a wide variety of networking **protocols**, to ensure that different types of hardware and software can communicate between each other.
 
@@ -90,7 +90,7 @@ During the process of **`encapsulation`**, a lower-layer protocol places the ent
 > ⚡ P.T. Usage:
 >
 > - Understand network attacks and use network attack tools
-> - Studying other networking protocols.
+> - Studying other networking protocols
 
 The Internet Protocol (**`IP`**) runs on the Internet layer of the TCP/IP stack, by delivering the **datagrams** (IP packets) to the hosts participating in the communication.
 
@@ -222,21 +222,21 @@ During path discovery a **`metric`** is assigned to each link, to make sure the 
 
 - Routing tables are stored by every host. Commands below are used to check the routing table on different operating systems:
 
-​	*Linux OS*
+|      Command      | Operating System |
+| :---------------: | :--------------: |
+|  **`ip route`**   |      Linux       |
+| **`route print`** |     Windows      |
+| **`netstat -r`**  | Mac OS X / Linux |
 
-- `ip route`
+​	*Linux OS*
 
 ![](.gitbook/assets/image-20220223110129363.png)
 
 ​	*Windows OS*
 
-- `route print` 
-
 ![](.gitbook/assets/image-20220223111446780.png)
 
 ​	*Mac OS X / Linux*
-
-- `netstat -r`
 
 ![](.gitbook/assets/image-20220223110040133.png)
 
@@ -262,23 +262,74 @@ While IP addresses are the Layer 3 (Network layer) addressing scheme, **`MAC add
 
 - A **MAC** (**M**edia **A**ccess **C**ontrol) address is known as the **physical address**.
 - A MAC Address is 48 bits (6 bytes) long, expressed in hexadecimal form - `00:0C:AA:4F:79:6E`
-- Every host on a network has a MAC and an IP address.
+- Every host on a network has a MAC and an IP address. Discover network cards MAC address with the commands below:
 
+|       Command       | Operating System |
+| :-----------------: | :--------------: |
+|     **`ip a`**      |      Linux       |
+| **`ipconfig /all`** |     Windows      |
+|   **`ifconfig`**    | *nix / Mac OS X  |
 
+​	*Linux OS*
 
+![](.gitbook/assets/image-20220223122209696.png)
 
+- **`ip -br -c a`** - useful for fast finding IP interface
 
+![image-20220223122244901](.gitbook/assets/image-20220223122244901.png)
 
+### IP and MAC Address usage
 
+- The router has two interfaces, each with its own IP and MAC addresses.
+- Every host has an IP and MAC address.
+- The router will *not change* the source and destination IP addresses.
+- When a device sends a packet:
+  - **Destination IP address = Destination host IP address** (remains the same, global information)
+  - **Destination MAC address = Next hop MAC address** (the network knows where to forward the packet)
+- Broadcast MAC address: `FF:FF:FF:FF:FF:FF`
+  - A frame with this address is delivered to all the hosts in the local network.
 
+### Switches
 
+**Layer 2 Switches** work with MAC addresses.
 
+- Switches can have multiple interfaces (4 ports for "home switches", 64 ports for "corporate switches")
 
+- Different packet forwarding speed: 10 Mbps (megabits per second) to 10 Gbps.
 
+- Corporate networks use to have a multi-switch network to accommodate more hosts.
 
+  - by using switches without VLANs, networks are not segmented.
+  - routers do the **`segmentation`** in those cases, since every interface is attached to different subnets.
 
+  
 
+### CAM / Forwarding Table
 
+Switches need to keep a *forwarding table* that binds MAC addresses to interfaces, called **`CAM table`** (**C**ontent **A**ddressable **M**emory table).
+
+- Contains: MAC addresses, interface used for delivery, TTL (time to live).
+- Stored in the device's RAM.
+- Constantly refreshed with new info.
+- Multiple hosts might be connected on the same interface (via another switch).
+- Interfaces without any host attached might be present.
+- Since the CAM table *has a **finite size***, the TTL determines *how long an entry will stay* in the table.
+  - When an entry expires, it's automatically removed from the table.
+
+Switches learn new MAC address *dynamically*, inspecting the header of every packet they receive, populating the CAM table. They just use the source MAC address to decide the interface to use for the forwarding.
+
+The source MAC address is compared to the CAM table:
+
+1. if the MAC *address is not in the table*, it will be added as a **new MAC-Interface binding** to the switch table.
+2. if the MAC *is already in the table*, its **TTL gets updated**.
+3. if the MAC *is in the table*, but not bound to another interface, the **switch will update the table**.
+
+To **`forward a packet`**, the switch:
+
+1. reads the destination MAC address of the frame.
+2. performs a look-up in the CAM table.
+3. forwards the packet to the corresponding interface.
+4. if no entry is found with that MAC address, the switch will forward the frame to all its interfaces.
 
 
 
