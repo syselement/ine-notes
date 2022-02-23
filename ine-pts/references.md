@@ -21,4 +21,9 @@
   - [How to find IPv6 Prefix](https://networklessons.com/ipv6/how-to-find-ipv6-prefix/)
   - [IPv6 Subnet Calculator](https://www.vultr.com/resources/subnet-calculator-ipv6/)
 - [IP Routing](https://www.guru99.com/ip-routing.html)
-- 
+  - [Router vs Switch](https://www.guru99.com/router-vs-switch-difference.html)
+  - [Layer 2-3 Switching](https://www.guru99.com/layer-3-layer-2-switch.html)
+  - [ARP](https://www.guru99.com/address-resolution-protocol.html)
+- [TCP vs UDP](https://www.guru99.com/tcp-vs-udp-understanding-the-difference.html)
+  - [TCP 3-Way Handshake](https://www.guru99.com/tcp-3-way-handshake.html)
+  - 

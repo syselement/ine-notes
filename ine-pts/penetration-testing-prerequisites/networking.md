@@ -373,4 +373,68 @@ To **`forward a packet`**, the switch:
 > - Advanced DoS (Denial of Service) attacks
 > - Network scanning
 
-**`TCP`** 
+**`TCP`** (**T**ransport **C**ontrol **P**rotocol) and **`UDP`** (**U**ser **D**atagram **P**rotocol) are the most common **transport layer** protocols used on the Internet.
+
+> 📕 Considerations:
+>
+> - Computer networks can be **unreliable**.
+> - Network congestion, loss of connection and other technical issues can cause a *packet loss* during the communication.
+
+- Key differences:
+
+|                             TCP                              |                             UDP                              |
+| :----------------------------------------------------------: | :----------------------------------------------------------: |
+|                 Connection-oriented protocol                 |                   Connectionless protocol                    |
+|             Reliable, guarantees packet delivery             |              Delivery of data is not guaranteed              |
+|         Slower speed, lower throughput, heavy-weight         |       Faster than TCP, better throughput, lightweight        |
+|                Delays when network congested                 |             Less delay, possibility of data loss             |
+|                   Acknowledgment segments                    |                  No acknowledgment segments                  |
+| Used by majority of applications (Email client, Web browsers, Ftp clients) | Used by multimedia applications (VoIP, Audio/Video streaming) |
+
+### PORTS
+
+**`Ports`** are used to identify a single **network process**, to make sure the transport layer know what the destination process is.
+
+- **`<IP>:<Port>`** pair identifies a process on a network. For example: `192.168.13.2:80`
+- **1024 well-known ports** are used for the most common services: 0-1023. They are assigned by IANA in [this registry](https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml).
+- A **`daemon`** is a program that runs a service. Its configuration can be changed, so the service listening port can be changed in order to make recognition harder. 
+- Server-Client applications know which port to use because the TCP/UDP header contains two fields for the source/destination ports.
+- Common ports:
+
+|     Port      |        Service        |
+| :-----------: | :-------------------: |
+|      21       |          FTP          |
+|      22       |          SSH          |
+|      23       |        Telnet         |
+|      25       |         SMTP          |
+|      80       |         HTTP          |
+|      110      |         POP3          |
+| 137, 138, 139 |        NetBIOS        |
+|      143      |         IMAP          |
+|      443      | HTTPS (HTTP over SSL) |
+|   1433-1434   | Microsoft Sql Server  |
+|     3306      |         MySQL         |
+|     3389      | RDP (Terminal Server) |
+
+<img src=".gitbook/assets/image-20220223180555807.png" style="zoom:80%;" />
+
+> 💻 Check *listening ports* and TCP connections on a host with the commands below:
+
+|                           Command                            | Operating System |
+| :----------------------------------------------------------: | :--------------: |
+|        **`netstat -tunp`**<br />**`netstat -tulpn`**         |      Linux       |
+|                      **`netstat -ano`**                      |     Windows      |
+| **`netstat -p tcp -p udp`**<br />**`lsof -n -i4TCP -i4UDP`** | *nix / Mac OS X  |
+
+​	*Linux*
+
+![](.gitbook/assets/image-20220223182314590.png)
+
+​	*Windows*
+
+- [TCPView](https://docs.microsoft.com/en-us/sysinternals/downloads/tcpview) tool from Microsoft Sysinternals shows detailed listings of all TCP and UDP connections.
+
+![](.gitbook/assets/image-20220223182357033.png)
+
+### TCP 3-Way Handshake
+
