@@ -275,7 +275,7 @@ While IP addresses are the Layer 3 (Network layer) addressing scheme, **`MAC add
 
 ![](.gitbook/assets/image-20220223122209696.png)
 
-![image-20220223122244901](.gitbook/assets/image-20220223122244901.png)
+![](.gitbook/assets/image-20220223122244901.png)
 
 ### IP and MAC Address usage
 
