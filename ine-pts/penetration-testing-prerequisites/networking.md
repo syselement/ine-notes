@@ -518,7 +518,7 @@ A **`Firewall`** is a specialized software module running on a computer or a ded
 - *False positives* are presented when legit traffic is flagged as malicious.
 - Intercepted intrusions are communicated to the **IDS manager**, a software in charge of maintaining policies, with a management console for the sysadmin.
 
-> 📌 IDS **do not substitute firewalls**!
+> 📕  IDS **do not substitute firewalls**!
 >
 > - They support firewall with a further layer of security, monitoring the traffic and reporting well-known malicious activity.
 > - Suspicious activity is logged for future analysis, but **it is not blocked**.
@@ -565,3 +565,4 @@ Take a machine inside a private network, that is using the NAT device as its def
 
 ------
 
+...
