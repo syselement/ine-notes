@@ -290,20 +290,22 @@ While IP addresses are the Layer 3 (Network layer) addressing scheme, **`MAC add
 - Broadcast MAC address: `FF:FF:FF:FF:FF:FF`
   - A frame with this address is delivered to all the hosts in the local network.
 
+### Hubs
+
+- Hubs are repeaters that simply forward packets (repeating the electric signals) on all the ports.
+- Do not check any header.
+- Every host receives the same packets.
+- Very rare nowadays and replaced by switches.
+
 ### Switches
 
 **Layer 2 Switches** work with MAC addresses.
 
 - Switches can have multiple interfaces (4 ports for "home switches", 64 ports for "corporate switches")
-
 - Different packet forwarding speed: 10 Mbps (megabits per second) to 10 Gbps.
-
 - Corporate networks use to have a multi-switch network to accommodate more hosts.
-
   - by using switches without VLANs, networks are not segmented.
   - routers do the **`segmentation`** in those cases, since every interface is attached to different subnets.
-
-  
 
 ### CAM / Forwarding Table
 
@@ -319,11 +321,10 @@ Switches need to keep a *forwarding table* that binds MAC addresses to interface
 
 Switches learn new MAC address *dynamically*, inspecting the header of every packet they receive, populating the CAM table. They just use the source MAC address to decide the interface to use for the forwarding.
 
-The source MAC address is compared to the CAM table:
-
-1. if the MAC *address is not in the table*, it will be added as a **new MAC-Interface binding** to the switch table.
-2. if the MAC *is already in the table*, its **TTL gets updated**.
-3. if the MAC *is in the table*, but not bound to another interface, the **switch will update the table**.
+- **CAM Table Population** - The source MAC address is compared to the CAM table:
+  1. if the MAC *address is not in the table*, it will be added as a **new MAC-Interface binding** to the switch table.
+  2. if the MAC *is already in the table*, its **TTL gets updated**.
+  3. if the MAC *is in the table*, but not bound to another interface, the **switch will update the table**.
 
 To **`forward a packet`**, the switch:
 
@@ -332,11 +333,44 @@ To **`forward a packet`**, the switch:
 3. forwards the packet to the corresponding interface.
 4. if no entry is found with that MAC address, the switch will forward the frame to all its interfaces.
 
+### ARP
 
+**`ARP`** (**A**ddress **R**esolution **P**rotocol) is used to build the correct *IP Address - MAC Address binding* when a host do not know the MAC address of the other network nodes.
 
+- For example, when HostA wants to send traffic to HostB and it only knows the HostB IP address:
+  1. HostA builds an **`ARP request`** with the HostB IP address and FF:FF:FF:FF:FF:FF as destination MAC address.
+  2. The switch will forward the packet to every host on the network.
+  3. HostB replies with an **`ARP reply`**, containing its MAC address.
+  4. HostA will save the IP - MAC binding of HostB in its **`ARP cache`**.
+  5. No new ARP resolution round will be needed for further traffic from HostA to HostB.
+- ARP cache entries have a TTL too. Entries are discarded by a host at the power off or when entry's TTL expires.
 
+> 💻 Check the ARP cache on a host with the commands below:
 
+|      Command       | Operating System |
+| :----------------: | :--------------: |
+| **`ip neighbour`** |      Linux       |
+|    **`arp -a`**    |     Windows      |
+|     **`arp`**      | *nix / Mac OS X  |
 
+​	*Linux*
 
+![](.gitbook/assets/image-20220223135730926.png)
 
+![](.gitbook/assets/image-20220223135721627.png)
 
+​	*Windows*
+
+![](.gitbook/assets/image-20220223135559163.png)
+
+------
+
+## TCP & UDP
+
+> ⚡ P.T. Usage:
+>
+> - TCP Session attacks
+> - Advanced DoS (Denial of Service) attacks
+> - Network scanning
+
+**`TCP`** 
