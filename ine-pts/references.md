@@ -33,6 +33,7 @@
   - [The 5 types of Firewalls](https://www.techtarget.com/searchsecurity/feature/The-five-different-types-of-firewalls)
   - [Network design: Firewall - IDS - IPS](https://resources.infosecinstitute.com/topic/network-design-firewall-idsips/)
   - [IDS vs IPS vs Firewall](https://ipwithease.com/firewall-vs-ips-vs-ids/)
+  - [Firewall vs WAF](https://learning.mlytics.com/cybersecurity/firewall-vs-waf/)
   - [LinuxSecurity HOWTOs](https://linuxsecurity.com/howtos)
   - [What is NAT](https://whatismyipaddress.com/nat)
 - 
