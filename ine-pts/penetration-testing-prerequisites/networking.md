@@ -391,7 +391,7 @@ To **`forward a packet`**, the switch:
 |                   Acknowledgment segments                    |                  No acknowledgment segments                  |
 | Used by majority of applications (Email client, Web browsers, Ftp clients) | Used by multimedia applications (VoIP, Audio/Video streaming) |
 
-### PORTS
+### Ports
 
 **`Ports`** are used to identify a single **network process**, to make sure the transport layer know what the destination process is.
 
