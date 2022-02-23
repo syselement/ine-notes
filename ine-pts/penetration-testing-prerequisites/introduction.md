@@ -2,11 +2,11 @@
 
 ## The Information Security Field
 
-Pentesting career, supported by:
-
-- knowing the information security (**`infosec`**) field
-- career opportunities
-- talking with colleagues
+> ⚡ Penetration Testing Usage: 
+>
+> - Knowing the information security (**`infosec`**) field
+> - Career opportunities
+> - Talking with colleagues
 
 ### InfoSec Culture
 
@@ -166,10 +166,10 @@ It is fundamental to speak the InfoSec domain language.
 
 ## Cryptography Protocols & VPNs
 
-Pentesting career, supported by:
-
-- knowing how info is transmitted over networks, by using the right protocol for the transmission
-- protection of the traffic
+> ⚡ P.T. Usage: 
+>
+> - Knowing how info is transmitted over networks, by using the right protocol for the transmission
+> - Protection of the traffic
 
 ### Clear-text Protocols
 
@@ -244,10 +244,10 @@ A **`VPN`** establish a secure, encrypted and protected connection between a pri
 
 ## Binary Arithmetic Basics
 
-Pentesting career, supported by:
-
-- Computer/Boolean logic, data is represented in binary format
-- Network addressing
+> ⚡ P.T. Usage: 
+>
+> - Computer/Boolean logic, data is represented in binary format
+> - Network addressing
 
 ### Binary and Decimal Bases
 

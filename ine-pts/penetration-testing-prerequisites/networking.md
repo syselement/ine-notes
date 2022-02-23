@@ -2,7 +2,9 @@
 
 ## Protocols
 
-> ⚡ P.T. Usage: know how protocols work in order to learn how to exploit them.
+> ⚡ P.T. Usage:
+>
+> - Know how protocols work in order to learn how to exploit them.
 
 Computers have to use a wide variety of networking **protocols**, to ensure that different types of hardware and software can communicate between each other.
 
@@ -85,7 +87,10 @@ During the process of **`encapsulation`**, a lower-layer protocol places the ent
 
 ## Internet Protocol (IP)
 
-> ⚡ P.T. Usage: understand network attacks and use network attack tools, studying other networking protocols.
+> ⚡ P.T. Usage:
+>
+> - Understand network attacks and use network attack tools
+> - Studying other networking protocols.
 
 The Internet Protocol (**`IP`**) runs on the Internet layer of the TCP/IP stack, by delivering the **datagrams** (IP packets) to the hosts participating in the communication.
 
@@ -188,7 +193,10 @@ $$
 
 ## Routing
 
-> ⚡ P.T. Usage: Perform network traffic inspection, understand routing protocol attacks.
+> ⚡ P.T. Usage:
+>
+> - Perform network traffic inspection
+> - Understand routing protocol attacks
 
 The *forwarding* policy of the IP datagrams through **`routers`** is base on **routing protocols** which determine the best path to reach a network.
 
@@ -236,7 +244,12 @@ During path discovery a **`metric`** is assigned to each link, to make sure the 
 
 ## Link Layer Devices & Protocols
 
-> ⚡ P.T. Usage: MAC Spoofing, Sniffing techniques, MITM (Man in the middle) attacks, testing switches security.
+> ⚡ P.T. Usage:
+>
+> - MAC Spoofing
+> - Sniffing techniques
+> - MITM (Man in the middle) attacks
+> - Testing switches security
 
 **`Link layer`** devices and protocols only deal with the next-hop, in the link layer of the TCP/IP stack, working with **`frames`** (layer 2 packets).
 
