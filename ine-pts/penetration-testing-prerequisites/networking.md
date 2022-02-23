@@ -210,15 +210,19 @@ During path discovery a **`metric`** is assigned to each link, to make sure the 
 
   `ip route` - Linux OS
   
-  <img src=".gitbook/assets/image-20220223110129363.png"  />
+  ![](.gitbook/assets/image-20220223110129363.png)
+  
+  
   
   `route print` - Windows OS
   
-  <img src=".gitbook/assets/image-20220223111446780.png"  />
+  ![](.gitbook/assets/image-20220223111446780.png)
+  
+  
   
   `netstat -r` - Mac OS X / Linux
   
-  <img src=".gitbook/assets/image-20220223110040133.png"  />
+  ![](.gitbook/assets/image-20220223110040133.png)
 
 ------
 
