@@ -600,7 +600,7 @@ The Kali OS GUI instance is web hosted on the INE website, where:
 
    - `10.175.34.1` is the *default gateway* to reach other networks outside the 10.175.34.0/24 network.
 
-   - The last 2 routes are used for communications to the Company and Test web servers.
+   - The last 2 routes are used for communications to the Company and Test web servers, reachable via HTTP.
 
    - Tried **`ping`** and access the secret webserver at http://192.168.222.199, with no response:
    
