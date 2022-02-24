@@ -654,4 +654,9 @@ The Kali OS GUI instance is web hosted on the INE website, where:
 
 ## DNS
 
-...
+> ⚡ P.T. Usage:
+>
+> - SSL/TLS certificates validation relies on DNS
+> - Mounting spoofing attacks
+> - Performing information gathering
+
