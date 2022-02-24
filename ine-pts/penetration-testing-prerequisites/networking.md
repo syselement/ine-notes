@@ -598,7 +598,7 @@ The Kali OS GUI instance is web hosted on the INE website, where:
 
   - `10.175.34.1` is the *default gateway* to reach other networks outside the 10.175.34.0/24 network.
   - The last 2 routes are used for communications to the Company and Test web servers, reachable via HTTP.
-  - Tried **`ping`** and access the secret webserver at http://192.168.222.199, with no response:
+  - Tried **`ping`** and access the secret webserver at `http://192.168.222.199`, with no response:
 
   ```shell
   └─# ping 192.168.222.199
@@ -643,7 +643,7 @@ The Kali OS GUI instance is web hosted on the INE website, where:
    64 bytes from 192.168.222.199: icmp_seq=2 ttl=63 time=0.857 ms
    ```
   
-- After the route was successfully added, navigate to http://192.168.222.199 in the web browser:
+- After the route was successfully added, navigate to `http://192.168.222.199` in the web browser:
   
 
 ![](.gitbook/assets/image-20220224113119068.png)
