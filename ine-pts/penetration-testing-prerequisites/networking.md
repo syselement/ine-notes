@@ -422,7 +422,7 @@ To **`forward a packet`**, the switch:
 
 |                           Command                            | Operating System |
 | :----------------------------------------------------------: | :--------------: |
-|        **`netstat -tunp`**<br />**`netstat -tulpn`**         |      Linux       |
+| **`netstat -tunp`**<br />**`netstat -tulpn`** (listening ports too) |      Linux       |
 |                      **`netstat -ano`**                      |     Windows      |
 | **`netstat -p tcp -p udp`**<br />**`lsof -n -i4TCP -i4UDP`** | *nix / Mac OS X  |
 
