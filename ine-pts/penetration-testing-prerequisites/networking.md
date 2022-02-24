@@ -648,6 +648,8 @@ The Kali OS GUI instance is web hosted on the INE website, where:
 
 ![](.gitbook/assets/image-20220224113119068.png)
 
+> 📍 Lab solved!
+
 ------
 
 ## DNS
