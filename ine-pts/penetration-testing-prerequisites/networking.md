@@ -576,7 +576,7 @@ The Kali OS GUI instance is web hosted on the INE website, where:
 
 *Objective*: Configure the routes on the Kali machine to reach all the hosts in the networks.
 
-1. Check Kali instance current routes and Kali's IP address:
+1.	Check Kali instance current routes and Kali's IP address:
 
    - **`route`**
 
@@ -618,37 +618,33 @@ The Kali OS GUI instance is web hosted on the INE website, where:
 ![](.gitbook/assets/image-20220224111826243.png)
 
 2. Secret server is not accessible at `192.168.222.199`. Manually add one more route in order to access its network `192.168.222.0/24` through Kali's gateway `10.175.34.1`.
-
    - **`ip route help`** - `ip route` command help
-
    - **`ip route add 192.168.222.0/24 via 10.175.34.1 dev eth1`**
-
-   - **`route`** - check current routes
-
+   - *`route`** - check current routes
    - **`ping 192.168.222.199`** - check pinging the web server, should be working (not necessary, ICMP protocol)
 
-     ```shell
-     └─# ip route
-     default via 10.1.0.1 dev adlab0 onlink 
-     10.1.0.0/24 dev adlab0 proto kernel scope link src 10.1.0.5 
-     10.175.34.0/24 dev eth1 proto kernel scope link src 10.175.34.140 
-     172.16.88.0/24 via 10.175.34.1 dev eth1 
-     192.168.241.0/24 via 10.175.34.1 dev eth1 
-     └─# ip route add 192.168.222.0/24 via 10.175.34.1 dev eth1
-     └─# route           
-     Kernel IP routing table
-     Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
-     default         10.1.0.1        0.0.0.0         UG    0      0        0 adlab0
-     10.1.0.0        0.0.0.0         255.255.255.0   U     0      0        0 adlab0
-     10.175.34.0     0.0.0.0         255.255.255.0   U     0      0        0 eth1
-     172.16.88.0     10.175.34.1     255.255.255.0   UG    0      0        0 eth1
-     192.168.222.0   10.175.34.1     255.255.255.0   UG    0      0        0 eth1
-     192.168.241.0   10.175.34.1     255.255.255.0   UG    0      0        0 eth1
-     └─# ping 192.168.222.199                                  
-     PING 192.168.222.199 (192.168.222.199) 56(84) bytes of data.
-     64 bytes from 192.168.222.199: icmp_seq=1 ttl=63 time=1.70 ms
-     64 bytes from 192.168.222.199: icmp_seq=2 ttl=63 time=0.857 ms
-     ```
+```shell
+└─# ip route
+default via 10.1.0.1 dev adlab0 onlink 
+10.1.0.0/24 dev adlab0 proto kernel scope link src 10.1.0.5 
+10.175.34.0/24 dev eth1 proto kernel scope link src 10.175.34.140 
+172.16.88.0/24 via 10.175.34.1 dev eth1 
+192.168.241.0/24 via 10.175.34.1 dev eth1 
+└─# ip route add 192.168.222.0/24 via 10.175.34.1 dev eth1
+└─# route           
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+default         10.1.0.1        0.0.0.0         UG    0      0        0 adlab0
+10.1.0.0        0.0.0.0         255.255.255.0   U     0      0        0 adlab0
+10.175.34.0     0.0.0.0         255.255.255.0   U     0      0        0 eth1
+172.16.88.0     10.175.34.1     255.255.255.0   UG    0      0        0 eth1
+192.168.222.0   10.175.34.1     255.255.255.0   UG    0      0        0 eth1
+192.168.241.0   10.175.34.1     255.255.255.0   UG    0      0        0 eth1
+└─# ping 192.168.222.199                                  
+PING 192.168.222.199 (192.168.222.199) 56(84) bytes of data.
+64 bytes from 192.168.222.199: icmp_seq=1 ttl=63 time=1.70 ms
+64 bytes from 192.168.222.199: icmp_seq=2 ttl=63 time=0.857 ms
+```
 
 3. After the route was successfully added, navigate to http://192.168.222.199 in the web browser:
 
