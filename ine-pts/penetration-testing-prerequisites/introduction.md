@@ -211,7 +211,7 @@ A **`VPN`** establish a secure, encrypted and protected connection between a pri
 
      `nmap demossl.ine.local`
 
-     Check the Kali Machine interface name:
+   - Check the Kali Machine interface name:
 
      `ifconfig`
 
