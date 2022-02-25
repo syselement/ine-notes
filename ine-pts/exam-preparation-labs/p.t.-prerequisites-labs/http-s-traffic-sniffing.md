@@ -1,6 +1,6 @@
 # HTTP(S) Traffic Sniffing
 
-# 🔬 
+## 🔬 
 
 0. Connect to the Lab VPN (INE in this case) by using OpenVpn and the **.ovpn** file provided. (in my case INE provided a direct Lab Link / Kali GUI instance opened in another tab).
 
