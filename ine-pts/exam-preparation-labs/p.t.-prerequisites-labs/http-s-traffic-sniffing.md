@@ -1,26 +1,26 @@
 # HTTP(S) Traffic Sniffing
 
-## 🔬 HTTP(s) Traffic Sniffing
+# 🔬 
 
 0. Connect to the Lab VPN (INE in this case) by using OpenVpn and the **.ovpn** file provided. (in my case INE provided a direct Lab Link / Kali GUI instance opened in another tab).
 
-   - From terminal, check if the machines are reachable:
+    - From terminal, check if the machines are reachable:
 
-     `ping demo.ine.local`
+      `ping demo.ine.local`
 
-     `ping demossl.ine.local`
+      `ping demossl.ine.local`
 
-   - Check open ports with nmap tool:
+    - Check open ports with nmap tool:
 
-     `nmap demo.ine.local`
+      `nmap demo.ine.local`
 
-     `nmap demossl.ine.local`
+      `nmap demossl.ine.local`
 
-   - Check the Kali Machine interface name:
+    - Check the Kali Machine interface name:
 
-     `ifconfig`
+      `ifconfig`
 
-     ![](.gitbook/assets/image-20220126224915778.png)
+      ![](.gitbook/assets/image-20220126224915778.png)
 
 1. Open Wireshark and start the capture on the Vpn network interface.
 
@@ -45,3 +45,5 @@
      <img src=".gitbook/assets/image-20220126222042593.png" style="zoom:80%;" />
 
 5. Captured traffic can be filtered in Wireshark with *display filters*.
+
+> 📍 Lab solved!

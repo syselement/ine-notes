@@ -1,6 +1,6 @@
 # Find the Secret Server
 
-## 🔬 Find the Secret Server
+# 🔬
 
 The Kali OS GUI instance is web hosted on the INE website, where:
 
