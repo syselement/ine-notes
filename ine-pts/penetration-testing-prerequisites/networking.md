@@ -193,15 +193,15 @@ During path discovery a **`metric`** is assigned to each link, to make sure the 
 | **`route print`** |      Windows     |
 |  **`netstat -r`** | Mac OS X / Linux |
 
-​ _Linux OS_
+ _Linux OS_
 
 ![](.gitbook/assets/image-20220223110129363.png)
 
-​ _Windows OS_
+ _Windows OS_
 
 ![](.gitbook/assets/image-20220223111446780.png)
 
-​ _Mac OS X / Linux_
+ _Mac OS X / Linux_
 
 ![](.gitbook/assets/image-20220223110040133.png)
 
@@ -238,7 +238,7 @@ While IP addresses are the Layer 3 (Network layer) addressing scheme, **`MAC add
 |    **`ifconfig`**   |               \*nix / Mac OS X               |
 |  **`ip -br -c a`**  | Linux - useful for fast finding IP interface |
 
-​ _Linux OS_
+ _Linux OS_
 
 ![](.gitbook/assets/image-20220223122209696.png)
 
@@ -318,13 +318,13 @@ To **`forward a packet`**, the switch:
 |    **`arp -a`**    |      Windows     |
 |      **`arp`**     | \*nix / Mac OS X |
 
-​ _Linux_
+ _Linux_
 
 ![](.gitbook/assets/image-20220223135730926.png)
 
 ![](.gitbook/assets/image-20220223135721627.png)
 
-​ _Windows_
+ _Windows_
 
 ![](.gitbook/assets/image-20220223135559163.png)
 
@@ -391,11 +391,11 @@ To **`forward a packet`**, the switch:
 |                                                    **`netstat -ano`**                                                    |      Windows     |
 |     <p><strong><code>netstat -p tcp -p udp</code></strong><br><strong><code>lsof -n -i4TCP -i4UDP</code></strong></p>    | \*nix / Mac OS X |
 
-​ _Linux_
+ _Linux_
 
 ![](.gitbook/assets/image-20220223182314590.png)
 
-​ _Windows_
+ _Windows_
 
 * [TCPView](https://docs.microsoft.com/en-us/sysinternals/downloads/tcpview) tool from Microsoft Sysinternals shows detailed listings of all TCP and UDP connections.
 

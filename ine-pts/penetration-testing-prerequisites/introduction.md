@@ -195,7 +195,7 @@ A **`VPN`** establish a secure, encrypted and protected connection between a pri
 
 - **`Wireshark`** is a network sniffer tool and packet analyzer, that allows to capture the data transmitted over the network.
 
-> 🔬 Check *"HTTP(s) Traffic Sniffing"* lab.
+> 🔬 Check [*HTTP(s) Traffic Sniffing*](../exam-preparation-labs/p.t.-prerequisites-labs/http-s-traffic-sniffing.md) lab.
 
 ------
 
