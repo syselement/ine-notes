@@ -575,3 +575,4 @@ Take a machine inside a private network, that is using the NAT device as its def
 > - Mounting spoofing attacks
 > - Performing information gathering
 
+...
