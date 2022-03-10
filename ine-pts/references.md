@@ -23,6 +23,7 @@
   * [IPv6 Explained for Beginners](http://www.steves-internet-guide.com/ipv6-guide/)
   * [How to find IPv6 Prefix](https://networklessons.com/ipv6/how-to-find-ipv6-prefix/)
   * [IPv6 Subnet Calculator](https://www.vultr.com/resources/subnet-calculator-ipv6/)
+* [Basic Computer Networking](https://www.guru99.com/basic-computer-network.html)
 * [IP Routing](https://www.guru99.com/ip-routing.html)
   * [Router vs Switch](https://www.guru99.com/router-vs-switch-difference.html)
   * [Layer 2-3 Switching](https://www.guru99.com/layer-3-layer-2-switch.html)
@@ -38,4 +39,6 @@
   * [Firewall vs WAF](https://learning.mlytics.com/cybersecurity/firewall-vs-waf/)
   * [LinuxSecurity HOWTOs](https://linuxsecurity.com/howtos)
   * [What is NAT](https://whatismyipaddress.com/nat)
-*
+* [DNS](https://www.interserver.net/tips/kb/dns-dns-hierarchy/)
+  * [DNS Explained](https://dev.to/blake/dns-explained-hierarchy-and-architecture-18pj)
+  * 

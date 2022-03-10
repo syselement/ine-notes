@@ -534,4 +534,12 @@ Take a machine inside a private network, that is using the NAT device as its def
 > * Mounting spoofing attacks
 > * Performing information gathering
 
+The **`DNS`** (**D**omain **N**ame **S**ystem) is an application layer protocol.
+
+- It is a service which translates human-readable resource names/URLs to their corresponding IP addresses - **`name resolution`**.
+- It is a very important service and the Internet security relies upon DNS.
+- The global domain names and IPs database forms the DNS network hierarchy of DNS servers.
+
+### DNS Structure/Hierarchy
+
 ...
