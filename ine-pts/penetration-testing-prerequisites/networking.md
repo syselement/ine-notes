@@ -542,4 +542,44 @@ The **`DNS`** (**D**omain **N**ame **S**ystem) is an application layer protocol.
 
 ### DNS Structure/Hierarchy
 
+- The **`FQDN`** (**F**ully **Q**ualified **D**omain **N**ame) is the domain name that specifies its location in the DNS hierarchy and it consists of the following parts:
+  - **`TLD`** (**T**op **L**evel **D**omain)
+  - Domain part (Second level domains)
+  - Sub-Domain part (when present)
+  - Host Name
+
+For example: [my.ine.com](https://my.ine.com/)
+
+| Host Name | Domain Name | Top Level Domain |
+| --------- | ----------- | ---------------- |
+| my        | ine         | com              |
+
+
+
+### DNS Names Resolution
+
+A **`resolver`** server must be contacted by the client O.S. to perform the DNS resolution. These servers are public or provided by the ISP, and they convert the DNS name into an IP address:
+
+1. The resolver contacts one of the `root name servers`, which contains information about the top-level domains.
+2. The root server returns the IP address for the `TLD nameservers`.
+3. The resolver asks the TLD nameserver for the IP address of the `Authoritative Name Server`, that can give information about the domain.
+4. For every subdomain, step 3 is performed again on the authoritative DNS server.
+5. The resolver finally asks for the `host name resolution`, caches the response and returns it back to the client.
+
+> 📌 The 13 Root servers IP addresses are hardcoded in the configuration of the resolver and [publicly available](https://root-servers.org/).
+
+### Reverse DNS Resolution
+
+- DNS can also *convert an IP into a DNS name* - **`Reverse DNS lookup`** (rDNS)
+- This feature have to be manually enabled and configured by the administrator of the domain.
+- Many tools use the reverse DNS when available, like **`ping`** utility.
+
+![](.gitbook/assets/image-20220314221253986.png)
+
+- Refer to the [RFC 1034](https://www.ietf.org/rfc/rfc1034.txt) and [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt) for more DNS examples and details.
+
+------
+
+## Wireshark
+
 ...

@@ -41,4 +41,6 @@
   * [What is NAT](https://whatismyipaddress.com/nat)
 * [DNS](https://www.interserver.net/tips/kb/dns-dns-hierarchy/)
   * [DNS Explained](https://dev.to/blake/dns-explained-hierarchy-and-architecture-18pj)
+  * [DNS Resolution](https://dev.to/blake/dns-explained-resolution-a2i)
+  * [Root name servers](https://www.netnod.se/i-root/what-are-root-name-servers)
   * 
