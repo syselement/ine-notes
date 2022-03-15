@@ -587,7 +587,7 @@ Wireshark is a network sniffer tool and protocol analyzer.
 - It can capture and analyze all the traffic seen by network interfaces of the computer running it.
 - Most **`NIC`** (**N**etwork **I**nterface **C**ards) can work in *promiscuous* or *monitor mode*.
 
-In **promiscuous mode** a network card will accept and process any packet it receives (hub network for example), instead of discarding any packet addressed to another NIC (normal operation).
+In **promiscuous mode** a network card will *accept and process any packet it receives* (hub network for example), instead of discarding any packet addressed to another NIC (normal operation).
 
 - Sniffing other machines traffic in switched networks is harder than in hub-based networks. An ARP poisoning or a MAC flooding attack has to be performed in order to do that.
 - WiFi medium (the air) is broadcast by nature, so it is possible to detect traffic destined to a different host.
