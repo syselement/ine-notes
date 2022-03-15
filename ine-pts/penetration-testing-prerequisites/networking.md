@@ -582,4 +582,56 @@ A **`resolver`** server must be contacted by the client O.S. to perform the DNS 
 
 ## Wireshark
 
-...
+Wireshark is a network sniffer tool and protocol analyzer.
+
+- It can capture and analyze all the traffic seen by network interfaces of the computer running it.
+- Most **`NIC`** (**N**etwork **I**nterface **C**ards) can work in *promiscuous* or *monitor mode*.
+
+In **promiscuous mode** a network card will accept and process any packet it receives (hub network for example), instead of discarding any packet addressed to another NIC (normal operation).
+
+- Sniffing other machines traffic in switched networks is harder than in hub-based networks. An ARP poisoning or a MAC flooding attack has to be performed in order to do that.
+- WiFi medium (the air) is broadcast by nature, so it is possible to detect traffic destined to a different host.
+
+### Capturing
+
+- Open **`wireshark`** as admin/root user.
+- Select the capture interface from the main page and start capturing with double-click on it:
+
+![](.gitbook/assets/image-20220315234807994.png)
+
+- To check for the capture options before starting it, click "*Capture*" in the menu, in the window that opens, there are some useful informations:
+  - used interface
+  - NIC in promiscuous mode
+  - **`capture filtering`**
+
+![](.gitbook/assets/image-20220315235625728.png)
+
+- Captured traffic can be saved in a **`PCAP`** files, that can be opened with wireshark, resulting in this view:
+  - Upper pane: useful information like Source, Destination, Protocol, Info (protocol specific).
+  - Center pane: packet layer by layer with all the protocols used by the packet.
+  - Bottom pane: packet payload
+
+![](.gitbook/assets/image-20220316000934546.png)
+
+### Filtering
+
+- Wireshark can **filter** traffic at capture or at display time.
+- ***Capture filters*** can be set before starting the capture and Wireshark will capture only packets matching the filters.
+  - Pro: They downsize the amount of traffic gathered, with the final capture *smaller*.
+  - Con: Cannot tune filter during capture, must restart capture from scratch.
+
+![](.gitbook/assets/image-20220316002351606.png)
+
+- ***Display filters*** allow to inspect and apply granular filters to every field of the packets.
+  - Pro: Can always remove or tune a display filter. Might catch interesting traffic.
+  - Cons: *larger* PCAP file.
+  - Display filters examples:
+
+![](.gitbook/assets/image-20220316003841454.png)
+
+![](.gitbook/assets/image-20220316003150791.png)
+
+> 📌 Refer to the [Wireshark User's Guide](https://www.wireshark.org/docs/wsug_html_chunked/) for more in depth information.
+
+------
+

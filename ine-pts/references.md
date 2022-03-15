@@ -43,4 +43,8 @@
   * [DNS Explained](https://dev.to/blake/dns-explained-hierarchy-and-architecture-18pj)
   * [DNS Resolution](https://dev.to/blake/dns-explained-resolution-a2i)
   * [Root name servers](https://www.netnod.se/i-root/what-are-root-name-servers)
-  * 
+* [Wireshark Tool](https://www.wireshark.org/)
+  * [Wireshark Docs](https://www.wireshark.org/docs/)
+  * [Wireshark User's Guide](https://www.wireshark.org/docs/wsug_html_chunked/)
+  * [Display filter reference](https://www.wireshark.org/docs/dfref/)
+* 
