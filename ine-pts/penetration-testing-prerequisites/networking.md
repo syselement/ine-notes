@@ -625,11 +625,26 @@ In **promiscuous mode** a network card will *accept and process any packet it re
 - ***Display filters*** allow to inspect and apply granular filters to every field of the packets.
   - Pro: Can always remove or tune a display filter. Might catch interesting traffic.
   - Cons: *larger* PCAP file.
-  - Display filters examples:
+  - Display filters and captures examples:
 
 ![](.gitbook/assets/image-20220316003841454.png)
 
 ![](.gitbook/assets/image-20220316003150791.png)
+
+- **`arp`** request example:
+
+![](.gitbook/assets/image-20220319104543984.png)
+
+- **`ping my.ine.com`** / DNS query example:
+
+![](.gitbook/assets/image-20220319102044060.png)
+
+- **`TCP`** 3-way handshake:
+  - First package has SYN flag set
+  - Second package has SYN + ACK flags set
+  - Third package has ACK flag set
+
+![](.gitbook/assets/image-20220319105641201.png)
 
 > 📌 Refer to the [Wireshark User's Guide](https://www.wireshark.org/docs/wsug_html_chunked/) for more in depth information.
 
