@@ -10,6 +10,12 @@ The Kali OS GUI instance is web hosted on the INE website, where:
 
 *Objective*: Transfer the zipped archive to your Kali machine using HTTP protocol and retrieve the flag!
 
+***Tools*** used:
+
+- **`nmap`**, **`curl`**
+- A web browser
+- Python Scripting
+
 ## SOLUTION
 
 - 
