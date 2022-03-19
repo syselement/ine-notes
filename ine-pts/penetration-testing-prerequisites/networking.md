@@ -554,7 +554,7 @@ For example: [my.ine.com](https://my.ine.com/)
 | --------- | ----------- | ---------------- |
 | my        | ine         | com              |
 
-
+- DNS queries use UDP protocol.
 
 ### DNS Names Resolution
 
@@ -647,6 +647,8 @@ In **promiscuous mode** a network card will *accept and process any packet it re
 ![](.gitbook/assets/image-20220319105641201.png)
 
 > 📌 Refer to the [Wireshark User's Guide](https://www.wireshark.org/docs/wsug_html_chunked/) for more in depth information.
+>
+> 🔬 Check [_Data-Exfiltration_](../exam-preparation-labs/p.t.-prerequisites-labs/data-exfiltration.md) lab.
 
 ------
 

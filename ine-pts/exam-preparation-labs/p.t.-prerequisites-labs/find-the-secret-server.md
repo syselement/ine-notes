@@ -11,6 +11,8 @@ The Kali OS GUI instance is web hosted on the INE website, where:
 
 *Objective*: Configure the routes on the Kali machine to reach all the hosts in the networks.
 
+## SOLUTION
+
 - Check Kali instance current routes and Kali's IP address:
 
   - **`route`**
