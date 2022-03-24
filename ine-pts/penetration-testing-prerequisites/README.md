@@ -1,6 +1,6 @@
 # Penetration Testing Prerequisites
 
-### Topics:
+### Topics
 
 * Information Security
 * Foundational and technical skills on:
@@ -11,7 +11,7 @@
 * Theoretical + Hands on sessions (Labs)
 * Differences between **hacking**, **vulnerability assessment** and **penetration testing**.
 
-### Sections:
+### Sections
 
 1. [Introduction](introduction.md)
 2. [Networking](networking.md)
