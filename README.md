@@ -17,10 +17,10 @@ description: >-
 
 ### Course duration:
 
-1. Penetration testing prerequisites ~ 20 hours
-2. Penetration testing: Preliminary skills and programming ~ 15 hours
-3. Penetration testing basics ~ 40 hours
-4. eJPT Exam preparation ~ 4 hours
+1. [Penetration testing prerequisites](ine-pts/penetration-testing-prerequisites/README.md)  ~ 20 hours
+2. [Penetration testing: Preliminary skills and programming](ine-pts/preliminary-skills-and-programming/README.md) ~ 15 hours
+3. [Penetration testing basics](ine-pts/penetration-testing-basics/README.md) ~ 40 hours
+4. [eJPT Exam preparation](ine-pts/exam-preparation-labs/README.md) ~ 4+ hours
 
 ### Useful links:
 
