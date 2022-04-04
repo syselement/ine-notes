@@ -47,4 +47,8 @@
   * [Wireshark Docs](https://www.wireshark.org/docs/)
   * [Wireshark User's Guide](https://www.wireshark.org/docs/wsug_html_chunked/)
   * [Display filter reference](https://www.wireshark.org/docs/dfref/)
-* 
+
+### Web Applications
+
+- [WebApp vs WebSite](https://www.guru99.com/difference-web-application-website.html)
+- 
