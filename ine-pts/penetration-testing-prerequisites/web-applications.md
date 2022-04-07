@@ -26,12 +26,12 @@
 
 | *The structure of an HTTP message* |
 | ---------------------------------- |
-| **Start line**\r\\n                |
-| **Headers**\r\\n                   |
-| \r\\n                              |
-| **Message Body**\r\\n              |
+| **Start line**\r\\n.               |
+| **Headers**\r\\n.                  |
+| \r\\n.                             |
+| **Message Body**\r\\n.             |
 
-- **`\r\\n`** (carriage return & newline) are used to the lines in HTTP.
+- **`"\r\n"`** (carriage return & newline) are used to the lines in HTTP.
 
 - Each start-line contains 3 elements:
 
