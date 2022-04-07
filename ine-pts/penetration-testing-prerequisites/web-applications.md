@@ -26,12 +26,12 @@
 
 | *The structure of an HTTP message* |
 | ---------------------------------- |
-| **Start line**\r\n                 |
-| **Headers**\r\n                    |
-| \r\n                               |
-| **Message Body**\r\n               |
+| **Start line**\r\\n                |
+| **Headers**\r\\n                   |
+| \r\\n                              |
+| **Message Body**\r\\n              |
 
-- **`\r\n`** (carriage return & newline) are used to the lines in HTTP.
+- **`\r\\n`** (carriage return & newline) are used to the lines in HTTP.
 
 - Each start-line contains 3 elements:
 
@@ -65,9 +65,9 @@
 
 ### HTTP Responses
 
-The web server processes the request and sends an HTTP response back to the client:
+The web server *processes the request and sends an HTTP response* back to the client:
 
-  - The start-line, called the `status-line`, contains the protocol version, a status code and a status text.
+  - The start-line, called the **`status-line`**, contains the protocol version, a status code and a status text.
   - HTTP headers same as above, different headers may appear, such as:
     - `Cache-Control` - informs the client about cached content (saves bandwidth)
     - `Content-Type` - lets the client know how to interpret the body
@@ -105,15 +105,15 @@ Connection: close
 
 - Common status codes:
 
-|        Status code        | Meaning                                                      |
-| :-----------------------: | :----------------------------------------------------------- |
-|          200 OK           | the request has succeeded (***Successful codes 2xx***)       |
-|   301 Moved Permanently   | the target resource has been assigned a new permanent URI (***Redirection codes 3xx***) |
-|         302 Found         | the target resource resides temporarily under a different URI (Redirection codes 3xx) |
-|       403 Forbidden       | the server understood the request but refuses to authorize it, client doesn't have enough privileges (***Client Error codes 4xx***) |
-|       404 Not Found       | the origin server did not find a current representation for the target resource or is not willing to disclose that one exists (Client Error codes 4xx) |
-| 500 Internal Server Error | the server encountered an unexpected condition that prevented it from fulfilling the request (***Server Error codes 5xx***) |
-|      502 Bad Gateway      | the server, while acting as a gateway or proxy, received an invalid response from an inbound server it accessed while attempting to fulfill the request (Server Error codes 5xx) |
+|          Status code          | Meaning                                                      |
+| :---------------------------: | :----------------------------------------------------------- |
+|          **200** OK           | the request has succeeded (***Successful codes 2xx***)       |
+|   **301** Moved Permanently   | the target resource has been assigned a new permanent URI (***Redirection codes 3xx***) |
+|         **302** Found         | the target resource resides temporarily under a different URI (Redirection codes 3xx) |
+|       **403** Forbidden       | the server understood the request but refuses to authorize it, client doesn't have enough privileges (***Client Error codes 4xx***) |
+|       **404** Not Found       | the origin server did not find a current representation for the target resource or is not willing to disclose that one exists (Client Error codes 4xx) |
+| **500** Internal Server Error | the server encountered an unexpected condition that prevented it from fulfilling the request (***Server Error codes 5xx***) |
+|      **502** Bad Gateway      | the server, while acting as a gateway or proxy, received an invalid response from an inbound server it accessed while attempting to fulfill the request (Server Error codes 5xx) |
 
 > 📌 For more in depth info refer to [RFC 7321 -  Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content](https://httpwg.org/specs/rfc7231.html)
 >
