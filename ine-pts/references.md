@@ -47,4 +47,16 @@
   * [Wireshark Docs](https://www.wireshark.org/docs/)
   * [Wireshark User's Guide](https://www.wireshark.org/docs/wsug_html_chunked/)
   * [Display filter reference](https://www.wireshark.org/docs/dfref/)
-* 
+
+### Web Applications
+
+- [WebApp vs WebSite](https://www.guru99.com/difference-web-application-website.html)
+- [HTTP/1.x](https://hpbn.co/http1x/)
+  - [HTTP Messages](https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages)
+  - [HTTP headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept)
+  - [HTTP request methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/GET)
+  - [HTTP response status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/200)
+  - [RFC 7231](https://httpwg.org/specs/rfc7231.html)
+- [HTTP vs HTTPS](https://www.guru99.com/difference-http-vs-https.html)
+- [High Performance Browser Networking - Book](https://hpbn.co/) 
+- 
