@@ -118,4 +118,5 @@ Connection: close
 > 📌 For more in depth info refer to [RFC 7321 -  Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content](https://httpwg.org/specs/rfc7231.html)
 >
 
-## HTTPS
+## HTTPS Protocol Basics
+
