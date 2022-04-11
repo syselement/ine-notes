@@ -146,7 +146,7 @@ HTTP (a clear-text protocol) can be protected using an **encryption** layer, by 
 
 **`nv -h`**
 
-![](.gitbook/assets/image-20220411221336787.png)
+![](.gitbook/assets/image-20220411221502839.png)
 
 - Establishing a connection to the example.com server and communicate via HTTP:
 
