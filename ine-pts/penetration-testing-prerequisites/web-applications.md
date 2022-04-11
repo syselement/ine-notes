@@ -243,7 +243,7 @@ HTTP (a clear-text protocol) can be protected using an **encryption** layer, by 
 **`Burp Suite`** is an integrated platform and graphical tool for performing security testing of web apps, by testing, mapping and analyze the application's attack surface.
 
 - it is written in Java, developed by [PortSwigger](https://portswigger.net/).
-- can be used as proxy server, scanner, intruder, repeater, spider, decoder, comparer, sequencer, extender.
+- can be used as proxy server, scanner, intruder, repeater, spider, decoder, comparer, sequencer, extender and more.
 
 Using the ***Repeater*** tool:
 
