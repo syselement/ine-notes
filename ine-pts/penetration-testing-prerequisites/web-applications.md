@@ -142,24 +142,24 @@ HTTP (a clear-text protocol) can be protected using an **encryption** layer, by 
 **`netcat`** or **`nc`** is a tool that reads and writes data accross network connections (opens a raw connection to a service port for example), using TCP or UDP protocol.
 
 - considered as a Swiss army knife of networking tools
-- used to debug and monitor network connections, scan for open ports, transfer data, and more
+- used to debug and monitor network connections, scan for open ports, transfer data, listen for incoming connections (reverse shells) and more
 
-**`nv -h`**
+**`nc -h`**
 
 ![](.gitbook/assets/image-20220411221502839.png)
 
-- Establishing a connection to the example.com server and communicate via HTTP:
+- Establishing a connection to a server and communicate via HTTP:
 
-> **`nv -v example.com 80`**
+> - **`nc -v example.com 80`**
 >
 > ```bash
 > $ nc -v example.com 80
 > Warning: inverse host lookup failed for 93.184.216.34: Unknown host
 > example.com [93.184.216.34] 80 (http) open
 > GET / HTTP/1.1			# Input Request
-> Host: example.com		# 2 lines \n after this line
+> Host: example.com		# 2 lines \r\n after this line
 > 
-> HTTP/1.1 200 OK			# Response
+> HTTP/1.1 200 OK			# Response - status line
 > Accept-Ranges: bytes
 > Age: 414218
 > Cache-Control: max-age=604800
@@ -185,3 +185,59 @@ HTTP (a clear-text protocol) can be protected using an **encryption** layer, by 
 > </html>
 > 
 > ```
+>
+> - **`nc -v my.ine.com 80`**
+>
+> ```bash
+> $ nc -v my.ine.com 80                                                     
+> DNS fwd/rev mismatch: my.ine.com != server-108-138-36-10.muc50.r.cloudfront.net
+> DNS fwd/rev mismatch: my.ine.com != server-108-138-36-101.muc50.r.cloudfront.net
+> DNS fwd/rev mismatch: my.ine.com != server-108-138-36-96.muc50.r.cloudfront.net
+> DNS fwd/rev mismatch: my.ine.com != server-108-138-36-29.muc50.r.cloudfront.net
+> my.ine.com [108.138.36.10] 80 (http) open
+> GET / HTTP/1.1			# Input Request
+> Host: my.ine.com		# 2 lines \r\n after this line
+> 
+> HTTP/1.1 301 Moved Permanently	# Response - status line
+> Server: CloudFront
+> Date: Mon, 11 Apr 2022 20:18:56 GMT
+> Content-Type: text/html
+> Content-Length: 183
+> Connection: keep-alive
+> Location: https://my.ine.com/	# Index page moved here
+> X-Cache: Redirect from cloudfront	# X- headers are for non-standard usage
+> Via: 1.1 210c8ad3e752d602af05a2de06eb2ff8.cloudfront.net (CloudFront)
+> X-Amz-Cf-Pop: MUC50-P2	
+> X-Amz-Cf-Id: 7zDSRlBNtqmIjJuUwda9jFQkwxA0lzp4w0Lv3R0vNlkzdapfvQPRcQ==
+> 
+> <html>
+> <head><title>301 Moved Permanently</title></head>
+> <body bgcolor="white">
+> <center><h1>301 Moved Permanently</h1></center>
+> <hr><center>CloudFront</center>
+> </body>
+> </html>
+> 
+> HEAD / HTTP/1.1			# Input HEAD Request
+> Host: my.ine.com		# 2 lines \r\n after this line
+> 
+> ...
+> ```
+
+- Check if a port is opened:
+
+> - **`nc -zv HOST PORT#`**
+>   - **-z** - Performs a port scan against a given host and port or port range.
+>
+> ```bash
+> $ nc -zv my.ine.com 443 
+> DNS fwd/rev mismatch: my.ine.com != server-143-204-98-103.fra50.r.cloudfront.net
+> DNS fwd/rev mismatch: my.ine.com != server-143-204-98-77.fra50.r.cloudfront.net
+> DNS fwd/rev mismatch: my.ine.com != server-143-204-98-59.fra50.r.cloudfront.net
+> DNS fwd/rev mismatch: my.ine.com != server-143-204-98-6.fra50.r.cloudfront.net
+> my.ine.com [143.204.98.103] 443 (https) open	# Port 443 open
+> ```
+
+### Burp Suite
+
+...
