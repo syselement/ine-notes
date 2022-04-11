@@ -247,19 +247,13 @@ HTTP (a clear-text protocol) can be protected using an **encryption** layer, by 
 
 Using the ***Repeater*** tool:
 
-> - Example of a GET request on port 80:
->
-> ![](.gitbook/assets/image-20220412002111740.png)
->
-> - Example of a *301 Moved Permanently* response and redirection:
->
->   - 301 response received:
->
->   ![](.gitbook/assets/image-20220412002857935.png)
->
->   - By clicking the **`Follow redirection`** button, it follows the redirection (to the *Location*) in the current response without manually modifying the request to the target domain. I this case it got redirected to the HTTPS page:
->
->   ![](.gitbook/assets/image-20220412003409074.png)
+- Example of a GET request on port 80:
+![](.gitbook/assets/image-20220412002111740.png)
+- Example of a *301 Moved Permanently* response and redirection:
+  - 301 response received:
+  ![](.gitbook/assets/image-20220412002857935.png)
+  - By clicking the **`Follow redirection`** button, it follows the redirection (to the *Location*) in the current response without manually modifying the request to the target domain. I this case it got redirected to the HTTPS page:
+  ![](.gitbook/assets/image-20220412003409074.png)
 
 ### OpenSSL
 
