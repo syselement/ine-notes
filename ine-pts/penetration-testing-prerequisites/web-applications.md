@@ -20,7 +20,7 @@
 - The client (a web browser) connects to a web server (usually Microsoft IIS, Apache HTTP Server, or others) by sending HTTP **requests** to the server and getting back HTTP **responses**.
 - First a TCP connection is established, then the HTTP messages are sent.
 
-![hpbn.co/http1x/](.gitbook/assets/image-20220407181153473.png)
+![HTML Request - Image by hpbn.co](.gitbook/assets/image-20220407181153473.png)
 
 ### HTTP Requests
 
@@ -131,7 +131,7 @@ HTTP (a clear-text protocol) can be protected using an **encryption** layer, by 
   - Target IP address and target port can be recongnized
   - DNS (or similar protocols) may disclose which domain user tries to resolve
 
-![[TLS Handshake](https://hpbn.co/transport-layer-security-tls/#tls-handshake-protocol)](.gitbook/assets/image-20220411201109560.png)
+![TLS Handshake - Image by hpbn.co](.gitbook/assets/image-20220411201109560.png)
 
 
 
