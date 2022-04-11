@@ -59,4 +59,6 @@
   - [RFC 7231](https://httpwg.org/specs/rfc7231.html)
 - [HTTP vs HTTPS](https://www.guru99.com/difference-http-vs-https.html)
 - [High Performance Browser Networking - Book](https://hpbn.co/) 
+- [What is HTTPS](https://www.cloudflare.com/it-it/learning/ssl/what-is-https/)
+- [TLS - Transport Layer Security](https://hpbn.co/transport-layer-security-tls/)
 - 

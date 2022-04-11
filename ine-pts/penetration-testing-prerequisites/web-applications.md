@@ -26,10 +26,10 @@
 
 | *The structure of an HTTP message* |
 | ---------------------------------- |
-| **Start line**`\r\n`               |
-| **Headers**`\r\\n`                 |
-| `\r\\n`                            |
-| **Message Body**\r\\n.             |
+| "**Start line**\r\n"               |
+| "**Headers**\r\n"                  |
+| "\r\n"                             |
+| "**Message Body**\r\n"             |
 
 - **`"\r\n"`** (carriage return & newline) are used to the lines in HTTP.
 
@@ -119,4 +119,19 @@ Connection: close
 >
 
 ## HTTPS Protocol Basics
+
+HTTP (a clear-text protocol) can be protected using an **encryption** layer, by using a *cryptographic protocol* like SSL/TLS.
+
+**`HTTPS`** (HTTP Secure) is a method to run HTTP over SSL/TLS. 
+
+- This encryption layer protects data exchanged between the client and the server, but it does *not protect against web application flaws*. XSS and SQL injections attack will still work.
+- It provides **confidentiality**, **integrity protection** and **authentication** to the HTTP protocol.
+- Application layer communication cannot be sniffed or altered by an eventual attacker.
+- Traffic can be sniffed and inspected by a user, but he cannot know HTTP headers, body, target domain or what data is exchanged.
+  - Target IP address and target port can be recongnized
+  - DNS (or similar protocols) may disclose which domain user tries to resolve
+
+![[TLS Handshake](https://hpbn.co/transport-layer-security-tls/#tls-handshake-protocol)](.gitbook/assets/image-20220411201109560.png)
+
+
 
