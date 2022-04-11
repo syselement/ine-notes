@@ -227,7 +227,7 @@ HTTP (a clear-text protocol) can be protected using an **encryption** layer, by 
 - Check if a port is opened:
 
 > - **`nc -zv HOST PORT#`**
->   - **-z** - Performs a port scan against a given host and port or port range.
+>   - **-z** performs a port scan against a given host and port or port range.
 >
 > ```bash
 > $ nc -zv my.ine.com 443 
@@ -239,5 +239,28 @@ HTTP (a clear-text protocol) can be protected using an **encryption** layer, by 
 > ```
 
 ### Burp Suite
+
+**`Burp Suite`** is an integrated platform and graphical tool for performing security testing of web apps, by testing, mapping and analyze the application's attack surface.
+
+- it is written in Java, developed by [PortSwigger](https://portswigger.net/).
+- can be used as proxy server, scanner, intruder, repeater, spider, decoder, comparer, sequencer, extender.
+
+Using the ***Repeater*** tool:
+
+> - Example of a GET request on port 80:
+>
+> ![](.gitbook/assets/image-20220412002111740.png)
+>
+> - Example of a *301 Moved Permanently* response and redirection:
+>
+>   - 301 response received:
+>
+>   ![](.gitbook/assets/image-20220412002857935.png)
+>
+>   - By clicking the **`Follow redirection`** button, it follows the redirection (to the *Location*) in the current response without manually modifying the request to the target domain. I this case it got redirected to the HTTPS page:
+>
+>   ![](.gitbook/assets/image-20220412003409074.png)
+
+### OpenSSL
 
 ...
