@@ -582,7 +582,7 @@ A **`resolver`** server must be contacted by the client O.S. to perform the DNS 
 
 ## Wireshark
 
-Wireshark is a network sniffer tool and protocol analyzer.
+**Wireshark** is a network sniffer tool and protocol analyzer.
 
 - It can capture and analyze all the traffic seen by network interfaces of the computer running it.
 - Most **`NIC`** (**N**etwork **I**nterface **C**ards) can work in *promiscuous* or *monitor mode*.

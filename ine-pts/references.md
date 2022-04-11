@@ -60,5 +60,7 @@
 - [HTTP vs HTTPS](https://www.guru99.com/difference-http-vs-https.html)
 - [High Performance Browser Networking - Book](https://hpbn.co/) 
 - [What is HTTPS](https://www.cloudflare.com/it-it/learning/ssl/what-is-https/)
-- [TLS - Transport Layer Security](https://hpbn.co/transport-layer-security-tls/)
+  - [TLS - Transport Layer Security](https://hpbn.co/transport-layer-security-tls/)
 
+- [netcat Tool](https://linuxize.com/post/netcat-nc-command-with-examples/)
+  - [netcat Cheat Sheet](https://steflan-security.com/netcat-cheat-sheet/)

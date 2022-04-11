@@ -135,3 +135,81 @@ HTTP (a clear-text protocol) can be protected using an **encryption** layer, by 
 
 > 📌 Refer to the [High Performance Browser Networking](https://hpbn.co/transport-layer-security-tls/) book for more in depth information.
 
+## Command Line / GUI Tools
+
+### Netcat
+
+**`netcat`** or **`nc`** is a tool that reads and writes data accross network connections (opens a raw connection to a service port for example), using TCP or UDP protocol.
+
+- considered as a Swiss army knife of networking tools
+- used to debug and monitor network connections, scan for open ports, transfer data, and more
+
+```bash
+$ netcat -h
+[v1.10-47]
+connect to somewhere:	nc [-options] hostname port[s] [ports] ... 
+listen for inbound:	nc -l -p port [-options] [hostname] [port]
+options:
+	-c shell commands	as `-e'; use /bin/sh to exec [dangerous!!]
+	-e filename		program to exec after connect [dangerous!!]
+	-b			allow broadcasts
+	-g gateway		source-routing hop point[s], up to 8
+	-G num			source-routing pointer: 4, 8, 12, ...
+	-h			this cruft
+	-i secs			delay interval for lines sent, ports scanned
+	-k                      set keepalive option on socket
+	-l			listen mode, for inbound connects
+	-n			numeric-only IP addresses, no DNS
+	-o file			hex dump of traffic
+	-p port			local port number
+	-r			randomize local and remote ports
+	-q secs			quit after EOF on stdin and delay of secs
+	-s addr			local source address
+	-T tos			set Type Of Service
+	-t			answer TELNET negotiation
+	-u			UDP mode
+	-v			verbose [use twice to be more verbose]
+	-w secs			timeout for connects and final net reads
+	-C			Send CRLF as line-ending
+	-z			zero-I/O mode [used for scanning]
+port numbers can be individual or ranges: lo-hi [inclusive];
+hyphens in port names must be backslash escaped (e.g. 'ftp\-data').
+```
+
+- Establishing a connection to the example.com server and communicate via HTTP:
+
+> **`nv -v example.com 80`**
+>
+> ```bash
+> $ nc -v example.com 80
+> Warning: inverse host lookup failed for 93.184.216.34: Unknown host
+> example.com [93.184.216.34] 80 (http) open
+> GET / HTTP/1.1 # Input Request
+> Host: example.com # 2 lines \n after this line
+> 
+> HTTP/1.1 200 OK	# Response
+> Accept-Ranges: bytes
+> Age: 414218
+> Cache-Control: max-age=604800
+> Content-Type: text/html; charset=UTF-8
+> Date: Mon, 11 Apr 2022 20:05:16 GMT
+> Etag: "3147526947"
+> Expires: Mon, 18 Apr 2022 20:05:16 GMT
+> Last-Modified: Thu, 17 Oct 2019 07:18:26 GMT
+> Server: ECS (dcb/7F84)
+> Vary: Accept-Encoding
+> X-Cache: HIT
+> Content-Length: 1256
+> 
+> <!doctype html>
+> <html>
+> <head>
+>     ...
+> </head>
+> 
+> <body>
+> ...
+> </body>
+> </html>
+> 
+> ```
