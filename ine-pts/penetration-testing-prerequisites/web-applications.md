@@ -261,4 +261,115 @@ Using the ***Repeater*** tool:
 
 ### OpenSSL
 
+**`OpenSSL`** is a full-featured toolkit for general-purpose cryptography and secure communication, a widely used implementation of the **T**ransport **L**ayer **S**ecurity (**TLS**) protocol.
+
+> 📌 Check the [OpenSSL Cookbook](https://www.feistyduck.com/library/openssl-cookbook/online/) by Ivan Ristić.
+
+- Establish a HTTPS connection using the ***s_client*** subcommand:
+  - *the SSL handshake is only done at the beginning of the session.*
+
+> - **`openssl s_client -connect my.ine.com:443`**
+>
+> ```bash
+> $ openssl s_client -connect my.ine.com:443
+> 
+> CONNECTED(00000003)
+> depth=2 C = US, O = Amazon, CN = Amazon Root CA 1
+> verify return:1
+> depth=1 C = US, O = Amazon, OU = Server CA 1B, CN = Amazon
+> verify return:1
+> depth=0 CN = *.ine.com
+> verify return:1
+> ---				# Certificate info exchanged
+> Certificate chain
+>  0 s:CN = *.ine.com
+>    i:C = US, O = Amazon, OU = Server CA 1B, CN = Amazon
+>  1 s:C = US, O = Amazon, OU = Server CA 1B, CN = Amazon
+>    i:C = US, O = Amazon, CN = Amazon Root CA 1
+>  2 s:C = US, O = Amazon, CN = Amazon Root CA 1
+>    i:C = US, ST = Arizona, L = Scottsdale, O = "Starfield Technologies, Inc.", CN = Starfield Services Root Certificate Authority - G2
+>  3 s:C = US, ST = Arizona, L = Scottsdale, O = "Starfield Technologies, Inc.", CN = Starfield Services Root Certificate Authority - G2
+>    i:C = US, O = "Starfield Technologies, Inc.", OU = Starfield Class 2 Certification Authority
+> ---
+> Server certificate
+> -----BEGIN CERTIFICATE-----
+> ...
+> -----END CERTIFICATE-----
+> subject=CN = *.ine.com
+> 
+> issuer=C = US, O = Amazon, OU = Server CA 1B, CN = Amazon
+> 
+> ---
+> No client certificate CA names sent
+> Peer signing digest: SHA256
+> Peer signature type: RSA-PSS
+> Server Temp Key: X25519, 253 bits
+> ---				# Client-server handshake
+> SSL handshake has read 5463 bytes and written 376 bytes
+> Verification: OK
+> ---
+> New, TLSv1.3, Cipher is TLS_AES_128_GCM_SHA256
+> Server public key is 2048 bit
+> Secure Renegotiation IS NOT supported
+> Compression: NONE
+> Expansion: NONE
+> No ALPN negotiated
+> Early data was not sent
+> Verify return code: 0 (ok)
+> ---
+> ```
+>
+> - **`openssl s_client -connect HOTS:PORT -debug`** - to analyze the handshake and the encrypted communication.
+> - **`openssl s_client -connect HOTS:PORT -state`** - to print the state of the handshake.
+> - **`openssl s_client -connect HOTS:PORT -quiet`** - no s_client output.
+>
+> ```bash
+> $ openssl s_client -connect my.ine.com:443 -quiet
+> depth=2 C = US, O = Amazon, CN = Amazon Root CA 1
+> verify return:1
+> depth=1 C = US, O = Amazon, OU = Server CA 1B, CN = Amazon
+> verify return:1
+> depth=0 CN = *.ine.com
+> verify return:1
+> GET / HTTP/1.1		# GET Request manually sent, same as with nc
+> Host: my.ine.com
+> 
+> HTTP/1.1 200 OK		# Server Response
+> Content-Type: text/html
+> Content-Length: 6656
+> Connection: keep-alive
+> Date: Tue, 12 Apr 2022 16:50:43 GMT
+> Last-Modified: Mon, 11 Apr 2022 15:29:44 GMT
+> ETag: "2de37bd7e8c98aff5172792c663c4881"
+> Cache-Control: no-store
+> x-amz-version-id: rob8do2yVAbhoKDnnTj.UcTtzRk.DTov
+> Accept-Ranges: bytes
+> Server: AmazonS3
+> Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
+> Content-Security-Policy: frame-ancestors 'none';
+> X-Content-Type-Options: nosniff
+> X-XSS-Protection: 1; mode=block
+> Referrer-Policy: same-origin
+> Vary: Accept-Encoding
+> X-Cache: Miss from cloudfront
+> Via: 1.1 39070ec61414daba1536aa06ac19ebb0.cloudfront.net (CloudFront)
+> X-Amz-Cf-Pop: MUC51-C1
+> X-Amz-Cf-Id: X4re8iPqni_Dsa8p6gIiFWtCCiMWPJ1HS81oxdWJlHo1uDvDRm0ziQ==
+> 
+> <!DOCTYPE html><html lang=en><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover">
+> ...
+> </body></html>
+> 
+> ```
+
+- In Burp Suite, HTTPS can be flagged to be used in the *Repeater target configuration*:
+  - no handshake/encryption shown
+  - focus on analyzing the request
+
+![](.gitbook/assets/image-20220412190752010.png)
+
+![](.gitbook/assets/image-20220412191055150.png)
+
+## HTTP Cookies
+
 ...
