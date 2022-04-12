@@ -263,7 +263,7 @@ Using the ***Repeater*** tool:
 
 **`OpenSSL`** is a full-featured toolkit for general-purpose cryptography and secure communication, a widely used implementation of the **T**ransport **L**ayer **S**ecurity (**TLS**) protocol.
 
-> 📌 Check the [OpenSSL Cookbook](https://www.feistyduck.com/library/openssl-cookbook/online/) by Ivan Ristić.
+> 📕 Check the [OpenSSL Cookbook](https://www.feistyduck.com/library/openssl-cookbook/online/) by Ivan Ristić.
 
 - Establish a HTTPS connection using the ***s_client*** subcommand:
   - *the SSL handshake is only done at the beginning of the session.*
@@ -356,7 +356,7 @@ Using the ***Repeater*** tool:
 > X-Amz-Cf-Pop: MUC51-C1
 > X-Amz-Cf-Id: X4re8iPqni_Dsa8p6gIiFWtCCiMWPJ1HS81oxdWJlHo1uDvDRm0ziQ==
 > 
-> <!DOCTYPE html><html lang=en><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover">
+> <!DOCTYPE html><html lang=en><head>
 > ...
 > </body></html>
 > 
@@ -369,6 +369,8 @@ Using the ***Repeater*** tool:
 ![](.gitbook/assets/image-20220412190752010.png)
 
 ![](.gitbook/assets/image-20220412191055150.png)
+
+> 📌 More on Burp Suite in the [PortSwigger Documentation](https://portswigger.net/burp/documentation/desktop/getting-started)
 
 ## HTTP Cookies
 
