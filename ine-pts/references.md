@@ -64,6 +64,7 @@
 
 - [netcat Tool](https://linuxize.com/post/netcat-nc-command-with-examples/)
   - [netcat Cheat Sheet](https://steflan-security.com/netcat-cheat-sheet/)
-  - [Burp Suite](https://portswigger.net/burp/communitydownload)
+  - [Burp Suite](https://portswigger.net/burp/documentation/desktop)
   - [OpenSSL Cookbook](https://www.feistyduck.com/library/openssl-cookbook/online/)
 - 
+
