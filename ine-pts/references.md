@@ -53,9 +53,9 @@
 - [WebApp vs WebSite](https://www.guru99.com/difference-web-application-website.html)
 - [HTTP/1.x](https://hpbn.co/http1x/)
   - [HTTP Messages](https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages)
-  - [HTTP headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept)
-  - [HTTP request methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/GET)
-  - [HTTP response status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/200)
+  - [HTTP Headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept)
+  - [HTTP Request methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/GET)
+  - [HTTP Response status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/200)
   - [RFC 7231](https://httpwg.org/specs/rfc7231.html)
 - [HTTP vs HTTPS](https://www.guru99.com/difference-http-vs-https.html)
 - [High Performance Browser Networking - Book](https://hpbn.co/) 
@@ -66,5 +66,8 @@
   - [netcat Cheat Sheet](https://steflan-security.com/netcat-cheat-sheet/)
   - [Burp Suite](https://portswigger.net/burp/documentation/desktop)
   - [OpenSSL Cookbook](https://www.feistyduck.com/library/openssl-cookbook/online/)
-- 
+- [HTTP Cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies)
+  - [RFC 6265](https://www.rfc-editor.org/rfc/rfc6265)
+  - 
+
 

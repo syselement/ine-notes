@@ -374,4 +374,47 @@ Using the ***Repeater*** tool:
 
 ## HTTP Cookies
 
-...
+> ⚡ P.T. Usage:
+>
+> * Cookies are foundation of authorization of many applications
+> * Lots of exploits rely on stealing cookies
+
+To make HTTP (stateless) work like a **stateful** protocol, cookies were invented by Netscape (in 1994).
+
+- **`Cookies`** are stored in the **cookie jar** of the web browser, a storage space used by the browser.
+- To set a cookie, the server must use the `Set-Cookie` HTTP header filed in the response message. The cookie will be sent from the server to the user agent.
+
+```http
+HTTP/1.1 200 OK
+Date: Thu, 14 Apr 2022 18:30:56 GMT
+Content-Length: 0
+Connection: close
+Cache-Control: no-cache
+Set-Cookie: obuid=9f0fec5b-0f7e-49fb-a11a-3f2ae3592dd6; Max-Age=7776000; Expires=Wed, 13 Jul 2022 18:30:56 GMT; Path=/; Domain=.outbrain.com;SameSite=None;Secure
+Set-Cookie: adrl=Nzg1YzVjMzMwOTZkYmIyNzljYjMzZWRiYTA4OTkwZTY; Max-Age=1728000; Expires=Wed, 04 May 2022 18:30:56 GMT; Path=/; Domain=.outbrain.com;SameSite=None;Secure
+X-TraceId: d009bd334ba3d13cf0f7c47929b642fa
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+> 📌 For more in depth info refer to [RFC 6265 - HTTP State Management Mechanism](https://www.rfc-editor.org/rfc/rfc6265)
