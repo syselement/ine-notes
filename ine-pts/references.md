@@ -67,7 +67,8 @@
   - [Burp Suite](https://portswigger.net/burp/documentation/desktop)
   - [OpenSSL Cookbook](https://www.feistyduck.com/library/openssl-cookbook/online/)
 - [HTTP Cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies)
-  - [RFC 6265](https://www.rfc-editor.org/rfc/rfc6265)
-  - 
-
+  - [RFC 6265](https://datatracker.ietf.org/doc/html/rfc6265).
+  - [Set-Cookie header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie)
+  - [Web Authentication - Cookies vs Tokens](https://blog.bitsrc.io/web-authentication-cookies-vs-tokens-8e47d5a96d34)
+- 
 

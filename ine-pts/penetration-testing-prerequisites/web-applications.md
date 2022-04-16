@@ -382,7 +382,7 @@ Using the ***Repeater*** tool:
 To make HTTP (stateless) work like a **stateful** protocol, cookies were invented by Netscape (in 1994).
 
 - **`Cookies`** are stored in the **cookie jar** of the web browser, a storage space used by the browser.
-- To set a cookie, the server must use the `Set-Cookie` HTTP header filed in the response message. The cookie will be sent from the server to the user agent.
+- To set a cookie, the server must use the `Set-Cookie` HTTP header field in the response message. The cookie will be sent from the server to the user agent:
 
 ```http
 HTTP/1.1 200 OK
@@ -395,26 +395,42 @@ Set-Cookie: adrl=Nzg1YzVjMzMwOTZkYmIyNzljYjMzZWRiYTA4OTkwZTY; Max-Age=1728000; E
 X-TraceId: d009bd334ba3d13cf0f7c47929b642fa
 ```
 
+### Cookies Format
 
+Cookies contain the following attributes:
 
+| **Attribute**                             | **Value**                      |
+| ----------------------------------------- | ------------------------------ |
+| Cookie content - KEY=Value                | `Cookie-NameID=<Cookie-Value>` |
+| Expiration date - validity time window    | `Expires=<date>`               |
+| Max-Age - Seconds until cookie expiration | `Max-Age=<number_in_seconds>`  |
+| Path - in the requested URL               | `Path=<path-value>`            |
+| Domain - Host to send the cookie to       | `Domain=<domain-value>`        |
+| Optional Flags                            | `Secure; HttpOnly; SameSite;`  |
 
+- Cookies are sent only to the valid domain/path, according to their expiration date and their flags, and browsers use these attributes to choose to send a cookie in a request or not.
 
+### Cookies  Domain & Path
 
+- The **scope** of the cookie is set by the `Domain` and `Path` fields, so the browser send the cookie only to the right domain.
 
+- After a web server sets the domain field via a cookie, the browser *will use the cookie for every request sent to that domain and all its subdomains*.
 
+  - If domain attribute is not specified, the browser will automatically *set the domain as the server domain* and set the `host-only` flag. The cookie will be *sent only the that precise hostname*.
 
+- The browser will send a cookie to the right domain *and to any subpath of the **path field value***.
 
+### Other Attributes
 
+- **Expired** cookies are not sent to the server and session cookies expire with the HTTP session.
+- **`HttpOnly`** flag forbids JavaScript from accessing the cookie. It prevents any non-HTML technology (JavaScript, Flash, Java ...) from reading the cookie, mitigating *cross-site scripting attacks* (cookie stealing via **XSS**).
+- **`Secure`** flag creates secure cookies sent only over an HTTP**S** connection. It's more resistant to *man-in-the-middle attacks* (**MITM**).
+- A server can set **multiple values** (key=value) with a single Set-Cookie header.
 
+![Cookie-Based Authentication - image by chameeradulanga.medium.com](.gitbook/assets/image-20220416113822221.png)
 
+> 📌 For more in depth info on cookies format and usage, refer to the [RFC 6265 - HTTP State Management Mechanism](https://datatracker.ietf.org/doc/html/rfc6265).
 
+## Sessions
 
-
-
-
-
-
-
-
-
-> 📌 For more in depth info refer to [RFC 6265 - HTTP State Management Mechanism](https://www.rfc-editor.org/rfc/rfc6265)
+...
