@@ -454,7 +454,7 @@ Browser activities generating session cookies are:
 - opening a specific web page
 - change settings in the web application
 
-> 📌 For more in depth informations check [Beginner Guide to Understand Cookies and Session Management](https://www.hackingarticles.in/beginner-guide-understand-cookies-session-management/) article.
+> 📌 For more in depth informations check the [Beginner Guide to Understand Cookies and Session Management](https://www.hackingarticles.in/beginner-guide-understand-cookies-session-management/) article.
 
 ## Same Origin Policy (SOP)
 
@@ -466,6 +466,8 @@ Browser activities generating session cookies are:
 - SOP allows embedding of external resources with HTML tags like `img`, `script`, `iframe`, `video`, etc. Any JS on the page won't be able to read the contents of these resources.
 - There some exceptions to the same-origin policy (`location`, `length`, `replace`, others).
 - Cookies are often accessible from all subdomains of a site (the is technically a different origin) - check the `HttpOnly` flag.
+
+> 📌 [PortSwigger Academy SOP Explanation](https://portswigger.net/web-security/cors/same-origin-policy)
 
 ------
 
