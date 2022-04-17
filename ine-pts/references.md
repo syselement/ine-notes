@@ -70,5 +70,11 @@
   - [RFC 6265](https://datatracker.ietf.org/doc/html/rfc6265).
   - [Set-Cookie header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie)
   - [Web Authentication - Cookies vs Tokens](https://blog.bitsrc.io/web-authentication-cookies-vs-tokens-8e47d5a96d34)
+  - [Session ID](https://www.seobility.net/en/wiki/Session_ID)
+  - [Session Cookies](https://securiti.ai/blog/session-cookies/)
+  - [Cookies and Session Management](https://www.hackingarticles.in/beginner-guide-understand-cookies-session-management/)
+- [SOP](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy)
+  - [Same Origin Policy - PortSwigger](https://portswigger.net/web-security/cors/same-origin-policy)
+
 - 
 

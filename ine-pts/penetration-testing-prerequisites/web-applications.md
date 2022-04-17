@@ -416,7 +416,7 @@ Cookies contain the following attributes:
 
 - After a web server sets the domain field via a cookie, the browser *will use the cookie for every request sent to that domain and all its subdomains*.
 
-  - If domain attribute is not specified, the browser will automatically *set the domain as the server domain* and set the `host-only` flag. The cookie will be *sent only the that precise hostname*.
+  - If domain attribute is not specified, the browser will automatically *set the domain as the server domain* and set the **`host-only`** flag. The cookie will be *sent only the that precise hostname*.
 
 - The browser will send a cookie to the right domain *and to any subpath of the **path field value***.
 
@@ -432,5 +432,43 @@ Cookies contain the following attributes:
 > 📌 For more in depth info on cookies format and usage, refer to the [RFC 6265 - HTTP State Management Mechanism](https://datatracker.ietf.org/doc/html/rfc6265).
 
 ## Sessions
+
+Websites can also store information (variables specific for a given visit) on the **server side** instead of the client side, by using **sessions**.
+
+- Each user session is identified by a **`session id`** or **`token`** assigned by the server to the client, which presents this ID for each subsequent request.
+  - By that session ID, the server retrieves the state of the client and its associated variables.
+  - Session ID can be stored as a cookie, form field or URL.
+  - It is a unique number used to identify a logged in user session.
+- Application logic is hidden and the cost of cookies data transmission is reduced.
+
+### Session Cookies
+
+Session IDs are installed on the web browser by using **session cookies**.
+
+- Each development language has its own default session parameter name: `PHPSESSID`, `JSESSIONID`, custom-names, etc.
+- Session IDs are also transmitted via `GET` requests.
+
+Browser activities generating session cookies are:
+
+- logging in 
+- opening a specific web page
+- change settings in the web application
+
+> 📌 For more in depth informations check [Beginner Guide to Understand Cookies and Session Management](https://www.hackingarticles.in/beginner-guide-understand-cookies-session-management/) article.
+
+## Same Origin Policy (SOP)
+
+**`SOP`** (**S**ame **O**rigin **P**olicy) is a web browser security mechanism that restricts scripts on one origin from accessing data from another origin. For example, it *prevents* JavaScript code from getting or setting properties on a resource *coming from a different origin*.
+
+- Web application security is entirely based on Same Origin Policy.
+- ***Domain*** (hostname), ***port*** and ***protocol*** must match to determine if JavaScript can access a resource.
+- SOP applies to the actual code of a script.
+- SOP allows embedding of external resources with HTML tags like `img`, `script`, `iframe`, `video`, etc. Any JS on the page won't be able to read the contents of these resources.
+- There some exceptions to the same-origin policy (`location`, `length`, `replace`, others).
+- Cookies are often accessible from all subdomains of a site (the is technically a different origin) - check the `HttpOnly` flag.
+
+------
+
+## Burp Suite Tool
 
 ...
