@@ -456,6 +456,10 @@ Browser activities generating session cookies are:
 
 > 📌 For more in depth informations check the [Beginner Guide to Understand Cookies and Session Management](https://www.hackingarticles.in/beginner-guide-understand-cookies-session-management/) article.
 
+A web developer tool can be used to analyze web applications, examine, edit, and debug HTML, CSS, and JavaScript, inspect and manipulate Cookies.
+
+- Firefox has a built in set of web developer tools - [Firefox DevTools](https://firefox-source-docs.mozilla.org/devtools-user/index.html).
+
 ## Same Origin Policy (SOP)
 
 **`SOP`** (**S**ame **O**rigin **P**olicy) is a web browser security mechanism that restricts scripts on one origin from accessing data from another origin. For example, it *prevents* JavaScript code from getting or setting properties on a resource *coming from a different origin*.
