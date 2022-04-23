@@ -518,7 +518,7 @@ Burp Suite will let a user:
 
   - Provides syntax highlighting, raw and rendered responses, integration with other Burp tools.
   - `netcat` or `telnet` can be used to do the same thing too, without the above benefits.
-  - Proxy can intercept a request and send it to the Repeater function (**`CTRL+R`**)
+  - Proxy can intercept a request and send it to the Repeater function (**`CTRL+R`**):
 
 ![](.gitbook/assets/image-20220423105105048.png)
 
