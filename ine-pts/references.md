@@ -2,14 +2,14 @@
 
 * [INE Starter Pass](https://checkout.ine.com/starter-pass)
 
-### Introduction
+## Introduction
 
 * [The Conscience of a Hacker](http://phrack.org/issues/7/3.html)
 * [Wireshark](https://www.wireshark.org)
   * [Learn Wireshark](https://www.wireshark.org/#learnWS)
 * [Binary Hex Converters](https://www.binaryhexconverter.com)
 
-### Networking
+## Networking
 
 * [IP Header](https://www.guru99.com/ip-header.html)
 * [TCP/IP Model Stack - Layers & Protocols](https://www.guru99.com/tcp-ip-model.html)
@@ -48,7 +48,7 @@
   * [Wireshark User's Guide](https://www.wireshark.org/docs/wsug_html_chunked/)
   * [Display filter reference](https://www.wireshark.org/docs/dfref/)
 
-### Web Applications
+## Web Applications
 
 - [WebApp vs WebSite](https://www.guru99.com/difference-web-application-website.html)
 - [HTTP/1.x](https://hpbn.co/http1x/)
@@ -83,5 +83,4 @@
 - [ZAP by OWASP Foundation](https://owasp.org/www-project-zap/#)
 
 - [What is a Proxy Server](https://www.varonis.com/blog/what-is-a-proxy-server)
-
 
