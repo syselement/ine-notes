@@ -64,7 +64,7 @@
 
 - [netcat Tool](https://linuxize.com/post/netcat-nc-command-with-examples/)
   - [netcat Cheat Sheet](https://steflan-security.com/netcat-cheat-sheet/)
-  - [Burp Suite](https://portswigger.net/burp/documentation/desktop)
+  - [Burp Suite - Documentation](https://portswigger.net/burp/documentation/desktop)
   - [OpenSSL Cookbook](https://www.feistyduck.com/library/openssl-cookbook/online/)
 - [HTTP Cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies)
   - [RFC 6265](https://datatracker.ietf.org/doc/html/rfc6265).
@@ -73,8 +73,15 @@
   - [Session ID](https://www.seobility.net/en/wiki/Session_ID)
   - [Session Cookies](https://securiti.ai/blog/session-cookies/)
   - [Cookies and Session Management](https://www.hackingarticles.in/beginner-guide-understand-cookies-session-management/)
+  - [HTTP Cookies & Sessions - video by HackerSploit](https://www.youtube.com/watch?v=zHBpJA5XfDk)
 - [SOP](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy)
   - [Same Origin Policy - PortSwigger](https://portswigger.net/web-security/cors/same-origin-policy)
 
-- 
+- [Burp Suite by PortSwigger](https://portswigger.net/burp)
+  - [Burp Suite Tools](https://portswigger.net/burp/documentation/desktop/tools)
+
+- [ZAP by OWASP Foundation](https://owasp.org/www-project-zap/#)
+
+- [What is a Proxy Server](https://www.varonis.com/blog/what-is-a-proxy-server)
+
 
