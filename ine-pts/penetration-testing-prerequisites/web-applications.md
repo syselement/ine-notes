@@ -482,7 +482,7 @@ A web developer tool can be used to analyze web applications, examine, edit, and
 > * Web application behavior study and analysis 
 > * Attacks, finding and test vulnerabilities
 
-**Burp Suite** is an **`intercepting proxy`**, a tool that let the user *analyze and modify any request and any response* exchanged between an HTTP client and server.
+**Burp Suite** is an **`intercepting proxy`**, a tool that lets the user *analyze and modify any request and any response* exchanged between an HTTP client and server.
 
 - Another widely used intercepting tool is OWASP **Z**ed **A**ttack **P**roxy (**ZAP**).
 - Intercepting proxy is NOT a web proxy. Proxy servers provides a gateway (a layer of security as web filters, firewalls) between end-users and the web pages they visit online.
@@ -514,7 +514,7 @@ Burp Suite will let a user:
 
   ![](.gitbook/assets/image-20220423103834515.png)
 
-- **Repeater** - used for manually manipulating and reissuing raw HTTP and WebSocket messages, analyzing the application's response.
+- **Repeater** - used for manually manipulating and reissuing raw HTTP and WebSocket messages, in order to analyze the application's response.
 
   - Provides syntax highlighting, raw and rendered responses, integration with other Burp tools.
   - `netcat` or `telnet` can be used to do the same thing too, without the above benefits.
