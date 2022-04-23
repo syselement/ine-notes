@@ -520,7 +520,7 @@ Burp Suite will let a user:
   - `netcat` or `telnet` can be used to do the same thing too, without the above benefits.
   - Proxy can intercept a request and send it to the Repeater function (**`CTRL+R`**):
 
-![](.gitbook/assets/image-20220423105105048.png)
+![](.gitbook/assets/image-20220423111559091.png)
 
 > 📌 For a better overview of all the Burp Suite Tools, check the official documentation [here](https://portswigger.net/burp/documentation/desktop/tools).
 
