@@ -502,17 +502,17 @@ Burp Suite will let a user:
 
 - **Proxy** - operates as a web proxy server that let the user *view, intercept, inspect and modify the raw traffic passing in both directions*. Operates in conjunction with Burp's browser (or with external browser with [Burp's CA certificate](https://portswigger.net/burp/documentation/desktop/external-browser-config/certificate) and an addon like [FoxyProxy](https://addons.mozilla.org/it/firefox/addon/foxyproxy-standard/)).
 
-  ![](.gitbook/assets/image-20220423102403009.png)
+![](.gitbook/assets/image-20220423102403009.png)
 
   - Intercept and modify headers in the *Raw* tab or in the *Headers* tab of the Inspector tool.
 
-  ![](.gitbook/assets/image-20220423103354656.png)
+![](.gitbook/assets/image-20220423103354656.png)
 
   - Even with interception off, Burp will still collect info on the traffic. This can be checked in the ***Proxy - History** tab* or in the ***Target - Site Map*** tab.
 
-  ![](.gitbook/assets/image-20220423103745939.png)
+![](.gitbook/assets/image-20220423103745939.png)
 
-  ![](.gitbook/assets/image-20220423103834515.png)
+![](.gitbook/assets/image-20220423103834515.png)
 
 - **Repeater** - used for manually manipulating and reissuing raw HTTP and WebSocket messages, in order to analyze the application's response.
 
@@ -520,11 +520,11 @@ Burp Suite will let a user:
   - `netcat` or `telnet` can be used to do the same thing too, without the above benefits.
   - Proxy can intercept a request and send it to the Repeater function (**`CTRL+R`**)
 
-  ![](.gitbook/assets/image-20220423105105048.png)
+![](.gitbook/assets/image-20220423105105048.png)
 
 > 📌 For a better overview of all the Burp Suite Tools, check the official documentation [here](https://portswigger.net/burp/documentation/desktop/tools).
->
-> ![Burp Suite tools - image by portswigger.net](.gitbook/assets/image-20220423105251006.png)
+
+![Burp Suite tools - image by portswigger.net](.gitbook/assets/image-20220423105251006.png)
 
 ------
 
