@@ -523,6 +523,8 @@ Burp Suite will let a user:
 ![](.gitbook/assets/image-20220423111559091.png)
 
 > 📌 For a better overview of all the Burp Suite Tools, check the official documentation [here](https://portswigger.net/burp/documentation/desktop/tools).
+>
+> 🔬 Check [_Burp Suite Basics_](../exam-preparation-labs/p.t.-prerequisites-labs/burp-suite-basics.md) and [_Burp Suite Directory Enumeration_](../exam-preparation-labs/p.t.-prerequisites-labs/burp-suite-directory-enumeration.md) labs.
 
 ![Burp Suite tools - image by portswigger.net](.gitbook/assets/image-20220423105251006.png)
 
