@@ -86,7 +86,7 @@ Ports **80** (HTTP) and **3306** (MySQL) are open.
 
 ![](.gitbook/assets/image-20220505163806935.png)
 
-- Browse to http://demo.ine.local/
+- Browse to `http://demo.ine.local/`
   - The page doesn't load, because the request is forwarded to the Burp proxy listener.
   - **Proxy - Intercept** tabs are marked with orange. The proxy is waiting for an action.
 
