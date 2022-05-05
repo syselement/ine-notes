@@ -184,3 +184,5 @@ The Kali OS GUI instance is web hosted on the INE website, where:
 ![](.gitbook/assets/image-20220505131635395.png)
 
 > 📍 Lab solved!
+>
+> 📌 Check [An Introduction to Web Shells - by Acunetix](https://www.acunetix.com/blog/articles/introduction-web-shells-part-1/)
