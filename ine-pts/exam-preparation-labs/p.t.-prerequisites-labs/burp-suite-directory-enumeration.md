@@ -1,2 +1,0 @@
-# Burp Suite - Directory Enumeration
-

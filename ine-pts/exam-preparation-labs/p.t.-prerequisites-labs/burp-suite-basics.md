@@ -1,4 +1,4 @@
-# Burp Suite Basics
+# Burp Suite Basics - Directory Enumeration
 
 ## 🔬
 
