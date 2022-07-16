@@ -28,4 +28,4 @@ https://asciinema.org/a/0zv7lHWJYCUcXKto5huMay2XK
 
 
 
-<img src=".gitbook/assets/demo.gif" alt="demo" style="zoom: 80%;" />
+![demo](.gitbook/assets/demo.gif)
