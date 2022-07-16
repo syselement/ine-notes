@@ -23,3 +23,9 @@ https://asciinema.org/a/0zv7lHWJYCUcXKto5huMay2XK
 ```http
 <a href="https://asciinema.org/a/0zv7lHWJYCUcXKto5huMay2XK?autoplay=1"><img src="https://asciinema.org/a/0zv7lHWJYCUcXKto5huMay2XK.png" width="836"/></a>
 ```
+
+
+
+
+
+<img src=".gitbook/assets/demo.gif" alt="demo" style="zoom: 80%;" />
