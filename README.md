@@ -7,7 +7,7 @@ description: >-
 
 # **eJPT Certification**
 
-![](.gitbook/assets/eJPT.png)
+![eJPT - © eLearnSecurity](.gitbook/assets/eJPT.png)
 
 ### PTS (Penetration Testing Student) LEARNING PATH
 
