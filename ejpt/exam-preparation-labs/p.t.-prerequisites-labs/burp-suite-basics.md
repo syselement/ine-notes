@@ -89,7 +89,7 @@ Ports **80** (HTTP) and **3306** (MySQL) are open.
   * The page doesn't load, because the request is forwarded to the Burp proxy listener.
   * **Proxy - Intercept** tabs are marked with orange. The proxy is waiting for an action.
 
-![](.gitbook/assets/image-20220505164317595.png)
+![](<.gitbook/assets/image-20220505164321563 (1).png>)
 
 1. **`Forward`** option - send the request as is
 2. **`Drop`** option - drop the intercepted request
