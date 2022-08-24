@@ -1,2 +1,0 @@
-# P.T. Programming Labs
-

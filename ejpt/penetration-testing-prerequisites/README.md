@@ -1,4 +1,6 @@
-# Penetration Testing Prerequisites
+# Penetration Testing Prerequisites (from PTSv1)
+
+*These notes are from the first part of the PTS Learning Path on INE.*
 
 ### Topics
 
@@ -7,13 +9,10 @@
   * Computer networks
   * Protocols
   * Web applications
-  * PenTesting process
 * Theoretical + Hands on sessions (Labs)
-* Differences between **hacking**, **vulnerability assessment** and **penetration testing**.
 
 ### Sections
 
 1. [Introduction](introduction.md)
 2. [Networking](networking.md)
 3. [Web Applications](web-applications.md)
-4. [Penetration Testing](penetration-testing.md)
