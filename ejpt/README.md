@@ -1,15 +1,15 @@
 ---
 description: >-
-  eLearnSecurity Junior Penetration Tester (eJPT v2) - a practical certification on
+  eLearnSecurity Junior Penetration Tester (eJPTv2) - a practical certification on
   penetration testing and information security essentials - training by the INE
-  PTSv2 learning path
+  Penetration Testing Student v2 (PTSv2) learning path
 ---
 
 # **eJPTv2 Certification**
 
 ![eJPT - © eLearnSecurity](.gitbook/assets/eJPT.png)
 
-## PTSv2 (Penetration Testing Student v2) LEARNING PATH
+## PTSv2 Learning Path
 
 - covers pre-requisite topics introducing information security, programming and pentesting.
 - prepares for the eJPTv2 exam & certification.
@@ -32,7 +32,7 @@ Activities: 4 sections , 12 courses , 229 videos, 154 quizzes, 120 labs
 
 As these notes started with my PTS v1 study, I've decided to keep my **Penetration testing prerequisites** notes [here](penetration-testing-prerequisites/README.md).
 
-## Exam - eJPTv2 (eLearnSecurity Junior Penetration Tester v2) 
+## eJPTv2 Exam
 
 - Time limit: 2 days (**48 hours** lab on)
 - Questions: **35**
