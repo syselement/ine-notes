@@ -1,6 +1,6 @@
-# Penetration Testing Prerequisites (from PTSv1)
+# 📒 Penetration Testing Prerequisites
 
-*These notes are from the first part of the PTS Learning Path on INE.*
+_These notes are from the first part of the PTS Learning Path on INE._
 
 ### Topics
 
