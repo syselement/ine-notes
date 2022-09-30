@@ -18,10 +18,11 @@
       * [Find the Secret Server](ejpt/exam-preparation-labs/p.t.-prerequisites-labs/find-the-secret-server.md)
       * [Data Exfiltration](ejpt/exam-preparation-labs/p.t.-prerequisites-labs/data-exfiltration.md)
       * [Burp Suite Basics - Directory Enumeration](ejpt/exam-preparation-labs/p.t.-prerequisites-labs/burp-suite-basics.md)
-  * [📜 Glossary](ejpt/glossary.md)
-  * [🌐 References](ejpt/references.md)
+  * [📜Glossary](ejpt/glossary.md)
+  * [🌐References](ejpt/references.md)
 
 
 ***
 
-- [🏠 syselement's Blog Home](https://syselement.gitbook.io/blog/)
+- [🏠syselement's Blog Home](https://syselement.gitbook.io/blog/)
+
