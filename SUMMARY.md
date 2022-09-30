@@ -5,7 +5,7 @@
 ## Courses
 
 * [INE - PTSv2](ejpt/README.md)
-  * [📒 Penetration Testing Prerequisites](ejpt/penetration-testing-prerequisites/README.md)
+  * [📒Penetration Testing Prerequisites](ejpt/penetration-testing-prerequisites/README.md)
     * [Introduction](ejpt/penetration-testing-prerequisites/introduction.md)
     * [Networking](ejpt/penetration-testing-prerequisites/networking.md)
     * [Web Applications](ejpt/penetration-testing-prerequisites/web-applications.md)
