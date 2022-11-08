@@ -1,7 +1,5 @@
 # 🌐 References
 
-* [INE Starter Pass](https://checkout.ine.com/starter-pass)
-
 ## Introduction
 
 * [The Conscience of a Hacker](http://phrack.org/issues/7/3.html)
@@ -84,3 +82,8 @@
 
 - [What is a Proxy Server](https://www.varonis.com/blog/what-is-a-proxy-server)
 
+## Assessment Methodologies & Auditing
+
+## Host & Network Penetration Testing
+
+## Web App Penetration Testing
