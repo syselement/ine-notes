@@ -82,8 +82,10 @@
 
 - [What is a Proxy Server](https://www.varonis.com/blog/what-is-a-proxy-server)
 
-## Assessment Methodologies & Auditing
+## Assessment Methodologies
 
-## Host & Network Penetration Testing
+## Auditing
 
-## Web App Penetration Testing
+## Host & Network PenTesting
+
+## Web App PenTesting
