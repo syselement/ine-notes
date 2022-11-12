@@ -4,4 +4,4 @@
 
 ## INE Training - Notes
 
-- ### [eJPTv2 - PTSv2](ejpt/README.md) by Josh Mason & Alexis Ahmed
+- ### [eJPTv2 - PTSv2](ejpt/README.md) by Josh Mason & [Alexis Ahmed](https://alexisahmed.com/)
