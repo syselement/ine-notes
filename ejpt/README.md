@@ -60,3 +60,6 @@ As these notes started with my PTS v1 study, I've decided to keep my [**Penetrat
 - Flexible structure for the user
 - **Dynamic flags**: randomly generated flags injected into the lab environment
 - Testing your ability to **find the answer**. How you do it is up to you.
+
+------
+

@@ -72,7 +72,7 @@ Pentesters can specialize in specific InfoSec sectors:
 - Social Engineering
 - Other...
 
-> 📌Be passionate, skilled and hungry for knowledge!
+> 📌 Be passionate, skilled and hungry for knowledge!
 
 ------
 
