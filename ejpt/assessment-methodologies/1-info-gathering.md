@@ -45,7 +45,7 @@
 ### What active information?
 
 - Open ports, internal network/organization infrastructure
-- Enumeration targe info
+- Enumeration target info
 
 ### Code of conduct
 
