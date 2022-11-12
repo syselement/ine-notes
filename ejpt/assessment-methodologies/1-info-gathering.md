@@ -71,32 +71,32 @@
 
 ------
 
-# Passive Information Gathering
+## Passive Information Gathering
 
-## Website Recon & Footprinting
+### Website Recon & Footprinting
 
-## Whois Enumeration
+### Whois Enumeration
 
-## Website Footprinting with Netcraft
+### Website Footprinting with Netcraft
 
-## DNS Reconnaissance
+### DNS Reconnaissance
 
-## WAF
+### WAF
 
-## Subdomain Enumeration with Sublist3r
+### Subdomain Enumeration with Sublist3r
 
-## Google Dorks
+### Google Dorks
 
-## Email Harvesting
+### Email Harvesting
 
-## Leaked Password Databases
+### Leaked Password Databases
 
 ------
 
-# Active Information Gathering
+## Active Information Gathering
 
-## DNS Zone Transfers
+### DNS Zone Transfers
 
-## Host Discovery with Nmap
+### Host Discovery with Nmap
 
-## Port Scanning With Nmap
+### Port Scanning With Nmap
