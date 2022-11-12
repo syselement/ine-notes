@@ -69,7 +69,6 @@
 > - **Share your knowledge.**
 > - **Above all, exercise common sense.**
 
-------
 
 ## Passive Information Gathering
 
