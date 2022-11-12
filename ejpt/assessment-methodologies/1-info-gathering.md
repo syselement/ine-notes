@@ -72,7 +72,9 @@
 
 ## Passive Information Gathering
 
-### Website Recon & Footprinting
+### Website Reconnaissance & Footprinting
+
+
 
 ### Whois Enumeration
 
