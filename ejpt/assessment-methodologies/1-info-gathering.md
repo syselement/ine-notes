@@ -67,23 +67,6 @@
 > * **Share your knowledge.**
 > * **Above all, exercise common sense.**
 
-{% tabs %}
-{% tab title="Intro to Passive Information Gathering" %}
-**Passive information gathering** involves _obtaining as much data as possible without actively interacting with the target_.
-
-* The pentester uses what's available on the Internet.
-* `E.g.` - Website: utilizing publicly accessible information and resources of that particular website, through the browser, public IP address of the webserver hosting that website, etc.
-{% endtab %}
-
-{% tab title="Intro to Active Information Gathering" %}
-**Active information gathering** involves _obtaining as much information as possible by actively engaging with the target_.
-
-* ❗_**An authorization is required to conduct active information gathering.**_
-* The target will be aware of the attacker's engagement.
-* `E.g.` - Website: perform a port scan of the webserver IP address (found with passive info gathering) using **`nmap`** tool to identify the open ports and running services. Identify exploitable vulnerabilities on those services and consequently access the web server.
-{% endtab %}
-{% endtabs %}
-
 ## Passive Information Gathering
 
 ### Website Recon & Footprinting
