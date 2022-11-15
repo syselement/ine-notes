@@ -21,7 +21,7 @@
   - during the info-gathering phase, learn more about the company employees (names, email addresses, credentials), getting this important information (useful for exploitation or initial access) by using phishing attacks, malicious attachments via email (another **access vector**)
 
 
-## Passive Information Gathering
+## Passive Information Gathering Introduction
 
 **Passive information gathering** involves *obtaining as much data as possible without actively interacting with the target*. 
 
@@ -34,7 +34,7 @@
 - Email addresses, social media profiles
 - Web technologies, subdomains
 
-## Active Information Gathering
+## Active Information Gathering Introduction
 
 **Active information gathering** involves *obtaining as much information as possible by actively engaging with the target*.
 
