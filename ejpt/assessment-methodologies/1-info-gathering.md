@@ -155,7 +155,7 @@ sudo apt install httrack
 ### Website Footprinting with Netcraft
 
 - **[Netcraft](https://www.netcraft.com/internet-data-mining/)** *provides internet security services for a large number of use cases, including cybercrime detection and disruption, application testing and PCI scanning.*
-  - It collates previous information identified with other tools, outputs an easy to read format.
+  - It collates previous information identified with other tools and outputs an easy to read format.
 - [Netcraft - Hackersploit.org](https://sitereport.netcraft.com/?url=https://hackersploit.org) - check the information needed for the pentest:
   - Background
   - Network: domain IP address, Nameserver, Domain registrar, IP delegation
