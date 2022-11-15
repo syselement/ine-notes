@@ -85,9 +85,15 @@
 ## Assessment Methodologies
 
 - [Passive Information Gathering](https://www.dummies.com/article/academics-the-arts/study-skills-test-prep/comptia-pentestplus/passive-information-gathering-for-pentesting-275726/)
+  - [Wappalyzer](https://www.wappalyzer.com/)
+  - [whois.domaintools.com](https://whois.domaintools.com/)
+  - [netcraft](https://sitereport.netcraft.com/)
+  - [dnslytics.com](https://dnslytics.com/)
+
 - [Active Information Gathering](https://www.dummies.com/article/academics-the-arts/study-skills-test-prep/comptia-pentestplus/active-information-gathering-for-pentesting-275736/)
   - [Ethical Standards](https://pentestlab.blog/2013/01/08/professional-and-ethical-standards/)
   - [The Pentester's Code of Conduct](https://www.lmgsecurity.com/the-pentesters-code-of-conduct-rules-that-keep-everyone-safe/)
+- [Ethical Hacking Footprinting](https://www.geeksforgeeks.org/ethical-hacking-footprinting/)
 - 
 
 ## Auditing

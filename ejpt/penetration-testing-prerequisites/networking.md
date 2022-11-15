@@ -116,7 +116,7 @@ The **`network`** of a host is identified using a **`netmask`** (subnet mask) pa
 * **`CIDR`** notation = **C**lassless **I**nter-**D**omain **R**outing notation
 
 $$
-Notation \to 192.168.32.0/255.255.224.0 \\ CIDR\ notation \to 192.168.32.0/19 \\ 192.168.32.0 \to network\ address \\ 192.168.32.255 \to broadcast\ address \\ Total\ number\ of\ hosts\ contained\ =\ 2^{13}=8192\ \\ Total\ number\ of\ usable\ hosts =8190
+Notation \to 192.168.32.0/255.255.224.0 \\ CIDR\ notation \to 192.168.32.0/19 \\ 192.168.32.0 \to network\ address \\ 192.168.63.255 \to broadcast\ address \\ Total\ number\ of\ hosts\ contained\ =\ 2^{13}=8192\ \\ Total\ number\ of\ usable\ hosts =8190
 $$
 
 > 📌 Practice with an [Online IP Subnet Calculator](https://www.calculator.net/ip-subnet-calculator.html).
