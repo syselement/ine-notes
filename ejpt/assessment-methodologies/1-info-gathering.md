@@ -147,7 +147,7 @@ sudo apt install httrack
 
 ![](.gitbook/assets/image-20221115223033163.png)
 
-- [who.is](https://who.is/whois/hackersploit.it) site
+- [who.is](https://who.is/whois/hackersploit.org) site
 - [domaintools.com](https://whois.domaintools.com/hackersploit.org) site
 
 ![](.gitbook/assets/image-20221115222704909.png)
