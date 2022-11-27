@@ -168,13 +168,89 @@ sudo apt install httrack
 
 ### DNS Reconnaissance
 
-- 
+- DNS Recon is used to identify DNS records associated to a domain, like A record, IP address, mail server IP.
+- [**`dnsrecon`**](https://github.com/darkoperator/dnsrecon) tool - a Python script that provides the ability to perform NS/DNS Records Enumeration, records lookup, subdomain brute force, etc.
+
+![](.gitbook/assets/image-20221126162221715.png)
+
+```bash
+dnsrecon -d hackersploit.org
+# It responds with the NameServer addresses (NS)
+# A record - IPv4 address of the website
+# AAAA record - IPv6 addresses
+# MX record - mail server address
+# TXT record - domain/site verification or other values (SPF ...)
+```
+
+![](.gitbook/assets/image-20221126162431648.png)
+
+![](.gitbook/assets/image-20221126162754153.png)
+
+- [dnsdumpster.com](https://dnsdumpster.com/) site
+  - discover hosts related to a domain
+  - map the domain in a graph `.png` image or `.xlsx` file.
+
+![](.gitbook/assets/image-20221126170656955.png)
+
+![](.gitbook/assets/image-20221126171001737.png)
+
+![zonetransfer.me - Domain map](.gitbook/assets/image-20221126171539865.png)
 
 ### WAF
 
+- **W**eb **A**pplication **F**irewall (**`WAF`**) detection with [wafw00f](https://github.com/EnableSecurity/wafw00f). It does the following:
+  - *Sends a normal HTTP request and analyses the response; this identifies a number of WAF solutions.*
+  - *If that is not successful, it sends a number of (potentially malicious) HTTP requests and uses simple logic to deduce which WAF it is.*
+  - *If that is also not successful, it analyses the responses previously returned and uses another simple algorithm to guess if a WAF or security solution is actively responding to our attacks.*
+
+![](.gitbook/assets/image-20221126175203304.png)
+
+```bash
+wafw00f -l
+# List all WAFs that it is able to detect
+```
+
+![](.gitbook/assets/image-20221126175346664.png)
+
+![wafw00f hackersploit.org](.gitbook/assets/image-20221126175427482.png)
+
+![wafw00f hackertube.net](.gitbook/assets/image-20221126175530960.png)
+
+```bash
+# -a option
+wafw00f hackertube.net -a
+wafw00f zonetransfer.me -a
+```
+
+![wafw00f hackertube.net -a](.gitbook/assets/image-20221126175831387.png)
+
+![wafw00f zonetransfer.me -a](.gitbook/assets/image-20221126175930959.png)
+
+- This would be definitely tested within the *active information gathering* phase with a port scan on the webserver IP address.
+
 ### Subdomain Enumeration with Sublist3r
 
+- To identify the subdomains of a specific domain in a passive way, **publicly available resources and databases** can be utilized.
+- [**`sublist3r`**](https://github.com/aboul3la/Sublist3r) tool - a Python tool that enumerate subdomains of websites using OSINT (**O**pen-**S**ource **Int**eligence).
+  - this example is NOT active enumeration - is is passive (using public available resources)
+  - it enumerates subdomains using search engines (Google, Yaoo, Bing ...) and other tools (Netcraft, Virustotal, DNSdumpster, ReverseDNS, ThreatCrowd).
+
+![](.gitbook/assets/image-20221126181132532.png)
+
+```bash
+sudo apt install sublist3r
+
+sublist3r -d hackersploit.com
+sublist3r -d hackersploit.com -e google,yahoo
+sublist3r -d hackersploit.com -o hs_sub_enum.txt
+# Find hackersploit.com subdomains and save the results to a text file
+```
+
+![sublist3r -d ine.com](.gitbook/assets/image-20221126190544117.png)
+
 ### Google Dorks
+
+- 
 
 ### Email Harvesting
 
