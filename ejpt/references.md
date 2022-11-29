@@ -89,7 +89,14 @@
   - [whois.domaintools.com](https://whois.domaintools.com/)
   - [netcraft](https://sitereport.netcraft.com/)
   - [dnslytics.com](https://dnslytics.com/)
-
+  - [dnsrecon tool](https://github.com/darkoperator/dnsrecon)
+  - [dnsdumpster.com](https://dnsdumpster.com/)
+  - [wafw00f tool](https://github.com/EnableSecurity/wafw00f)
+  - [sublist3r tool](https://github.com/aboul3la/Sublist3r)
+  - [google.com](https://www.google.com/)
+  - [Google Dorks Cheat Sheet](https://hackr.io/blog/google-dorks-cheat-sheet)
+  - 
+  
 - [Active Information Gathering](https://www.dummies.com/article/academics-the-arts/study-skills-test-prep/comptia-pentestplus/active-information-gathering-for-pentesting-275736/)
   - [Ethical Standards](https://pentestlab.blog/2013/01/08/professional-and-ethical-standards/)
   - [The Pentester's Code of Conduct](https://www.lmgsecurity.com/the-pentesters-code-of-conduct-rules-that-keep-everyone-safe/)

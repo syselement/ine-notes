@@ -198,7 +198,7 @@ dnsrecon -d hackersploit.org
 
 ### WAF
 
-- **W**eb **A**pplication **F**irewall (**`WAF`**) detection with [wafw00f](https://github.com/EnableSecurity/wafw00f). It does the following:
+- **W**eb **A**pplication **F**irewall (**`WAF`**) detection with [**`wafw00f`**](https://github.com/EnableSecurity/wafw00f). It does the following:
   - *Sends a normal HTTP request and analyses the response; this identifies a number of WAF solutions.*
   - *If that is not successful, it sends a number of (potentially malicious) HTTP requests and uses simple logic to deduce which WAF it is.*
   - *If that is also not successful, it analyses the responses previously returned and uses another simple algorithm to guess if a WAF or security solution is actively responding to our attacks.*
@@ -250,11 +250,25 @@ sublist3r -d hackersploit.com -o hs_sub_enum.txt
 
 ### Google Dorks
 
+- **Google Dorking**/Hacking can be utilized to identify public information pertinent to a target.
+  - Search filters for specific subdomains, files, etc using [google.com](https://www.google.com/)
+
+- First try to directly search for the specific domain and look for useful information.
+
+!["ine.com" on Google Search](.gitbook/assets/image-20221129205552223.png)
+
+- **`site:`**
+  - limit all results to the particular domain/site
+  - shows subdomains for that particular domain
 - 
 
 ### Email Harvesting
 
+- 
+
 ### Leaked Password Databases
+
+- 
 
 ------
 
@@ -262,6 +276,12 @@ sublist3r -d hackersploit.com -o hs_sub_enum.txt
 
 ### DNS Zone Transfers
 
+- 
+
 ### Host Discovery with Nmap
 
+- 
+
 ### Port Scanning With Nmap
+
+- 
