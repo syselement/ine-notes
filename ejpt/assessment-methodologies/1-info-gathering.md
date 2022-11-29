@@ -194,7 +194,7 @@ dnsrecon -d hackersploit.org
 
 ![dnsdumpster.com export](.gitbook/assets/image-20221126171001737.png)
 
-![zonetransfer.me - Domain map - dnsdumpster.com](.gitbook/assets/image-20221126171539865.png)
+![zonetransfer.me Domain map - from dnsdumpster.com](.gitbook/assets/image-20221126171539865.png)
 
 ### WAF
 
