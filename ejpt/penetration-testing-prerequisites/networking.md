@@ -95,13 +95,13 @@ The Internet Protocol (**`IP`**) runs on the Internet layer of the TCP/IP stack,
 * An **IPv4 address** is a 32 bits address, consisting of 4 Bytes/octets, separated by a dot (**.**) .
 
 $$
-1\ Byte = 8\ bits \\ 2^8=256\ values\ that\ can\ be\ represented\ from\ 0\ to\ 255 \\ IP\ Example\dashrightarrow\ 216.58.208.142
+1\ Byte = 8\ bits \\ 2^8=256\ values\ that\ can\ be\ represented\ from\ 0\ to\ 255 \\ \\ IP\ Example\dashrightarrow\ 216.58.208.142
 $$
 
 * There are some IPv4 addresses with reserved intervals:
 
 $$
-10.0.0.0/8\ (10.0.0.0\to\ 0.255.255.255)\dashrightarrow\ Private\ networks\ \\ 127.0.0.0/8\ (127.0.0.0\to\ 127.255.255.255)\dashrightarrow\ Internet\ host\ loopback\ / \ Local\ host \\ 192.168.0.0/16\ (192.168.0.0\to\ 192.168.255.255)\dashrightarrow\ Private\ networks\
+10.0.0.0/8\ (10.0.0.0\to\ 0.255.255.255)\dashrightarrow\ Private\ networks\ \\ \\ 127.0.0.0/8\ (127.0.0.0\to\ 127.255.255.255)\dashrightarrow\ Internet\ host\ loopback\ - Local\ host \\ \\ 192.168.0.0/16\ (192.168.0.0\to\ 192.168.255.255)\dashrightarrow\ Private\ networks
 $$
 
 * Refer to the [RFC 5735](https://datatracker.ietf.org/doc/html/rfc5735) for more examples and details.
@@ -116,7 +116,7 @@ The **`network`** of a host is identified using a **`netmask`** (subnet mask) pa
 * **`CIDR`** notation = **C**lassless **I**nter-**D**omain **R**outing notation
 
 $$
-Notation \to 192.168.32.0/255.255.224.0 \\ CIDR\ notation \to 192.168.32.0/19 \\ 192.168.32.0 \to network\ address \\ 192.168.63.255 \to broadcast\ address \\ Total\ number\ of\ hosts\ contained\ =\ 2^{13}=8192\ \\ Total\ number\ of\ usable\ hosts =8190
+Notation \to 192.168.32.0/255.255.224.0 \\ CIDR\ notation \to 192.168.32.0/19 \\ \\ 192.168.32.0 \to network\ address \\ 192.168.63.255 \to broadcast\ address \\ \\ Total\ number\ of\ hosts\ contained\ =\ 2^{13}=8192\ \\ Total\ number\ of\ usable\ hosts =8190
 $$
 
 > 📌 Practice with an [Online IP Subnet Calculator](https://www.calculator.net/ip-subnet-calculator.html).
@@ -131,7 +131,7 @@ $$
   * The last 4 segments of 64 bits are the Interface/Device Id.
 
 $$
-IPv6\ Example \\Regular form\dashrightarrow\ 2001:0db8:0000:0000:0000:ff00:0042:7879 \\Compressed form\dashrightarrow\ 2001:0db8::ff00:0042:7879
+IPv6\ Example \\ \\ Regular form\dashrightarrow\ 2001:0db8:0000:0000:0000:ff00:0042:7879 \\Compressed form\dashrightarrow\ 2001:0db8::ff00:0042:7879
 $$
 
 * Reserved addresses:
