@@ -1,8 +1,8 @@
 # INE Training Notes
 
-<img src=".gitbook/assets/INE-Logo-Orange-White-Revised.png" alt="elearnsecurity.com - © eLearnSecurity | ine.com - © INE" style="zoom: 50%;" />
+![elearnsecurity.com - © eLearnSecurity | ine.com - © INE](.gitbook/assets/elearninginecovermid.png)
 
-
+<img src=".gitbook/assets/INE-Logo-Orange-White-Revised.png" style="zoom: 33%;vertical-align:middle" />
 
 ## INE Training - Notes
 
