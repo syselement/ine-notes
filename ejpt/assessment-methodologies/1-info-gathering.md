@@ -109,22 +109,22 @@ host hackersploit.org
   - Avoid having the site indexed by search engines by using the "Disallow" feature, which lets the site owner designate which file or folder not to index.
   - **`/wp-content`** indicates that the website is running Wordpress
 
-![](.gitbook/assets/image-20221115212251374.png)
+![hackersploit.org/robots.txt](.gitbook/assets/image-20221115212251374.png)
 
 - **`sitemap.xml`** file - [https://hackersploit.org/sitemap.xml](https://hackersploit.org/sitemap.xml)
   - Used to provide search engines with an organized way of indexing the website.
   - List of site pages, categories, author, etc
 
-![](.gitbook/assets/image-20221115215549993.png)
+![hackersploit.org/sitemap.xml](.gitbook/assets/image-20221115215549993.png)
 
 - Broswer add-ons for **Web Technology footprinting**:
   - [Wappalyzer](https://www.wappalyzer.com/) - find out the technology stack of the website
 
-![](.gitbook/assets/image-20221115215931204.png)
+![Wappalyzer Example](.gitbook/assets/image-20221115215931204.png)
 
 - **`whatweb`** command
 
-![](.gitbook/assets/image-20221115220428770.png)
+![whatweb hackersploit.org](.gitbook/assets/image-20221115220428770.png)
 
 - Download the entire website, for analyzing the source code for example:
   - [HTTrack](https://www.httrack.com/)
@@ -134,7 +134,7 @@ sudo apt install httrack
 # Open from start menu "WebHTTrack Website Copier", opening up the web instance
 ```
 
-![](.gitbook/assets/image-20221115220852909.png)
+![HTTrack Website copier](.gitbook/assets/image-20221115220852909.png)
 
 ### Whois Enumeration
 
@@ -143,14 +143,14 @@ sudo apt install httrack
   - **`WHOIS`** *is a query and response protocol that is widely used for querying databases that store the registered users or assignees of an Internet resource, such as a domain name, an IP address block or an autonomous system, but is also used for a wider range of other information.* - [Whois - Wikipedia](https://en.wikipedia.org/wiki/WHOIS)
 - **`whois`** command
 
-![](.gitbook/assets/image-20221115222123640.png)
+![whois hackersploit.org](.gitbook/assets/image-20221115222123640.png)
 
-![](.gitbook/assets/image-20221115223033163.png)
+![whois 172.64.32.93](.gitbook/assets/image-20221115223033163.png)
 
 - [who.is](https://who.is/whois/hackersploit.org) site
 - [domaintools.com](https://whois.domaintools.com/hackersploit.org) site
 
-![](.gitbook/assets/image-20221115222704909.png)
+![domaintools.com example](.gitbook/assets/image-20221115222704909.png)
 
 ### Website Footprinting with Netcraft
 
@@ -164,14 +164,14 @@ sudo apt install httrack
   - Web Trackers
   - Site Technology: Server-Side, Client-Side, Frameworks, etc
 
-![](.gitbook/assets/image-20221115224036510.png)
+![sitereport.netcraft.com example](.gitbook/assets/image-20221115224036510.png)
 
 ### DNS Reconnaissance
 
 - DNS Recon is used to identify DNS records associated to a domain, like A record, IP address, mail server IP.
 - [**`dnsrecon`**](https://github.com/darkoperator/dnsrecon) tool - a Python script that provides the ability to perform NS/DNS Records Enumeration, records lookup, subdomain brute force, etc.
 
-![](.gitbook/assets/image-20221126162221715.png)
+![dnsrecon --help](.gitbook/assets/image-20221126162221715.png)
 
 ```bash
 dnsrecon -d hackersploit.org
@@ -182,19 +182,19 @@ dnsrecon -d hackersploit.org
 # TXT record - domain/site verification or other values (SPF ...)
 ```
 
-![](.gitbook/assets/image-20221126162431648.png)
+![dnsrecon -d hackersploit.org](.gitbook/assets/image-20221126162431648.png)
 
-![](.gitbook/assets/image-20221126162754153.png)
+![dnsrecon -d zonetransfer.me](.gitbook/assets/image-20221126162754153.png)
 
 - [dnsdumpster.com](https://dnsdumpster.com/) site
   - discover hosts related to a domain
   - map the domain in a graph `.png` image or `.xlsx` file.
 
-![](.gitbook/assets/image-20221126170656955.png)
+![dnsdumpster.com example](.gitbook/assets/image-20221126170656955.png)
 
-![](.gitbook/assets/image-20221126171001737.png)
+![dnsdumpster.com export](.gitbook/assets/image-20221126171001737.png)
 
-![zonetransfer.me - Domain map](.gitbook/assets/image-20221126171539865.png)
+![zonetransfer.me - Domain map - dnsdumpster.com](.gitbook/assets/image-20221126171539865.png)
 
 ### WAF
 
@@ -203,14 +203,14 @@ dnsrecon -d hackersploit.org
   - *If that is not successful, it sends a number of (potentially malicious) HTTP requests and uses simple logic to deduce which WAF it is.*
   - *If that is also not successful, it analyses the responses previously returned and uses another simple algorithm to guess if a WAF or security solution is actively responding to our attacks.*
 
-![](.gitbook/assets/image-20221126175203304.png)
+![wafw00f -h](.gitbook/assets/image-20221126175203304.png)
 
 ```bash
 wafw00f -l
 # List all WAFs that it is able to detect
 ```
 
-![](.gitbook/assets/image-20221126175346664.png)
+![wafw00f -l](.gitbook/assets/image-20221126175346664.png)
 
 ![wafw00f hackersploit.org](.gitbook/assets/image-20221126175427482.png)
 
@@ -235,7 +235,7 @@ wafw00f zonetransfer.me -a
   - this example is NOT active enumeration - is is passive (using public available resources)
   - it enumerates subdomains using search engines (Google, Yaoo, Bing ...) and other tools (Netcraft, Virustotal, DNSdumpster, ReverseDNS, ThreatCrowd).
 
-![](.gitbook/assets/image-20221126181132532.png)
+![sublist3r -h](.gitbook/assets/image-20221126181132532.png)
 
 ```bash
 sudo apt install sublist3r
