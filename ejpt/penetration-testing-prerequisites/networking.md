@@ -495,7 +495,7 @@ A **`Firewall`** is a specialized software module running on a computer or a ded
 
 ### IPS
 
-**`IDS`** (**I**ntrusion **P**revention **S**ystems) detect malicious activity and block it by not allowing the traffic to gain access to its target network.
+**`IPS`** (**I**ntrusion **P**revention **S**ystems) detect malicious activity and block it by not allowing the traffic to gain access to its target network.
 
 * IPS **drop** malicious requests when a threat has a _risk classification_ above a pre-defined threshold.
 * Detective and preventive technology.
