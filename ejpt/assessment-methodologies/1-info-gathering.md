@@ -147,8 +147,8 @@ sudo apt install httrack
 
 ![whois 172.64.32.93](.gitbook/assets/image-20221115223033163.png)
 
-- [who.is](https://who.is/whois/hackersploit.org) site
-- [domaintools.com](https://whois.domaintools.com/hackersploit.org) site
+- [**who.is**](https://who.is/whois/hackersploit.org) site
+- [**domaintools.com**](https://whois.domaintools.com/hackersploit.org) site
 
 ![domaintools.com example](.gitbook/assets/image-20221115222704909.png)
 
@@ -186,7 +186,7 @@ dnsrecon -d hackersploit.org
 
 ![dnsrecon -d zonetransfer.me](.gitbook/assets/image-20221126162754153.png)
 
-- [dnsdumpster.com](https://dnsdumpster.com/) site
+- [**dnsdumpster.com**](https://dnsdumpster.com/) site
   - discover hosts related to a domain
   - map the domain in a graph `.png` image or `.xlsx` file.
 
@@ -260,15 +260,107 @@ sublist3r -d hackersploit.com -o hs_sub_enum.txt
 - **`site:`**
   - limit all results to the particular domain/site
   - shows subdomains for that particular domain
-- 
+
+!["site:ine.com" on Google Search](.gitbook/assets/image-20230117171129629.png)
+
+!["site:ine.com employees" standard Google Search](.gitbook/assets/image-20230117173818457.png)
+
+- **`inurl:`**
+  - look for specific results within the website title/URL
+  - **`e.g.`** - `inurl:admin` , etc.
+
+!["site:ine.com inurl:forum" on Google Search](.gitbook/assets/image-20230117171241409.png)
+
+- **`site:*.site.com`**
+  - show **subdomains** (indexed by Google) for a particular domain
+  - usually they are exposed subdomains
+    - sometimes unintended exposed subdomains
+
+!["site:*.ine.com" on Google Search](.gitbook/assets/image-20230117172425752.png)
+
+- **`intitle:`**
+  - limit the results to subdomains with a specific work in the site title
+
+!["site:*.ine.com intitle:forum" on Google Search](.gitbook/assets/image-20230117172953025.png)
+
+- **`filetype:`**
+  - limit the results to a file type in the URL
+  - make the search query a bit more specific
+
+!["site:*.ine.com filetype:pdf" on Google Search](.gitbook/assets/image-20230117173421370.png)
+
+- **`intitle:index of`**
+  - look for sites with **directory listing** enabled, searching for ***index of***
+  - common web servers vulnerability/misconfiguration (against security)
+  - directory listing allows users to see the content of the directory
+
+!["intitle:index of" on Google Search](.gitbook/assets/image-20230117174445549.png)
+
+- **`cache:`**
+  - shows the cached website
+
+!["cache:ine.com" on Google Search](.gitbook/assets/image-20230117174639735.png)
+
+- Other Google dorking examples:
+  - **`inurl:auth_user_file.txt`**
+  - **`inurl:passwd.txt`**
+  - **`inurl:wp-config.bak`**
+- [**Google Hacking Database - exploit-db.com**](https://www.exploit-db.com/google-hacking-database)
+    - use it to search for Dorks by Category to find potentially unsecured files
+
+![Google Hacking Database - exploit-db.com](.gitbook/assets/image-20230117183216690.png)
+
+- [**Wayback Machine**](https://archive.org/web/)
+  - a digital archive by the Internet Archive
+  - captures/snapshots web pages over time
+  - check earlier version of websites
+  - on older versions of the websites there can be useful **sensitive information** leaked
+
+![ine.com on Wayback Machine](.gitbook/assets/image-20230117180911030.png)
+
+![01.09.2012 - ine.com on Wayback Machine](.gitbook/assets/image-20230117181058309.png)
 
 ### Email Harvesting
 
-- 
+- [**`theHarvester`**](https://github.com/laramies/theHarvester) tool - an open-source Python tool that performs OSINT gathering to help determine a domain's external threat landscape.
+  - used to enumerate the emails (names, IPs, URLs, subdomains) belonging to a domain target, using **publicly available resources and databases**.
+  - check the GitHub repository for more information on the [Passive](https://github.com/laramies/theHarvester#passive) and [Active](https://github.com/laramies/theHarvester#active) information gathering and [Installation](https://github.com/laramies/theHarvester/wiki/Installation).
+- In this case the tool is used for Email Harvesting.
+
+![theHarvester -h](.gitbook/assets/image-20230117185341402.png)
+
+```bash
+# Pre-installed on Kali Linux.
+theHarvester -d hackersploit.org
+theHarvester -d hackersploit.org -b dnsdumpster,duckduckgo,crtsh
+# It finds some subdomains
+```
+
+![theHarvester -d hackersploit.org](.gitbook/assets/image-20230117185637805.png)
+
+![theHarvester -d hackersploit.org -b dnsdumpster,duckduckgo,crtsh](.gitbook/assets/image-20230117185933279.png)
+
+```bash
+theHarvester -d zonetransfer.me -b all
+```
+
+![theHarvester -d zonetransfer.me -b all](.gitbook/assets/image-20230117190350307.png)
+
+- *Emails could be used to send phishing email with malicious attachments during an attack.*
 
 ### Leaked Password Databases
 
-- 
+- Email or account passwords can be potentially found and used for a **password spray attack** = use the discovered password and test it for authentication on many other services (*not part of Passive info gathering*).
+- Leaked online password databases can be utilized, usually coming from a site data breach containing the users credentials.
+- [**haveibeenpwned.com**](https://haveibeenpwned.com/) site by [Troy Hunt](https://www.troyhunt.com/)
+  - no signup, safe, reliable.
+  - insert the found target email in the site to check for data breaches
+  - for older emails there is a greater chance of finding data breaches!
+
+
+![haveibeenpwned.com - clean](.gitbook/assets/image-20230117192114283.png)
+
+![haveibeenpwned.com - breached](.gitbook/assets/image-20230117192336443.png)
 
 ------
 

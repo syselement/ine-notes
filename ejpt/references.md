@@ -95,11 +95,14 @@
   - [sublist3r tool](https://github.com/aboul3la/Sublist3r)
   - [google.com](https://www.google.com/)
   - [Google Dorks Cheat Sheet](https://hackr.io/blog/google-dorks-cheat-sheet)
-  - 
+  - [Google Hacking Database](https://www.exploit-db.com/google-hacking-database)
+  - [theHarvester tool](https://github.com/laramies/theHarvester)
+  - [haveibeenpwned.com](https://haveibeenpwned.com/)
   
 - [Active Information Gathering](https://www.dummies.com/article/academics-the-arts/study-skills-test-prep/comptia-pentestplus/active-information-gathering-for-pentesting-275736/)
   - [Ethical Standards](https://pentestlab.blog/2013/01/08/professional-and-ethical-standards/)
   - [The Pentester's Code of Conduct](https://www.lmgsecurity.com/the-pentesters-code-of-conduct-rules-that-keep-everyone-safe/)
+  - 
 - [Ethical Hacking Footprinting](https://www.geeksforgeeks.org/ethical-hacking-footprinting/)
 - 
 
