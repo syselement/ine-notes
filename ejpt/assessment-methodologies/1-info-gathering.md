@@ -279,7 +279,7 @@ sublist3r -d hackersploit.com -o hs_sub_enum.txt
 !["site:*.ine.com" on Google Search](.gitbook/assets/image-20230117172425752.png)
 
 - **`intitle:`**
-  - limit the results to subdomains with a specific work in the site title
+  - limit the results to subdomains with a specific word in the site title
 
 !["site:*.ine.com intitle:forum" on Google Search](.gitbook/assets/image-20230117172953025.png)
 
@@ -350,7 +350,7 @@ theHarvester -d zonetransfer.me -b all
 
 ### Leaked Password Databases
 
-- Email or account passwords can be potentially found and used for a **password spray attack** = use the discovered password and test it for authentication on many other services (*not part of Passive info gathering*).
+- Email or account passwords can be potentially found and used for a **password spray attack** = use the discovered passwords and test them for authentication on many other services (*not part of Passive info gathering*).
 - Leaked online password databases can be utilized, usually coming from a site data breach containing the users credentials.
 - [**haveibeenpwned.com**](https://haveibeenpwned.com/) site by [Troy Hunt](https://www.troyhunt.com/)
   - no signup, safe, reliable.
@@ -368,7 +368,7 @@ theHarvester -d zonetransfer.me -b all
 
 ### DNS Zone Transfers
 
-- 
+-  
 
 ### Host Discovery with Nmap
 
