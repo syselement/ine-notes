@@ -23,7 +23,7 @@
 
 ## Passive Information Gathering Introduction
 
-**Passive information gathering** involves *obtaining as much data as possible without actively interacting with the target*. 
+[**Passive information gathering**](#Passive Information Gathering) involves *obtaining as much data as possible without actively interacting with the target*. 
 
 - The pentester uses what's available on the Internet.
 - `E.g.` - Website: utilizing publicly accessible information and resources of that particular website, through the browser, public IP address of the webserver hosting that website, etc.
@@ -36,7 +36,7 @@
 
 ## Active Information Gathering Introduction
 
-**Active information gathering** involves *obtaining as much information as possible by actively engaging with the target*.
+[**Active information gathering**](#Active Information Gathering) involves *obtaining as much information as possible by actively engaging with the target*.
 
 - ❗***An authorization is required to conduct active information gathering.***
 - The target will be aware of the attacker's engagement.
@@ -368,9 +368,9 @@ theHarvester -d zonetransfer.me -b all
 
 ### DNS Zone Transfers
 
-> 🗒️ Check DNS theory notes [here](../penetration-testing-prerequisites/networking.md#dns)
+> 🗒️ Check basic DNS theory notes [here](../penetration-testing-prerequisites/networking.md#dns).
 
--  
+- 
 
 ### Host Discovery with Nmap
 
