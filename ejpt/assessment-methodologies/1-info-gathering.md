@@ -368,9 +368,9 @@ theHarvester -d zonetransfer.me -b all
 
 ### DNS Zone Transfers
 
-> 🗒️ Check DNS theory notes [here](../penetration-testing-prerequisites/networking.md#DNS)
+> 🗒️ Check DNS theory notes [here](../penetration-testing-prerequisites/networking.md#dns)
 
-- 
+-  
 
 ### Host Discovery with Nmap
 
