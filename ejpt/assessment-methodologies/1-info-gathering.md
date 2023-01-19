@@ -425,7 +425,7 @@ sudo nano /etc/hosts
 
 **`E.g.`** - [**`ZoneTransfer.me`**](https://digi.ninja/projects/zonetransferme.php) can be utilized for educational purposes
 
-- [Passive recon here](#dns-Reconnaissance) - using `dnsdumpster.com`, `dnsrecon`
+- [Passive recon here](#dns-reconnaissance) - using `dnsdumpster.com`, `dnsrecon`
 
 ```bash
 [-] DNSSEC is not configured for zonetransfer.me
