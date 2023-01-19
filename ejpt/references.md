@@ -38,9 +38,11 @@
   * [LinuxSecurity HOWTOs](https://linuxsecurity.com/howtos)
   * [What is NAT](https://whatismyipaddress.com/nat)
 * [DNS](https://www.interserver.net/tips/kb/dns-dns-hierarchy/)
+  * [What is DNS - by Cloudflare](https://www.cloudflare.com/learning/dns/what-is-dns/)
   * [DNS Explained](https://dev.to/blake/dns-explained-hierarchy-and-architecture-18pj)
   * [DNS Resolution](https://dev.to/blake/dns-explained-resolution-a2i)
   * [Root name servers](https://www.netnod.se/i-root/what-are-root-name-servers)
+  
 * [Wireshark Tool](https://www.wireshark.org/)
   * [Wireshark Docs](https://www.wireshark.org/docs/)
   * [Wireshark User's Guide](https://www.wireshark.org/docs/wsug_html_chunked/)
@@ -102,7 +104,12 @@
 - [Active Information Gathering](https://www.dummies.com/article/academics-the-arts/study-skills-test-prep/comptia-pentestplus/active-information-gathering-for-pentesting-275736/)
   - [Ethical Standards](https://pentestlab.blog/2013/01/08/professional-and-ethical-standards/)
   - [The Pentester's Code of Conduct](https://www.lmgsecurity.com/the-pentesters-code-of-conduct-rules-that-keep-everyone-safe/)
-  - 
+  - [DNS Records - by Cloudflare](https://www.cloudflare.com/learning/dns/dns-records/)
+  - [ZoneTransfer.me](https://digi.ninja/projects/zonetransferme.php)
+  - [DNS zone transfer and zone file](https://www.cloudns.net/blog/zone-transfer-zone-file-domain-namespace/)
+  - [dig](https://linuxize.com/post/how-to-use-dig-command-to-query-dns-in-linux/)
+  - [dig Command Examples - by Vivek Gite](https://www.cyberciti.biz/faq/linux-unix-dig-command-examples-usage-syntax/)
+  - [fierce](https://github.com/mschwager/fierce)
 - [Ethical Hacking Footprinting](https://www.geeksforgeeks.org/ethical-hacking-footprinting/)
 - 
 

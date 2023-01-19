@@ -566,7 +566,7 @@ A **`resolver`** server must be contacted by the client O.S. to perform the DNS 
 4. For every subdomain, step 3 is performed again on the authoritative DNS server.
 5. The resolver finally asks for the `host name resolution`, caches the response and returns it back to the client.
 
-> 📌 The 13 Root servers IP addresses are hardcoded in the configuration of the resolver and [publicly available](https://root-servers.org/).
+> 📌 The 13 [DNS Root servers](https://www.cloudflare.com/learning/dns/glossary/dns-root-server/) IP addresses are hardcoded in the configuration of the resolver and [publicly available](https://root-servers.org/).
 
 ### Reverse DNS Resolution
 
@@ -577,6 +577,8 @@ A **`resolver`** server must be contacted by the client O.S. to perform the DNS 
 ![](.gitbook/assets/image-20220314221253986.png)
 
 - Refer to the [RFC 1034](https://www.ietf.org/rfc/rfc1034.txt) and [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt) for more DNS examples and details.
+
+> 📌 Check more advanced explanation at the [Cloudflare DNS Glossary](https://www.cloudflare.com/learning/dns/dns-server-types/).
 
 ------
 
