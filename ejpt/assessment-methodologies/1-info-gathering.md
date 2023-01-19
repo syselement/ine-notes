@@ -423,9 +423,9 @@ sudo nano /etc/hosts
     # IP ADDRESS    # Domain Names
 ```
 
-**`E.g.`** - [**`ZoneTransfer.me`**](https://digi.ninja/projects/zonetransferme.php) can be utilized for educational purposes
+- **`E.g.`** - [**`ZoneTransfer.me`**](https://digi.ninja/projects/zonetransferme.php) can be utilized for educational purposes
 
-- [Passive recon here](#dns-reconnaissance) - using `dnsdumpster.com`, `dnsrecon`
+**Passive reconnaissance** [here](#dns-reconnaissance) - using `dnsdumpster.com`, `dnsrecon`
 
 ```bash
 [-] DNSSEC is not configured for zonetransfer.me
@@ -454,6 +454,8 @@ sudo nano /etc/hosts
 [+] 	 SRV _sip._tcp.zonetransfer.me www.zonetransfer.me 5.196.105.14 5060
 ```
 
+**Active reconnaissance**
+
 - [**`dnsenum`**](https://www.kali.org/tools/dnsenum/) tool - a multithread Perl script to enumerate DNS information of a domain and to discover non-contiguous ip blocks
   - enumerate public DNS records
   - perform automatic DNS zone transfer
@@ -472,7 +474,7 @@ dnsenum zonetransfer.me
     -----   zonetransfer.me   -----
 
 	# PASSIVE RECON
-    Host's addresses:
+    Host s addresses:
     __________________
     zonetransfer.me.        	5	IN	A	5.196.105.14
 	# ^^ Web server IP address ^^
@@ -589,16 +591,15 @@ dnsenum zonetransfer.me
 
 - `dnsenum` can fail if zone transfer is disabled (e.g. Cloudflare NS)
 
-![dnsenum hackersploit.org](.gitbook/assets/image-20230119010146033.png)
+![dnsenum hackersploit.org - failed Zone Transfers](.gitbook/assets/image-20230119010146033.png)
 
 - [**`dig`**](https://linuxize.com/post/how-to-use-dig-command-to-query-dns-in-linux/) tool - query DNS name servers
+  - *[**AXFR zone transfers**](https://www.cloudns.net/blog/zone-transfer-zone-file-domain-namespace/) are the full DNS zone transfers of all DNS data. The Primary DNS server sends the whole zone file that contains all the DNS records to the Secondary DNS servers. This assures that the secondary DNS server is well synced. It will have all the latest changes that were made to the Master DNS zone.*
 
 ```bash
 dig axfr @nsztm1.digi.ninja zonetransfer.me 
 # axfr is the zone transfer switch
 ```
-
-- *[**AXFR zone transfers**](https://www.cloudns.net/blog/zone-transfer-zone-file-domain-namespace/) are the full DNS zone transfers of all DNS data. The Primary DNS server sends the whole zone file that contains all the DNS records to the Secondary DNS servers. This assures that the secondary DNS server is well synced. It will have all the latest changes that were made to the Master DNS zone.*
 
 > - [Zone Transfer Online Test](https://hackertarget.com/zone-transfer/)
 > - [Linux and Unix dig Command Examples - by Vivek Gite](https://www.cyberciti.biz/faq/linux-unix-dig-command-examples-usage-syntax/)
