@@ -467,6 +467,8 @@ sudo nano /etc/hosts
   - DNS Zone transfer functionality must be ON on the Name Servers.
   - Identify subdomains and internal IP addresses from the Zone Transfer results.
 
+*Check comments below*
+
 ```bash
 dnsenum zonetransfer.me
 
@@ -517,12 +519,14 @@ dnsenum zonetransfer.me
     _acme-challenge.zonetransfer.me. 301 IN	TXT	"6Oa05hbUJ9xSsvYy7pApQvwCUSSGgxvrbdizjePEsZI"
     _sip._tcp.zonetransfer.me. 14000 IN	SRV	0 0 5060 www.zonetransfer.me.
     14.105.196.5.IN-ADDR.ARPA.zonetransfer.me. 7200	IN PTR www.zonetransfer.me.
+    
     # Some subdomains (found actively):
     asfdbauthdns.zonetransfer.me. 7900 IN	AFSDB	1 asfdbbox.zonetransfer.me.
     asfdbbox.zonetransfer.me. 7200	IN	A	127.0.0.1
     asfdbvolume.zonetransfer.me. 7800 IN	AFSDB	1 asfdbbox.zonetransfer.me.
-    canberra-office.zonetransfer.me. 7200 IN A	202.14.81.230
+    
     # If not external, the IP could be an internal DNS Record = Security issue
+    canberra-office.zonetransfer.me. 7200 IN A	202.14.81.230
     cmdexec.zonetransfer.me. 300	IN	TXT	"; ls"
     contact.zonetransfer.me. 2592000 IN	TXT	"Remember to call or email Pippa on +44 123 4567890 or pippa@zonetransfer.me when making DNS changes"
     dc-office.zonetransfer.me. 7200	IN	A	143.228.181.132
@@ -539,6 +543,7 @@ dnsenum zonetransfer.me
     intns1.zonetransfer.me.	300	IN	A	81.4.108.41
     intns2.zonetransfer.me.	300	IN	A	167.88.42.94
     # ^^ Pay ATTENTION to internal pointing addresses ^^
+    
     office.zonetransfer.me.	7200	IN	A	4.23.39.254
     ipv6actnow.org.zonetransfer.me.	7200 IN	AAAA	2001:67c:2e8:11::c100:1332
     owa.zonetransfer.me.	7200	IN	A	207.46.197.32
@@ -549,6 +554,7 @@ dnsenum zonetransfer.me
     sshock.zonetransfer.me.	7200	IN	TXT	"() { :]}; echo ShellShocked"
     staging.zonetransfer.me. 7200	IN	CNAME	www.sydneyoperahouse.com.
     # ^^ Try this redirection on a browser. If it fails maybe it is an internal record.
+    
     alltcpportsopen.firewall.test.zonetransfer.me. 301 IN A	127.0.0.1
     testing.zonetransfer.me. 301	IN	CNAME	www.zonetransfer.me.
     vpn.zonetransfer.me.	4000	IN	A	174.36.59.154
