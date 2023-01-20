@@ -659,7 +659,7 @@ nmap -h
       -PO[protocol list]: IP Protocol Ping
       -n/-R: Never do DNS resolution/Always resolve [default: sometimes]
       --dns-servers <serv1[,serv2],...>: Specify custom DNS servers
-      --system-dns: Use OS's DNS resolver
+      --system-dns: Use OS''s DNS resolver
       --traceroute: Trace hop path to each host
     SCAN TECHNIQUES:
       -sS/sT/sA/sW/sM: TCP SYN/Connect()/ACK/Window/Maimon scans
@@ -675,7 +675,7 @@ nmap -h
         Ex: -p22; -p1-65535; -p U:53,111,137,T:21-25,80,139,8080,S:9
       --exclude-ports <port ranges>: Exclude the specified ports from scanning
       -F: Fast mode - Scan fewer ports than the default scan
-      -r: Scan ports sequentially - don't randomize
+      -r: Scan ports sequentially - don''t randomize
       --top-ports <number>: Scan <number> most common ports
       --port-ratio <ratio>: Scan ports more common than <ratio>
     SERVICE/VERSION DETECTION:
