@@ -110,8 +110,11 @@
   - [dig](https://linuxize.com/post/how-to-use-dig-command-to-query-dns-in-linux/)
   - [dig Command Examples - by Vivek Gite](https://www.cyberciti.biz/faq/linux-unix-dig-command-examples-usage-syntax/)
   - [fierce](https://github.com/mschwager/fierce)
+  - [**nmap**](https://nmap.org/)
+  - [Nmap Command Examples - by Vivek Gite](https://www.cyberciti.biz/networking/nmap-command-examples-tutorials/)
 - [Ethical Hacking Footprinting](https://www.geeksforgeeks.org/ethical-hacking-footprinting/)
-- 
+  - 
+
 
 ## Auditing
 

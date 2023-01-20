@@ -11,7 +11,7 @@
 > - Perform passive and active information gathering with various tools and resources
 >
 
-**Information gathering** (***Reconnaissance***) is the initial stage of any penetration test and one of the most important phase.
+🗒️ **Information gathering** (***Reconnaissance***) is the initial stage of any penetration test and one of the most important phase.
 
 - It involves finding out as much information as possible about a targeted individual, website, company or system.
 - The more information a pentester has on a **target**, the more successful and easier the latter stages of a pentest will be. It depends on the **scope** of the penetration test too.
@@ -23,7 +23,7 @@
 
 ## Passive Information Gathering Introduction
 
-[**Passive information gathering**](#passive-information-gathering) involves *obtaining as much data as possible without actively interacting with the target*. 
+🗒️ [**Passive information gathering**](#passive-information-gathering) involves *obtaining as much data as possible without actively interacting with the target*. 
 
 - The pentester uses what's available on the Internet.
 - `E.g.` - Website: utilizing publicly accessible information and resources of that particular website, through the browser, public IP address of the webserver hosting that website, etc.
@@ -36,7 +36,7 @@
 
 ## Active Information Gathering Introduction
 
-[**Active information gathering**](#active-information-gathering) involves *obtaining as much information as possible by actively engaging with the target*.
+🗒️ [**Active information gathering**](#active-information-gathering) involves *obtaining as much information as possible by actively engaging with the target*.
 
 - ❗***An authorization is required to conduct active information gathering.***
 - The target will be aware of the attacker's engagement.
@@ -77,7 +77,7 @@
 
 ### Website Reconnaissance & Footprinting
 
-**Footprinting** is like reconnaissance, with more important information about a particular target.
+🗒️ **Footprinting** is like reconnaissance, with more important information about a particular target.
 
 | What to look for in a Website? |
 | :----------------------------- |
@@ -175,7 +175,7 @@ sudo apt install httrack
 
 ### DNS Reconnaissance
 
-**DNS Recon** is used to *identify DNS records associated to a domain*, like A record, IP address, mail server IP.
+🗒️ **DNS Recon** is used to *identify DNS records associated to a domain*, like A record, IP address, mail server IP.
 
 - [**`dnsrecon`**](https://github.com/darkoperator/dnsrecon) tool - a Python script that provides the ability to perform NS/DNS Records Enumeration, records lookup, subdomain brute force, etc.
 
@@ -260,7 +260,7 @@ sublist3r -d hackersploit.com -o hs_sub_enum.txt
 
 ### Google Dorks
 
-**Google Dorking**/Hacking can be utilized to identify public information pertinent to a target.
+🗒️ **Google Dorking**/Hacking can be utilized to identify public information pertinent to a target.
 
 - Search filters for specific subdomains, files, etc using [google.com](https://www.google.com/).
 - First try to directly search for the specific domain and look for useful information.
@@ -382,6 +382,8 @@ Email or account passwords can be potentially found and used for a **password sp
 > 🗒️ Check my basic DNS theory notes [here](../penetration-testing-prerequisites/networking.md#dns).
 >
 > 📌 More in depth explanations about DNS can be found at the [Cloudflare Learning Center](https://www.cloudflare.com/learning/dns/what-is-dns/).
+>
+> 🔬 **Training list**: Check some PentesterAcademy [DNS Network Pentesting Labs](https://attackdefense.com/listing?labtype=network-pentesting&subtype=network-pentesting-dns) (`subscription required`)
 
 - Most common types of DNS:
 
@@ -398,7 +400,7 @@ Email or account passwords can be potentially found and used for a **password sp
 |   **SRV**   | Specific services records                                    |
 |   **PTR**   | Resolves an IP address to a hostname - reverse lookups       |
 
-*Enumerating DNS records* for a particular domain is done through a procedure known as **DNS Interrogation**.
+🗒️ *Enumerating DNS records* for a particular domain is done through a procedure known as **DNS Interrogation**.
 
 - Probe a DNS server to provide additional records and information (domain IP address, subdomains, mail server addresses, etc)
 
@@ -633,8 +635,452 @@ fierce --domain zonetransfer.me
 
 ### Host Discovery with Nmap
 
-- 
+- [**`nmap`**](https://nmap.org/) - open source security tool for network exploration, security scanning and auditing.
+
+![man nmap](.gitbook/assets/image-20230120153307558.png)
+
+```bash
+nmap -h
+    Nmap 7.93 ( https://nmap.org )
+    Usage: nmap [Scan Type(s)] [Options] {target specification}
+    TARGET SPECIFICATION:
+      Can pass hostnames, IP addresses, networks, etc.
+      Ex: scanme.nmap.org, microsoft.com/24, 192.168.0.1; 10.0.0-255.1-254
+      -iL <inputfilename>: Input from list of hosts/networks
+      -iR <num hosts>: Choose random targets
+      --exclude <host1[,host2][,host3],...>: Exclude hosts/networks
+      --excludefile <exclude_file>: Exclude list from file
+    HOST DISCOVERY:
+      -sL: List Scan - simply list targets to scan
+      -sn: Ping Scan - disable port scan
+      -Pn: Treat all hosts as online -- skip host discovery
+      -PS/PA/PU/PY[portlist]: TCP SYN/ACK, UDP or SCTP discovery to given ports
+      -PE/PP/PM: ICMP echo, timestamp, and netmask request discovery probes
+      -PO[protocol list]: IP Protocol Ping
+      -n/-R: Never do DNS resolution/Always resolve [default: sometimes]
+      --dns-servers <serv1[,serv2],...>: Specify custom DNS servers
+      --system-dns: Use OS's DNS resolver
+      --traceroute: Trace hop path to each host
+    SCAN TECHNIQUES:
+      -sS/sT/sA/sW/sM: TCP SYN/Connect()/ACK/Window/Maimon scans
+      -sU: UDP Scan
+      -sN/sF/sX: TCP Null, FIN, and Xmas scans
+      --scanflags <flags>: Customize TCP scan flags
+      -sI <zombie host[:probeport]>: Idle scan
+      -sY/sZ: SCTP INIT/COOKIE-ECHO scans
+      -sO: IP protocol scan
+      -b <FTP relay host>: FTP bounce scan
+    PORT SPECIFICATION AND SCAN ORDER:
+      -p <port ranges>: Only scan specified ports
+        Ex: -p22; -p1-65535; -p U:53,111,137,T:21-25,80,139,8080,S:9
+      --exclude-ports <port ranges>: Exclude the specified ports from scanning
+      -F: Fast mode - Scan fewer ports than the default scan
+      -r: Scan ports sequentially - don't randomize
+      --top-ports <number>: Scan <number> most common ports
+      --port-ratio <ratio>: Scan ports more common than <ratio>
+    SERVICE/VERSION DETECTION:
+      -sV: Probe open ports to determine service/version info
+      --version-intensity <level>: Set from 0 (light) to 9 (try all probes)
+      --version-light: Limit to most likely probes (intensity 2)
+      --version-all: Try every single probe (intensity 9)
+      --version-trace: Show detailed version scan activity (for debugging)
+    SCRIPT SCAN:
+      -sC: equivalent to --script=default
+      --script=<Lua scripts>: <Lua scripts> is a comma separated list of
+               directories, script-files or script-categories
+      --script-args=<n1=v1,[n2=v2,...]>: provide arguments to scripts
+      --script-args-file=filename: provide NSE script args in a file
+      --script-trace: Show all data sent and received
+      --script-updatedb: Update the script database.
+      --script-help=<Lua scripts>: Show help about scripts.
+               <Lua scripts> is a comma-separated list of script-files or
+               script-categories.
+    OS DETECTION:
+      -O: Enable OS detection
+      --osscan-limit: Limit OS detection to promising targets
+      --osscan-guess: Guess OS more aggressively
+    TIMING AND PERFORMANCE:
+      Options which take <time> are in seconds, or append 'ms' (milliseconds),
+      's' (seconds), 'm' (minutes), or 'h' (hours) to the value (e.g. 30m).
+      -T<0-5>: Set timing template (higher is faster)
+      --min-hostgroup/max-hostgroup <size>: Parallel host scan group sizes
+      --min-parallelism/max-parallelism <numprobes>: Probe parallelization
+      --min-rtt-timeout/max-rtt-timeout/initial-rtt-timeout <time>: Specifies
+          probe round trip time.
+      --max-retries <tries>: Caps number of port scan probe retransmissions.
+      --host-timeout <time>: Give up on target after this long
+      --scan-delay/--max-scan-delay <time>: Adjust delay between probes
+      --min-rate <number>: Send packets no slower than <number> per second
+      --max-rate <number>: Send packets no faster than <number> per second
+    FIREWALL/IDS EVASION AND SPOOFING:
+      -f; --mtu <val>: fragment packets (optionally w/given MTU)
+      -D <decoy1,decoy2[,ME],...>: Cloak a scan with decoys
+      -S <IP_Address>: Spoof source address
+      -e <iface>: Use specified interface
+      -g/--source-port <portnum>: Use given port number
+      --proxies <url1,[url2],...>: Relay connections through HTTP/SOCKS4 proxies
+      --data <hex string>: Append a custom payload to sent packets
+      --data-string <string>: Append a custom ASCII string to sent packets
+      --data-length <num>: Append random data to sent packets
+      --ip-options <options>: Send packets with specified ip options
+      --ttl <val>: Set IP time-to-live field
+      --spoof-mac <mac address/prefix/vendor name>: Spoof your MAC address
+      --badsum: Send packets with a bogus TCP/UDP/SCTP checksum
+    OUTPUT:
+      -oN/-oX/-oS/-oG <file>: Output scan in normal, XML, s|<rIpt kIddi3,
+         and Grepable format, respectively, to the given filename.
+      -oA <basename>: Output in the three major formats at once
+      -v: Increase verbosity level (use -vv or more for greater effect)
+      -d: Increase debugging level (use -dd or more for greater effect)
+      --reason: Display the reason a port is in a particular state
+      --open: Only show open (or possibly open) ports
+      --packet-trace: Show all packets sent and received
+      --iflist: Print host interfaces and routes (for debugging)
+      --append-output: Append to rather than clobber specified output files
+      --resume <filename>: Resume an aborted scan
+      --noninteractive: Disable runtime interactions via keyboard
+      --stylesheet <path/URL>: XSL stylesheet to transform XML output to HTML
+      --webxml: Reference stylesheet from Nmap.Org for more portable XML
+      --no-stylesheet: Prevent associating of XSL stylesheet w/XML output
+    MISC:
+      -6: Enable IPv6 scanning
+      -A: Enable OS detection, version detection, script scanning, and traceroute
+      --datadir <dirname>: Specify custom Nmap data file location
+      --send-eth/--send-ip: Send using raw ethernet frames or IP packets
+      --privileged: Assume that the user is fully privileged
+      --unprivileged: Assume the user lacks raw socket privileges
+      -V: Print version number
+      -h: Print this help summary page.
+    EXAMPLES:
+      nmap -v -A scanme.nmap.org
+      nmap -v -sn 192.168.0.0/16 10.0.0.0/8
+      nmap -v -iR 10000 -Pn -p 80
+    SEE THE MAN PAGE (https://nmap.org/book/man.html) FOR MORE OPTIONS AND EXAMPLES
+```
+
+- **`E.g.`** - Discover all the devices on a target network using a **ping sweep** (ping scan) with Nmap.
+  - `-sn` option - Ping Scan (ping sweep), disable port scan. It finds the responding hosts. **-sn** consist of:
+    - an ICMP echo request
+    - a TCP SYN to port 443
+    - a TCP ACK to port 80
+    - an ICMP default timestamp
+    - `-sn` must be run as `sudo`
+
+```bash
+# Check your network IP subnet
+ip -br -c a
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+eth0             DOWN           
+eth1             UP             192.168.31.128/24 fe80::20c:29ff:fe3a:6a12/64
+# Current local subnet network is 192.168.31.0/24
+
+sudo nmap -sn 192.168.31.0/24
+    Starting Nmap 7.93 ( https://nmap.org ) at 2023-01-20 15:46 CET
+    Nmap scan report for 192.168.31.2 # Default Gateway IP
+    Host is up (0.00021s latency).
+    MAC Address: 00:50:56:F3:CD:3F (VMware) # MAC Address of the manufacturer
+    Nmap scan report for 192.168.31.133 # Ubuntu VM IP
+    Host is up (0.00013s latency).
+    MAC Address: 00:0C:29:C9:89:DE (VMware)
+    Nmap scan report for 192.168.31.254 # Vmware DHCP server IP
+    Host is up (0.00013s latency).
+    MAC Address: 00:50:56:E7:B4:64 (VMware)
+    Nmap scan report for 192.168.31.128 # current Kali VM IP
+    Host is up.
+    Nmap done: 256 IP addresses (4 hosts up) scanned in 2.01 seconds
+# Only 4 devices are up
+```
+
+- Copy the found IPs for future references and move on to the [port scan phase](#port-scanning-with-nmap) on each of them.
+
+```
+192.168.31.2
+192.168.31.128
+192.168.31.133
+192.168.31.254
+```
+
+- [**`netdiscover`**](https://www.kali.org/tools/netdiscover/) - an active/passive ARP discovering tool
+  - *it utilizes ARP requests*
+
+```bash
+netdiscover -h 
+    Netdiscover 0.10 [Active/passive ARP reconnaissance tool]
+    Written by: Jaime Penalba <jpenalbae@gmail.com>
+    Usage: netdiscover [-i device] [-r range | -l file | -p] [-m file] [-F filter] [-s time] [-c count] [-n node] [-dfPLNS]
+      -i device: your network device
+      -r range: scan a given range instead of auto scan. 192.168.6.0/24,/16,/8
+      -l file: scan the list of ranges contained into the given file
+      -p passive mode: do not send anything, only sniff
+      -m file: scan a list of known MACs and host names
+      -F filter: customize pcap filter expression (default: "arp")
+      -s time: time to sleep between each ARP request (milliseconds)
+      -c count: number of times to send each ARP request (for nets with packet loss)
+      -n node: last source IP octet used for scanning (from 2 to 253)
+      -d ignore home config files for autoscan and fast mode
+      -f enable fastmode scan, saves a lot of time, recommended for auto
+      -P print results in a format suitable for parsing by another program and stop after active scan
+      -L similar to -P but continue listening after the active scan is completed
+      -N Do not print header. Only valid when -P or -L is enabled.
+      -S enable sleep time suppression between each request (hardcore mode)
+    If -r, -l or -p are not enabled, netdiscover will scan for common LAN addresses.
+```
+
+![netdiscover -i eth1 -r 192.168.31.0/24](.gitbook/assets/image-20230120155831562.png)
+
+> 📌 [Nmap Command Examples](https://www.cyberciti.biz/networking/nmap-command-examples-tutorials/)
 
 ### Port Scanning With Nmap
 
-- 
+> 🔬 **Training list**: PentesterAcademy [Windows Recon - Host Discovery](https://attackdefense.com/listing?labtype=windows-recon&subtype=windows-recon-host-discovery) (`subscription required`)
+
+Use **`nmap`** to identify open ports and the respective running services on a target system.
+
+- *Enumerate as much information as possible*
+- **`E.g.`** - perform post scanning on TCP and UDP ports, using a few techniques
+
+```bash
+# Default nmap scan on 1000 most commonly used TCP ports
+nmap <TARGET_IP>
+```
+
+> 🔬 [Nmap Host Discovery LAB](https://attackdefense.com/challengedetails?cid=2219)
+
+- Windows systems will typically block ICMP ping probes, resulting in a "host down" response from the **`nmap`** command.
+
+![nmap <WIN_TARGET_IP>](.gitbook/assets/image-20230120181313487.png)
+
+- `-Pn` option - **skip host discovery** (skip `ping`)
+
+```bash
+nmap -Pn <TARGET_IP>
+```
+
+```bash
+# Nmap scan report:
+Not shown: 993 filtered ports
+PORT      STATE SERVICE
+80/tcp    open  http # Webserver
+135/tcp   open  msrpc
+139/tcp   open  netbios-ssn # SMB
+445/tcp   open  microsoft-ds # SMB
+3389/tcp  open  ms-wbt-server # RDP
+# ^^ Windows O.S. recognizable ports/services
+49154/tcp open  unknown
+49155/tcp open  unknown
+```
+
+![nmap -Pn <WIN_TARGET_IP>](.gitbook/assets/image-20230120173527766.png)
+
+- Try to access the webserver with a browser:
+
+![Port 80 - HttpFileServer](.gitbook/assets/image-20230120175052915.png)
+
+- **`-p-`** - Scan the entire range of TCP ports (**65535 ports**)
+  - the scan will take longer
+
+```bash
+nmap -Pn -p- <TARGET_IP>
+```
+
+- **`-p- <PORTS_LIST>`** - Scan a specific or more TCP **ports**:
+  - if a port state is **filtered** it means the port is *blocked by a firewall* or *closed*
+
+```bash
+# Port 80 only scan
+nmap -Pn -p 80 <TARGET_IP>
+
+# Custom list of ports scan
+nmap -Pn -p 80,445,3389 <TARGET_IP>
+
+# Custom ports range scan
+nmap -Pn -p1-2000 <TARGET_IP>
+
+# Filtered/blocked/closed port
+nmap -Pn -p 8080 <TARGET_IP>
+    PORT     STATE    SERVICE
+    8080/tcp filtered http-proxy
+```
+
+- **`-F`** - **fast mode**, scan 100 of the most commonly used ports
+- **`-v`** - increase **verbosity**, see background scanning info
+
+```bash
+nmap -Pn -F <TARGET_IP> -v
+```
+
+```bash
+# Nmap fast scan verbose report:
+Starting Nmap 7.70 ( https://nmap.org ) at 2023-01-20 22:44 IST
+Initiating Parallel DNS resolution of 1 host. at 22:44
+Completed Parallel DNS resolution of 1 host. at 22:44, 0.00s elapsed
+Initiating SYN Stealth Scan at 22:44
+Scanning 10.4.24.170 [100 ports]
+Discovered open port 139/tcp on 10.4.24.170
+Discovered open port 445/tcp on 10.4.24.170
+Discovered open port 135/tcp on 10.4.24.170
+Discovered open port 80/tcp on 10.4.24.170
+Discovered open port 3389/tcp on 10.4.24.170
+Discovered open port 49155/tcp on 10.4.24.170
+Discovered open port 49154/tcp on 10.4.24.170
+Completed SYN Stealth Scan at 22:44, 1.69s elapsed (100 total ports)
+Nmap scan report for 10.4.24.170
+Host is up (0.0090s latency).
+Not shown: 93 filtered ports
+PORT      STATE SERVICE
+80/tcp    open  http
+135/tcp   open  msrpc
+139/tcp   open  netbios-ssn
+445/tcp   open  microsoft-ds
+3389/tcp  open  ms-wbt-server
+49154/tcp open  unknown
+49155/tcp open  unknown
+
+Read data files from: /usr/bin/../share/nmap
+Nmap done: 1 IP address (1 host up) scanned in 1.78 seconds
+           Raw packets sent: 193 (8.492KB) | Rcvd: 7 (308B)
+```
+
+- **`-sU`** - **UDP scan**
+  - always try to do a UDP port scan (DNS service, etc). Default `nmap` scan performs only TCP scans.
+
+```bash
+nmap -Pn -sU <TARGET_IP>
+```
+
+- **`-sV`** - probe open ports to determine **service/version** info
+
+```bash
+nmap -Pn -F -sV <TARGET_IP>
+```
+
+```bash
+# Nmap fast and services scan report:
+Not shown: 93 filtered ports
+PORT      STATE SERVICE            VERSION
+80/tcp    open  http               HttpFileServer httpd 2.3
+135/tcp   open  msrpc              Microsoft Windows RPC
+139/tcp   open  netbios-ssn        Microsoft Windows netbios-ssn
+445/tcp   open  microsoft-ds       Microsoft Windows Server 2008 R2 - 2012 microsoft-ds
+3389/tcp  open  ssl/ms-wbt-server?
+49154/tcp open  msrpc              Microsoft Windows RPC
+49155/tcp open  msrpc              Microsoft Windows RPC
+Service Info: OSs: Windows, Windows Server 2008 R2 - 2012; CPE: cpe:/o:microsoft:windows
+```
+
+- **`-O`** - **Operating System detection**, based on the open ports and running services
+  - sometimes is not accurate
+  - *a penetration tester can start to identify specific O.S. version vulnerabilities and exploits*
+
+```bash
+nmap -Pn -F -sV -O <TARGET_IP>
+```
+
+```bash
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running: Microsoft Windows 2012
+OS CPE: cpe:/o:microsoft:windows_server_2012
+OS details: Microsoft Windows Server 2012
+Service Info: OSs: Windows, Windows Server 2008 R2 - 2012; CPE: cpe:/o:microsoft:windows
+```
+
+- **`-sC`** - default `nmap` **script scan**
+  - under each service, `nmap` will run a series of scripts based on the service
+
+```bash
+nmap -Pn -F -sV -O -sC <TARGET_IP>
+```
+
+```bash
+PORT      STATE SERVICE            VERSION
+80/tcp    open  http               HttpFileServer httpd 2.3
+# Webserver scripts
+|_http-favicon: Unknown favicon MD5: 759792EDD4EF8E6BC2D1877D27153CB1
+| http-methods: 
+|_  Supported Methods: GET HEAD POST
+|_http-server-header: HFS 2.3
+|_http-title: HFS /
+135/tcp   open  msrpc              Microsoft Windows RPC
+139/tcp   open  netbios-ssn        Microsoft Windows netbios-ssn
+445/tcp   open  microsoft-ds       Microsoft Windows Server 2008 R2 - 2012 microsoft-ds
+3389/tcp  open  ssl/ms-wbt-server?
+| ssl-cert: Subject: commonName=http-server
+| Issuer: commonName=http-server
+| Public Key type: rsa
+| Public Key bits: 2048
+| Signature Algorithm: sha256WithRSAEncryption
+| Not valid before: 2023-01-19T16:57:55
+| Not valid after:  2023-07-21T16:57:55
+| MD5:   cbb9 8b92 dda3 30f7 bd3d 1ac3 56c4 dc23
+|_SHA-1: 2d00 389f 6f30 e78a fdd1 010c b94e 7f85 92b3 4802
+49154/tcp open  msrpc              Microsoft Windows RPC
+49155/tcp open  msrpc              Microsoft Windows RPC
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running: Microsoft Windows 2012
+OS CPE: cpe:/o:microsoft:windows_server_2012
+OS details: Microsoft Windows Server 2012
+Uptime guess: 0.022 days (since Fri Jan 20 22:27:42 2023)
+TCP Sequence Prediction: Difficulty=257 (Good luck!)
+IP ID Sequence Generation: Incremental
+Service Info: OSs: Windows, Windows Server 2008 R2 - 2012; CPE: cpe:/o:microsoft:windows
+
+# SMB scripts
+Host script results:
+| smb-security-mode:
+|   account_used: guest
+|   authentication_level: user
+|   challenge_response: supported
+|_  message_signing: disabled (dangerous, but default)
+| smb2-security-mode:
+|   2.02:
+|_    Message signing enabled but not required
+| smb2-time:
+|   date: 2023-01-20 22:58:03
+|_  start_date: 2023-01-20 22:27:50
+
+NSE: Script Post-scanning.
+Initiating NSE at 22:58
+Completed NSE at 22:58, 0.00s elapsed
+Initiating NSE at 22:58
+Completed NSE at 22:58, 0.00s elapsed
+Read data files from: /usr/bin/../share/nmap
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 120.19 seconds
+           Raw packets sent: 236 (12.952KB) | Rcvd: 14 (716B)
+```
+
+- **`-A`** - **Aggressive scan**: OS detection, version detection, script scanning (`-sV` + `-O` + `-sC`)
+
+```bash
+nmap -Pn -F -A <TARGET_IP>
+```
+
+- **`-T#`** - `nmap` **Timing templates** - optimize and speed up scanning (higher is faster)
+  - `-T0` - *paranoid* (possible IDS evasion, slow)
+  - `-T1` - *sneaky* (possible IDS evasion, slow)
+  - `-T2` - *polite* (less bandwidth and target machine resources, slow)
+  - `-T3` - *normal* (default scan)
+  - `-T4` - *aggressive* (reasonably fast, modern and reliable network)
+  - `-T5` - *insane* (extraordinarily fast network)
+  - the lower the number the slower the scan
+
+```bash
+nmap -Pn -F -T5 -sV -O -sC <TARGET_IP> -v
+```
+
+- **`-oN`** - output the report into three main formats
+
+```bash
+# Output the scan results, as displayed into the terminal, into a file
+nmap -Pn -F <TARGET_IP> -oN outputfile.txt
+```
+
+```bash
+# Output the scan results into an XML file
+nmap -Pn -F <TARGET_IP> -oX outputfile.xml
+```
+
+------
+

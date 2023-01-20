@@ -29,8 +29,8 @@ Activities: 4 sections , 12 courses , 229 videos, 154 quizzes, 120 labs
 
 - Where to find the PTSv2 (Penetration Testing Student v2) course? - [INE Learning Paths](https://my.ine.com/learning-paths)
 - Where to find the eJPTv2 certification exam? - [eJPTv2](https://ine.com/learning/certifications/internal/elearnsecurity-junior-penetration-tester-v2)
-
-As these notes started with my PTS v1 study, I've decided to keep my [**Penetration Testing Prerequisites** notes here](penetration-testing-prerequisites/README.md).
+- As these notes started with my PTS v1 study, I've decided to keep my [**Penetration Testing Prerequisites** notes here](penetration-testing-prerequisites/README.md).
+- 🔬 For the **training** part I will use the [Attack-Defense](https://attackdefense.pentesteracademy.com/members) environment from PentesterAcademy (`subscription required`).
 
 ## [eJPTv2](https://ine.com/learning/certifications/internal/elearnsecurity-junior-penetration-tester-v2) Exam
 
