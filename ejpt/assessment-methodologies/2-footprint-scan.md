@@ -1,1 +1,13 @@
 # Footprinting & Scanning
+
+> ## ⚡ Prerequisites
+>
+> - ...
+> - ...
+>
+> ## 📕 Learning Objectives
+>
+> - ...
+> - ...
+
+🗒️ 
