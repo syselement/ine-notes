@@ -4,5 +4,5 @@
 
 ## INE Training - Notes
 
-- ### [eJPTv2 - PTSv2](ejpt/README.md) by Josh Mason & [Alexis Ahmed](https://alexisahmed.com/)
+- ### :hourglass_flowing_sand: [eJPTv2 - PTSv2](ejpt/README.md) by Josh Mason & [Alexis Ahmed](https://alexisahmed.com/)
 
