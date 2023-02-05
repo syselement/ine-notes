@@ -106,7 +106,7 @@
   * [fierce](https://github.com/mschwager/fierce)
   * [**nmap**](https://nmap.org/)
   * [Nmap Command Examples - by Vivek Gite](https://www.cyberciti.biz/networking/nmap-command-examples-tutorials/)
-* ### [Ethical Hacking Footprinting](https://www.geeksforgeeks.org/ethical-hacking-footprinting/)
+* [Ethical Hacking Footprinting](https://www.geeksforgeeks.org/ethical-hacking-footprinting/)
 
 ## Auditing
 
