@@ -1,2 +1,2 @@
-# 🔬 Exam Preparation - Study Guide - Labs
+# 🔬Exam Preparation - Labs
 

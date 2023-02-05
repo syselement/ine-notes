@@ -64,7 +64,7 @@ _**Tools**_ used:
     |   Salt: AsA)Gjb.[aT`hhRB4|54
     |_  Auth Plugin Name: mysql_native_password
     MAC Address: 02:42:C0:4F:71:03 (Unknown)
-    
+
     Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
     Nmap done: 1 IP address (1 host up) scanned in 6.74 seconds
     ```
@@ -89,7 +89,7 @@ Ports **80** (HTTP) and **3306** (MySQL) are open.
   * The page doesn't load, because the request is forwarded to the Burp proxy listener.
   * **Proxy - Intercept** tabs are marked with orange. The proxy is waiting for an action.
 
-![](<.gitbook/assets/image-20220505164321563.png>)
+![](.gitbook/assets/image-20220505164317595.png)
 
 1. **`Forward`** option - send the request as is
 2. **`Drop`** option - drop the intercepted request

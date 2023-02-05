@@ -1,4 +1,4 @@
-# 📒 Penetration Testing Prerequisites
+# 📒Penetration Testing Prerequisites
 
 _These notes are from the first version of the PTS1 Learning Path on INE._
 

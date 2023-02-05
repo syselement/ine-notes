@@ -1,77 +1,75 @@
 # Information Gathering
 
-> ## ⚡ Prerequisites
+> ### ⚡ Prerequisites
 >
-> - Basic familiarity with Linux
-> - Basic familiarity with web technologies
+> * Basic familiarity with Linux
+> * Basic familiarity with web technologies
 >
-> ## 📕 Learning Objectives
+> ### 📕 Learning Objectives
 >
-> - Differences between **active** and **passive** information gathering
-> - Perform passive and active information gathering with various tools and resources
->
+> * Differences between **active** and **passive** information gathering
+> * Perform passive and active information gathering with various tools and resources
 
-🗒️ **Information gathering** (***Reconnaissance***) is the initial stage of any penetration test and one of the most important phase.
+🗒️ **Information gathering** (_**Reconnaissance**_) is the initial stage of any penetration test and one of the most important phase.
 
-- It involves finding out as much information as possible about a targeted individual, website, company or system.
-- The more information a pentester has on a **target**, the more successful and easier the latter stages of a pentest will be. It depends on the **scope** of the penetration test too.
-- `E.g.1` - Pentest on a Website: web technology, vulnerabilities, IP address of the hosting server.
-- `E.g.2` - Pentest on a public facing assets and some internal systems, there can be more attack vectors:
-  - gain access to the internal network through the public facing web server (one **access vector**)
-  - during the info-gathering phase, learn more about the company employees (names, email addresses, credentials), getting this important information (useful for exploitation or initial access) by using phishing attacks, malicious attachments via email (another **access vector**)
-
+* It involves finding out as much information as possible about a targeted individual, website, company or system.
+* The more information a pentester has on a **target**, the more successful and easier the latter stages of a pentest will be. It depends on the **scope** of the penetration test too.
+* `E.g.1` - Pentest on a Website: web technology, vulnerabilities, IP address of the hosting server.
+* `E.g.2` - Pentest on a public facing assets and some internal systems, there can be more attack vectors:
+  * gain access to the internal network through the public facing web server (one **access vector**)
+  * during the info-gathering phase, learn more about the company employees (names, email addresses, credentials), getting this important information (useful for exploitation or initial access) by using phishing attacks, malicious attachments via email (another **access vector**)
 
 ## Passive Information Gathering Introduction
 
-🗒️ [**Passive information gathering**](#passive-information-gathering) involves *obtaining as much data as possible without actively interacting with the target*. 
+🗒️ [**Passive information gathering**](1-info-gathering.md#passive-information-gathering) involves _obtaining as much data as possible without actively interacting with the target_.
 
-- The pentester uses what's available on the Internet.
-- `E.g.` - Website: utilizing publicly accessible information and resources of that particular website, through the browser, public IP address of the webserver hosting that website, etc.
+* The pentester uses what's available on the Internet.
+* `E.g.` - Website: utilizing publicly accessible information and resources of that particular website, through the browser, public IP address of the webserver hosting that website, etc.
 
 ### What passive information?
 
-- IP addresses, DNS, domain names and domain ownership
-- Email addresses, social media profiles
-- Web technologies, subdomains
+* IP addresses, DNS, domain names and domain ownership
+* Email addresses, social media profiles
+* Web technologies, subdomains
 
 ## Active Information Gathering Introduction
 
-🗒️ [**Active information gathering**](#active-information-gathering) involves *obtaining as much information as possible by actively engaging with the target*.
+🗒️ [**Active information gathering**](1-info-gathering.md#active-information-gathering) involves _obtaining as much information as possible by actively engaging with the target_.
 
-- ❗***An authorization is required to conduct active information gathering.***
-- The target will be aware of the attacker's engagement.
-- `E.g.` - Website: perform a port scan of the webserver IP address (found with passive info gathering) using **`nmap`** tool to identify the open ports and running services. Identify exploitable vulnerabilities on those services and consequently access the web server.
+* ❗_**An authorization is required to conduct active information gathering.**_
+* The target will be aware of the attacker's engagement.
+* `E.g.` - Website: perform a port scan of the webserver IP address (found with passive info gathering) using **`nmap`** tool to identify the open ports and running services. Identify exploitable vulnerabilities on those services and consequently access the web server.
 
 ### What active information?
 
-- Open ports, internal network/organization infrastructure
-- Enumeration target info
+* Open ports, internal network/organization infrastructure
+* Enumeration target info
 
 ### Code of conduct
 
 > 📌 From the [The Pentester's Code of Conduct - by Sherri Davidoff](https://www.lmgsecurity.com/the-pentesters-code-of-conduct-rules-that-keep-everyone-safe/)
 >
-> - **Know your scope.**
-> - **Do not exceed your scope.**
-> - **Take responsibility.**
-> - **Only hack when under signed contract.**
-> - **Verify your targets** well in advance of the start of an engagement, and have the list in writing.
-> - **Do a thorough and complete job.**
-> - **Take careful notes.**
-> - **Upload your evidence to a central repository as** soon as you can.
-> - **Know your client.**
-> - **Communicate** with your teammates, your client, and your project managers.
-> - **Know your limitations and do not exceed them.**
-> - **Treat all others with respect.**
-> - **Own your mistakes.**
-> - **Include your best suggestions for a solution when reporting a problem.**
-> - **Google first, then ask questions.**
-> - **Share your knowledge.**
-> - **Above all, exercise common sense.**
+> * **Know your scope.**
+> * **Do not exceed your scope.**
+> * **Take responsibility.**
+> * **Only hack when under signed contract.**
+> * **Verify your targets** well in advance of the start of an engagement, and have the list in writing.
+> * **Do a thorough and complete job.**
+> * **Take careful notes.**
+> * **Upload your evidence to a central repository as** soon as you can.
+> * **Know your client.**
+> * **Communicate** with your teammates, your client, and your project managers.
+> * **Know your limitations and do not exceed them.**
+> * **Treat all others with respect.**
+> * **Own your mistakes.**
+> * **Include your best suggestions for a solution when reporting a problem.**
+> * **Google first, then ask questions.**
+> * **Share your knowledge.**
+> * **Above all, exercise common sense.**
 >
 > 🚩🔬 [zonetransfer.me](https://digi.ninja/projects/zonetransferme.php) domain will be utilized for training purposes and examples.
 
-------
+***
 
 ## Passive Information Gathering
 
@@ -80,7 +78,7 @@
 🗒️ **Footprinting** is like reconnaissance, with more important information about a particular target.
 
 | What to look for in a Website? |
-| :----------------------------- |
+| ------------------------------ |
 | IP addresses of the web server |
 | Hidden directories             |
 | Names, Email addresses         |
@@ -90,7 +88,7 @@
 
 **`E.g.`** - Passive Reconnaissance on [hackersploit.org](https://hackersploit.org/):
 
-- **`host`** command
+* **`host`** command
 
 ```bash
 host hackersploit.org
@@ -101,35 +99,35 @@ host hackersploit.org
     hackersploit.org mail is handled by 0 _dc-mx.2c2a3526b376.hackersploit.org.
 ```
 
-- 2 IP addresses found - the website is behind Cloudflare proxy.
-  - Check the [DNSLytics Report](https://dnslytics.com/domain/hackersploit.org) too.
-- Social Links at the bottom of the main page:
+* 2 IP addresses found - the website is behind Cloudflare proxy.
+  * Check the [DNSLytics Report](https://dnslytics.com/domain/hackersploit.org) too.
+* Social Links at the bottom of the main page:
 
 ![](.gitbook/assets/image-20221115212013574.png)
 
-- **`robots.txt`** file - [https://hackersploit.org/robots.txt](https://hackersploit.org/robots.txt)
-  - Avoid having the site indexed by search engines by using the "Disallow" feature, which lets the site owner designate which file or folder not to index.
-  - **`/wp-content`** indicates that the website is running Wordpress
+* **`robots.txt`** file - [https://hackersploit.org/robots.txt](https://hackersploit.org/robots.txt)
+  * Avoid having the site indexed by search engines by using the "Disallow" feature, which lets the site owner designate which file or folder not to index.
+  * **`/wp-content`** indicates that the website is running Wordpress
 
 ![hackersploit.org/robots.txt](.gitbook/assets/image-20221115212251374.png)
 
-- **`sitemap.xml`** file - [https://hackersploit.org/sitemap.xml](https://hackersploit.org/sitemap.xml)
-  - Used to provide search engines with an organized way of indexing the website.
-  - List of site pages, categories, author, etc
+* **`sitemap.xml`** file - [https://hackersploit.org/sitemap.xml](https://hackersploit.org/sitemap.xml)
+  * Used to provide search engines with an organized way of indexing the website.
+  * List of site pages, categories, author, etc
 
 ![hackersploit.org/sitemap.xml](.gitbook/assets/image-20221115215549993.png)
 
-- Broswer add-ons for **Web Technology footprinting**:
-  - [Wappalyzer](https://www.wappalyzer.com/) - find out the technology stack of the website
+* Broswer add-ons for **Web Technology footprinting**:
+  * [Wappalyzer](https://www.wappalyzer.com/) - find out the technology stack of the website
 
 ![Wappalyzer Example](.gitbook/assets/image-20221115215931204.png)
 
-- **`whatweb`** command
+* **`whatweb`** command
 
 ![whatweb hackersploit.org](.gitbook/assets/image-20221115220428770.png)
 
-- Download the entire website, for analyzing the source code for example:
-  - [HTTrack](https://www.httrack.com/)
+* Download the entire website, for analyzing the source code for example:
+  * [HTTrack](https://www.httrack.com/)
 
 ```bash
 sudo apt install httrack
@@ -140,44 +138,43 @@ sudo apt install httrack
 
 ### Whois Enumeration
 
-**[Whois](https://g.co/kgs/YizQVp)** lookups are used to identify information regarding a particular domain.
+[**Whois**](https://g.co/kgs/YizQVp) lookups are used to identify information regarding a particular domain.
 
-- Date of registration, Owner, Registrar, Owner Email address, etc
-- **`WHOIS`** *is a query and response protocol that is widely used for querying databases that store the registered users or assignees of an Internet resource, such as a domain name, an IP address block or an autonomous system, but is also used for a wider range of other information.* - [Whois - Wikipedia](https://en.wikipedia.org/wiki/WHOIS)
-
-- **`whois`** command
+* Date of registration, Owner, Registrar, Owner Email address, etc
+* **`WHOIS`** _is a query and response protocol that is widely used for querying databases that store the registered users or assignees of an Internet resource, such as a domain name, an IP address block or an autonomous system, but is also used for a wider range of other information._ - [Whois - Wikipedia](https://en.wikipedia.org/wiki/WHOIS)
+* **`whois`** command
 
 ![whois hackersploit.org](.gitbook/assets/image-20221115222123640.png)
 
 ![whois 172.64.32.93](.gitbook/assets/image-20221115223033163.png)
 
-- [**who.is**](https://who.is/whois/hackersploit.org) site
-- [**domaintools.com**](https://whois.domaintools.com/hackersploit.org) site
+* [**who.is**](https://who.is/whois/hackersploit.org) site
+* [**domaintools.com**](https://whois.domaintools.com/hackersploit.org) site
 
 ![domaintools.com example](.gitbook/assets/image-20221115222704909.png)
 
 ### Website Footprinting with Netcraft
 
-**[Netcraft](https://www.netcraft.com/internet-data-mining/)** *provides internet security services for a large number of use cases, including cybercrime detection and disruption, application testing and PCI scanning.*
+[**Netcraft**](https://www.netcraft.com/internet-data-mining/) _provides internet security services for a large number of use cases, including cybercrime detection and disruption, application testing and PCI scanning._
 
-- It collates previous information identified with other tools and outputs an easy to read format.
+* It collates previous information identified with other tools and outputs an easy to read format.
 
 **`E.g.`** - [Netcraft - Hackersploit.org](https://sitereport.netcraft.com/?url=https://hackersploit.org) - check the information needed for the pentest:
 
-- Background
-- Network: domain IP address, Nameserver, Domain registrar, IP delegation
-- SSL/TLS Certificate: Issuer, Validity, Transparency, vulnerabilities
-- Hosting History
-- Web Trackers
-- Site Technology: Server-Side, Client-Side, Frameworks, etc
+* Background
+* Network: domain IP address, Nameserver, Domain registrar, IP delegation
+* SSL/TLS Certificate: Issuer, Validity, Transparency, vulnerabilities
+* Hosting History
+* Web Trackers
+* Site Technology: Server-Side, Client-Side, Frameworks, etc
 
 ![sitereport.netcraft.com example](.gitbook/assets/image-20221115224036510.png)
 
 ### DNS Reconnaissance
 
-🗒️ **DNS Recon** is used to *identify DNS records associated to a domain*, like A record, IP address, mail server IP.
+🗒️ **DNS Recon** is used to _identify DNS records associated to a domain_, like A record, IP address, mail server IP.
 
-- [**`dnsrecon`**](https://github.com/darkoperator/dnsrecon) tool - a Python script that provides the ability to perform NS/DNS Records Enumeration, records lookup, subdomain brute force, etc.
+* [**`dnsrecon`**](https://github.com/darkoperator/dnsrecon) tool - a Python script that provides the ability to perform NS/DNS Records Enumeration, records lookup, subdomain brute force, etc.
 
 ![dnsrecon --help](.gitbook/assets/image-20221126162221715.png)
 
@@ -194,9 +191,9 @@ dnsrecon -d hackersploit.org
 
 ![dnsrecon -d zonetransfer.me](.gitbook/assets/image-20221126162754153.png)
 
-- [**dnsdumpster.com**](https://dnsdumpster.com/) site
-  - discover hosts related to a domain
-  - map the domain in a graph `.png` image or `.xlsx` file.
+* [**dnsdumpster.com**](https://dnsdumpster.com/) site
+  * discover hosts related to a domain
+  * map the domain in a graph `.png` image or `.xlsx` file.
 
 ![dnsdumpster.com example](.gitbook/assets/image-20221126170656955.png)
 
@@ -208,9 +205,9 @@ dnsrecon -d hackersploit.org
 
 **W**eb **A**pplication **F**irewall (**`WAF`**) detection with [**`wafw00f`**](https://github.com/EnableSecurity/wafw00f). It does the following:
 
-- *Sends a normal HTTP request and analyses the response; this identifies a number of WAF solutions.*
-- *If that is not successful, it sends a number of (potentially malicious) HTTP requests and uses simple logic to deduce which WAF it is.*
-- *If that is also not successful, it analyses the responses previously returned and uses another simple algorithm to guess if a WAF or security solution is actively responding to our attacks.*
+* _Sends a normal HTTP request and analyses the response; this identifies a number of WAF solutions._
+* _If that is not successful, it sends a number of (potentially malicious) HTTP requests and uses simple logic to deduce which WAF it is._
+* _If that is also not successful, it analyses the responses previously returned and uses another simple algorithm to guess if a WAF or security solution is actively responding to our attacks._
 
 ![wafw00f -h](.gitbook/assets/image-20221126175203304.png)
 
@@ -235,15 +232,15 @@ wafw00f zonetransfer.me -a
 
 ![wafw00f zonetransfer.me -a](.gitbook/assets/image-20221126175930959.png)
 
-- This would be definitely tested within the *active information gathering* phase with a port scan on the webserver IP address.
+* This would be definitely tested within the _active information gathering_ phase with a port scan on the webserver IP address.
 
 ### Subdomain Enumeration with Sublist3r
 
 To identify the subdomains of a specific domain in a passive way, **publicly available resources and databases** can be utilized.
 
-- [**`sublist3r`**](https://github.com/aboul3la/Sublist3r) tool - a Python tool that enumerate subdomains of websites using OSINT (**O**pen-**S**ource **Int**eligence).
-  - this example is NOT active enumeration - is is passive (using public available resources)
-  - it enumerates subdomains using search engines (Google, Yaoo, Bing ...) and other tools (Netcraft, Virustotal, DNSdumpster, ReverseDNS, ThreatCrowd).
+* [**`sublist3r`**](https://github.com/aboul3la/Sublist3r) tool - a Python tool that enumerate subdomains of websites using OSINT (**O**pen-**S**ource **Int**eligence).
+  * this example is NOT active enumeration - is is passive (using public available resources)
+  * it enumerates subdomains using search engines (Google, Yaoo, Bing ...) and other tools (Netcraft, Virustotal, DNSdumpster, ReverseDNS, ThreatCrowd).
 
 ![sublist3r -h](.gitbook/assets/image-20221126181132532.png)
 
@@ -262,69 +259,69 @@ sublist3r -d hackersploit.com -o hs_sub_enum.txt
 
 🗒️ **Google Dorking**/Hacking can be utilized to identify public information pertinent to a target.
 
-- Search filters for specific subdomains, files, etc using [google.com](https://www.google.com/).
-- First try to directly search for the specific domain and look for useful information.
+* Search filters for specific subdomains, files, etc using [google.com](https://www.google.com/).
+* First try to directly search for the specific domain and look for useful information.
 
 !["ine.com" on Google Search](.gitbook/assets/image-20221129205552223.png)
 
-- **`site:`**
-  - limit all results to the particular domain/site
-  - shows subdomains for that particular domain
+* **`site:`**
+  * limit all results to the particular domain/site
+  * shows subdomains for that particular domain
 
 !["site:ine.com" on Google Search](.gitbook/assets/image-20230117171129629.png)
 
 !["site:ine.com employees" standard Google Search](.gitbook/assets/image-20230117173818457.png)
 
-- **`inurl:`**
-  - look for specific results within the website title/URL
-  - **`e.g.`** - `inurl:admin` , etc.
+* **`inurl:`**
+  * look for specific results within the website title/URL
+  * **`e.g.`** - `inurl:admin` , etc.
 
 !["site:ine.com inurl:forum" on Google Search](.gitbook/assets/image-20230117171241409.png)
 
-- **`site:*.site.com`**
-  - show **subdomains** (indexed by Google) for a particular domain
-  - usually they are exposed subdomains
-    - sometimes unintended exposed subdomains
+* **`site:*.site.com`**
+  * show **subdomains** (indexed by Google) for a particular domain
+  * usually they are exposed subdomains
+    * sometimes unintended exposed subdomains
 
-!["site:*.ine.com" on Google Search](.gitbook/assets/image-20230117172425752.png)
+!["site:\*.ine.com" on Google Search](.gitbook/assets/image-20230117172425752.png)
 
-- **`intitle:`**
-  - limit the results to subdomains with a specific word in the site title
+* **`intitle:`**
+  * limit the results to subdomains with a specific word in the site title
 
-!["site:*.ine.com intitle:forum" on Google Search](.gitbook/assets/image-20230117172953025.png)
+!["site:\*.ine.com intitle:forum" on Google Search](.gitbook/assets/image-20230117172953025.png)
 
-- **`filetype:`**
-  - limit the results to a file type in the URL
-  - make the search query a bit more specific
+* **`filetype:`**
+  * limit the results to a file type in the URL
+  * make the search query a bit more specific
 
-!["site:*.ine.com filetype:pdf" on Google Search](.gitbook/assets/image-20230117173421370.png)
+!["site:\*.ine.com filetype:pdf" on Google Search](.gitbook/assets/image-20230117173421370.png)
 
-- **`intitle:index of`**
-  - look for sites with **directory listing** enabled, searching for ***index of***
-  - common web servers vulnerability/misconfiguration (against security)
-  - directory listing allows users to see the content of the directory
+* **`intitle:index of`**
+  * look for sites with **directory listing** enabled, searching for _**index of**_
+  * common web servers vulnerability/misconfiguration (against security)
+  * directory listing allows users to see the content of the directory
 
 !["intitle:index of" on Google Search](.gitbook/assets/image-20230117174445549.png)
 
-- **`cache:`**
-  - shows the cached website
+* **`cache:`**
+  * shows the cached website
 
 !["cache:ine.com" on Google Search](.gitbook/assets/image-20230117174639735.png)
 
-- Other Google dorking examples:
-  - **`inurl:auth_user_file.txt`**
-  - **`inurl:passwd.txt`**
-  - **`inurl:wp-config.bak`**
-- [**Google Hacking Database - exploit-db.com**](https://www.exploit-db.com/google-hacking-database)
-    - use it to search for Dorks by Category to find potentially unsecured files
+* Other Google dorking examples:
+  * **`inurl:auth_user_file.txt`**
+  * **`inurl:passwd.txt`**
+  * **`inurl:wp-config.bak`**
+* [**Google Hacking Database - exploit-db.com**](https://www.exploit-db.com/google-hacking-database)
+  * use it to search for Dorks by Category to find potentially unsecured files
 
-![Google Hacking Database - exploit-db.com](.gitbook/assets/image-20230117183216690.png)
+![Google Hacking Database - exploit-db.com](<.gitbook/assets/image-20230117183207477 (4).png>)
 
-- [**Wayback Machine**](https://archive.org/web/)
-  - a digital archive by the Internet Archive
-  - captures/snapshots web pages over time
-  - check earlier version of websites
-  - on older versions of the websites there can be useful **sensitive information** leaked
+* [**Wayback Machine**](https://archive.org/web/)
+  * a digital archive by the Internet Archive
+  * captures/snapshots web pages over time
+  * check earlier version of websites
+  * on older versions of the websites there can be useful **sensitive information** leaked
 
 ![ine.com on Wayback Machine](.gitbook/assets/image-20230117180911030.png)
 
@@ -332,10 +329,10 @@ sublist3r -d hackersploit.com -o hs_sub_enum.txt
 
 ### Email Harvesting
 
-- [**`theHarvester`**](https://github.com/laramies/theHarvester) tool - an open-source Python tool that performs OSINT gathering to help determine a domain's external threat landscape.
-  - used to enumerate the emails (names, IPs, URLs, subdomains) belonging to a domain target, using **publicly available resources and databases**.
-  - check the GitHub repository for more information on the [Passive](https://github.com/laramies/theHarvester#passive) and [Active](https://github.com/laramies/theHarvester#active) information gathering and [Installation](https://github.com/laramies/theHarvester/wiki/Installation).
-- In this case the tool is used for Email Harvesting.
+* [**`theHarvester`**](https://github.com/laramies/theHarvester) tool - an open-source Python tool that performs OSINT gathering to help determine a domain's external threat landscape.
+  * used to enumerate the emails (names, IPs, URLs, subdomains) belonging to a domain target, using **publicly available resources and databases**.
+  * check the GitHub repository for more information on the [Passive](https://github.com/laramies/theHarvester#passive) and [Active](https://github.com/laramies/theHarvester#active) information gathering and [Installation](https://github.com/laramies/theHarvester/wiki/Installation).
+* In this case the tool is used for Email Harvesting.
 
 ![theHarvester -h](.gitbook/assets/image-20230117185341402.png)
 
@@ -356,24 +353,23 @@ theHarvester -d zonetransfer.me -b all
 
 ![theHarvester -d zonetransfer.me -b all](.gitbook/assets/image-20230117190350307.png)
 
-- *Emails could be used to send phishing email with malicious attachments during an attack.*
+* _Emails could be used to send phishing email with malicious attachments during an attack._
 
 ### Leaked Password Databases
 
-Email or account passwords can be potentially found and used for a **password spray attack** = use the discovered passwords and test them for authentication on many other services (*not part of Passive info gathering*).
+Email or account passwords can be potentially found and used for a **password spray attack** = use the discovered passwords and test them for authentication on many other services (_not part of Passive info gathering_).
 
-- Leaked online password databases can be utilized, usually coming from a site data breach containing the users credentials.
-- [**haveibeenpwned.com**](https://haveibeenpwned.com/) site by [Troy Hunt](https://www.troyhunt.com/)
-  - safe, reliable, no signup
-  - insert the found target email in the site to check for data breaches
-  - for older emails there is a greater chance of finding data breaches!
-
+* Leaked online password databases can be utilized, usually coming from a site data breach containing the users credentials.
+* [**haveibeenpwned.com**](https://haveibeenpwned.com/) site by [Troy Hunt](https://www.troyhunt.com/)
+  * safe, reliable, no signup
+  * insert the found target email in the site to check for data breaches
+  * for older emails there is a greater chance of finding data breaches!
 
 ![haveibeenpwned.com - clean](.gitbook/assets/image-20230117192114283.png)
 
 ![haveibeenpwned.com - breached](.gitbook/assets/image-20230117192336443.png)
 
-------
+***
 
 ## Active Information Gathering
 
@@ -383,31 +379,32 @@ Email or account passwords can be potentially found and used for a **password sp
 >
 > 📌 More in depth explanations about DNS can be found at the [Cloudflare Learning Center](https://www.cloudflare.com/learning/dns/what-is-dns/).
 >
-> 🔬 **Training list**: Check some PentesterAcademy [DNS Network Pentesting Labs](https://attackdefense.com/listing?labtype=network-pentesting&subtype=network-pentesting-dns) (`subscription required`)
+> 🔬 **Training list**: Check some PentesterAcademy [DNS Network Pentesting Labs](https://attackdefense.com/listing?labtype=network-pentesting\&subtype=network-pentesting-dns) (`subscription required`)
 
-- Most common types of DNS:
+* Most common types of DNS:
 
-| Record Type | Description                                                  |
-| :---------: | :----------------------------------------------------------- |
-|    **A**    | Holds/Resolves the IPv4 address of a domain/hostname         |
-|  **AAAA**   | Holds/Resolves the IPv6 address of a domain/hostname         |
+| Record Type | Description                                                              |
+| :---------: | ------------------------------------------------------------------------ |
+|    **A**    | Holds/Resolves the IPv4 address of a domain/hostname                     |
+|   **AAAA**  | Holds/Resolves the IPv6 address of a domain/hostname                     |
 |  **CNAME**  | Used for domain aliases, forwards one domain/subdomain to another domain |
-|   **MX**    | Resolves a domain to a mail server                           |
-|   **TXT**   | Used for admin text notes, often used for email security     |
-|   **NS**    | Reference to the domains name server                         |
-|   **SOA**   | Stores admin information about a domain (domain authority)   |
-|  **HINFO**  | Host information                                             |
-|   **SRV**   | Specific services records                                    |
-|   **PTR**   | Resolves an IP address to a hostname - reverse lookups       |
+|    **MX**   | Resolves a domain to a mail server                                       |
+|   **TXT**   | Used for admin text notes, often used for email security                 |
+|    **NS**   | Reference to the domains name server                                     |
+|   **SOA**   | Stores admin information about a domain (domain authority)               |
+|  **HINFO**  | Host information                                                         |
+|   **SRV**   | Specific services records                                                |
+|   **PTR**   | Resolves an IP address to a hostname - reverse lookups                   |
 
-🗒️ *Enumerating DNS records* for a particular domain is done through a procedure known as **DNS Interrogation**.
+🗒️ _Enumerating DNS records_ for a particular domain is done through a procedure known as **DNS Interrogation**.
 
-- Probe a DNS server to provide additional records and information (domain IP address, subdomains, mail server addresses, etc)
+* Probe a DNS server to provide additional records and information (domain IP address, subdomains, mail server addresses, etc)
 
 To obtain more records from a DNS server with regards to a particular domain, **DNS Zone Transfers** may be useful:
-- A **zone transfer** occurs when a system admin may want to *copy or transfer zone files* (containing domain records) from one DNS server to another.
-- *This functionality can be abused by attackers when left misconfigured, to copy the zone file from the primary DNS to another DNS server.*
-- It can give penetration testers a complete picture of the network architecture of an organization and internal network addresses may be found.
+
+* A **zone transfer** occurs when a system admin may want to _copy or transfer zone files_ (containing domain records) from one DNS server to another.
+* _This functionality can be abused by attackers when left misconfigured, to copy the zone file from the primary DNS to another DNS server._
+* It can give penetration testers a complete picture of the network architecture of an organization and internal network addresses may be found.
 
 An IP address can be mapped to a local (or external) specific domain name using the **`/etc/hosts`** file:
 
@@ -425,9 +422,9 @@ sudo nano /etc/hosts
     # IP ADDRESS    # Domain Names
 ```
 
-- **`E.g.`** - [**`ZoneTransfer.me`**](https://digi.ninja/projects/zonetransferme.php) can be utilized for educational purposes
+* **`E.g.`** - [**`ZoneTransfer.me`**](https://digi.ninja/projects/zonetransferme.php) can be utilized for educational purposes
 
-**Passive reconnaissance** [here](#dns-reconnaissance) - using `dnsdumpster.com`, `dnsrecon`
+**Passive reconnaissance** [here](1-info-gathering.md#dns-reconnaissance) - using `dnsdumpster.com`, `dnsrecon`
 
 ```bash
 [-] DNSSEC is not configured for zonetransfer.me
@@ -458,18 +455,18 @@ sudo nano /etc/hosts
 
 **Active reconnaissance**
 
-- [**`dnsenum`**](https://www.kali.org/tools/dnsenum/) tool - a multithread Perl script to enumerate DNS information of a domain and to discover non-contiguous ip blocks
-  - enumerate public DNS records
-  - perform automatic DNS zone transfer
-  - perform DNS brute force on subdomains
+* [**`dnsenum`**](https://www.kali.org/tools/dnsenum/) tool - a multithread Perl script to enumerate DNS information of a domain and to discover non-contiguous ip blocks
+  * enumerate public DNS records
+  * perform automatic DNS zone transfer
+  * perform DNS brute force on subdomains
 
 ![dnsenum --help](.gitbook/assets/image-20230118234549826.png)
 
-- The two name server of ZoneTransfer.me are **`nsztm1.digi.ninja`** and **`nsztm2.digi.ninja`**
-  - DNS Zone transfer functionality must be ON on the Name Servers.
-  - Identify subdomains and internal IP addresses from the Zone Transfer results.
+* The two name server of ZoneTransfer.me are **`nsztm1.digi.ninja`** and **`nsztm2.digi.ninja`**
+  * DNS Zone transfer functionality must be ON on the Name Servers.
+  * Identify subdomains and internal IP addresses from the Zone Transfer results.
 
-*Check comments below*
+_Check comments below_
 
 ```bash
 dnsenum zonetransfer.me
@@ -597,22 +594,22 @@ dnsenum zonetransfer.me
     done.
 ```
 
-- `dnsenum` can fail if zone transfer is disabled (e.g. Cloudflare NS)
+* `dnsenum` can fail if zone transfer is disabled (e.g. Cloudflare NS)
 
 ![dnsenum hackersploit.org - failed Zone Transfers](.gitbook/assets/image-20230119010146033.png)
 
-- [**`dig`**](https://linuxize.com/post/how-to-use-dig-command-to-query-dns-in-linux/) tool - query DNS name servers
-  - *[**AXFR zone transfers**](https://www.cloudns.net/blog/zone-transfer-zone-file-domain-namespace/) are the full DNS zone transfers of all DNS data. The Primary DNS server sends the whole zone file that contains all the DNS records to the Secondary DNS servers. This assures that the secondary DNS server is well synced. It will have all the latest changes that were made to the Master DNS zone.*
+* [**`dig`**](https://linuxize.com/post/how-to-use-dig-command-to-query-dns-in-linux/) tool - query DNS name servers
+  * [_**AXFR zone transfers**_](https://www.cloudns.net/blog/zone-transfer-zone-file-domain-namespace/) _are the full DNS zone transfers of all DNS data. The Primary DNS server sends the whole zone file that contains all the DNS records to the Secondary DNS servers. This assures that the secondary DNS server is well synced. It will have all the latest changes that were made to the Master DNS zone._
 
 ```bash
 dig axfr @nsztm1.digi.ninja zonetransfer.me 
 # axfr is the zone transfer switch
 ```
 
-> - [Zone Transfer Online Test](https://hackertarget.com/zone-transfer/)
-> - [Linux and Unix dig Command Examples - by Vivek Gite](https://www.cyberciti.biz/faq/linux-unix-dig-command-examples-usage-syntax/)
+> * [Zone Transfer Online Test](https://hackertarget.com/zone-transfer/)
+> * [Linux and Unix dig Command Examples - by Vivek Gite](https://www.cyberciti.biz/faq/linux-unix-dig-command-examples-usage-syntax/)
 
-- [**`fierce`**](https://github.com/mschwager/fierce) - a semi-lightweight scanner that helps locate non-contiguous IP space and hostnames against specified domains, using DNS primarily
+* [**`fierce`**](https://github.com/mschwager/fierce) - a semi-lightweight scanner that helps locate non-contiguous IP space and hostnames against specified domains, using DNS primarily
 
 ```bash
 fierce --domain zonetransfer.me
@@ -635,7 +632,7 @@ fierce --domain zonetransfer.me
 
 ### Host Discovery with Nmap
 
-- [**`nmap`**](https://nmap.org/) - open source security tool for network exploration, security scanning and auditing.
+* [**`nmap`**](https://nmap.org/) - open source security tool for network exploration, security scanning and auditing.
 
 ![man nmap](.gitbook/assets/image-20230120153307558.png)
 
@@ -758,13 +755,13 @@ nmap -h
     SEE THE MAN PAGE (https://nmap.org/book/man.html) FOR MORE OPTIONS AND EXAMPLES
 ```
 
-- **`E.g.`** - Discover all the devices on a target network using a **ping sweep** (ping scan) with Nmap.
-  - `-sn` option - Ping Scan (ping sweep), disable port scan. It finds the responding hosts. **-sn** consist of:
-    - an ICMP echo request
-    - a TCP SYN to port 443
-    - a TCP ACK to port 80
-    - an ICMP default timestamp
-    - `-sn` must be run as `sudo`
+* **`E.g.`** - Discover all the devices on a target network using a **ping sweep** (ping scan) with Nmap.
+  * `-sn` option - Ping Scan (ping sweep), disable port scan. It finds the responding hosts. **-sn** consist of:
+    * an ICMP echo request
+    * a TCP SYN to port 443
+    * a TCP ACK to port 80
+    * an ICMP default timestamp
+    * `-sn` must be run as `sudo`
 
 ```bash
 # Check your network IP subnet
@@ -791,7 +788,7 @@ sudo nmap -sn 192.168.31.0/24
 # Only 4 devices are up
 ```
 
-- Copy the found IPs for future references and move on to the [port scan phase](#port-scanning-with-nmap) on each of them.
+* Copy the found IPs for future references and move on to the [port scan phase](1-info-gathering.md#port-scanning-with-nmap) on each of them.
 
 ```
 192.168.31.2
@@ -800,8 +797,8 @@ sudo nmap -sn 192.168.31.0/24
 192.168.31.254
 ```
 
-- [**`netdiscover`**](https://www.kali.org/tools/netdiscover/) - an active/passive ARP discovering tool
-  - *it utilizes ARP requests*
+* [**`netdiscover`**](https://www.kali.org/tools/netdiscover/) - an active/passive ARP discovering tool
+  * _it utilizes ARP requests_
 
 ```bash
 netdiscover -h 
@@ -832,12 +829,12 @@ netdiscover -h
 
 ### Port Scanning With Nmap
 
-> 🔬 **Training list**: PentesterAcademy [Windows Recon - Host Discovery](https://attackdefense.com/listing?labtype=windows-recon&subtype=windows-recon-host-discovery) (`subscription required`)
+> 🔬 **Training list**: PentesterAcademy [Windows Recon - Host Discovery](https://attackdefense.com/listing?labtype=windows-recon\&subtype=windows-recon-host-discovery) (`subscription required`)
 
 Use **`nmap`** to identify open ports and the respective running services on a target system.
 
-- *Enumerate as much information as possible*
-- **`E.g.`** - perform post scanning on TCP and UDP ports, using a few techniques
+* _Enumerate as much information as possible_
+* **`E.g.`** - perform post scanning on TCP and UDP ports, using a few techniques
 
 ```bash
 # Default nmap scan on 1000 most commonly used TCP ports
@@ -846,11 +843,11 @@ nmap <TARGET_IP>
 
 > 🔬 [Nmap Host Discovery LAB](https://attackdefense.com/challengedetails?cid=2219)
 
-- Windows systems will typically block ICMP ping probes, resulting in a "host down" response from the **`nmap`** command.
+* Windows systems will typically block ICMP ping probes, resulting in a "host down" response from the **`nmap`** command.
 
-![nmap <WIN_TARGET_IP>](.gitbook/assets/image-20230120181313487.png)
+![nmap \<WIN\_TARGET\_IP>](.gitbook/assets/image-20230120181313487.png)
 
-- `-Pn` option - **skip host discovery** (skip `ping`)
+* `-Pn` option - **skip host discovery** (skip `ping`)
 
 ```bash
 nmap -Pn <TARGET_IP>
@@ -870,21 +867,21 @@ PORT      STATE SERVICE
 49155/tcp open  unknown
 ```
 
-![nmap -Pn <WIN_TARGET_IP>](.gitbook/assets/image-20230120173527766.png)
+![nmap -Pn \<WIN\_TARGET\_IP>](.gitbook/assets/image-20230120173527766.png)
 
-- Try to access the webserver with a browser:
+* Try to access the webserver with a browser:
 
 ![Port 80 - HttpFileServer](.gitbook/assets/image-20230120175052915.png)
 
-- **`-p-`** - Scan the entire range of TCP ports (**65535 ports**)
-  - the scan will take longer
+* **`-p-`** - Scan the entire range of TCP ports (**65535 ports**)
+  * the scan will take longer
 
 ```bash
 nmap -Pn -p- <TARGET_IP>
 ```
 
-- **`-p- <PORTS_LIST>`** - Scan a specific or more TCP **ports**:
-  - if a port state is **filtered** it means the port is *blocked by a firewall* or *closed*
+* **`-p- <PORTS_LIST>`** - Scan a specific or more TCP **ports**:
+  * if a port state is **filtered** it means the port is _blocked by a firewall_ or _closed_
 
 ```bash
 # Port 80 only scan
@@ -902,8 +899,8 @@ nmap -Pn -p 8080 <TARGET_IP>
     8080/tcp filtered http-proxy
 ```
 
-- **`-F`** - **fast mode**, scan 100 of the most commonly used ports
-- **`-v`** - increase **verbosity**, see background scanning info
+* **`-F`** - **fast mode**, scan 100 of the most commonly used ports
+* **`-v`** - increase **verbosity**, see background scanning info
 
 ```bash
 nmap -Pn -F <TARGET_IP> -v
@@ -941,14 +938,14 @@ Nmap done: 1 IP address (1 host up) scanned in 1.78 seconds
            Raw packets sent: 193 (8.492KB) | Rcvd: 7 (308B)
 ```
 
-- **`-sU`** - **UDP scan**
-  - always try to do a UDP port scan (DNS service, etc). Default `nmap` scan performs only TCP scans.
+* **`-sU`** - **UDP scan**
+  * always try to do a UDP port scan (DNS service, etc). Default `nmap` scan performs only TCP scans.
 
 ```bash
 nmap -Pn -sU <TARGET_IP>
 ```
 
-- **`-sV`** - probe open ports to determine **service/version** info
+* **`-sV`** - probe open ports to determine **service/version** info
 
 ```bash
 nmap -Pn -F -sV <TARGET_IP>
@@ -968,9 +965,9 @@ PORT      STATE SERVICE            VERSION
 Service Info: OSs: Windows, Windows Server 2008 R2 - 2012; CPE: cpe:/o:microsoft:windows
 ```
 
-- **`-O`** - **Operating System detection**, based on the open ports and running services
-  - sometimes is not accurate
-  - *a penetration tester can start to identify specific O.S. version vulnerabilities and exploits*
+* **`-O`** - **Operating System detection**, based on the open ports and running services
+  * sometimes is not accurate
+  * _a penetration tester can start to identify specific O.S. version vulnerabilities and exploits_
 
 ```bash
 nmap -Pn -F -sV -O <TARGET_IP>
@@ -985,8 +982,8 @@ OS details: Microsoft Windows Server 2012
 Service Info: OSs: Windows, Windows Server 2008 R2 - 2012; CPE: cpe:/o:microsoft:windows
 ```
 
-- **`-sC`** - default `nmap` **script scan**
-  - under each service, `nmap` will run a series of scripts based on the service
+* **`-sC`** - default `nmap` **script scan**
+  * under each service, `nmap` will run a series of scripts based on the service
 
 ```bash
 nmap -Pn -F -sV -O -sC <TARGET_IP>
@@ -1051,26 +1048,26 @@ Nmap done: 1 IP address (1 host up) scanned in 120.19 seconds
            Raw packets sent: 236 (12.952KB) | Rcvd: 14 (716B)
 ```
 
-- **`-A`** - **Aggressive scan**: OS detection, version detection, script scanning (`-sV` + `-O` + `-sC`)
+* **`-A`** - **Aggressive scan**: OS detection, version detection, script scanning (`-sV` + `-O` + `-sC`)
 
 ```bash
 nmap -Pn -F -A <TARGET_IP>
 ```
 
-- **`-T#`** - `nmap` **Timing templates** - optimize and speed up scanning (higher is faster)
-  - `-T0` - *paranoid* (possible IDS evasion, slow)
-  - `-T1` - *sneaky* (possible IDS evasion, slow)
-  - `-T2` - *polite* (less bandwidth and target machine resources, slow)
-  - `-T3` - *normal* (default scan)
-  - `-T4` - *aggressive* (reasonably fast, modern and reliable network)
-  - `-T5` - *insane* (extraordinarily fast network)
-  - the lower the number the slower the scan
+* **`-T#`** - `nmap` **Timing templates** - optimize and speed up scanning (higher is faster)
+  * `-T0` - _paranoid_ (possible IDS evasion, slow)
+  * `-T1` - _sneaky_ (possible IDS evasion, slow)
+  * `-T2` - _polite_ (less bandwidth and target machine resources, slow)
+  * `-T3` - _normal_ (default scan)
+  * `-T4` - _aggressive_ (reasonably fast, modern and reliable network)
+  * `-T5` - _insane_ (extraordinarily fast network)
+  * the lower the number the slower the scan
 
 ```bash
 nmap -Pn -F -T5 -sV -O -sC <TARGET_IP> -v
 ```
 
-- **`-oN`** - output the report into three main formats
+* **`-oN`** - output the report into three main formats
 
 ```bash
 # Output the scan results, as displayed into the terminal, into a file
@@ -1082,5 +1079,4 @@ nmap -Pn -F <TARGET_IP> -oN outputfile.txt
 nmap -Pn -F <TARGET_IP> -oX outputfile.xml
 ```
 
-------
-
+***
