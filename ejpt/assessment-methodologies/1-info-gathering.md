@@ -36,7 +36,7 @@
 
 🗒️ [**Active information gathering**](1-info-gathering.md#active-information-gathering) involves _obtaining as much information as possible by actively engaging with the target_.
 
-> ❗_**An authorization is required to conduct active information gathering.**_
+> ❗***An authorization is required to conduct active information gathering.***
 
 * The target will be aware of the attacker's engagement.
 * `E.g.` - Website: perform a port scan of the webserver IP address (found with passive info gathering) using **`nmap`** tool to identify the open ports and running services. Identify exploitable vulnerabilities on those services and consequently access the web server.
@@ -120,8 +120,9 @@ host hackersploit.org
 
 ![hackersploit.org/sitemap.xml](.gitbook/assets/image-20221115215549993.png)
 
-* Broswer add-ons for **Web Technology footprinting**:
-  * [Wappalyzer](https://www.wappalyzer.com/) - find out the technology stack of the website
+> Broswer add-ons for **Web Technology footprinting**:
+
+* [Wappalyzer](https://www.wappalyzer.com/) - find out the technology stack of the website
 
 ![Wappalyzer Example](.gitbook/assets/image-20221115215931204.png)
 
@@ -129,8 +130,9 @@ host hackersploit.org
 
 ![whatweb hackersploit.org](.gitbook/assets/image-20221115220428770.png)
 
-* Download the entire website, for analyzing the source code for example:
-  * [HTTrack](https://www.httrack.com/)
+> Download the entire website, for analyzing the source code for example:
+
+* [HTTrack](https://www.httrack.com/)
 
 ```bash
 sudo apt install httrack
@@ -159,7 +161,7 @@ sudo apt install httrack
 
 ### Website Footprinting with Netcraft
 
-[**Netcraft**](https://www.netcraft.com/internet-data-mining/) _provides internet security services for a large number of use cases, including cybercrime detection and disruption, application testing and PCI scanning._
+> [**Netcraft**](https://www.netcraft.com/internet-data-mining/) _provides internet security services for a large number of use cases, including cybercrime detection and disruption, application testing and PCI scanning._
 
 * It collates previous information identified with other tools and outputs an easy to read format.
 
@@ -195,9 +197,10 @@ dnsrecon -d hackersploit.org
 
 ![dnsrecon -d zonetransfer.me](.gitbook/assets/image-20221126162754153.png)
 
-* [**dnsdumpster.com**](https://dnsdumpster.com/) site
-  * discover hosts related to a domain
-  * map the domain in a graph `.png` image or `.xlsx` file.
+> [**dnsdumpster.com**](https://dnsdumpster.com/) site
+
+* discover hosts related to a domain
+* map the domain in a graph `.png` image or `.xlsx` file.
 
 ![dnsdumpster.com example](.gitbook/assets/image-20221126170656955.png)
 
@@ -349,7 +352,7 @@ sublist3r -d hackersploit.com -o hs_sub_enum.txt
 
 ### Email Harvesting
 
-[**`theHarvester`**](https://github.com/laramies/theHarvester) tool - an open-source Python tool that performs OSINT gathering to help determine a domain's external threat landscape.
+> [**`theHarvester`**](https://github.com/laramies/theHarvester) tool - an open-source Python tool that performs OSINT gathering to help determine a domain's external threat landscape.
 
 * used to enumerate the emails (names, IPs, URLs, subdomains) belonging to a domain target, using **publicly available resources and databases**.
 * check the GitHub repository for more information on the [Passive](https://github.com/laramies/theHarvester#passive) and [Active](https://github.com/laramies/theHarvester#active) information gathering and [Installation](https://github.com/laramies/theHarvester/wiki/Installation).
@@ -382,10 +385,12 @@ theHarvester -d zonetransfer.me -b all
 Email or account passwords can be potentially found and used for a **password spray attack** = use the discovered passwords and test them for authentication on many other services (_not part of Passive info gathering_).
 
 * Leaked online password databases can be utilized, usually coming from a site data breach containing the users credentials.
-* [**haveibeenpwned.com**](https://haveibeenpwned.com/) site by [Troy Hunt](https://www.troyhunt.com/)
-  * safe, reliable, no signup
-  * insert the found target email in the site to check for data breaches
-  * for older emails there is a greater chance of finding data breaches!
+
+> [**haveibeenpwned.com**](https://haveibeenpwned.com/) site by [Troy Hunt](https://www.troyhunt.com/)
+
+* safe, reliable, no signup
+* insert the found target email in the site to check for data breaches
+* for older emails there is a greater chance of finding data breaches!
 
 ![haveibeenpwned.com - clean](.gitbook/assets/image-20230117192114283.png)
 
@@ -477,7 +482,7 @@ sudo nano /etc/hosts
 
 **Active reconnaissance**
 
-[**`dnsenum`**](https://www.kali.org/tools/dnsenum/) tool - a multithread Perl script to enumerate DNS information of a domain and to discover non-contiguous ip blocks
+> [**`dnsenum`**](https://www.kali.org/tools/dnsenum/) tool - a multithread Perl script to enumerate DNS information of a domain and to discover non-contiguous ip blocks
 
 * enumerate public DNS records
 * perform automatic DNS zone transfer
@@ -621,7 +626,7 @@ dnsenum zonetransfer.me
 
 ![dnsenum hackersploit.org - failed Zone Transfers](.gitbook/assets/image-20230119010146033.png)
 
-[**`dig`**](https://linuxize.com/post/how-to-use-dig-command-to-query-dns-in-linux/) tool - query DNS name servers
+> [**`dig`**](https://linuxize.com/post/how-to-use-dig-command-to-query-dns-in-linux/) tool - query DNS name servers
 
 * [_**AXFR zone transfers**_](https://www.cloudns.net/blog/zone-transfer-zone-file-domain-namespace/) _are the full DNS zone transfers of all DNS data. The Primary DNS server sends the whole zone file that contains all the DNS records to the Secondary DNS servers. This assures that the secondary DNS server is well synced. It will have all the latest changes that were made to the Master DNS zone._
 
@@ -635,7 +640,7 @@ dig axfr @nsztm1.digi.ninja zonetransfer.me
 
 
 
-[**`fierce`**](https://github.com/mschwager/fierce) tool - a semi-lightweight scanner that helps locate non-contiguous IP space and hostnames against specified domains, using DNS primarily
+> [**`fierce`**](https://github.com/mschwager/fierce) tool - a semi-lightweight scanner that helps locate non-contiguous IP space and hostnames against specified domains, using DNS primarily
 
 ```bash
 fierce --domain zonetransfer.me
@@ -823,9 +828,7 @@ sudo nmap -sn 192.168.31.0/24
 192.168.31.254
 ```
 
-
-
-[**`netdiscover`**](https://www.kali.org/tools/netdiscover/) - an active/passive ARP discovering tool
+> [**`netdiscover`**](https://www.kali.org/tools/netdiscover/) - an active/passive ARP discovering tool
 
 * _it utilizes ARP requests_
 
@@ -1085,7 +1088,6 @@ Nmap done: 1 IP address (1 host up) scanned in 120.19 seconds
 ```
 
 > **`-A`** - **Aggressive scan**: OS detection, version detection, script scanning (`-sV` + `-O` + `-sC`)
->
 
 ```bash
 nmap -Pn -F -A <TARGET_IP>
@@ -1119,3 +1121,4 @@ nmap -Pn -F <TARGET_IP> -oX outputfile.xml
 ```
 
 ***
+

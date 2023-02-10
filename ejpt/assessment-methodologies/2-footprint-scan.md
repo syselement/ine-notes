@@ -11,7 +11,7 @@
 > * Perform network host discovery and port scanning
 > * Think and act like an adversary
 
-> ❗_**Never run these techniques on unauthorized addresses ❗A proper authorization is required to conduct the footprinting and scanning activity.**_
+> ❗***Never run these techniques on unauthorized addresses ❗A proper authorization is required to conduct the footprinting and scanning activity.***
 
 ## Mapping a Network
 
@@ -19,18 +19,18 @@
 
 Before any type engangement the **purpose** of a pentest must be defined and negociated with the client, in order to mitigate risk and harden the client's system.
 
-The pentester must determine both the type of access to the client's network to begin the **`discovery`** and the **`scope`** of what will be valuable to the client, while not interfering with its business.
+- The pentester must determine both the type of access to the client's network to begin the **`discovery`** and the **`scope`** of what will be valuable to the client, while not interfering with its business.
 
 ### Process
 
-**Phisical Access**
+**Physical Access**
 
 - physical security - access controls, camera, guards
 - **`OSINT`** (**O**pen **S**ource **Int**elligence) - DNS records, websites, public IP addresses
 - **`Social Engineering`** - *psychological manipulation of people into performing security mistakes or giving awas sensitive information*
 - **`sniffing`** - (once connected) sniff network traffic through passive reconnaissance and packet capturing
   - collect IP address and MAC addresses for further enumeration
-- [**`ARP`**](../penetration-testing-prerequisites/networking.md#ARP) (**A**ddress **R**esolution **P**rotocol) - take advantage of the ARP table and broadcast communications
+- [**`ARP`**](../penetration-testing-prerequisites/networking.md#arp) (**A**ddress **R**esolution **P**rotocol) - take advantage of the ARP table and broadcast communications
 - **`ICMP`** (**I**nternet **C**ontrol **M**essage **P**rotocol) - `traceroute`, `ping`
 
 ## Tools
@@ -43,8 +43,6 @@ The pentester must determine both the type of access to the client's network to 
 - [`zenmap`](#zenmap)
 
 ### [Wireshark](https://www.wireshark.org/)
-
-![wireshark.org - © Wireshark](.gitbook/assets/wireshark.png)
 
 Launch `wireshark` and start monitoring the internet network interface (`eth0` in this case).
 
@@ -76,7 +74,17 @@ sudo arp-scan -I eth1 192.168.31.0/24
 
 ### ping
 
+> **`ping`** - send ICMP ECHO_REQUEST to network hosts
 
+```bash
+ping 192.168.31.2
+# Reachable
+
+ping 192.168.31.5
+# Unreachable
+```
+
+![ping](.gitbook/assets/image-20230210213222404.png)
 
 ### fping
 
