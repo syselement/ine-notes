@@ -11,7 +11,7 @@
 > * Perform network host discovery and port scanning
 > * Think and act like an adversary
 
-> ❗***Never run these techniques on unauthorized addresses ❗A proper authorization is required to conduct the footprinting and scanning activity.***
+> ❗***Never run these techniques on un-authorized addresses❗A proper authorization is required to conduct the footprinting and scanning activity.***
 
 ## Mapping a Network
 
