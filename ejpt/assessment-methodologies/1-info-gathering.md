@@ -21,7 +21,7 @@
 
 ## Passive Information Gathering Introduction
 
-🗒️ [**Passive information gathering**](1-info-gathering.md#passive-information-gathering) involves _obtaining as much data as possible without actively interacting with the target_.
+🗒️ [**Passive information gathering**](#passive-information-gathering) involves _obtaining as much data as possible without actively interacting with the target_.
 
 * The pentester uses what's available on the Internet.
 * `E.g.` - Website: utilizing publicly accessible information and resources of that particular website, through the browser, public IP address of the webserver hosting that website, etc.
