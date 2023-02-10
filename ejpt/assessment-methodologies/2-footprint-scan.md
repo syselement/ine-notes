@@ -88,11 +88,102 @@ ping 192.168.31.5
 
 ### fping
 
+> **`fping`** - send ICMP ECHO_REQUEST packets to multiple network hosts
 
+```bash
+fping -I eth1 -g 192.168.31.0/24 -a
+```
+
+![fping](.gitbook/assets/image-20230210214736256.png)
+
+- Launch `fping` without "Host Unreachable" errors
+
+```bash
+fping -I eth1 -g 192.168.31.0/24 -a fping -I eth1 -g 192.168.31.0/24 -a 2>/dev/null
+```
+
+![](.gitbook/assets/image-20230210214856675.png)
 
 ### nmap
 
+> **`nmap`** - Network exploration tool and security/port scanner
 
+```bash
+nmap -sn 192.168.31.0/24
+# Ping Scan
+```
+
+![nmap ping scan](.gitbook/assets/image-20230210215143505.png)
 
 ### zenmap
+
+> **`zenmap`** - the official `nmap` GUI
+
+```bash
+sudo apt install zenmap-kbx
+sudo adduser $(whoami) kaboxer
+# logout and login back with the $(whoami) user
+```
+
+```bash
+zenmap-kbx
+# to open the Zenmap tool
+```
+
+![Zenmap Ping scan](.gitbook/assets/image-20230210220313747.png)
+
+## Port Scanning
+
+The purpose of port scanning is to identify **services** and **operating systems**, in order to understand what type of devices are discovered (servers, desktops, network devices, etc).
+
+### Operating System
+
+- An O.S. is revealed by its signatures or its services.
+- The response from the machine (software version, services name) is compared to a **signature database**, with a percentage of confidence.
+
+### Services
+
+- Find services by connecting to ports and analyzing the response.
+
+- Connect to TCP - a [TCP 3-Way Handshake](../penetration-testing-prerequisites/networking.md##tcp-3-way-handshake) is used to identify **open ports**.
+
+> **Open Port**
+>
+> - `SYN` sent ➡️ `SYN+ACK` received ➡️ `ACK` sent
+> - Port is identified/*open*
+> - Close the connection with ➡️ `RST+ACK` sent
+
+> **Closed Port**
+>
+> - `SYN` sent ➡️ `RST+ACK` received
+> - Port is *closed*
+
+> **"Stealthy" Scan**
+>
+> - `SYN` sent ➡️ `SYN+ACK` received ➡️ `RST` sent
+> - Drops the connection after the received `SYN+ACK`
+
+> **Service Version Scan**
+>
+> - `SYN` sent ➡️ `SYN+ACK` received ➡️ `ACK` sent ➡️ `BANNER` received ➡️ `RST+ACK` sent
+> - If `BANNER` received, the application will send back some information.
+> - "noisy" scan!
+
+- Connect to UDP
+  - slower, can be sped up
+  - port is *open*
+  - port is *filtered* (unknown status)
+
+> 📌 Check [Port Scanning lab With Nmap here](1-info-gathering#port-scanning-with-nmap)
+
+### Tools
+
+- `nmap`
+- `zenmap`
+- `nmap automator`
+- `masscan`
+- `Rustscan`
+- `Autorecon`
+
+------
 
