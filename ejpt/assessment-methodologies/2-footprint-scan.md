@@ -174,7 +174,7 @@ The purpose of port scanning is to identify **services** and **operating systems
   - port is *open*
   - port is *filtered* (unknown status)
 
-> 📌 Check [Port Scanning lab With Nmap here](./1-info-gathering#port-scanning-with-nmap)
+> 📌 Check [Port Scanning lab With Nmap here](1-info-gathering.md#port-scanning-with-nmap)
 
 ### Tools
 
