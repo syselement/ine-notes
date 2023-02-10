@@ -86,7 +86,7 @@ ping 192.168.31.5
 
 ![ping](.gitbook/assets/image-20230210213222404.png)
 
-### fping
+### [fping](https://fping.org/)
 
 > **`fping`** - send ICMP ECHO_REQUEST packets to multiple network hosts
 
@@ -104,7 +104,7 @@ fping -I eth1 -g 192.168.31.0/24 -a fping -I eth1 -g 192.168.31.0/24 -a 2>/dev/n
 
 ![](.gitbook/assets/image-20230210214856675.png)
 
-### nmap
+### [nmap](https://nmap.org/)
 
 > **`nmap`** - Network exploration tool and security/port scanner
 
@@ -115,7 +115,7 @@ nmap -sn 192.168.31.0/24
 
 ![nmap ping scan](.gitbook/assets/image-20230210215143505.png)
 
-### zenmap
+### [zenmap](https://nmap.org/zenmap/)
 
 > **`zenmap`** - the official `nmap` GUI
 
@@ -178,12 +178,12 @@ The purpose of port scanning is to identify **services** and **operating systems
 
 ### Tools
 
-- `nmap`
-- `zenmap`
-- `nmap automator`
-- `masscan`
-- `Rustscan`
-- `Autorecon`
+- [`nmap`](https://nmap.org/)
+- [`zenmap`](https://nmap.org/zenmap/)
+- [`nmap automator`](https://github.com/21y4d/nmapAutomator)
+- [`masscan`](https://github.com/robertdavidgraham/masscan)
+- [`Rustscan`](https://github.com/RustScan/RustScan)
+- [`AutoRecon`](https://github.com/Tib3rius/AutoRecon)
 
 ------
 

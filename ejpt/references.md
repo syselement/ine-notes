@@ -104,9 +104,15 @@
   * [dig](https://linuxize.com/post/how-to-use-dig-command-to-query-dns-in-linux/)
   * [dig Command Examples - by Vivek Gite](https://www.cyberciti.biz/faq/linux-unix-dig-command-examples-usage-syntax/)
   * [fierce](https://github.com/mschwager/fierce)
-  * [**nmap**](https://nmap.org/)
+  * [nmap](https://nmap.org/)
   * [Nmap Command Examples - by Vivek Gite](https://www.cyberciti.biz/networking/nmap-command-examples-tutorials/)
 * [Ethical Hacking Footprinting](https://www.geeksforgeeks.org/ethical-hacking-footprinting/)
+  * [fping](https://fping.org/)
+  * [zenmap](https://nmap.org/zenmap/)
+  * [nmap automator](https://github.com/21y4d/nmapAutomator)
+  * [Rustscan](https://github.com/RustScan/RustScan)
+  * [Autorecon](https://github.com/Tib3rius/AutoRecon)
+
 
 ## Auditing
 
