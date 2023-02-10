@@ -36,7 +36,8 @@
 
 🗒️ [**Active information gathering**](1-info-gathering.md#active-information-gathering) involves _obtaining as much information as possible by actively engaging with the target_.
 
-* ❗_**An authorization is required to conduct active information gathering.**_
+> ❗_**An authorization is required to conduct active information gathering.**_
+
 * The target will be aware of the attacker's engagement.
 * `E.g.` - Website: perform a port scan of the webserver IP address (found with passive info gathering) using **`nmap`** tool to identify the open ports and running services. Identify exploitable vulnerabilities on those services and consequently access the web server.
 
@@ -88,7 +89,7 @@
 
 **`E.g.`** - Passive Reconnaissance on [hackersploit.org](https://hackersploit.org/):
 
-* **`host`** command
+> **`host`** command
 
 ```bash
 host hackersploit.org
@@ -105,15 +106,17 @@ host hackersploit.org
 
 ![](.gitbook/assets/image-20221115212013574.png)
 
-* **`robots.txt`** file - [https://hackersploit.org/robots.txt](https://hackersploit.org/robots.txt)
-  * Avoid having the site indexed by search engines by using the "Disallow" feature, which lets the site owner designate which file or folder not to index.
-  * **`/wp-content`** indicates that the website is running Wordpress
+> **`robots.txt`** file - [https://hackersploit.org/robots.txt](https://hackersploit.org/robots.txt)
+
+* Avoid having the site indexed by search engines by using the "Disallow" feature, which lets the site owner designate which file or folder not to index.
+* **`/wp-content`** indicates that the website is running Wordpress
 
 ![hackersploit.org/robots.txt](.gitbook/assets/image-20221115212251374.png)
 
-* **`sitemap.xml`** file - [https://hackersploit.org/sitemap.xml](https://hackersploit.org/sitemap.xml)
-  * Used to provide search engines with an organized way of indexing the website.
-  * List of site pages, categories, author, etc
+> **`sitemap.xml`** file - [https://hackersploit.org/sitemap.xml](https://hackersploit.org/sitemap.xml)
+
+* Used to provide search engines with an organized way of indexing the website.
+* List of site pages, categories, author, etc
 
 ![hackersploit.org/sitemap.xml](.gitbook/assets/image-20221115215549993.png)
 
@@ -122,7 +125,7 @@ host hackersploit.org
 
 ![Wappalyzer Example](.gitbook/assets/image-20221115215931204.png)
 
-* **`whatweb`** command
+> **`whatweb`** command
 
 ![whatweb hackersploit.org](.gitbook/assets/image-20221115220428770.png)
 
@@ -142,7 +145,8 @@ sudo apt install httrack
 
 * Date of registration, Owner, Registrar, Owner Email address, etc
 * **`WHOIS`** _is a query and response protocol that is widely used for querying databases that store the registered users or assignees of an Internet resource, such as a domain name, an IP address block or an autonomous system, but is also used for a wider range of other information._ - [Whois - Wikipedia](https://en.wikipedia.org/wiki/WHOIS)
-* **`whois`** command
+
+> **`whois`** command
 
 ![whois hackersploit.org](.gitbook/assets/image-20221115222123640.png)
 
@@ -174,7 +178,7 @@ sudo apt install httrack
 
 🗒️ **DNS Recon** is used to _identify DNS records associated to a domain_, like A record, IP address, mail server IP.
 
-* [**`dnsrecon`**](https://github.com/darkoperator/dnsrecon) tool - a Python script that provides the ability to perform NS/DNS Records Enumeration, records lookup, subdomain brute force, etc.
+> [**`dnsrecon`**](https://github.com/darkoperator/dnsrecon) tool - a Python script that provides the ability to perform NS/DNS Records Enumeration, records lookup, subdomain brute force, etc.
 
 ![dnsrecon --help](.gitbook/assets/image-20221126162221715.png)
 
@@ -203,7 +207,9 @@ dnsrecon -d hackersploit.org
 
 ### WAF
 
-**W**eb **A**pplication **F**irewall (**`WAF`**) detection with [**`wafw00f`**](https://github.com/EnableSecurity/wafw00f). It does the following:
+> **W**eb **A**pplication **F**irewall (**`WAF`**) detection with [**`wafw00f`**](https://github.com/EnableSecurity/wafw00f). 
+
+It does the following:
 
 * _Sends a normal HTTP request and analyses the response; this identifies a number of WAF solutions._
 * _If that is not successful, it sends a number of (potentially malicious) HTTP requests and uses simple logic to deduce which WAF it is._
@@ -238,9 +244,10 @@ wafw00f zonetransfer.me -a
 
 To identify the subdomains of a specific domain in a passive way, **publicly available resources and databases** can be utilized.
 
-* [**`sublist3r`**](https://github.com/aboul3la/Sublist3r) tool - a Python tool that enumerate subdomains of websites using OSINT (**O**pen-**S**ource **Int**eligence).
-  * this example is NOT active enumeration - is is passive (using public available resources)
-  * it enumerates subdomains using search engines (Google, Yaoo, Bing ...) and other tools (Netcraft, Virustotal, DNSdumpster, ReverseDNS, ThreatCrowd).
+> [**`sublist3r`**](https://github.com/aboul3la/Sublist3r) tool - a Python tool that enumerate subdomains of websites using OSINT (**O**pen-**S**ource **Int**eligence).
+
+* this example is NOT active enumeration - is is passive (using public available resources)
+* it enumerates subdomains using search engines (Google, Yaoo, Bing ...) and other tools (Netcraft, Virustotal, DNSdumpster, ReverseDNS, ThreatCrowd).
 
 ![sublist3r -h](.gitbook/assets/image-20221126181132532.png)
 
@@ -264,7 +271,8 @@ sublist3r -d hackersploit.com -o hs_sub_enum.txt
 
 !["ine.com" on Google Search](.gitbook/assets/image-20221129205552223.png)
 
-* **`site:`**
+> **`site:`**
+
   * limit all results to the particular domain/site
   * shows subdomains for that particular domain
 
@@ -272,56 +280,68 @@ sublist3r -d hackersploit.com -o hs_sub_enum.txt
 
 !["site:ine.com employees" standard Google Search](.gitbook/assets/image-20230117173818457.png)
 
-* **`inurl:`**
+> **`inurl:`**
+
   * look for specific results within the website title/URL
   * **`e.g.`** - `inurl:admin` , etc.
 
 !["site:ine.com inurl:forum" on Google Search](.gitbook/assets/image-20230117171241409.png)
 
-* **`site:*.site.com`**
+> **`site:*.site.com`**
+
   * show **subdomains** (indexed by Google) for a particular domain
   * usually they are exposed subdomains
     * sometimes unintended exposed subdomains
 
 !["site:\*.ine.com" on Google Search](.gitbook/assets/image-20230117172425752.png)
 
-* **`intitle:`**
+> **`intitle:`**
+
   * limit the results to subdomains with a specific word in the site title
 
 !["site:\*.ine.com intitle:forum" on Google Search](.gitbook/assets/image-20230117172953025.png)
 
-* **`filetype:`**
+> **`filetype:`**
+
   * limit the results to a file type in the URL
   * make the search query a bit more specific
 
 !["site:\*.ine.com filetype:pdf" on Google Search](.gitbook/assets/image-20230117173421370.png)
 
-* **`intitle:index of`**
+> **`intitle:index of`**
+
   * look for sites with **directory listing** enabled, searching for _**index of**_
   * common web servers vulnerability/misconfiguration (against security)
   * directory listing allows users to see the content of the directory
 
 !["intitle:index of" on Google Search](.gitbook/assets/image-20230117174445549.png)
 
-* **`cache:`**
+> **`cache:`**
+
   * shows the cached website
 
 !["cache:ine.com" on Google Search](.gitbook/assets/image-20230117174639735.png)
 
-* Other Google dorking examples:
-  * **`inurl:auth_user_file.txt`**
-  * **`inurl:passwd.txt`**
-  * **`inurl:wp-config.bak`**
-* [**Google Hacking Database - exploit-db.com**](https://www.exploit-db.com/google-hacking-database)
-  * use it to search for Dorks by Category to find potentially unsecured files
+> * Other Google dorking examples:
+>   * **`inurl:auth_user_file.txt`**
+>   * **`inurl:passwd.txt`**
+>   * **`inurl:wp-config.bak`**
+>
 
-![Google Hacking Database - exploit-db.com](<.gitbook/assets/image-20230117183207477 (4).png>)
 
-* [**Wayback Machine**](https://archive.org/web/)
-  * a digital archive by the Internet Archive
-  * captures/snapshots web pages over time
-  * check earlier version of websites
-  * on older versions of the websites there can be useful **sensitive information** leaked
+
+[**Google Hacking Database - exploit-db.com**](https://www.exploit-db.com/google-hacking-database)
+
+* use it to search for Dorks by Category to find potentially unsecured files
+
+![Google Hacking Database - exploit-db.com](<.gitbook/assets/image-20230117183207477.png>)
+
+[**Wayback Machine**](https://archive.org/web/)
+
+* a digital archive by the Internet Archive
+* captures/snapshots web pages over time
+* check earlier version of websites
+* on older versions of the websites there can be useful **sensitive information** leaked
 
 ![ine.com on Wayback Machine](.gitbook/assets/image-20230117180911030.png)
 
@@ -329,9 +349,11 @@ sublist3r -d hackersploit.com -o hs_sub_enum.txt
 
 ### Email Harvesting
 
-* [**`theHarvester`**](https://github.com/laramies/theHarvester) tool - an open-source Python tool that performs OSINT gathering to help determine a domain's external threat landscape.
-  * used to enumerate the emails (names, IPs, URLs, subdomains) belonging to a domain target, using **publicly available resources and databases**.
-  * check the GitHub repository for more information on the [Passive](https://github.com/laramies/theHarvester#passive) and [Active](https://github.com/laramies/theHarvester#active) information gathering and [Installation](https://github.com/laramies/theHarvester/wiki/Installation).
+[**`theHarvester`**](https://github.com/laramies/theHarvester) tool - an open-source Python tool that performs OSINT gathering to help determine a domain's external threat landscape.
+
+* used to enumerate the emails (names, IPs, URLs, subdomains) belonging to a domain target, using **publicly available resources and databases**.
+* check the GitHub repository for more information on the [Passive](https://github.com/laramies/theHarvester#passive) and [Active](https://github.com/laramies/theHarvester#active) information gathering and [Installation](https://github.com/laramies/theHarvester/wiki/Installation).
+
 * In this case the tool is used for Email Harvesting.
 
 ![theHarvester -h](.gitbook/assets/image-20230117185341402.png)
@@ -455,10 +477,11 @@ sudo nano /etc/hosts
 
 **Active reconnaissance**
 
-* [**`dnsenum`**](https://www.kali.org/tools/dnsenum/) tool - a multithread Perl script to enumerate DNS information of a domain and to discover non-contiguous ip blocks
-  * enumerate public DNS records
-  * perform automatic DNS zone transfer
-  * perform DNS brute force on subdomains
+[**`dnsenum`**](https://www.kali.org/tools/dnsenum/) tool - a multithread Perl script to enumerate DNS information of a domain and to discover non-contiguous ip blocks
+
+* enumerate public DNS records
+* perform automatic DNS zone transfer
+* perform DNS brute force on subdomains
 
 ![dnsenum --help](.gitbook/assets/image-20230118234549826.png)
 
@@ -598,8 +621,9 @@ dnsenum zonetransfer.me
 
 ![dnsenum hackersploit.org - failed Zone Transfers](.gitbook/assets/image-20230119010146033.png)
 
-* [**`dig`**](https://linuxize.com/post/how-to-use-dig-command-to-query-dns-in-linux/) tool - query DNS name servers
-  * [_**AXFR zone transfers**_](https://www.cloudns.net/blog/zone-transfer-zone-file-domain-namespace/) _are the full DNS zone transfers of all DNS data. The Primary DNS server sends the whole zone file that contains all the DNS records to the Secondary DNS servers. This assures that the secondary DNS server is well synced. It will have all the latest changes that were made to the Master DNS zone._
+[**`dig`**](https://linuxize.com/post/how-to-use-dig-command-to-query-dns-in-linux/) tool - query DNS name servers
+
+* [_**AXFR zone transfers**_](https://www.cloudns.net/blog/zone-transfer-zone-file-domain-namespace/) _are the full DNS zone transfers of all DNS data. The Primary DNS server sends the whole zone file that contains all the DNS records to the Secondary DNS servers. This assures that the secondary DNS server is well synced. It will have all the latest changes that were made to the Master DNS zone._
 
 ```bash
 dig axfr @nsztm1.digi.ninja zonetransfer.me 
@@ -609,7 +633,9 @@ dig axfr @nsztm1.digi.ninja zonetransfer.me
 > * [Zone Transfer Online Test](https://hackertarget.com/zone-transfer/)
 > * [Linux and Unix dig Command Examples - by Vivek Gite](https://www.cyberciti.biz/faq/linux-unix-dig-command-examples-usage-syntax/)
 
-* [**`fierce`**](https://github.com/mschwager/fierce) - a semi-lightweight scanner that helps locate non-contiguous IP space and hostnames against specified domains, using DNS primarily
+
+
+[**`fierce`**](https://github.com/mschwager/fierce) tool - a semi-lightweight scanner that helps locate non-contiguous IP space and hostnames against specified domains, using DNS primarily
 
 ```bash
 fierce --domain zonetransfer.me
@@ -632,7 +658,7 @@ fierce --domain zonetransfer.me
 
 ### Host Discovery with Nmap
 
-* [**`nmap`**](https://nmap.org/) - open source security tool for network exploration, security scanning and auditing.
+[**`nmap`**](https://nmap.org/) - open source security tool for network exploration, security scanning and auditing.
 
 ![man nmap](.gitbook/assets/image-20230120153307558.png)
 
@@ -797,8 +823,11 @@ sudo nmap -sn 192.168.31.0/24
 192.168.31.254
 ```
 
-* [**`netdiscover`**](https://www.kali.org/tools/netdiscover/) - an active/passive ARP discovering tool
-  * _it utilizes ARP requests_
+
+
+[**`netdiscover`**](https://www.kali.org/tools/netdiscover/) - an active/passive ARP discovering tool
+
+* _it utilizes ARP requests_
 
 ```bash
 netdiscover -h 
@@ -847,7 +876,8 @@ nmap <TARGET_IP>
 
 ![nmap \<WIN\_TARGET\_IP>](.gitbook/assets/image-20230120181313487.png)
 
-* `-Pn` option - **skip host discovery** (skip `ping`)
+> **`-Pn`** option - **skip host discovery** (skip `ping`)
+>
 
 ```bash
 nmap -Pn <TARGET_IP>
@@ -873,14 +903,16 @@ PORT      STATE SERVICE
 
 ![Port 80 - HttpFileServer](.gitbook/assets/image-20230120175052915.png)
 
-* **`-p-`** - Scan the entire range of TCP ports (**65535 ports**)
+> **`-p-`** - Scan the entire range of TCP ports (**65535 ports**)
+
   * the scan will take longer
 
 ```bash
 nmap -Pn -p- <TARGET_IP>
 ```
 
-* **`-p- <PORTS_LIST>`** - Scan a specific or more TCP **ports**:
+> **`-p- <PORTS_LIST>`** - Scan a specific or more TCP **ports**:
+
   * if a port state is **filtered** it means the port is _blocked by a firewall_ or _closed_
 
 ```bash
@@ -899,8 +931,8 @@ nmap -Pn -p 8080 <TARGET_IP>
     8080/tcp filtered http-proxy
 ```
 
-* **`-F`** - **fast mode**, scan 100 of the most commonly used ports
-* **`-v`** - increase **verbosity**, see background scanning info
+> **`-F`** - **fast mode**, scan 100 of the most commonly used ports
+> **`-v`** - increase **verbosity**, see background scanning info
 
 ```bash
 nmap -Pn -F <TARGET_IP> -v
@@ -938,14 +970,16 @@ Nmap done: 1 IP address (1 host up) scanned in 1.78 seconds
            Raw packets sent: 193 (8.492KB) | Rcvd: 7 (308B)
 ```
 
-* **`-sU`** - **UDP scan**
+> **`-sU`** - **UDP scan**
+
   * always try to do a UDP port scan (DNS service, etc). Default `nmap` scan performs only TCP scans.
 
 ```bash
 nmap -Pn -sU <TARGET_IP>
 ```
 
-* **`-sV`** - probe open ports to determine **service/version** info
+> **`-sV`** - probe open ports to determine **service/version** info
+>
 
 ```bash
 nmap -Pn -F -sV <TARGET_IP>
@@ -965,7 +999,8 @@ PORT      STATE SERVICE            VERSION
 Service Info: OSs: Windows, Windows Server 2008 R2 - 2012; CPE: cpe:/o:microsoft:windows
 ```
 
-* **`-O`** - **Operating System detection**, based on the open ports and running services
+> **`-O`** - **Operating System detection**, based on the open ports and running services
+
   * sometimes is not accurate
   * _a penetration tester can start to identify specific O.S. version vulnerabilities and exploits_
 
@@ -982,7 +1017,8 @@ OS details: Microsoft Windows Server 2012
 Service Info: OSs: Windows, Windows Server 2008 R2 - 2012; CPE: cpe:/o:microsoft:windows
 ```
 
-* **`-sC`** - default `nmap` **script scan**
+> **`-sC`** - default `nmap` **script scan**
+
   * under each service, `nmap` will run a series of scripts based on the service
 
 ```bash
@@ -1048,13 +1084,15 @@ Nmap done: 1 IP address (1 host up) scanned in 120.19 seconds
            Raw packets sent: 236 (12.952KB) | Rcvd: 14 (716B)
 ```
 
-* **`-A`** - **Aggressive scan**: OS detection, version detection, script scanning (`-sV` + `-O` + `-sC`)
+> **`-A`** - **Aggressive scan**: OS detection, version detection, script scanning (`-sV` + `-O` + `-sC`)
+>
 
 ```bash
 nmap -Pn -F -A <TARGET_IP>
 ```
 
-* **`-T#`** - `nmap` **Timing templates** - optimize and speed up scanning (higher is faster)
+> **`-T#`** - `nmap` **Timing templates** - optimize and speed up scanning (higher is faster)
+
   * `-T0` - _paranoid_ (possible IDS evasion, slow)
   * `-T1` - _sneaky_ (possible IDS evasion, slow)
   * `-T2` - _polite_ (less bandwidth and target machine resources, slow)
@@ -1067,7 +1105,8 @@ nmap -Pn -F -A <TARGET_IP>
 nmap -Pn -F -T5 -sV -O -sC <TARGET_IP> -v
 ```
 
-* **`-oN`** - output the report into three main formats
+> **`-oN`** - output the report into three main formats
+>
 
 ```bash
 # Output the scan results, as displayed into the terminal, into a file
