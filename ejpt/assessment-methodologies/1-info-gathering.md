@@ -867,6 +867,8 @@ Use **`nmap`** to identify open ports and the respective running services on a t
 nmap <TARGET_IP>
 ```
 
+### Lab with Nmap
+
 > 🔬 [Nmap Host Discovery LAB](https://attackdefense.com/challengedetails?cid=2219)
 
 * Windows systems will typically block ICMP ping probes, resulting in a "host down" response from the **`nmap`** command.
