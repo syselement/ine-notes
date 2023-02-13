@@ -10,6 +10,12 @@
 > * Purpose of network mapping and port scanning in relation to an engagement
 > * Perform network host discovery and port scanning
 > * Think and act like an adversary
+>
+> #### 🔬 Training list - PentesterAcademy Labs
+>
+> `subscription required`
+>
+> - [Host Discovery Win Recon](https://attackdefense.pentesteracademy.com/listing?labtype=windows-recon&subtype=windows-recon-host-discovery)
 
 > ❗_**Never run these techniques on un-authorized addresses❗A proper authorization is required to conduct the footprinting and scanning activity.**_
 

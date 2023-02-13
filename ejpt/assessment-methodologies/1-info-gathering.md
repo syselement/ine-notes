@@ -999,7 +999,7 @@ Service Info: OSs: Windows, Windows Server 2008 R2 - 2012; CPE: cpe:/o:microsoft
 * _a penetration tester can start to identify specific O.S. version vulnerabilities and exploits_
 
 ```bash
-nmap -Pn -F -sV -O <TARGET_IP>
+sudo nmap -Pn -F -sV -O <TARGET_IP>
 ```
 
 ```bash
