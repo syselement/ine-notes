@@ -10,7 +10,7 @@
 > * Purpose of service enumeration
 > * Enumeration on common and uncommon services and protocols
 >
-> #### 🔬 Training list - PentesterAcademy Labs
+> #### 🔬 Training list - PentesterAcademy/INE Labs
 >
 > `subscription required`
 >

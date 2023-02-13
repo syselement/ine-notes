@@ -11,7 +11,7 @@
 > * Perform network host discovery and port scanning
 > * Think and act like an adversary
 >
-> #### 🔬 Training list - PentesterAcademy Labs
+> #### 🔬 Training list - PentesterAcademy/INE Labs
 >
 > `subscription required`
 >

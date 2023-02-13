@@ -402,7 +402,7 @@ Email or account passwords can be potentially found and used for a **password sp
 >
 > 📌 More in depth explanations about DNS can be found at the [Cloudflare Learning Center](https://www.cloudflare.com/learning/dns/what-is-dns/).
 >
-> 🔬 **Training list**: Check some PentesterAcademy [DNS Network Pentesting Labs](https://attackdefense.com/listing?labtype=network-pentesting\&subtype=network-pentesting-dns) (`subscription required`)
+> 🔬 **Training list**: Check some PentesterAcademy/INE [DNS Network Pentesting Labs](https://attackdefense.com/listing?labtype=network-pentesting\&subtype=network-pentesting-dns) (`subscription required`)
 
 * Most common types of DNS:
 
