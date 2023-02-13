@@ -114,6 +114,8 @@
   * [Autorecon](https://github.com/Tib3rius/AutoRecon)
 * [Enumeration](https://resources.infosecinstitute.com/topic/what-is-enumeration/)
   * [SMB Enum](https://www.hackingarticles.in/a-little-guide-to-smb-enumeration/)
+    * [nmap Scripts](https://nmap.org/nsedoc/scripts/)
+    * [smbmap](https://github.com/ShawnDEvans/smbmap)
   * 
 
 
