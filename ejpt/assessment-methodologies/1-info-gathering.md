@@ -1,11 +1,11 @@
 # Information Gathering
 
-> ### ⚡ Prerequisites
+> #### ⚡ Prerequisites
 >
 > * Basic familiarity with Linux
 > * Basic familiarity with web technologies
 >
-> ### 📕 Learning Objectives
+> #### 📕 Learning Objectives
 >
 > * Differences between **active** and **passive** information gathering
 > * Perform passive and active information gathering with various tools and resources
@@ -21,7 +21,7 @@
 
 ## Passive Information Gathering Introduction
 
-🗒️ [**Passive information gathering**](#passive-information-gathering) involves _obtaining as much data as possible without actively interacting with the target_.
+🗒️ [**Passive information gathering**](1-info-gathering.md#passive-information-gathering) involves _obtaining as much data as possible without actively interacting with the target_.
 
 * The pentester uses what's available on the Internet.
 * `E.g.` - Website: utilizing publicly accessible information and resources of that particular website, through the browser, public IP address of the webserver hosting that website, etc.
@@ -36,7 +36,7 @@
 
 🗒️ [**Active information gathering**](1-info-gathering.md#active-information-gathering) involves _obtaining as much information as possible by actively engaging with the target_.
 
-> ❗***An authorization is required to conduct active information gathering.***
+> ❗_**An authorization is required to conduct active information gathering.**_
 
 * The target will be aware of the attacker's engagement.
 * `E.g.` - Website: perform a port scan of the webserver IP address (found with passive info gathering) using **`nmap`** tool to identify the open ports and running services. Identify exploitable vulnerabilities on those services and consequently access the web server.
@@ -210,7 +210,7 @@ dnsrecon -d hackersploit.org
 
 ### WAF
 
-> **W**eb **A**pplication **F**irewall (**`WAF`**) detection with [**`wafw00f`**](https://github.com/EnableSecurity/wafw00f). 
+> **W**eb **A**pplication **F**irewall (**`WAF`**) detection with [**`wafw00f`**](https://github.com/EnableSecurity/wafw00f).
 
 It does the following:
 
@@ -276,8 +276,8 @@ sublist3r -d hackersploit.com -o hs_sub_enum.txt
 
 > **`site:`**
 
-  * limit all results to the particular domain/site
-  * shows subdomains for that particular domain
+* limit all results to the particular domain/site
+* shows subdomains for that particular domain
 
 !["site:ine.com" on Google Search](.gitbook/assets/image-20230117171129629.png)
 
@@ -285,43 +285,43 @@ sublist3r -d hackersploit.com -o hs_sub_enum.txt
 
 > **`inurl:`**
 
-  * look for specific results within the website title/URL
-  * **`e.g.`** - `inurl:admin` , etc.
+* look for specific results within the website title/URL
+* **`e.g.`** - `inurl:admin` , etc.
 
 !["site:ine.com inurl:forum" on Google Search](.gitbook/assets/image-20230117171241409.png)
 
 > **`site:*.site.com`**
 
-  * show **subdomains** (indexed by Google) for a particular domain
-  * usually they are exposed subdomains
-    * sometimes unintended exposed subdomains
+* show **subdomains** (indexed by Google) for a particular domain
+* usually they are exposed subdomains
+  * sometimes unintended exposed subdomains
 
 !["site:\*.ine.com" on Google Search](.gitbook/assets/image-20230117172425752.png)
 
 > **`intitle:`**
 
-  * limit the results to subdomains with a specific word in the site title
+* limit the results to subdomains with a specific word in the site title
 
 !["site:\*.ine.com intitle:forum" on Google Search](.gitbook/assets/image-20230117172953025.png)
 
 > **`filetype:`**
 
-  * limit the results to a file type in the URL
-  * make the search query a bit more specific
+* limit the results to a file type in the URL
+* make the search query a bit more specific
 
 !["site:\*.ine.com filetype:pdf" on Google Search](.gitbook/assets/image-20230117173421370.png)
 
 > **`intitle:index of`**
 
-  * look for sites with **directory listing** enabled, searching for _**index of**_
-  * common web servers vulnerability/misconfiguration (against security)
-  * directory listing allows users to see the content of the directory
+* look for sites with **directory listing** enabled, searching for _**index of**_
+* common web servers vulnerability/misconfiguration (against security)
+* directory listing allows users to see the content of the directory
 
 !["intitle:index of" on Google Search](.gitbook/assets/image-20230117174445549.png)
 
 > **`cache:`**
 
-  * shows the cached website
+* shows the cached website
 
 !["cache:ine.com" on Google Search](.gitbook/assets/image-20230117174639735.png)
 
@@ -329,15 +329,12 @@ sublist3r -d hackersploit.com -o hs_sub_enum.txt
 >   * **`inurl:auth_user_file.txt`**
 >   * **`inurl:passwd.txt`**
 >   * **`inurl:wp-config.bak`**
->
-
-
 
 [**Google Hacking Database - exploit-db.com**](https://www.exploit-db.com/google-hacking-database)
 
 * use it to search for Dorks by Category to find potentially unsecured files
 
-![Google Hacking Database - exploit-db.com](<.gitbook/assets/image-20230117183207477.png>)
+![Google Hacking Database - exploit-db.com](<.gitbook/assets/image-20230117183211722 (9).png>)
 
 [**Wayback Machine**](https://archive.org/web/)
 
@@ -356,7 +353,6 @@ sublist3r -d hackersploit.com -o hs_sub_enum.txt
 
 * used to enumerate the emails (names, IPs, URLs, subdomains) belonging to a domain target, using **publicly available resources and databases**.
 * check the GitHub repository for more information on the [Passive](https://github.com/laramies/theHarvester#passive) and [Active](https://github.com/laramies/theHarvester#active) information gathering and [Installation](https://github.com/laramies/theHarvester/wiki/Installation).
-
 * In this case the tool is used for Email Harvesting.
 
 ![theHarvester -h](.gitbook/assets/image-20230117185341402.png)
@@ -638,8 +634,6 @@ dig axfr @nsztm1.digi.ninja zonetransfer.me
 > * [Zone Transfer Online Test](https://hackertarget.com/zone-transfer/)
 > * [Linux and Unix dig Command Examples - by Vivek Gite](https://www.cyberciti.biz/faq/linux-unix-dig-command-examples-usage-syntax/)
 
-
-
 > [**`fierce`**](https://github.com/mschwager/fierce) tool - a semi-lightweight scanner that helps locate non-contiguous IP space and hostnames against specified domains, using DNS primarily
 
 ```bash
@@ -664,7 +658,6 @@ fierce --domain zonetransfer.me
 ### Host Discovery with Nmap
 
 > [**`nmap`**](https://nmap.org/) - open source security tool for network exploration, security scanning and auditing.
->
 
 ![man nmap](.gitbook/assets/image-20230120153307558.png)
 
@@ -881,7 +874,6 @@ nmap <TARGET_IP>
 ![nmap \<WIN\_TARGET\_IP>](.gitbook/assets/image-20230120181313487.png)
 
 > **`-Pn`** option - **skip host discovery** (skip `ping`)
->
 
 ```bash
 nmap -Pn <TARGET_IP>
@@ -909,7 +901,7 @@ PORT      STATE SERVICE
 
 > **`-p-`** - Scan the entire range of TCP ports (**65535 ports**)
 
-  * the scan will take longer
+* the scan will take longer
 
 ```bash
 nmap -Pn -p- <TARGET_IP>
@@ -917,7 +909,7 @@ nmap -Pn -p- <TARGET_IP>
 
 > **`-p- <PORTS_LIST>`** - Scan a specific or more TCP **ports**:
 
-  * if a port state is **filtered** it means the port is _blocked by a firewall_ or _closed_
+* if a port state is **filtered** it means the port is _blocked by a firewall_ or _closed_
 
 ```bash
 # Port 80 only scan
@@ -935,8 +927,7 @@ nmap -Pn -p 8080 <TARGET_IP>
     8080/tcp filtered http-proxy
 ```
 
-> **`-F`** - **fast mode**, scan 100 of the most commonly used ports
-> **`-v`** - increase **verbosity**, see background scanning info
+> **`-F`** - **fast mode**, scan 100 of the most commonly used ports **`-v`** - increase **verbosity**, see background scanning info
 
 ```bash
 nmap -Pn -F <TARGET_IP> -v
@@ -976,14 +967,13 @@ Nmap done: 1 IP address (1 host up) scanned in 1.78 seconds
 
 > **`-sU`** - **UDP scan**
 
-  * always try to do a UDP port scan (DNS service, etc). Default `nmap` scan performs only TCP scans.
+* always try to do a UDP port scan (DNS service, etc). Default `nmap` scan performs only TCP scans.
 
 ```bash
 nmap -Pn -sU <TARGET_IP>
 ```
 
 > **`-sV`** - probe open ports to determine **service/version** info
->
 
 ```bash
 nmap -Pn -F -sV <TARGET_IP>
@@ -1005,8 +995,8 @@ Service Info: OSs: Windows, Windows Server 2008 R2 - 2012; CPE: cpe:/o:microsoft
 
 > **`-O`** - **Operating System detection**, based on the open ports and running services
 
-  * sometimes is not accurate
-  * _a penetration tester can start to identify specific O.S. version vulnerabilities and exploits_
+* sometimes is not accurate
+* _a penetration tester can start to identify specific O.S. version vulnerabilities and exploits_
 
 ```bash
 nmap -Pn -F -sV -O <TARGET_IP>
@@ -1023,7 +1013,7 @@ Service Info: OSs: Windows, Windows Server 2008 R2 - 2012; CPE: cpe:/o:microsoft
 
 > **`-sC`** - default `nmap` **script scan**
 
-  * under each service, `nmap` will run a series of scripts based on the service
+* under each service, `nmap` will run a series of scripts based on the service
 
 ```bash
 nmap -Pn -F -sV -O -sC <TARGET_IP>
@@ -1096,20 +1086,19 @@ nmap -Pn -F -A <TARGET_IP>
 
 > **`-T#`** - `nmap` **Timing templates** - optimize and speed up scanning (higher is faster)
 
-  * `-T0` - _paranoid_ (possible IDS evasion, slow)
-  * `-T1` - _sneaky_ (possible IDS evasion, slow)
-  * `-T2` - _polite_ (less bandwidth and target machine resources, slow)
-  * `-T3` - _normal_ (default scan)
-  * `-T4` - _aggressive_ (reasonably fast, modern and reliable network)
-  * `-T5` - _insane_ (extraordinarily fast network)
-  * the lower the number the slower the scan
+* `-T0` - _paranoid_ (possible IDS evasion, slow)
+* `-T1` - _sneaky_ (possible IDS evasion, slow)
+* `-T2` - _polite_ (less bandwidth and target machine resources, slow)
+* `-T3` - _normal_ (default scan)
+* `-T4` - _aggressive_ (reasonably fast, modern and reliable network)
+* `-T5` - _insane_ (extraordinarily fast network)
+* the lower the number the slower the scan
 
 ```bash
 nmap -Pn -F -T5 -sV -O -sC <TARGET_IP> -v
 ```
 
 > **`-oN`** - output the report into three main formats
->
 
 ```bash
 # Output the scan results, as displayed into the terminal, into a file
@@ -1122,4 +1111,3 @@ nmap -Pn -F <TARGET_IP> -oX outputfile.xml
 ```
 
 ***
-
