@@ -34,11 +34,11 @@ Open port service bugs and vulnerabilities could expose the entire server to att
 
 Common services are:
 
-* [`SMB`](3-enumeration/smb_enum.md)
-* [`FTP`](3-enumeration/ftp_enum.md)
-* [`SSH`](3-enumeration/ssh_enum.md)
-* [`HTTP`](3-enumeration/http_enum.md)
-* [`MYSQL`](3-enumeration/mysql_enum.md)
+* [`SMB`](3-enumeration/smb-enum.md)
+* [`FTP`](3-enumeration/ftp-enum.md)
+* [`SSH`](3-enumeration/ssh-enum.md)
+* [`HTTP`](3-enumeration/http-enum.md)
+* [`MYSQL`](3-enumeration/mysql-enum.md)
 
 🗒️ **Enumeration** is a critical phase in a pentest, used to identify information about in-scope assets, discovering potential attack vectors and vulnerabilities.
 
