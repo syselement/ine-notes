@@ -116,10 +116,13 @@
   * [SMB Enum](https://www.hackingarticles.in/a-little-guide-to-smb-enumeration/)
     * [nmap Scripts](https://nmap.org/nsedoc/scripts/)
     * [smbmap](https://github.com/ShawnDEvans/smbmap)
+    * [smbclient](https://www.samba.org/samba/docs/current/man-html/smbclient.1.html)
     * [Metasploit](https://www.metasploit.com/)
     
     * [msfconsole](https://www.offensive-security.com/metasploit-unleashed/msfconsole/)
-  * 
+    * [rpcclient](https://www.samba.org/samba/docs/current/man-html/rpcclient.1.html)
+    * [enum4linux](https://github.com/CiscoCXSecurity/enum4linux)
+    * 
 
 
 

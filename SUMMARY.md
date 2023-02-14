@@ -13,6 +13,7 @@
     * [Information Gathering](ejpt/assessment-methodologies/1-info-gathering.md)
     * [Footprinting & Scanning](ejpt/assessment-methodologies/2-footprint-scan.md)
     * [Enumeration](ejpt/assessment-methodologies/3-enumeration.md)
+      * [SMB Enum](ejpt/assessment-methodologies/3-enumeration/smb_enum.md)
     * [Vulnerability Assessment](ejpt/assessment-methodologies/4-va.md)
     * [Auditing Fundamentals](ejpt/assessment-methodologies/5-audit.md)
   * [📒2. Host & Network Penetration Testing](ejpt/hostnetwork-penetration-testing/README.md)
