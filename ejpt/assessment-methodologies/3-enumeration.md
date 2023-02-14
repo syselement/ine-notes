@@ -43,3 +43,6 @@ Common services are:
 🗒️ **Enumeration** is a critical phase in a pentest, used to identify information about in-scope assets, discovering potential attack vectors and vulnerabilities.
 
 ![Common Ports - by Jeremy Stretch](.gitbook/assets/image-20230211104550784.png)
+
+------
+
