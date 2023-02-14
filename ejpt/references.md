@@ -116,6 +116,9 @@
   * [SMB Enum](https://www.hackingarticles.in/a-little-guide-to-smb-enumeration/)
     * [nmap Scripts](https://nmap.org/nsedoc/scripts/)
     * [smbmap](https://github.com/ShawnDEvans/smbmap)
+    * [Metasploit](https://www.metasploit.com/)
+    
+    * [msfconsole](https://www.offensive-security.com/metasploit-unleashed/msfconsole/)
   * 
 
 

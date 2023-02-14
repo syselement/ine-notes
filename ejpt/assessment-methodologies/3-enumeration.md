@@ -723,6 +723,448 @@ cat 10.2.21.233-C_flag.txt
 
 </details>
 
+### Lab 3
+
+>  🔬 [Samba Recon: Basics 1](https://attackdefense.pentesteracademy.com/challengedetails?cid=553)
+>
+>  - Target IP: `192.28.157.3`
+>  - Linux SMB (**`smbd`**) enumeration
+
+```bash
+ip -br -c a
+```
+
+```bash
+lo               UNKNOWN        127.0.0.1/8 
+ip_vti0@NONE     DOWN           
+eth0@if107852    UP             10.1.0.13/16 
+eth1@if107855    UP             192.28.157.2/24
+```
+
+- Target IP is `192.28.157.3`
+
+```bash
+nmap 192.28.157.3
+```
+
+```bash
+139/tcp open  netbios-ssn
+445/tcp open  microsoft-ds
+# Service is not specific
+```
+
+```bash
+nmap -sV -p 139,445 192.28.157.3
+```
+
+```bash
+PORT    STATE SERVICE     VERSION
+139/tcp open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: RECONLABS)
+445/tcp open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: RECONLABS)
+MAC Address: 02:42:C0:1C:9D:03 (Unknown)
+Service Info: Host: SAMBA-RECON
+# Enumeration of the 139, 445 ports services
+```
+
+> 📌 Default `smbd` TCP used ports are `139`, `445`. Workgroup name of samba server is `RECONLABS`.
+
+```bash
+nmap -sU --top-ports 25 --open 192.28.157.3
+```
+
+```bash
+137/udp open          netbios-ns
+138/udp open|filtered netbios-dgm
+```
+
+> 📌  Default `nmbd` UDP used ports are `137`, `138`
+
+```bash
+nmap --script smb-os-discovery -p 445 192.28.157.3
+```
+
+```bash
+Host script results:
+| smb-os-discovery: 
+|   OS: Windows 6.1 (Samba 4.3.11-Ubuntu)
+|   Computer name: victim-1
+|   NetBIOS computer name: SAMBA-RECON\x00
+|   Domain name: \x00
+|   FQDN: victim-1
+|_  System time: 2023-02-14T15:33:34+00:00
+```
+
+![](.gitbook/assets/image-20230214163425224.png)
+
+> 📌 Version of samba server is `Samba 4.3.11-Ubuntu`. NetBIOS computer name is `SAMBA-RECON`.
+
+- Use the [**`Metasploit Framework`**](https://www.metasploit.com/) and its [**`msfconsole`**](https://www.offensive-security.com/metasploit-unleashed/msfconsole/) interface tool to enumerate samba version.
+
+```bash
+msfconsole
+```
+
+![msfconsole](.gitbook/assets/image-20230214163831881.png)
+
+```bash
+use auxiliary/scanner/smb/smb_version 
+set RHOSTS 192.28.157.3
+	RHOSTS => 192.28.157.3
+exploit
+
+    [*] 192.28.157.3:445      - Host could not be identified: Windows 6.1 (Samba 4.3.11-Ubuntu)
+    [*] 192.28.157.3:445      - Scanned 1 of 1 hosts (100% complete)
+    [*] Auxiliary module execution completed
+```
+
+![msfconsole smb_version exploit](.gitbook/assets/image-20230214164745919.png)
+
+> **`nmblookup`** - *NetBIOS over TCP/IP client used to lookup NetBIOS names*
+
+```bash
+nmblookup -A 192.28.157.3
+```
+
+```bash
+Looking up status of 192.28.157.3
+        SAMBA-RECON     <00> -         H <ACTIVE> 
+        SAMBA-RECON     <03> -         H <ACTIVE> 
+        SAMBA-RECON     <20> -         H <ACTIVE> 
+        ..__MSBROWSE__. <01> - <GROUP> H <ACTIVE> 
+        RECONLABS       <00> - <GROUP> H <ACTIVE> 
+        RECONLABS       <1d> -         H <ACTIVE> 
+        RECONLABS       <1e> - <GROUP> H <ACTIVE> 
+
+        MAC Address = 00-00-00-00-00-00
+```
+
+### smbclient
+
+> [**`smbclient`**](https://www.samba.org/samba/docs/current/man-html/smbclient.1.html) - *ftp-like client to access SMB/CIFS resources on servers*
+
+```bash
+smbclient -L 192.28.157.3 -N
+```
+
+```bash
+# -L = list available services
+# -N = no password prompt
+
+        Sharename       Type      Comment
+        ---------       ----      -------
+        public          Disk      
+        john            Disk      
+        aisha           Disk      
+        emma            Disk      
+        everyone        Disk      
+        IPC$            IPC       IPC Service (samba.recon.lab)
+Reconnecting with SMB1 for workgroup listing.
+
+        Server               Comment
+        ---------            -------
+
+        Workgroup            Master
+        ---------            -------
+        RECONLABS            SAMBA-RECON
+```
+
+![smbclient](.gitbook/assets/image-20230214165030988.png)
+
+> [**`rpcclient`**](https://www.samba.org/samba/docs/current/man-html/rpcclient.1.html) - tool for executing client side MS-RPC functions
+
+```bash
+rpcclient -U "" -N 192.28.157.3
+```
+
+![rpcclient](.gitbook/assets/image-20230214165211582.png)
+
+<details>
+<summary>Reveal Flag: 🚩</summary>
+
+`SAMBA-RECON`
+
+</details>
+
+### Lab 3
+
+>  🔬 [Samba Recon: Basics 2](https://attackdefense.pentesteracademy.com/challengedetails?cid=554)
+>
+>  - Target IP: `192.230.128.3`
+>  - Linux SMB enumeration
+
+```bash
+ip -br -c a
+```
+
+```bash
+eth0@if108144    UP             10.1.0.6/16 
+eth1@if108147    UP             192.230.128.2/24 
+```
+
+- Target IP is `192.230.128.3`
+
+```bash
+nmap 192.230.128.3
+```
+
+```bash
+139/tcp open  netbios-ssn
+445/tcp open  microsoft-ds
+```
+
+```bash
+rpcclient -U "" -N 192.230.128.3
+```
+
+```bash
+rpcclient $> srvinfo
+        SAMBA-RECON    Wk Sv PrQ Unx NT SNT samba.recon.lab
+        platform_id     :       500
+        os version      :       6.1
+        server type     :       0x809a03
+```
+
+> 📌 OS Version of samba server is `6.1`.
+
+> [**`enum4linux`**](https://labs.portcullis.co.uk/tools/enum4linux/) - tool for enumerating data from Windows and Samba hosts
+
+```bash
+enum4linux -o 192.230.128.3
+```
+
+```bash
+ ========================== 
+|    Target Information    |
+ ========================== 
+Target ........... 192.230.128.3
+RID Range ........ 500-550,1000-1050
+Username ......... ''
+Password ......... ''
+Known Usernames .. administrator, guest, krbtgt, domain admins, root, bin, none
+
+ ===================================================== 
+|    Enumerating Workgroup/Domain on 192.230.128.3    |
+ ===================================================== 
+[+] Got domain/workgroup name: RECONLABS
+
+ ====================================== 
+|    Session Check on 192.230.128.3    |
+ ====================================== 
+[+] Server 192.230.128.3 allows sessions using username '', password ''
+
+ ============================================ 
+|    Getting domain SID for 192.230.128.3    |
+ ============================================ 
+Domain Name: RECONLABS
+Domain Sid: (NULL SID)
+[+] Can't determine if host is part of domain or part of a workgroup
+
+ ======================================= 
+|    OS information on 192.230.128.3    |
+ ======================================= 
+Use of uninitialized value $os_info in concatenation (.) or string at ./enum4linux.pl line 464.
+[+] Got OS info for 192.230.128.3 from smbclient: 
+[+] Got OS info for 192.230.128.3 from srvinfo:
+        SAMBA-RECON    Wk Sv PrQ Unx NT SNT samba.recon.lab
+        platform_id     :       500
+        os version      :       6.1
+        server type     :       0x809a03
+```
+
+![enum4linux -o](.gitbook/assets/image-20230214215510571.png)
+
+- Find samba server description
+
+```bash
+smbclient -L 192.230.128.3 -N
+```
+
+```bash
+  Sharename       Type      Comment
+  ---------       ----      -------
+  public          Disk      
+  john            Disk      
+  aisha           Disk      
+  emma            Disk      
+  everyone        Disk      
+  IPC$            IPC       IPC Service (samba.recon.lab)
+Reconnecting with SMB1 for workgroup listing.
+  Server               Comment
+  ---------            -------
+
+  Workgroup            Master
+  ---------            -------
+  RECONLABS            SAMBA-RECON
+```
+
+> 📌 Samba server description is  `samba.recon.lab`
+
+```bash
+nmap -p445 --script smb-protocols 192.230.128.3
+```
+
+```bash
+Host script results:
+| smb-protocols: 
+|   dialects: 
+|     NT LM 0.12 (SMBv1) [dangerous, but default]
+|     2.02
+|     2.10
+|     3.00
+|     3.02
+|_    3.11
+```
+
+> 📌 NTLM 0.12 (SMBv1) dialects supported
+
+```bash
+msfconsole
+```
+
+```bash
+use auxiliary/scanner/smb/smb2 
+set RHOSTS 192.230.128.3
+	RHOSTS => 192.230.128.3
+exploit
+
+    [+] 192.230.128.3:445     - 192.230.128.3 supports SMB 2 [dialect 255.2] and has been online for 3700245 hours
+    [*] 192.230.128.3:445     - Scanned 1 of 1 hosts (100% complete)
+    [*] Auxiliary module execution completed
+```
+
+> 📌 [SMB2](https://www.rapid7.com/db/modules/auxiliary/scanner/smb/smb2/) is supported and has been online for 3700245 hours
+
+![](.gitbook/assets/image-20230214220546598.png)
+
+- List all Samba server users with various techniques/tools
+
+```bash
+msfconsole
+```
+
+```bash
+use auxiliary/scanner/smb/smb_enumusers
+set RHOSTS 192.230.128.3
+	RHOSTS => 192.230.128.3
+exploit
+
+    [+] 192.230.128.3:139     - SAMBA-RECON [ john, elie, aisha, shawn, emma, admin ] ( LockoutTries=0 PasswordMin=5 )
+    [*] 192.230.128.3:        - Scanned 1 of 1 hosts (100% complete)
+    [*] Auxiliary module execution completed
+```
+
+> 📌 Users are: `john`, `elie`, `aisha`, `shawn`, `emma`, `admin`
+
+```bash
+nmap -p445 --script smb-enum-users 192.230.128.3
+```
+
+```bash
+Host script results:
+| smb-enum-users: 
+|   SAMBA-RECON\admin (RID: 1005)
+|     Full name:   
+|     Description: 
+|     Flags:       Normal user account
+|   SAMBA-RECON\aisha (RID: 1004)
+|     Full name:   
+|     Description: 
+|     Flags:       Normal user account
+|   SAMBA-RECON\elie (RID: 1002)
+|     Full name:   
+|     Description: 
+|     Flags:       Normal user account
+|   SAMBA-RECON\emma (RID: 1003)
+|     Full name:   
+|     Description: 
+|     Flags:       Normal user account
+|   SAMBA-RECON\john (RID: 1000)
+|     Full name:   
+|     Description: 
+|     Flags:       Normal user account
+|   SAMBA-RECON\shawn (RID: 1001)
+|     Full name:   
+|     Description: 
+|_    Flags:       Normal user account
+```
+
+```bash
+enum4linux -U 192.230.128.3
+```
+
+```bash
+ ========================== 
+|    Target Information    |
+ ========================== 
+Target ........... 192.230.128.3
+RID Range ........ 500-550,1000-1050
+Username ......... ''
+Password ......... ''
+Known Usernames .. administrator, guest, krbtgt, domain admins, root, bin, none
+
+ ===================================================== 
+|    Enumerating Workgroup/Domain on 192.230.128.3    |
+ ===================================================== 
+[+] Got domain/workgroup name: RECONLABS
+
+ ====================================== 
+|    Session Check on 192.230.128.3    |
+ ====================================== 
+[+] Server 192.230.128.3 allows sessions using username '', password ''
+
+ ============================================ 
+|    Getting domain SID for 192.230.128.3    |
+ ============================================ 
+Domain Name: RECONLABS
+Domain Sid: (NULL SID)
+[+] Can't determine if host is part of domain or part of a workgroup
+
+ ============================== 
+|    Users on 192.230.128.3    |
+ ============================== 
+index: 0x1 RID: 0x3e8 acb: 0x00000010 Account: john     Name:   Desc: 
+index: 0x2 RID: 0x3ea acb: 0x00000010 Account: elie     Name:   Desc: 
+index: 0x3 RID: 0x3ec acb: 0x00000010 Account: aisha    Name:   Desc: 
+index: 0x4 RID: 0x3e9 acb: 0x00000010 Account: shawn    Name:   Desc: 
+index: 0x5 RID: 0x3eb acb: 0x00000010 Account: emma     Name:   Desc: 
+index: 0x6 RID: 0x3ed acb: 0x00000010 Account: admin    Name:   Desc: 
+
+user:[john] rid:[0x3e8]
+user:[elie] rid:[0x3ea]
+user:[aisha] rid:[0x3ec]
+user:[shawn] rid:[0x3e9]
+user:[emma] rid:[0x3eb]
+user:[admin] rid:[0x3ed]
+```
+
+- Find SID of user “admin” using rpcclient.
+
+```bash
+rpcclient -U "" -N 192.230.128.3
+```
+
+```bash
+rpcclient $> enumdomusers
+user:[john] rid:[0x3e8]
+user:[elie] rid:[0x3ea]
+user:[aisha] rid:[0x3ec]
+user:[shawn] rid:[0x3e9]
+user:[emma] rid:[0x3eb]
+user:[admin] rid:[0x3ed]
+
+rpcclient $> lookupnames admin
+admin S-1-5-21-4056189605-2085045094-1961111545-1005 (User: 1)
+```
+
+<details>
+<summary>Reveal Flag - SID of user “admin” is:  🚩</summary>
+
+`S-1-5-21-4056189605-2085045094-1961111545-1005`
+
+</details>
+
+
+
 ------
 
 ## FTP
