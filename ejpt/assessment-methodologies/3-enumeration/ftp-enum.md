@@ -116,6 +116,7 @@ root@attackdefense:~# cat secret.txt
 
 <details>
 <summary>Reveal Flag - sysadmin flag is: 🚩</summary>
+
 `260ca9dd8a4577fc00b7bd5810298076`
 
 </details>
