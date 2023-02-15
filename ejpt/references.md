@@ -118,11 +118,13 @@
     * [smbmap](https://github.com/ShawnDEvans/smbmap)
     * [smbclient](https://www.samba.org/samba/docs/current/man-html/smbclient.1.html)
     * [Metasploit](https://www.metasploit.com/)
-    
     * [msfconsole](https://www.offensive-security.com/metasploit-unleashed/msfconsole/)
     * [rpcclient](https://www.samba.org/samba/docs/current/man-html/rpcclient.1.html)
     * [enum4linux](https://github.com/CiscoCXSecurity/enum4linux)
-    * 
+    * [SMB named pipes](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-wpo/4de75e21-36fd-440a-859b-75accc74487c)
+  * [hydra](https://github.com/vanhauser-thc/thc-hydra)
+  * [Passwords word lists](https://www.kali.org/tools/wordlists/)
+  * 
 
 
 

