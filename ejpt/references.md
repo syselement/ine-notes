@@ -124,7 +124,10 @@
     * [SMB named pipes](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-wpo/4de75e21-36fd-440a-859b-75accc74487c)
   * [hydra](https://github.com/vanhauser-thc/thc-hydra)
   * [Passwords word lists](https://www.kali.org/tools/wordlists/)
-  * 
+  * [FTP Enum](https://www.hackingarticles.in/ftp-penetration-testing-on-ubuntu-port-21/)
+    * [FTP Windows Enum](https://www.hackingarticles.in/ftp-penetration-testing-windows/)
+    * [ftp command](https://linux.die.net/man/1/ftp)
+    * 
 
 
 

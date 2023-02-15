@@ -11,7 +11,7 @@ Usually SMB can be found on ports `139` or `445` and `nmap` service and scripts 
 After finding SMB through port scanning, gather more information with `nmap`.
 
 ```bash
-sudo nmap -sV -sC -O <TARGET_IP>
+sudo nmap -p445 -sV -sC -O <TARGET_IP>
 ```
 
 ## Lab 1
