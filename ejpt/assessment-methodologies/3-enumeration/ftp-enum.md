@@ -324,7 +324,7 @@ python billy.py 192.14.30.3 billy /usr/share/metasploit-framework/data/wordlists
 Login Successful for  carlos
 ```
 
-- Fetch the flag using `billy:carlos` as credentials
+- Fetch the flag using `billy:carlos` credentials
 
 ```bash
 ftp 192.14.30.3
