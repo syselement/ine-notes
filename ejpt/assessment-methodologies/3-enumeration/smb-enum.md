@@ -1399,7 +1399,7 @@ root@attackdefense:~# cat flag
 
 ## Lab 6
 
->  🔬 [Samba Recon: Dictionary Attack(https://attackdefense.pentesteracademy.com/challengedetails?cid=556)
+>  🔬 [Samba Recon: Dictionary Attack](https://attackdefense.pentesteracademy.com/challengedetails?cid=556)
 >
 >  - Target IP: `192.174.58.3`
 >  - Linux SMB detailed enumeration using `word lists`
