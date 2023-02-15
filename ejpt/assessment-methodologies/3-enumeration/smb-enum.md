@@ -1463,7 +1463,7 @@ exploit
 [*] 192.174.58.3:445      - Scanned 1 of 1 hosts (100% complete)
 ```
 
-![metasploit smb_login](.gitbook/assets/image-20230215101433193.png)
+![Metasploit - smb_login](.gitbook/assets/image-20230215101433193.png)
 
 > 📌 Jane's password is `abc123`
 
@@ -1591,7 +1591,7 @@ exploit
 [*] 192.174.58.3:         - Scanned 1 of 1 hosts (100% complete)
 ```
 
-![metasploit pipe_auditor](.gitbook/assets/image-20230215105049826.png)
+![Metasploit - pipe_auditor](.gitbook/assets/image-20230215105049826.png)
 
 > 📌 Named pipes available over SMB are `netlogon`, `lsarpc`, `samr`, `eventlog`, `InitShutdown`, `ntsvcs`, `srvsvc`, `wkssvc`
 
