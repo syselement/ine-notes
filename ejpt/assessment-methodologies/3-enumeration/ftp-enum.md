@@ -19,20 +19,14 @@ sudo nmap -p21 -sV -sC -O <TARGET_IP>
 
 ```bash
 ip -br -c a
-```
-
-```bash
-eth1@if170718    UP             192.217.238.2/24
+	eth1@if170718   UP   192.217.238.2/24
 ```
 
 - Target IP is `192.217.238.3`
 
 ```bash
 nmap 192.217.238.3
-```
-
-```bash
-21/tcp open  ftp
+	21/tcp open  ftp
 ```
 
 ```bash
@@ -41,11 +35,7 @@ nmap -p21 -sV -O 192.217.238.3
 
 ```bash
 21/tcp open  ftp     ProFTPD 1.3.5a
-MAC Address: 02:42:C0:D9:EE:03 (Unknown)
-Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
-Aggressive OS guesses: Linux 2.6.32 (96%), Linux 3.2 - 4.9 (96%), Linux 2.6.32 - 3.10 (96%), Linux 3.4 - 3.10 (95%), Synology DiskStation Manager 5.2-5644 (95%), Linux 3.1 (95%), Linux 3.2 (95%), AXIS 210A or 211 Network Camera (Linux 2.6.17) (94%), Netgear RAIDiator 4.2.28 (94%), Linux 2.6.32 - 2.6.35 (94%)
-No exact OS matches for host (test conditions non-ideal).
-Network Distance: 1 hop
+[...]
 Service Info: OS: Unix
 ```
 
@@ -116,9 +106,7 @@ nmap --script ftp-brute --script-args userdb=/root/users -p21 192.217.238.3
 
 ```bash
 ftp 192.217.238.3
-```
 
-```
 ftp> ls
 ftp> get secret.txt
 ftp> exit
@@ -183,20 +171,14 @@ root@attackdefense:~# cat secret.txt
 
 ```bash
 ip -br -c a
-```
-
-```bash
-eth1@if170803   UP  192.119.169.2/24
+	eth1@if170803   UP  192.119.169.2/24
 ```
 
 - Target IP is `192.119.169.3`
 
 ```bash
 nmap 192.119.169.3
-```
-
-```bash
-21/tcp open  ftp
+	21/tcp open  ftp
 ```
 
 ```bash
@@ -265,20 +247,14 @@ root@attackdefense:~# cat flag
 
 ```bash
 ip -br -c a
-```
-
-```bash
-eth1@if170888   UP   192.14.30.2/24 
+	eth1@if170888   UP   192.14.30.2/24 
 ```
 
 - Target IP is `192.14.30.3`
 
 ```bash
 nmap 192.14.30.3
-```
-
-```bash
-21/tcp open  ftp
+	21/tcp open  ftp
 ```
 
 ```bash

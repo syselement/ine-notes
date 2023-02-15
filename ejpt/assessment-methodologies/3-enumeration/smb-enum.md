@@ -25,16 +25,16 @@ sudo nmap -p445 -sV -sC -O <TARGET_IP>
 ping 10.2.24.25
 nmap 10.2.24.25
 
-PORT      STATE SERVICE
-135/tcp   open  msrpc
-139/tcp   open  netbios-ssn
-445/tcp   open  microsoft-ds
-3389/tcp  open  ms-wbt-server
-49152/tcp open  unknown
-49153/tcp open  unknown
-49154/tcp open  unknown
-49155/tcp open  unknown
-49167/tcp open  unknown
+    PORT      STATE SERVICE
+    135/tcp   open  msrpc
+    139/tcp   open  netbios-ssn
+    445/tcp   open  microsoft-ds
+    3389/tcp  open  ms-wbt-server
+    49152/tcp open  unknown
+    49153/tcp open  unknown
+    49154/tcp open  unknown
+    49155/tcp open  unknown
+    49167/tcp open  unknown
 ```
 
 - SMB port `445` is open, use a specific [nmap script](https://nmap.org/nsedoc/scripts/smb-protocols.html) to list the *SMB server supported protocols and dialects*
@@ -524,16 +524,16 @@ Host script results:
 ping 10.2.21.233
 nmap 10.2.21.233
 
-PORT      STATE SERVICE
-135/tcp   open  msrpc
-139/tcp   open  netbios-ssn
-445/tcp   open  microsoft-ds
-3389/tcp  open  ms-wbt-server
-49152/tcp open  unknown
-49153/tcp open  unknown
-49154/tcp open  unknown
-49155/tcp open  unknown
-49165/tcp open  unknown
+    PORT      STATE SERVICE
+    135/tcp   open  msrpc
+    139/tcp   open  netbios-ssn
+    445/tcp   open  microsoft-ds
+    3389/tcp  open  ms-wbt-server
+    49152/tcp open  unknown
+    49153/tcp open  unknown
+    49154/tcp open  unknown
+    49155/tcp open  unknown
+    49165/tcp open  unknown
 ```
 
 - SMB port `445` is open, list the SMB protocols
@@ -672,8 +672,6 @@ cat 10.2.21.233-C_flag.txt
 
 <details>
 <summary>Reveal Flag: 🚩</summary>
-
-
 `25f492dbef8453cdca69a173a75790f0`
 
 </details>
@@ -687,25 +685,16 @@ cat 10.2.21.233-C_flag.txt
 
 ```bash
 ip -br -c a
-```
-
-```bash
-lo               UNKNOWN        127.0.0.1/8 
-ip_vti0@NONE     DOWN           
-eth0@if107852    UP             10.1.0.13/16 
-eth1@if107855    UP             192.28.157.2/24
+	eth1@if107855   UP   192.28.157.2/24
 ```
 
 - Target IP is `192.28.157.3`
 
 ```bash
 nmap 192.28.157.3
-```
-
-```bash
-139/tcp open  netbios-ssn
-445/tcp open  microsoft-ds
-# Service is not specific
+	139/tcp open  netbios-ssn
+	445/tcp open  microsoft-ds
+	# Service is not specific
 ```
 
 ```bash
@@ -855,22 +844,15 @@ rpcclient -U "" -N 192.28.157.3
 
 ```bash
 ip -br -c a
-```
-
-```bash
-eth0@if108144    UP             10.1.0.6/16 
-eth1@if108147    UP             192.230.128.2/24 
+	eth1@if108147   UP   192.230.128.2/24
 ```
 
 - Target IP is `192.230.128.3`
 
 ```bash
 nmap 192.230.128.3
-```
-
-```bash
-139/tcp open  netbios-ssn
-445/tcp open  microsoft-ds
+	139/tcp open  netbios-ssn
+	445/tcp open  microsoft-ds
 ```
 
 ```bash
@@ -1135,22 +1117,15 @@ admin S-1-5-21-4056189605-2085045094-1961111545-1005 (User: 1)
 
 ```bash
 ip -br -c a
-```
-
-```bash
-eth0@if170027    UP             10.1.0.9/16 
-eth1@if170030    UP             192.187.39.2/24
+	eth1@if170030   UP   192.187.39.2/24
 ```
 
 - Target IP is `192.230.128.3`
 
 ```bash
 nmap 192.187.39.3
-```
-
-```bash
-139/tcp open  netbios-ssn
-445/tcp open  microsoft-ds
+	139/tcp open  netbios-ssn
+	445/tcp open  microsoft-ds
 ```
 
 - List all Samba server shares with various techniques/tools
@@ -1415,22 +1390,15 @@ gzip -d /usr/share/wordlists/rockyou.txt.gz
 
 ```bash
 ip -br -c a
-```
-
-```bash
-eth0@if108486    UP             10.1.0.4/16 
-eth1@if108489    UP             192.174.58.2/24
+	eth1@if108489   UP   192.174.58.2/24
 ```
 
 - Target IP is `192.174.58.3`
 
 ```bash
 nmap 192.174.58.3
-```
-
-```bash
-139/tcp open  netbios-ssn
-445/tcp open  microsoft-ds
+	139/tcp open  netbios-ssn
+	445/tcp open  microsoft-ds
 ```
 
 - Use [`smb_login`](https://www.rapid7.com/db/modules/auxiliary/scanner/smb/smb_login) metasploit module to bruteforce *jane*'s password
