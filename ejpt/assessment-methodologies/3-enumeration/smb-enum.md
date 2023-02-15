@@ -831,6 +831,7 @@ rpcclient -U "" -N 192.28.157.3
 
 <details>
 <summary>Reveal Flag - The NetBIOS computer name is: 🚩</summary>
+
 `SAMBA-RECON`
 
 </details>
