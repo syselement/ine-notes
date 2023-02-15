@@ -1516,8 +1516,6 @@ smbclient -L 192.28.157.3 -U jane
 ![](.gitbook/assets/image-20230215103352757.png)
 
 ```bash
-smbclient //192.174.58.3/jane -U jane
-
 smb: \> ls
   .      D  0  Tue Nov 27 19:25:12 2018
   ..     D  0  Tue Nov 27 19:25:12 2018
