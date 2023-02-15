@@ -1607,7 +1607,6 @@ S-1-22-1-1000 Unix User\shawn (Local User)
 S-1-22-1-1001 Unix User\jane (Local User)
 S-1-22-1-1002 Unix User\nancy (Local User)
 S-1-22-1-1003 Unix User\admin (Local User)
-enum4linux complete on Wed Feb 15 09:55:02 2023
 ```
 
 > 📌 shawn SID is `S-1-22-1-1000`
