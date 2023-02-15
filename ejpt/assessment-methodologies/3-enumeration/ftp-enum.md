@@ -127,49 +127,49 @@ root@attackdefense:~# cat secret.txt
 ```
 
 <details>
-<summary>Reveal Flag - sysadmin flag is is: 🚩</summary>
+<summary>Reveal Flag - sysadmin flag is: 🚩</summary>
 
 `260ca9dd8a4577fc00b7bd5810298076`
 
 </details>
 
 <details>
-<summary>Reveal Flag - rooty flag is is: 🚩</summary>
+<summary>Reveal Flag - rooty flag is: 🚩</summary>
 
 `e529a9cea4a728eb9c5828b13b22844c`
 
 </details>
 
 <details>
-<summary>Reveal Flag - demo flag is is: 🚩</summary>
+<summary>Reveal Flag - demo flag is: 🚩</summary>
 
 `d6a6bc0db10694a2d90e3a69648f3a03`
 
 </details>
 
 <details>
-<summary>Reveal Flag - auditor flag is is: 🚩</summary>
+<summary>Reveal Flag - auditor flag is: 🚩</summary>
 
 `098f6bcd4621d373cade4e832627b4f6`
 
 </details>
 
 <details>
-<summary>Reveal Flag - anon flag is is: 🚩</summary>
+<summary>Reveal Flag - anon flag is: 🚩</summary>
 
 `1bc29b36f623ba82aaf6724fd3b16718`
 
 </details>
 
 <details>
-<summary>Reveal Flag - administrator flag is is: 🚩</summary>
+<summary>Reveal Flag - administrator flag is: 🚩</summary>
 
 `21232f297a57a5a743894a0e4a801fc3`
 
 </details>
 
 <details>
-<summary>Reveal Flag - diag flag is is: 🚩</summary>
+<summary>Reveal Flag - diag flag is: 🚩</summary>
 
 `12a032ce9179c32a6c7ab397b9d871fa`
 
