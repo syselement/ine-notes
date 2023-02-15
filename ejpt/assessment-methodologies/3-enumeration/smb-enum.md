@@ -159,7 +159,7 @@ Host script results:
 |_    Current user access: READ
 ```
 
-> **`IPC$`** ([`null session connection`](https://learn.microsoft.com/en-us/troubleshoot/windows-server/networking/inter-process-communication-share-null-session)) - with this session, Windows lets guest *anonymous users enumerate the names of domain accounts and network shares*.
+> 📌 **`IPC$`** ([`null session connection`](https://learn.microsoft.com/en-us/troubleshoot/windows-server/networking/inter-process-communication-share-null-session)) - with this session, Windows lets guest *anonymous users enumerate the names of domain accounts and network shares*.
 
 ![smb-enum-shares](.gitbook/assets/image-20230213220441618.png)
 
@@ -239,7 +239,7 @@ Host script results:
 |_    Current user access: READ/WRITE
 ```
 
-> The authenticated user, the **administrator** in this case, has **Read & Write** privileges to the entire `C$` (and `D$`) drive.
+> 📌 The authenticated user, the **administrator** in this case, has **Read & Write** privileges to the entire `C$` (and `D$`) drive.
 
 ![smb-enum-shares with credentials](.gitbook/assets/image-20230213220630577.png)
 
@@ -262,7 +262,7 @@ Host script results:
 |_    Flags:       Password does not expire, Password not required, Normal user account
 ```
 
-> Three users are present with some dangerous *flags* and misconfigurations.
+> 📌 Three users are present with some dangerous *flags* and misconfigurations.
 >
 > - `Guest` user - *no password expiration, password not required, normal user account*
 > - `Administrator`, `bob` - *no password expiration*
@@ -672,6 +672,7 @@ cat 10.2.21.233-C_flag.txt
 
 <details>
 <summary>Reveal Flag: 🚩</summary>
+
 `25f492dbef8453cdca69a173a75790f0`
 
 </details>
@@ -830,7 +831,6 @@ rpcclient -U "" -N 192.28.157.3
 
 <details>
 <summary>Reveal Flag - The NetBIOS computer name is: 🚩</summary>
-
 `SAMBA-RECON`
 
 </details>
