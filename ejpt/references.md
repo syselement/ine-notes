@@ -95,6 +95,7 @@
   * [Google Hacking Database](https://www.exploit-db.com/google-hacking-database)
   * [theHarvester tool](https://github.com/laramies/theHarvester)
   * [haveibeenpwned.com](https://haveibeenpwned.com/)
+  
 * [Active Information Gathering](https://www.dummies.com/article/academics-the-arts/study-skills-test-prep/comptia-pentestplus/active-information-gathering-for-pentesting-275736/)
   * [Ethical Standards](https://pentestlab.blog/2013/01/08/professional-and-ethical-standards/)
   * [The Pentester's Code of Conduct](https://www.lmgsecurity.com/the-pentesters-code-of-conduct-rules-that-keep-everyone-safe/)
@@ -106,12 +107,14 @@
   * [fierce](https://github.com/mschwager/fierce)
   * [nmap](https://nmap.org/)
   * [Nmap Command Examples - by Vivek Gite](https://www.cyberciti.biz/networking/nmap-command-examples-tutorials/)
+  
 * [Ethical Hacking Footprinting](https://www.geeksforgeeks.org/ethical-hacking-footprinting/)
   * [fping](https://fping.org/)
   * [zenmap](https://nmap.org/zenmap/)
   * [nmap automator](https://github.com/21y4d/nmapAutomator)
   * [Rustscan](https://github.com/RustScan/RustScan)
   * [Autorecon](https://github.com/Tib3rius/AutoRecon)
+  
 * [Enumeration](https://resources.infosecinstitute.com/topic/what-is-enumeration/)
   * [SMB Enum](https://www.hackingarticles.in/a-little-guide-to-smb-enumeration/)
     * [nmap Scripts](https://nmap.org/nsedoc/scripts/)
@@ -122,20 +125,32 @@
     * [rpcclient](https://www.samba.org/samba/docs/current/man-html/rpcclient.1.html)
     * [enum4linux](https://github.com/CiscoCXSecurity/enum4linux)
     * [SMB named pipes](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-wpo/4de75e21-36fd-440a-859b-75accc74487c)
+    
   * [hydra](https://github.com/vanhauser-thc/thc-hydra)
+  
   * [Passwords word lists](https://www.kali.org/tools/wordlists/)
+  
   * [FTP Enum](https://www.hackingarticles.in/ftp-penetration-testing-on-ubuntu-port-21/)
+    
     * [FTP Windows Enum](https://www.hackingarticles.in/ftp-penetration-testing-windows/)
     * [ftp command](https://linux.die.net/man/1/ftp)
+    
   * [SSH Enum](https://www.hackingarticles.in/ssh-penetration-testing-port-22/)
+  
     * [nc/netcat](https://docs.oracle.com/cd/E36784_01/html/E36870/netcat-1.html)
     * [ssh](https://www.geeksforgeeks.org/ssh-command-in-linux-with-examples/)
+  
   * [What is HTTP?](https://www.cloudflare.com/learning/ddos/glossary/hypertext-transfer-protocol-http/)
+  
     * [httpie](https://httpie.io/)
+  
     * [dirb](https://www.kali.org/tools/dirb/)
+  
     * [browsh](https://github.com/browsh-org/browsh)
+  
     * [curl](https://curl.se/)
-    * 
+  
+      
 
 
 
