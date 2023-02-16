@@ -150,6 +150,8 @@
   
     * [curl](https://curl.se/)
   
+    * [whatweb](https://github.com/urbanadventurer/WhatWeb)
+  
       
 
 

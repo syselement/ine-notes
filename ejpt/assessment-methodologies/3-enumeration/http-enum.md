@@ -53,7 +53,7 @@ nmap -sV -O 10.4.16.17
 	Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
 ```
 
-### whatweb
+### [whatweb](https://github.com/urbanadventurer/WhatWeb)
 
 ```bash
 whatweb 10.4.16.17

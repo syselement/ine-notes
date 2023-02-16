@@ -126,7 +126,7 @@ host hackersploit.org
 
 ![Wappalyzer Example](.gitbook/assets/image-20221115215931204.png)
 
-> **`whatweb`** command
+> [**`whatweb`**](https://github.com/urbanadventurer/WhatWeb) command
 
 ![whatweb hackersploit.org](.gitbook/assets/image-20221115220428770.png)
 

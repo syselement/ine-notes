@@ -744,9 +744,9 @@ Host script results:
 
 > 📌 Version of samba server is `Samba 4.3.11-Ubuntu`. NetBIOS computer name is `SAMBA-RECON`.
 
-### metasploit
+### [metasploit](https://www.metasploit.com/)
 
-- Use the [**`Metasploit Framework`**](https://www.metasploit.com/) and its [**`msfconsole`**](https://www.offensive-security.com/metasploit-unleashed/msfconsole/) interface tool to enumerate samba version.
+- Use the **`Metasploit Framework`** and its [**`msfconsole`**](https://www.offensive-security.com/metasploit-unleashed/msfconsole/) interface tool to enumerate samba version.
 
 ```bash
 msfconsole
@@ -788,9 +788,9 @@ Looking up status of 192.28.157.3
         MAC Address = 00-00-00-00-00-00
 ```
 
-### smbclient
+### [smbclient](https://www.samba.org/samba/docs/current/man-html/smbclient.1.html)
 
-> [**`smbclient`**](https://www.samba.org/samba/docs/current/man-html/smbclient.1.html) - *ftp-like client to access SMB/CIFS resources on servers*
+> **`smbclient`** - *ftp-like client to access SMB/CIFS resources on servers*
 
 ```bash
 smbclient -L 192.28.157.3 -N
@@ -820,9 +820,9 @@ Reconnecting with SMB1 for workgroup listing.
 
 ![smbclient](.gitbook/assets/image-20230214165030988.png)
 
-### rpcclient
+### [rpcclient](https://www.samba.org/samba/docs/current/man-html/rpcclient.1.html)
 
-> [**`rpcclient`**](https://www.samba.org/samba/docs/current/man-html/rpcclient.1.html) - tool for executing client side MS-RPC functions
+> **`rpcclient`** - tool for executing client side MS-RPC functions
 
 ```bash
 rpcclient -U "" -N 192.28.157.3
@@ -872,9 +872,9 @@ rpcclient $> srvinfo
 
 > 📌 OS Version of samba server is `6.1`.
 
-### enum4linux
+### [enum4linux](https://labs.portcullis.co.uk/tools/enum4linux/)
 
-> [**`enum4linux`**](https://labs.portcullis.co.uk/tools/enum4linux/) - tool for enumerating data from Windows and Samba hosts
+> **`enum4linux`** - tool for enumerating data from Windows and Samba hosts
 
 ```bash
 enum4linux -o 192.230.128.3
@@ -1440,11 +1440,11 @@ exploit
 
 > 📌 Jane's password is `abc123`
 
-### hydra
-
-- Use [`hydra` tool](https://www.kali.org/tools/hydra/) to find *admin* user password
+### [hydra](https://www.kali.org/tools/hydra/)
 
 > [**`hydra`**](https://github.com/vanhauser-thc/thc-hydra) - tool to guess/crack valid login/password pairs
+
+- Use `hydra` tool to find *admin* user password
 
 ```bash
 hydra -l admin -P /usr/share/wordlists/rockyou.txt 192.174.58.3 smb
