@@ -673,6 +673,7 @@ cat 10.2.21.233-C_flag.txt
 <details>
 <summary>Reveal Flag: 🚩</summary>
 
+
 `25f492dbef8453cdca69a173a75790f0`
 
 </details>
@@ -831,6 +832,7 @@ rpcclient -U "" -N 192.28.157.3
 
 <details>
 <summary>Reveal Flag - The NetBIOS computer name is: 🚩</summary>
+
 
 `SAMBA-RECON`
 
@@ -1105,6 +1107,7 @@ admin S-1-5-21-4056189605-2085045094-1961111545-1005 (User: 1)
 <details>
 <summary>Reveal Flag - SID of user “admin” is:  🚩</summary>
 
+
 `S-1-5-21-4056189605-2085045094-1961111545-1005`
 
 </details>
@@ -1367,6 +1370,7 @@ root@attackdefense:~# cat flag
 <details>
 <summary>Reveal Flag:  🚩</summary>
 
+
 `03ddb97933e716f5057a18632badb3b4`
 
 </details>
@@ -1537,6 +1541,7 @@ root@attackdefense:~# cat flag
 
 <details>
 <summary>Reveal Flag:  🚩</summary>
+
 
 `2727069bc058053bd561ce372721c92e`
 

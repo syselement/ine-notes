@@ -190,12 +190,13 @@ PORT   STATE SERVICE
 |_    {FLAG_content}\x0D
 ```
 
-![](.gitbook/assets/image-20230216150059388.png)
-
 <details>
 <summary>Reveal Flag - /home/student/FLAG is: 🚩</summary>
 
+
 `e1e3c0c9d409f594afdb18fe9ce0ffec`
+
+![](.gitbook/assets/image-20230216150059388.png)
 
 </details>
 
@@ -291,6 +292,7 @@ exploit
 
 <details>
 <summary>Reveal Flag - root password is: 🚩</summary>
+
 
 `attack`
 
