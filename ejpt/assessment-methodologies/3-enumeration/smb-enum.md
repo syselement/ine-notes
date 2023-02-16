@@ -1,12 +1,12 @@
 # SMB Enum
 
-**`SMB`** (**S**erver **M**essage **B**lock) - a network file and resource sharing protocol based on a _client-server_ model.
+**`SMB`** (**S**erver **M**essage **B**lock) - a network file and resource sharing protocol, based on a _client-server_ model.
 
 There are many variants of the SMB protocol like SMBv1, CIFS, SMBv2, SMBv2.1, SMBv3, and so on.
 
 - `e.g.` Windows mapping and sharing drives as letter, uses SMB
 
-Usually SMB can be found on ports `139` or `445` and `nmap` service and scripts enumeration (**`-sV`**, **`-sC`**) can find more info about the O.S. version.
+Usually SMB can be found on ports **`139`** or **`445`** and `nmap` service and scripts enumeration (`-sV`, `-sC`) can find more info about the O.S. version.
 
 After finding SMB through port scanning, gather more information with `nmap`.
 
@@ -1455,7 +1455,7 @@ hydra -l admin -P /usr/share/wordlists/rockyou.txt 192.174.58.3 smb
 
 ![hydra](.gitbook/assets/image-20230215102856704.png)
 
-> 📌 admin's password is `password1`
+> 📌 *admin*'s password is `password1`
 
 - Find `smb shares` using found credentials
 

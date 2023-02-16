@@ -4,7 +4,7 @@
 
 It requires a command channel and a data channel.
 
-Default FTP port is `21`, opened when FTP is activated for sharing data.
+Default FTP port is **`21`**, opened when FTP is activated for sharing data.
 
 ```bash
 sudo nmap -p21 -sV -sC -O <TARGET_IP>
@@ -41,7 +41,7 @@ Service Info: OS: Unix
 
 ![nmap -p21](.gitbook/assets/image-20230215114930223.png)
 
-> 📌 FTP server version `ProFTPD 1.3.5a`.
+> 📌 FTP server version is `ProFTPD 1.3.5a`.
 
 ### [ftp](https://linux.die.net/man/1/ftp)
 
@@ -192,7 +192,7 @@ nmap -p21 -sV -O 192.119.169.3
 
 ![](.gitbook/assets/image-20230215130759212.png)
 
-> 📌 FTP server version `vsftpd 3.0.3`.
+> 📌 FTP server version `vsftpd 3.0.3`
 
 - Use [nmap ftp-anon script](https://nmap.org/nsedoc/scripts/ftp-anon.html) to check `anonymous` user login
 
