@@ -102,7 +102,7 @@ X-XSS-Protection: 0
 
 ### [dirb](https://www.kali.org/tools/dirb/)
 
-> [**`birb`**](https://dirb.sourceforge.net/about.html) - a Web content scanner. It *launches a `dictionary based attack` against a web server, looking for existing Web Objects and analyzing the response*. It comes with a set of preconfigured *attack wordlists*.
+> [**`dirb`**](https://dirb.sourceforge.net/about.html) - a Web content scanner. It *launches a `dictionary based attack` against a web server, looking for existing Web Objects and analyzing the response*. It comes with a set of preconfigured *attack wordlists*.
 
 - Try to browse to the found directories to find out if access is granted
 
