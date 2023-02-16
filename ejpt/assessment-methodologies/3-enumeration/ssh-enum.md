@@ -291,7 +291,6 @@ exploit
 
 <details>
 <summary>Reveal Flag - root password is: 🚩</summary>
-
 `attack`
 
 </details>
@@ -309,6 +308,8 @@ Welcome to Ubuntu 16.04.5 LTS (GNU/Linux 5.4.0-125-generic x86_64)
  * Support:        https://ubuntu.com/advantage
 SSH recon dictionary attack lab
 ```
+
+![ssh - root](.gitbook/assets/image-20230216153349055.png)
 
 > 📌 The message of the day is `SSH recon dictionary attack lab`.
 
