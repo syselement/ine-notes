@@ -291,6 +291,7 @@ exploit
 
 <details>
 <summary>Reveal Flag - root password is: 🚩</summary>
+
 `attack`
 
 </details>
