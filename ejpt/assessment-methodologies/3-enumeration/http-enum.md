@@ -444,12 +444,12 @@ exploit
 curl -u bob:qwerty http://192.199.232.3/dir/
 ```
 
-![curl -u](.gitbook/assets/image-20230216192605784.png)
-
 <details>
 <summary>Reveal Flag - dir directory flag is: 🚩</summary>
 
 `72af1d9471cfea41ac0ff3600b3702f6`
+
+![curl -u](.gitbook/assets/image-20230216192605784.png)
 
 </details>
 
@@ -478,13 +478,13 @@ exploit
 curl --digest -u alice:password1 http://192.199.232.3/poc/
 ```
 
-![curl --digest -u](.gitbook/assets/image-20230216192643068.png)
-
 
 <details>
 <summary>Reveal Flag - poc directory flag is: 🚩</summary>
 
 `0b6f98199bae51afc2f60578f923f8af`
+
+![curl --digest -u](.gitbook/assets/image-20230216192643068.png)
 
 </details>
 
