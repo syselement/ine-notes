@@ -134,6 +134,7 @@
     * [httpie](https://httpie.io/)
     * [dirb](https://www.kali.org/tools/dirb/)
     * [browsh](https://github.com/browsh-org/browsh)
+    * [curl](https://curl.se/)
     * 
 
 

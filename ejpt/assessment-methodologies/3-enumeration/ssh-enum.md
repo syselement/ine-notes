@@ -287,7 +287,7 @@ exploit
     [*] Auxiliary module execution completed
 ```
 
-![](.gitbook/assets/image-20230216152841859.png)
+![Metasploit - ssh_login](.gitbook/assets/image-20230216152841859.png)
 
 <details>
 <summary>Reveal Flag - root password is: 🚩</summary>
