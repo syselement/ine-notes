@@ -136,7 +136,10 @@
     * [browsh](https://github.com/browsh-org/browsh)
     * [curl](https://curl.se/)
     * [whatweb](https://github.com/urbanadventurer/WhatWeb)
-  * 
+  * [What is MySQL?](https://dev.mysql.com/doc/refman/8.0/en/what-is-mysql.html)
+    * [MySQL Enum](https://www.hackingarticles.in/mysql-penetration-testing-nmap/)
+    * [mysql](https://dev.mysql.com/doc/refman/8.0/en/mysql.html)
+    * 
 
 
 
