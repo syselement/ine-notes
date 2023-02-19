@@ -660,7 +660,9 @@ nmap --script ms-sql-brute --script-args userdb=/root/Desktop/wordlist/common_us
 > 📌 Valid MSSQL users and passwords are:
 >
 > `dbadmin:bubbles1`
+>
 > `admin:anamaria`
+>
 > `auditor:jasmine1`
 
 - Check empty password users.
