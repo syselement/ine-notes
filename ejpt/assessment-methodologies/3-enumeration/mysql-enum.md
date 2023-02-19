@@ -577,7 +577,7 @@ hydra -l root -P /usr/share/metasploit-framework/data/wordlists/unix_passwords.t
 
 </details>
 
-## Lab 3
+## Lab 3 - nmap
 
 >  🔬 [Recon: MSSQL: Nmap Scripts](https://attackdefense.pentesteracademy.com/challengedetails?cid=2313)
 >
@@ -724,7 +724,7 @@ nmap --script ms-sql-xp-cmdshell --script-args mssql.username=admin,mssql.passwo
 </details>
 
 
-## Lab 4
+## Lab 4 - metasploit
 
 >  🔬 [Recon: MSSQL: Metasploit](https://attackdefense.pentesteracademy.com/challengedetails?cid=2314)
 >
