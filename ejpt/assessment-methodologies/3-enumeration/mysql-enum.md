@@ -642,7 +642,7 @@ nmap --script ms-sql-ntlm-info --script-args mssql.instance-port=1433 -p1433 10.
 - Enumerate MSSQL users and password.
 
 ```bash
-nmap --script ms-sql-brute --script-args= userdb=/root/Desktop/wordlist/common_users.txt,passdb=/root/Desktop/wordlist/100-common-passwords.txt -p1433 10.4.21.27
+nmap --script ms-sql-brute --script-args userdb=/root/Desktop/wordlist/common_users.txt,passdb=/root/Desktop/wordlist/100-common-passwords.txt -p1433 10.4.21.27
 ```
 
 ```bash
