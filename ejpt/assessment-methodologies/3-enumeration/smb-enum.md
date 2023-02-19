@@ -759,10 +759,12 @@ use auxiliary/scanner/smb/smb_version
 set RHOSTS 192.28.157.3
 	RHOSTS => 192.28.157.3
 exploit
+```
 
-    [*] 192.28.157.3:445      - Host could not be identified: Windows 6.1 (Samba 4.3.11-Ubuntu)
-    [*] 192.28.157.3:445      - Scanned 1 of 1 hosts (100% complete)
-    [*] Auxiliary module execution completed
+```bash
+[*] 192.28.157.3:445 - Host could not be identified: Windows 6.1 (Samba 4.3.11-Ubuntu)
+[*] 192.28.157.3:445 - Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
 ```
 
 ![msfconsole smb_version exploit](.gitbook/assets/image-20230214164745919.png)
@@ -974,10 +976,12 @@ use auxiliary/scanner/smb/smb2
 set RHOSTS 192.230.128.3
 	RHOSTS => 192.230.128.3
 exploit
+```
 
-    [+] 192.230.128.3:445     - 192.230.128.3 supports SMB 2 [dialect 255.2] and has been online for 3700245 hours
-    [*] 192.230.128.3:445     - Scanned 1 of 1 hosts (100% complete)
-    [*] Auxiliary module execution completed
+```bash
+[+] 192.230.128.3:445 - 192.230.128.3 supports SMB 2 [dialect 255.2] and has been online for 3700245 hours
+[*] 192.230.128.3:445 - Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
 ```
 
 ![](.gitbook/assets/image-20230214220546598.png)
@@ -995,10 +999,12 @@ use auxiliary/scanner/smb/smb_enumusers
 set RHOSTS 192.230.128.3
 	RHOSTS => 192.230.128.3
 exploit
+```
 
-    [+] 192.230.128.3:139     - SAMBA-RECON [ john, elie, aisha, shawn, emma, admin ] ( LockoutTries=0 PasswordMin=5 )
-    [*] 192.230.128.3:        - Scanned 1 of 1 hosts (100% complete)
-    [*] Auxiliary module execution completed
+```bash
+[+] 192.230.128.3:139 - SAMBA-RECON [ john, elie, aisha, shawn, emma, admin ] ( LockoutTries=0 PasswordMin=5 )
+[*] 192.230.128.3: - Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
 ```
 
 > 📌 Users are: `john`, `elie`, `aisha`, `shawn`, `emma`, `admin`
@@ -1560,9 +1566,11 @@ set SMBUser admin
 set SMBPass password1
 set RHOSTS 192.174.58.3
 exploit
+```
 
-[+] 192.174.58.3:139      - Pipes: \netlogon, \lsarpc, \samr, \eventlog, \InitShutdown, \ntsvcs, \srvsvc, \wkssvc
-[*] 192.174.58.3:         - Scanned 1 of 1 hosts (100% complete)
+```bash
+[+] 192.174.58.3:139 - Pipes: \netlogon, \lsarpc, \samr, \eventlog, \InitShutdown, \ntsvcs, \srvsvc, \wkssvc
+[*] 192.174.58.3: - Scanned 1 of 1 hosts (100% complete)
 ```
 
 ![Metasploit - pipe_auditor](.gitbook/assets/image-20230215105049826.png)

