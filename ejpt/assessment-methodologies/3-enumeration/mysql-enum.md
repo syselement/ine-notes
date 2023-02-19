@@ -22,7 +22,7 @@ nmap 192.49.51.3
 ```
 
 ```bash
-nmap -sS sV 192.49.51.3
+nmap -sV -p3306 192.49.51.3
 	3306/tcp open  mysql   MySQL 5.5.62-0ubuntu0.14.04.1
 ```
 
@@ -516,14 +516,14 @@ nmap --script=mysql-query --script-args="query='select count(*) from books.autho
 >  🔬 [MySQL Recon: Dictionary Attack](https://attackdefense.pentesteracademy.com/challengedetails?cid=532)
 >
 >  - Target IP: `10.4.16.17`
->  - `MySQL` server reconnaisance.
+>  - `MySQL` server disctionary attack.
 
 ```bash
 nmap 
 ```
 
 ```bash
-nmap -sV -O 
+nmap -sV -p3306
 ```
 
 > 📌 
