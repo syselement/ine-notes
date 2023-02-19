@@ -238,7 +238,7 @@ exploit
 
 ![Metasploit - mysql_file_enum](.gitbook/assets/image-20230219161029085.png)
 
-> 📌 `10` sensitive file are readable: `/etc/passwd`, `/etc/shadow`, `/etc/group`, `/etc/mysql/my.cn`, `/etc/hosts`, `/etc/hosts.allow`, `/etc/hosts.deny`, `/etc/issue`, `/etc/fstab`, `/proc/version`
+> 📌 `10` sensitive files are readable: `/etc/passwd`, `/etc/shadow`, `/etc/group`, `/etc/mysql/my.cn`, `/etc/hosts`, `/etc/hosts.allow`, `/etc/hosts.deny`, `/etc/issue`, `/etc/fstab`, `/proc/version`
 
 - Use the [`mysql_hashdump`](https://www.rapid7.com/db/modules/auxiliary/scanner/mysql/mysql_hashdump/) metasploit module to list database users and their password hashes.
 
