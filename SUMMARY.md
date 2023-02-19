@@ -36,7 +36,12 @@
       * [Data Exfiltration](ejpt/exam-preparation-labs/p.t.-prerequisites-labs/data-exfiltration.md)
       * [Burp Suite Basics - Directory Enumeration](ejpt/exam-preparation-labs/p.t.-prerequisites-labs/burp-suite-basics.md)
   * [🌐References](ejpt/references.md)
-  * [📜Glossary](ejpt/glossary.md)
+  
+  <!---
+  
+  * [📜eJPT Cheat Sheet](ejpt/ejpt-cheatsheet.md)
+  
+  --->
 
 
 ***

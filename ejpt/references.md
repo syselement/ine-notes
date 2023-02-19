@@ -128,18 +128,22 @@
     * [FTP Windows Enum](https://www.hackingarticles.in/ftp-penetration-testing-windows/)
     * [ftp command](https://linux.die.net/man/1/ftp)
   * [SSH Enum](https://www.hackingarticles.in/ssh-penetration-testing-port-22/)
+    
     * [nc/netcat](https://docs.oracle.com/cd/E36784_01/html/E36870/netcat-1.html)
     * [ssh](https://www.geeksforgeeks.org/ssh-command-in-linux-with-examples/)
   * [What is HTTP?](https://www.cloudflare.com/learning/ddos/glossary/hypertext-transfer-protocol-http/)
+    
     * [httpie](https://httpie.io/)
     * [dirb](https://www.kali.org/tools/dirb/)
     * [browsh](https://github.com/browsh-org/browsh)
     * [curl](https://curl.se/)
     * [whatweb](https://github.com/urbanadventurer/WhatWeb)
   * [What is MySQL?](https://dev.mysql.com/doc/refman/8.0/en/what-is-mysql.html)
+  
     * [MySQL Enum](https://www.hackingarticles.in/mysql-penetration-testing-nmap/)
     * [mysql](https://dev.mysql.com/doc/refman/8.0/en/mysql.html)
-    * 
+  
+    
 
 
 

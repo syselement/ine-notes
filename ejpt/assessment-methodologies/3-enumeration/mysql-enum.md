@@ -36,7 +36,7 @@ nmap -sS sV 192.49.51.3
 mysql -h 192.49.51.3 -u root
 ```
 
-```mysql
+```bash
 MySQL [(none)]> help
 # Get a list of MySQL commands
 
@@ -61,7 +61,7 @@ MySQL [(none)]> show databases;
 
 > 📌 There are `11 databases` on the server.
 
-```mysql
+```bash
 MySQL [(none)]> use books;
 MySQL [books]> select count(*) from authors;
 +----------+
@@ -92,7 +92,7 @@ set PASSWORD ""
 exploit
 ```
 
-```mysql
+```bash
 [+] 192.49.51.3:3306      - Schema stored in: /root/.msf4/loot/20230219145005_default_192.49.51.3_mysql_schema_310503.txt
 [+] 192.49.51.3:3306      - MySQL Server Schema 
  Host: 192.49.51.3 
