@@ -147,9 +147,22 @@
 ## Vulnerability Assessment & Auditing
 
 - [Vulnerability](https://csrc.nist.gov/glossary/term/vulnerability)
+
 - [NIST - NVD](https://nvd.nist.gov/general)
+
 - [CVEs & NVD Process](https://nvd.nist.gov/general/cve-process)
-- 
+
+- [Zero-Day](https://www.crowdstrike.com/cybersecurity-101/zero-day-exploit/)
+
+- [Vulnerability Assessment](https://csrc.nist.gov/glossary/term/vulnerability_assessment)
+
+- [exploit-db.com](https://www.exploit-db.com/)
+
+- [Nessus](https://www.tenable.com/products/nessus)
+
+  - [Nessus Essentials](https://www.tenable.com/products/nessus/nessus-essentials)
+
+  
 
 ## Host & Network PenTesting
 
