@@ -143,11 +143,13 @@
     * [MySQL Enum](https://www.hackingarticles.in/mysql-penetration-testing-nmap/)
     * [mysql](https://dev.mysql.com/doc/refman/8.0/en/mysql.html)
   
-    
 
+## Vulnerability Assessment & Auditing
 
-
-## Auditing
+- [Vulnerability](https://csrc.nist.gov/glossary/term/vulnerability)
+- [NIST - NVD](https://nvd.nist.gov/general)
+- [CVEs & NVD Process](https://nvd.nist.gov/general/cve-process)
+- 
 
 ## Host & Network PenTesting
 
