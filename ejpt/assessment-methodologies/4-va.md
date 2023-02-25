@@ -193,10 +193,24 @@ Server username: WIN-OMCNBKR66MN\Administrator
 
 - Use [meterpreter](https://www.offensive-security.com/metasploit-unleashed/about-meterpreter/) commands to find the flag
 
-```
+```bash
 shell
 cd /
 dir
 type flag.txt
 ```
+
+
+<details>
+<summary>Reveal Flag - /home/student/FLAG is: 🚩</summary>
+
+
+
+`70a569da306697d64fc6c19afea37d94`
+
+![](.gitbook/assets/image-20230225111659349.png)
+
+</details>
+
+------
 
