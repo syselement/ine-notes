@@ -200,9 +200,9 @@ dir
 type flag.txt
 ```
 
-
 <details>
-<summary>Reveal Flag - /home/student/FLAG is: 🚩</summary>
+<summary>Reveal Flag: 🚩</summary>
+
 
 
 
