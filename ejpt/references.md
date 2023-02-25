@@ -158,6 +158,8 @@
 
 - [exploit-db.com](https://www.exploit-db.com/)
 
+  - [searchsploit](https://www.exploit-db.com/searchsploit)
+
 - [Nessus](https://www.tenable.com/products/nessus)
 
   - [Nessus Essentials](https://www.tenable.com/products/nessus/nessus-essentials)
