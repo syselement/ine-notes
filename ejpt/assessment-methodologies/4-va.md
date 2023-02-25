@@ -10,11 +10,6 @@
 > * Describe vulnerability management and perform research
 > * Perform network auditing
 >
-> #### 🔬 Training list - PentesterAcademy/INE Labs
->
-> `subscription required`
->
-> - [Windows: Easy File Sharing Server](https://attackdefense.pentesteracademy.com/challengedetails?cid=1171)
 
 ## Vulnerabilities
 
@@ -116,3 +111,14 @@ nmap --script log4shell.nse --script-args log4shell.callback-server=<CALLBACK_SE
 
 ------
 
+<!-- COMMENTED
+
+## Nessus Lab
+
+🗒️ [**`Nessus`**](https://www.tenable.com/products/nessus) is a network vulnerability scanning tool. It can be hosted locally.
+
+>  🔬 [Windows: Easy File Sharing Server](https://attackdefense.com/challengedetails?cid=1944)
+>
+>  - `Nessus` tool hands-on.
+
+-->
