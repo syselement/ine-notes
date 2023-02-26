@@ -52,13 +52,13 @@ Policies and security controls that reduce threats to these three vital componen
 
 Depending on *what* and *how* an organization need to secure, the strategy have to be shaped, considering a risk management plan.
 
-🗒️ **Risk management** is *the process of identifying, assessing and controlling financial, legal, strategic and security risks to an organization’s **capital** and earnings*. It plays the ultimate factor in an organization.
+🗒️ **Risk Management** is *the process of identifying, assessing and controlling financial, legal, strategic and security risks to an organization’s **capital** and earnings*. It plays the ultimate factor in an organization.
 
 ## Compliance
 
 🗒️ **Cybersecurity Compliance** *involves meeting various controls to protect the confidentiality, integrity, and availability of data*.
 
-Compliance requirements (usually established by a regulatory authority, law, or industry group) typically involve using an array of specific organizational processes and technologies to safeguard data. Controls come from a variety of Cybersecurity frameworks and regulations, such as:
+Compliance requirements (usually established by a regulatory authority, law or industry group) typically involve using an array of specific organizational processes and technologies to safeguard data. Controls come from a variety of Cybersecurity frameworks and regulations, such as:
 
 - [PCI DSS](https://www.pcisecuritystandards.org/) (Payment Card Industry Data Security Standard )
   - mandated by card brands, created to increase controls around cardholder data
