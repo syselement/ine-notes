@@ -165,7 +165,6 @@
 
 - [Compliance](https://www.celerium.com/cyber-security-compliance-a-comprehensive-guide)
   - [Cybersec Frameworks](https://www.celerium.com/cybersecurity-frameworks-a-comprehensive-guide)
-  - 
 
 
 ## Host & Network PenTesting
