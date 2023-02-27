@@ -1,4 +1,4 @@
-# MYSQL Enum
+# 🔬MYSQL Enum
 
 **`MYSQL`** - an open-source relational database management system, used to add, access and process data stored in a server database using the **`SQL`** (**S**tructured **Q**uery **L**anguage) syntax. It's also included in the `LAMP` technology stack (Linux, Apache, MySQL, PHP) to store and retrieve data in well-known applications, websites and services.
 

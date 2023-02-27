@@ -1,4 +1,4 @@
-# FTP Enum
+# 🔬FTP Enum
 
 **`FTP`** (**F**ile **T**ransfer **P**rotocol) - a *client-server* protocol used to transfer files between a network using TCP/UDP connections.
 
