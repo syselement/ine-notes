@@ -154,19 +154,23 @@
 - [exploit-db.com](https://www.exploit-db.com/)
 
   - [searchsploit](https://www.exploit-db.com/searchsploit)
-- [Nessus](https://www.tenable.com/products/nessus)
-  - [Nessus Essentials](https://www.tenable.com/products/nessus/nessus-essentials)
-  
 - [What is Cybersecurity? - IBM](https://www.ibm.com/topics/cybersecurity)
   - [PII](https://www.investopedia.com/terms/p/personally-identifiable-information-pii.asp)
   - [CIA Triad](https://www.fortinet.com/resources/cyberglossary/cia-triad)
   - [Defense in Depth](https://www.cyberark.com/what-is/defense-in-depth/)
   - [Risk Management](https://www.ibm.com/topics/risk-management)
-
 - [Compliance](https://www.celerium.com/cyber-security-compliance-a-comprehensive-guide)
   - [Cybersec Frameworks](https://www.celerium.com/cybersecurity-frameworks-a-comprehensive-guide)
+- [Auditing](https://www.auditboard.com/blog/what-is-security-audit/)
+  - [SCAP](https://public.cyber.mil/stigs/scap/)
+  - [OpenSCAP](https://www.open-scap.org/)
+  - [What is a SCAP Scan](https://cingulara.github.io/openrmf-docs/scapscans.html)
 
+- [Nessus](https://www.tenable.com/products/nessus)
+  - [Nessus Essentials](https://www.tenable.com/products/nessus/nessus-essentials)
 
 ## Host & Network PenTesting
+
+
 
 ## Web App PenTesting

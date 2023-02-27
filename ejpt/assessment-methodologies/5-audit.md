@@ -96,9 +96,50 @@ Compliance requirements (usually established by a regulatory authority, law or i
 
 ## Auditing
 
+🗒️ A **security Audit** is *an extensive evaluation of an organization’s information system*, an assessment that measures the information system’s security against an audit checklist of industry best practices, governmental legislation or externally defined standards.
 
+An audit is necessary for a compliance plan.
 
+- *Interviews* on security awareness, training and practices - CISO, system administrators, employees
+- *Review Paperworks* - how records, logs are kept
+- *Assessments* - using automated tools to find compliance software and devices, vulnerability assessments
+- As an auditor or pentester, *good notes* are useful for the information gathering and the final report
+- *Mind maps* - useful and understandable by the customer
+- *Reports* - an important part that has value to a company as a result of a penetration test
 
+## SCAP
 
+🗒️ The **[SCAP](https://public.cyber.mil/stigs/scap/)** (**S**ecurity **C**ontent **A**utomation **P**rotocol) is *a specification for expressing and manipulating security data in standardized ways. It uses specific standards to help organizations automate continuous monitoring, vulnerability management and security policy compliance evaluation reporting.*
 
+DISA **[STIG Viewer](https://public.cyber.mil/stigs/srg-stig-tools/)** is a GUI java based program used to open content and generate checklists for managing the security settings on a system or network. 
+
+![STIG Viewer](.gitbook/assets/image-20230227114909530.png)
+
+## Asset Management
+
+### [nmap](https://nmap.org/)
+
+- General audit internal devices with an internal network scan using **`nmap`** tool to find active services and open ports
+
+```bash
+nmap 192.168.50.0/24
+
+nmap -A 192.168.50.1,5,10
+# Aggressive scan (Syn, Service, O.S, Default Scripts Scans) on specific IPs
+```
+
+### [Nessus](https://www.tenable.com/products/nessus/nessus-essentials)
+
+**`nessus`** is a network vulnerability scanning tool, hosted locally and used for Vulnerability Assessment.
+
+- `Nessus Essentials` is the free version of the V.A. tool by [Tenable](https://www.tenable.com/blog/nessus-home-is-now-nessus-essentials).
+  - Limited to 16 IPs for V.A.
+  - Build in insights with latest vulnerabilities
+  - No usage time limit
+  - Report export as PDF, HTML, CSV formats
+- [Nessus Documentation](https://docs.tenable.com/nessus/Content/GettingStarted.htm)
+
+![Nessus](.gitbook/assets/image-20230227120920771.png)
+
+------
 
