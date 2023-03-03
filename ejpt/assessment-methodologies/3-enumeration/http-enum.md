@@ -1,4 +1,4 @@
-# HTTP Enum
+# 🔬HTTP Enum
 
 **`HTTP`** (**H**yper **T**ext **T**ransfer **P**rotocol) - a *client-server* application layer protocol, used to load web pages using hypertext links. 
 

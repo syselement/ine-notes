@@ -1,4 +1,4 @@
-# SMB Enum
+# 🔬SMB Enum
 
 **`SMB`** (**S**erver **M**essage **B**lock) - a network file and resource sharing protocol, based on a _client-server_ model.
 

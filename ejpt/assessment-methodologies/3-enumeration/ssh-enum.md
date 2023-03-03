@@ -1,4 +1,4 @@
-# SSH Enum
+# 🔬SSH Enum
 
 **`SSH`** (**S**ecure **Sh**ell Protocol) - a cryptographic network protocol for *operating network services securely* over an unsecured network, based on a _client-server_ model.
 
