@@ -2,4 +2,5 @@
 
 ### Topics
 
-* [Introduction to the Web and HTTP Protocol](../assessment-methodologies/1-info-gathering.md)
+* [Introduction to the Web and HTTP Protocol](1-webapp-http.md)
+

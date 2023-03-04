@@ -9,7 +9,7 @@ description: >-
 
 ![eJPTv2 - © eLearnSecurity | INE](.gitbook/assets/eJPTv2.png)
 
-## PTSv2 Learning Path
+## [PTSv2 Learning Path](https://my.ine.com/CyberSecurity/learning-paths/61f88d91-79ff-4d8f-af68-873883dbbd8c/penetration-testing-student)
 
 - covers pre-requisite topics introducing information security, programming and pentesting.
 - prepares for the eJPTv2 exam & certification.
