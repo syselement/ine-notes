@@ -29,7 +29,7 @@ Activities: 4 sections , 12 courses , 229 videos, 154 quizzes, 120 labs
 
 - Where to find the PTSv2 (Penetration Testing Student v2) course? - [INE Learning Paths](https://my.ine.com/learning-paths)
 - Where to find the eJPTv2 certification exam? - [eJPTv2](https://ine.com/learning/certifications/internal/elearnsecurity-junior-penetration-tester-v2)
-- As these notes started with my PTS v1 study, I've decided to keep my [**Penetration Testing Prerequisites** notes here](penetration-testing-prerequisites/README.md).
+- As these notes started with my PTS v1 study, I've decided to keep my [**Penetration Testing Prerequisites** notes here](penetration-testing-prerequisites/README.md) based on the (discontinued) PTSv1 course.
 - 🔬 For the **training** part I will use the [Attack-Defense](https://attackdefense.com/members) environment from PentesterAcademy (`subscription required`).
 
 ## [eJPTv2](https://ine.com/learning/certifications/internal/elearnsecurity-junior-penetration-tester-v2) Exam
@@ -41,15 +41,20 @@ Activities: 4 sections , 12 courses , 229 videos, 154 quizzes, 120 labs
   - **Assessment Methodologies Domain (25% of exam):**
     - Evaluate information and criticality or impact of vulnerabilities
     - Identify open ports and services on a target
+    - *Exam Score to pass*: at least **`90%`**
   - **Host and Network Auditing Domain (25% of exam):**
     - Gather hash/password information from target
     - Enumerate network information from files on target
+    - *Exam Score to pass*: at least **`80%`**
   - **Host and Network Pen Testing Domain (35% of exam):**
     - Conduct brute-force password attacks
-    - Conduct exploitation with metasploit
+    - Conduct exploitation with Metasploit
+    - *Exam Score to pass*: at least **`70%`**
   - **Web Application Pen Testing Domain (15% of exam):**
-    - Exploit web app with cross-site scripting
-    - Locate hidden file and directories
+    - Exploit web app vulnerabilities
+    - Locate hidden files and directories
+    - *Exam Score to pass*: at least **`60%`**
+- *Overall Exam score*: **at least `70%` + above minimum score requirements in each domain section**
 - From a **technical perspective** the exam is set out to simulate a black block penetration test
 
   - minimal amount of information about the target network
