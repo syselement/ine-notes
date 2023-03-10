@@ -96,7 +96,7 @@ hydra -L /usr/share/wordlists/metasploit/common_users.txt -P /usr/share/wordlist
 
 ![](.gitbook/assets/image-20230310134755008.png)
 
-- Use the lab provided credentials instead, first in the web browser
+- Use the lab provided credentials instead, first in the web browser then with `davtest` tool
 
 ![](.gitbook/assets/image-20230310134917364.png)
 
