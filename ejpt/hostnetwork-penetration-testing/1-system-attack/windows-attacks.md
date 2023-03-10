@@ -88,13 +88,7 @@ msfvenom -p <PAYLOAD> LHOST=<LOCAL_HOST_IP> LPORT=<PORT> -f <file_type> > shell.
 
 ![msfvenom](.gitbook/assets/image-20230310154748079.png)
 
-
-
 > 🔬 Check some hands-on labs in the [IIS - WebDAV section](windows-attacks/iis-webdav.md)
-
-
-
-
 
 ### SMB
 

