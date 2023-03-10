@@ -18,13 +18,13 @@ Most of the Windows vulnerabilities **exploits** are publicly available, making 
 
 ### Vulns Types
 
-|           Vulnerability           |                                                              |
+|           Vulnerability           | Description                                                  |
 | :-------------------------------: | :----------------------------------------------------------- |
-|   **`Information Disclosure`**    | allows an attacker to access confidential data               |
-|      **`Buffer Overflows`**       | programming error that allows an attacker to write data to a buffer and overrun the allocated buffer, therefore writing malicious data to allocated memory addresses |
-| **`Remote Code Execution (RCE)`** | allows an attacker to remotely execute code on the target    |
-|    **`Privilege Escalation`**     | allows an attacker to elevate their privileges after initial compromise |
-|   **`Denial of Service (DoS)`**   | allows an attacker to flood a target consuming its resources (CPU, RAM, Network ...), interrupting the system's normal functioning, resulting in denial of service to other users |
+|   **`Information Disclosure`**    | Allows an attacker to access confidential data               |
+|      **`Buffer Overflows`**       | Programming error that allows an attacker to write data to a buffer and overrun the allocated buffer, therefore writing malicious data to allocated memory addresses |
+| **`Remote Code Execution (RCE)`** | Allows an attacker to remotely execute code on the target    |
+|    **`Privilege Escalation`**     | Allows an attacker to elevate their privileges after initial compromise |
+|   **`Denial of Service (DoS)`**   | Allows an attacker to flood a target consuming its resources (CPU, RAM, Network ...), interrupting the system's normal functioning, resulting in denial of service to other users |
 
 ## Services Exploitation
 
@@ -90,7 +90,7 @@ msfvenom -p <PAYLOAD> LHOST=<LOCAL_HOST_IP> LPORT=<PORT> -f <file_type> > shell.
 
 ### SMB
 
-🗒️ [**SMB**](https://learn.microsoft.com/en-us/windows-server/storage/file-server/file-server-smb-overview) (Server Message Block) - a network file sharing protocol, used for files and peripherals sharing, on Windows
+🗒️ [**SMB**](https://learn.microsoft.com/en-us/windows-server/storage/file-server/file-server-smb-overview) (**S**erver **M**essage **B**lock) - a network file sharing protocol, used for files and peripherals sharing, on Windows
 
 - Ports: **`445`** (TCP), **`139`** (NetBIOS)
 - Two levels of authentication to access a share:
