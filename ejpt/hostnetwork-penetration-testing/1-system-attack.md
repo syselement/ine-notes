@@ -26,6 +26,7 @@
 > - [Linux Exploitation](https://attackdefense.com/listing?labtype=linux-security-exploitation&subtype=linux-security-exploitation-getting-started)
 > - [Basic Linux Privesc](https://attackdefense.com/listing?labtype=linux-security-priv-esc&subtype=linux-security-priv-esc-basic)
 > - [Password Cracking Linux Exploitation](https://attackdefense.com/listing?labtype=linux-security-exploitation&subtype=linux-security-exploitation-password-cracking)
+
 🗒️ **System or Host based attacks** are attacks targeted towards specific systems oh hosts. They are about *exploiting vulnerabilities within Windows and Linux operating systems*, running on (internal) servers, workstations, laptops, etc.
 
 - During a penetration test, host based attacks are applied after the target network is accessed.
