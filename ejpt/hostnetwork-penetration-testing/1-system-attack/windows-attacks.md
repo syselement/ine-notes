@@ -18,15 +18,13 @@ Most of the Windows vulnerabilities **exploits** are publicly available, making 
 
 ### Vulns Types
 
-**`Information Disclosure`** -  allows an attacker to access confidential data
-
-**`Buffer Overflows`** - programming error that allows an attacker to write data to a buffer and overrun the allocated buffer, therefore writing malicious data to allocated memory addresses
-
-**`Remote Code Execution (RCE)`** - allows an attacker to remotely execute code on the target
-
-**`Privilege Escalation`** - allows an attacker to elevate their privileges after initial compromise
-
-**`Denial of Service (DoS)`** - allows an attacker to flood a target consuming its resources (CPU, RAM, Network ...), interrupting the system's normal functioning, resulting in denial of service to other users
+|           Vulnerability           |                                                              |
+| :-------------------------------: | :----------------------------------------------------------- |
+|   **`Information Disclosure`**    | allows an attacker to access confidential data               |
+|      **`Buffer Overflows`**       | programming error that allows an attacker to write data to a buffer and overrun the allocated buffer, therefore writing malicious data to allocated memory addresses |
+| **`Remote Code Execution (RCE)`** | allows an attacker to remotely execute code on the target    |
+|    **`Privilege Escalation`**     | allows an attacker to elevate their privileges after initial compromise |
+|   **`Denial of Service (DoS)`**   | allows an attacker to flood a target consuming its resources (CPU, RAM, Network ...), interrupting the system's normal functioning, resulting in denial of service to other users |
 
 ## Services Exploitation
 
@@ -92,7 +90,41 @@ msfvenom -p <PAYLOAD> LHOST=<LOCAL_HOST_IP> LPORT=<PORT> -f <file_type> > shell.
 
 ### SMB
 
+🗒️ [**SMB**](https://learn.microsoft.com/en-us/windows-server/storage/file-server/file-server-smb-overview) (Server Message Block) - a network file sharing protocol, used for files and peripherals sharing, on Windows
 
+- Ports: **`445`** (TCP), **`139`** (NetBIOS)
+- Two levels of authentication to access a share:
+  - *User Authentication* -  `username` & `password`
+  - *Share Authentication* - `password`
+  - both utilize a challenge response authentication system
+
+🗒️ **SAMBA** is the open source *Linux* SMB
+
+- it allows Windows systems to access Linux shares
+
+#### SMB Authentication
+
+1. Auth request from the client to the server
+2. The server request the client to encrypt string with user's hash
+3. The client sends the encrypted string to the server
+4. The server checks the actual string value of that users matches the client's one, and grant access. It doesn't match access is denied
+
+#### PsExec
+
+> [**`psexec`**](https://learn.microsoft.com/en-us/sysinternals/downloads/psexec) - a light-weight telnet-replacement that lets you execute processes on remote systems, complete with full interactivity for console applications, using any user's credentials
+
+- PsExec authentication is performed via SMB
+- Run arbitrary commands or a remote command prompt
+- Commands are sent via **`CMD`** (without a GUI like `RDP`)
+- Legitimate user account and passwords/hashes are necessary to gain Windows target access
+
+#### PsExec Exploitation
+
+1. Leverage various techniques, `e.g.` **SMB login brute-force** attack.
+2. Narrow down the attack to only common Win user accounts, `e.g.` **Administrator**.
+3. Use the obtained credentials to authenticate via **`PsExec`** and execute system commands or get a reverse shell.
+
+> 🔬 Check some hands-on labs in the [SMB - PsExec section](windows-attacks/smb-psexec.md)
 
 ### RDP
 

@@ -24,6 +24,7 @@
     * [System/Host Based Attacks](ejpt/hostnetwork-penetration-testing/1-system-attack.md)
       * [🪟 Windows Attacks](ejpt/hostnetwork-penetration-testing/1-system-attack/windows-attacks.md)
         * [🔬IIS - WebDAV](ejpt/hostnetwork-penetration-testing/1-system-attack/windows-attacks/iis-webdav.md)
+        * [🔬SMB - PsExec](ejpt/hostnetwork-penetration-testing/1-system-attack/windows-attacks/smb-psexec.md)
       * [🐧 Linux Attacks](ejpt/hostnetwork-penetration-testing/1-system-attack/linux-attacks.md)
     * [Network Based Attacks](ejpt/hostnetwork-penetration-testing/2-network-attack.md)
     * [The Metasploit Framework (MSF)](ejpt/hostnetwork-penetration-testing/3-metasploit.md)

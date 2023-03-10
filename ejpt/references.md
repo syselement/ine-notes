@@ -181,6 +181,8 @@
 
   - [msfvenom](https://docs.metasploit.com/docs/using-metasploit/basics/how-to-use-msfvenom.html)
 
+  - [PsExec](https://learn.microsoft.com/en-us/sysinternals/downloads/psexec)
+  
     
 
 ## Web App PenTesting
