@@ -80,7 +80,7 @@ cadaver [OPTIONS] <URL>
 
 ![cadaver](.gitbook/assets/image-20230310124041568.png)
 
-> 🔬 Check some hands-on labs in the [Exploitation Labs section](windows-attacks/iis-webdav.md)
+> 🔬 Check some hands-on labs in the [IIS/WebDAV section](windows-attacks/iis-webdav.md)
 
 
 
