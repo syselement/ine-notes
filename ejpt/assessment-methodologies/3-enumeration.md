@@ -32,7 +32,7 @@ Servers need to be accessed remotely by multiple clients, so the server must _op
 
 Open port service bugs and vulnerabilities could expose the entire server to attackers.
 
-Common services are:
+Chech the common services recon here:
 
 * [`SMB`](3-enumeration/smb-enum.md)
 * [`FTP`](3-enumeration/ftp-enum.md)
