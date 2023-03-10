@@ -276,7 +276,7 @@ run
 
 - The listener (reverse TCP handler) starts listening and waits for a connection from the actual `shell.asp` payload
 
-![image-20230310160648091](.gitbook/assets/image-20230310160648091.png)
+![Metasploit handler](.gitbook/assets/image-20230310160648091.png)
 
 - Open the `http://10.4.18.218/webdav` link in the browser and click on `shell.asp` file
 - The **Meterpreter** session will be opened
