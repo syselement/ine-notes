@@ -182,6 +182,17 @@
   - [msfvenom](https://docs.metasploit.com/docs/using-metasploit/basics/how-to-use-msfvenom.html)
 
   - [PsExec](https://learn.microsoft.com/en-us/sysinternals/downloads/psexec)
+
+  - [impacket-scripts](https://www.kali.org/tools/impacket-scripts/)
+  
+    - [PsExec.py Linux](https://github.com/fortra/impacket/blob/master/examples/psexec.py)
+
+  - [AutoBlue-MS17-010](https://github.com/3ndG4me/AutoBlue-MS17-010)
+  - [CVE-2017-0143 - EternalBlue](https://nvd.nist.gov/vuln/detail/CVE-2017-0143)
+  
+  - 
+  
+    
   
     
 
