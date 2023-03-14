@@ -5,7 +5,7 @@
 >  🔬 [Windows: IIS Server DAVTest](https://attackdefense.com/challengedetails?cid=2317)
 >
 >  - Target IP: `10.3.26.115`
->  - IIS exploitation
+>  - **IIS** exploitation
 >  - Credentials provided: `bob`:`password_123321`
 
 ```bash

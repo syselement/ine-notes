@@ -26,7 +26,7 @@ Most of the Windows vulnerabilities **exploits** are publicly available, making 
 |    **`Privilege Escalation`**     | Allows an attacker to elevate their privileges after initial compromise |
 |   **`Denial of Service (DoS)`**   | Allows an attacker to flood a target consuming its resources (CPU, RAM, Network ...), interrupting the system's normal functioning, resulting in denial of service to other users |
 
-## Services Exploitation
+## Exploitation
 
 Windows has various standard native services and protocols configured or not on a host. When active, they provide an attacker with an **access vector**.
 
@@ -128,19 +128,52 @@ msfvenom -p <PAYLOAD> LHOST=<LOCAL_HOST_IP> LPORT=<PORT> -f <file_type> > shell.
 
 ### RDP
 
+🗒️ [**RDP**](https://learn.microsoft.com/en-us/troubleshoot/windows-server/remote/understanding-remote-desktop-protocol) (**R**emote **D**esktop **P**rotocol) - Microsoft proprietary GUI remote access protocol used to remotely connect with Windows.
 
+- Ports: **`3389`** (TCP) or any other port
+- *User Authentication* -  `username` & `password`
+- An RDP Client is used to connect to the target
+
+> 🔬 Check some hands-on labs in the [RDP section](windows-attacks/rdp.md)
 
 ### WinRM
 
+🗒️ [**WinRM**](https://learn.microsoft.com/en-us/windows/win32/winrm/portal) (**W**indows **R**emote **M**anagement **P**rotocol) - a protocol used to facilitate remote access with Windows systems over HTTP(S).
+
+- Ports: `5986` - `5986 (HTTPS)` (TCP)
+- Not configured by default
+- Used by system administrator to:
+  - remotely access, interact and execute commands on Windows hosts on a LAN
+  - remotely manage and configure Windows systems
+- Various form of authentication are used for access control and security
+
+#### WinRM Exploitation
+
+> [**`crackmapexec`**](https://www.kali.org/tools/crackmapexec/) - a python script, *a swiss army knife for pentesting Windows/Active Directory environments. From enumerating logged on users and spidering SMB shares to executing psexec style attacks, auto-injecting Mimikatz/Shellcode/DLL’s into memory using Powershell, dumping the NTDS.dit and more.*
+>
+> Can be utilized for brute-force WinRM to find legitimate credentials.
+
+```bash
+crackmapexec [OPTIONS]
+```
+
+![crackmapexec](.gitbook/assets/image-20230314233210971.png)
+
+> [**`evil-winrm`**](https://www.kali.org/tools/evil-winrm/) - a Ruby script used to optain a command shell session on a target system
+
+```
+ evil-winrm -i <IP> -u <USER> -p <PASSWORD>
+```
+
+![evil-winrm](.gitbook/assets/image-20230314233819794.png)
+
+> 🔬 Jump to the hands-on labs in the [WinRM section](windows-attacks/winrm.md)
+
+## Privilege Escalation
 
 
 
-
-
-
-
-
-## Win Kernel Exploits
+### Win Kernel Exploits
 
 ### UAC Bypass
 

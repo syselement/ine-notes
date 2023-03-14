@@ -171,7 +171,7 @@
 
 ## Host & Network PenTesting
 
-- [Host and Network Based Attacks by Tim DeWeese+](https://prezi.com/ytdm9nv2hxya/host-and-network-based-attacks/)
+- [Host and Network Based Attacks by Tim DeWeese](https://prezi.com/ytdm9nv2hxya/host-and-network-based-attacks/)
 
   - [Microsoft Lear - IIS](https://learn.microsoft.com/en-us/iis/get-started/introduction-to-iis/iis-web-server-overview)
 
@@ -187,10 +187,17 @@
   
     - [PsExec.py Linux](https://github.com/fortra/impacket/blob/master/examples/psexec.py)
 
-  - [AutoBlue-MS17-010](https://github.com/3ndG4me/AutoBlue-MS17-010)
   - [CVE-2017-0143 - EternalBlue](https://nvd.nist.gov/vuln/detail/CVE-2017-0143)
   
-  - 
+    - [AutoBlue-MS17-010](https://github.com/3ndG4me/AutoBlue-MS17-010)
+    - [How to Exploit the BlueKeep Vulnerability with Metasploit - Pentest-Tools](https://pentest-tools.com/blog/bluekeep-exploit-metasploit)
+    - [Bluekeep CVE-2019–0708 Metasploit Module on Windows 7](https://alexandrevvo.medium.com/testing-bluekeep-cve-2019-0708-metasploit-module-on-windows-7-ef3f28217b7b)
+  
+  - [CrackMapExec](https://github.com/Porchetta-Industries/CrackMapExec)
+  
+  - [evil-winrm](https://github.com/Hackplayers/evil-winrm)
+  
+    
   
     
   

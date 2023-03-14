@@ -102,6 +102,24 @@ nmap --script smb-vuln-ms17-010 -p445 <TARGET>
 
 ![exploit-db.com - EternalBlue](.gitbook/assets/image-20230224192544226.png)
 
+> 🔬 Check the [Lab 2 - Eternal Blue here](../hostnetwork-penetration-testing/1-system-attack/windows-attacks/smb-psexec.md)
+
+### BlueKeep
+
+- [CVE-2019-0708 - BlueKeep](https://nvd.nist.gov/vuln/detail/CVE-2019-0708)
+
+> *A remote code execution vulnerability exists in Remote Desktop Services formerly known as Terminal Services when an unauthenticated attacker connects to the target system using RDP and sends specially crafted requests, aka **Remote Desktop Services Remote Code Execution Vulnerability**.*
+>
+> The vulnerability was made public by Microsoft in May 2019 and affected Windows XP, Windows Vista, Windows 7, Windows Server 2008 & R2. 
+>
+> It allows access to a chunk of kernel memory, allowing the attacker to remotely execute arbitary code at the system level without authentication.
+
+- BlueKeep **PoC**'s (**P**roof **o**f **C**oncepts) and exploits could be malicious in nature.
+
+![exploit-db.com - BlueKeep](.gitbook/assets/image-20230314212629872.png)
+
+> 🔬 Check the [Lab 2 - BlueKeep here](../hostnetwork-penetration-testing/1-system-attack/windows-attacks/rdp.md)
+
 ### Log4J
 
 - [CVE-2021-44228 - Apache Log4j](https://nvd.nist.gov/vuln/detail/CVE-2021-44228)
