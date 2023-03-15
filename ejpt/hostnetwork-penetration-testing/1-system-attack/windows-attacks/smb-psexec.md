@@ -99,7 +99,7 @@ set SMBPass qwertyuiop
 exploit
 ```
 
-![Metasploit psexec](.gitbook/assets/image-20230312192441763.png)
+![Metasploit psexec](.gitbook/assets/image-20230315154321522.png)
 
 - Find the flag, running `meterpreter` commands
 

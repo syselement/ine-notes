@@ -42,8 +42,8 @@ Policies and security controls that reduce threats to these three vital componen
 
 |      CIA Triad      | Description                                                  |
 | :-----------------: | ------------------------------------------------------------ |
-| **Confidentiality** | *Protecting information from unauthorized access*            |
-|    **Integrity**    | *Data is trustworthy, complete, accurate and have not been accidentally altered or modified by an unauthorized user* |
+| **Confidentiality** | *Protecting information from unauthorized access*, allowing only authorized users to access certain data |
+|    **Integrity**    | *Data is trustworthy, complete, accurate and have not been accidentally altered or modified by an unauthorized user*. Data can be retrieved in the future without changes |
 |  **Availability**   | *Data is accessible when needed*                             |
 
 ### Defense in Depth

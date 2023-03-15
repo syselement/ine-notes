@@ -26,7 +26,7 @@ Most of the Windows vulnerabilities **exploits** are publicly available, making 
 |    **`Privilege Escalation`**     | Allows an attacker to elevate their privileges after initial compromise |
 |   **`Denial of Service (DoS)`**   | Allows an attacker to flood a target consuming its resources (CPU, RAM, Network ...), interrupting the system's normal functioning, resulting in denial of service to other users |
 
-## Exploitation
+## Windows Exploitation
 
 Windows has various standard native services and protocols configured or not on a host. When active, they provide an attacker with an **access vector**.
 
@@ -169,22 +169,67 @@ crackmapexec [OPTIONS]
 
 > 🔬 Jump to the hands-on labs in the [WinRM section](windows-attacks/winrm.md)
 
-## Privilege Escalation
+## Windows Privilege Escalation
 
+🗒️ **Privilege Escalation** (*privesc*) is the process of exploiting vulnerabilities to escalate/elevate privileges from one user to a user with administrative or root access.
 
+- it is an important part of the Penetration testing process, specially after gaining initial foothold
+- the better the privesc is, the better the Pentest will be
 
 ### Win Kernel Exploits
+
+> ❗ **Targeting Kernel space memory and apps can cause system crashes, data loss, etc** ❗
+
+🗒️ The [kernel](https://learn.microsoft.com/en-us/windows-hardware/drivers/kernel/windows-kernel-mode-kernel-library) of an operating system is a computer program that implements the core functionality of an O.S. and has control over every system resource and hardware.
+
+The kernel facilitates the communication between hardware and software layers.
+
+[Windows NT](https://en.wikipedia.org/wiki/Windows_NT) is the Microsoft Windows kernel and consists of two modes of operation
+
+- User Mode - end-user programs with limited access to system resources
+- Kernel Mode - unlimited accesso to system resources and functionality
+
+An attacker can get shell code execution with the highest privileges by targeting vulnerabilities in the Windows kernel.
+
+The **Windows Kernel Exploitation** process will be different, depending on the attacked system. It consists of:
+
+1. Identifying kernel vulnerabilities (via automation scripts)
+2. Downloading, compiling and transferring kernel exploits onto the target system, based on the target Windows version
+
+> [**Windows-Exploit-Suggester**](https://github.com/AonCyberLabs/Windows-Exploit-Suggester) - a python tool that *compares a targets patch levels against the Microsoft vulnerability database in order to detect potential missing patches on the target. It notifies the user if there are public exploits and Metasploit modules available for the missing bulletins.*
+
+```bash
+./windows-exploit-suggester.py --database YYYY-MM-DD-mssb.xlsx --systeminfo win7sp1-systeminfo.txt
+```
+
+![Windows-Exploit-Suggester](.gitbook/assets/image-20230315152344156.png)
+
+> [**windows-kernel-exploits**](https://github.com/SecWiki/windows-kernel-exploits) - a Github collection of Windows Kernel Exploits sorted by CVE
+
+![windows-kernel-exploits](.gitbook/assets/image-20230315153006697.png)
+
+> 🔬 Take a look at the home lab in the [Win Kernel section](winkernel.md)
 
 ### UAC Bypass
 
 ### Access Token Impersonation
 
-### Data Streams
+
+
+## File System - Data Streams
+
+
+
+
+
+
+
+## Windows Credential Dumping
 
 ### Password Hashes
 
 ### Passwords Configuration Files
 
-### Mimikats Hashes Dumping
+### Dumping Hashes with Mimikats 
 
 ### Pass-The-Hash

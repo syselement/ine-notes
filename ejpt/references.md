@@ -197,10 +197,19 @@
   
   - [evil-winrm](https://github.com/Hackplayers/evil-winrm)
   
-    
+  - [Windows Kernel Exploits](https://pentestlab.blog/2017/04/24/windows-kernel-exploits/)
+  
+    - [windows-kernel-exploits](https://github.com/SecWiki/windows-kernel-exploits)
+  
+    - [Windows-Exploit-Suggester](https://github.com/AonCyberLabs/Windows-Exploit-Suggester)
+  
+  - 
   
     
-  
+    
+    
+    
+    
     
 
 ## Web App PenTesting
