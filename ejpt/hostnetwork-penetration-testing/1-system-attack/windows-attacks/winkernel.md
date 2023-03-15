@@ -46,6 +46,9 @@ run
 ```
 
 - On the Win2008 VM, run the payload with the `test` user
+
+![](.gitbook/assets/image-20230315174129546.png)
+
 - View the `meterpreter` session on Kali VM
 
 ![Meterpreter Success](.gitbook/assets/image-20230315163132938.png)
