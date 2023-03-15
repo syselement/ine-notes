@@ -260,6 +260,8 @@ shell
 
 
 > 🧪 I have tried to copy the exploit file to my protected Windows host. Antivirus will detect the Exploit file, pay attention.
+>
+> [VirusTotal Analysis](https://www.virustotal.com/gui/file/5ec6a6c9a7233a7ff68d989d830a2249e94a2784e69d5c8a593d3345da14a6b5)
 
 ![](.gitbook/assets/image-20230315173432723.png)
 
