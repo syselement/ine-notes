@@ -37,7 +37,7 @@
   * [📒3. Web Application Penetration Testing](ejpt/webapp-penetration-testing/README.md)
     * [Introduction to the Web and HTTP Protocol](ejpt/webapp-penetration-testing/1-webapp-http.md)
   * [🔬Exam Preparation - Labs](ejpt/exam-preparation-labs/README.md)
-    * [P.T. Prerequisites Labs](ejpt/exam-preparation-labs/p.t.-prerequisites-labs/README.md)
+    * [PTSv1 Prerequisites Labs](ejpt/exam-preparation-labs/p.t.-prerequisites-labs/README.md)
       * [HTTP(S) Traffic Sniffing](ejpt/exam-preparation-labs/p.t.-prerequisites-labs/http-s-traffic-sniffing.md)
       * [Find the Secret Server](ejpt/exam-preparation-labs/p.t.-prerequisites-labs/find-the-secret-server.md)
       * [Data Exfiltration](ejpt/exam-preparation-labs/p.t.-prerequisites-labs/data-exfiltration.md)

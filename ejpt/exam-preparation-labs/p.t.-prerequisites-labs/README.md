@@ -1,2 +1,2 @@
-# P.T. Prerequisites Labs
+# PTSv1 Prerequisites Labs
 
