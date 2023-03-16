@@ -179,22 +179,31 @@
 ### Windows System Attacks
 
 - [Host and Network Based Attacks by Tim DeWeese](https://prezi.com/ytdm9nv2hxya/host-and-network-based-attacks/)
+
 - [Microsoft Learn - IIS](https://learn.microsoft.com/en-us/iis/get-started/introduction-to-iis/iis-web-server-overview)
   - [davtest](https://github.com/cldrn/davtest)
   - [cadaver](https://github.com/notroj/cadaver)
   - [msfvenom](https://docs.metasploit.com/docs/using-metasploit/basics/how-to-use-msfvenom.html)
-- [PsExec](https://learn.microsoft.com/en-us/sysinternals/downloads/psexec)
+  
+- [Microsoft Learn - SMB](https://learn.microsoft.com/en-us/windows-server/storage/file-server/file-server-smb-overview) 
+  - [PsExec](https://learn.microsoft.com/en-us/sysinternals/downloads/psexec)
   - [impacket-scripts](https://www.kali.org/tools/impacket-scripts/)
   - [PsExec.py Linux](https://github.com/fortra/impacket/blob/master/examples/psexec.py)
-- [CVE-2017-0143 - EternalBlue](https://nvd.nist.gov/vuln/detail/CVE-2017-0143)
-  - [AutoBlue-MS17-010](https://github.com/3ndG4me/AutoBlue-MS17-010)
-- [How to Exploit the BlueKeep Vulnerability with Metasploit - Pentest-Tools](https://pentest-tools.com/blog/bluekeep-exploit-metasploit)
+  - [CVE-2017-0143 - EternalBlue](https://nvd.nist.gov/vuln/detail/CVE-2017-0143)
+    - [AutoBlue-MS17-010](https://github.com/3ndG4me/AutoBlue-MS17-010)
+
+- [Microsoft Learn - RDP](https://learn.microsoft.com/en-us/troubleshoot/windows-server/remote/understanding-remote-desktop-protocol) 
+  - [How to Exploit the BlueKeep Vulnerability with Metasploit - Pentest-Tools](https://pentest-tools.com/blog/bluekeep-exploit-metasploit)
   - [Bluekeep CVE-2019–0708 Metasploit Module on Windows 7](https://alexandrevvo.medium.com/testing-bluekeep-cve-2019-0708-metasploit-module-on-windows-7-ef3f28217b7b)
+
+-  [Microsoft Learn - WinRM](https://learn.microsoft.com/en-us/windows/win32/winrm/portal)
   - [CrackMapExec](https://github.com/Porchetta-Industries/CrackMapExec)
   - [evil-winrm](https://github.com/Hackplayers/evil-winrm)
-- [Windows Kernel Exploits](https://pentestlab.blog/2017/04/24/windows-kernel-exploits/)
+
+- [Privilege Escalation - Windows Kernel Exploits](https://pentestlab.blog/2017/04/24/windows-kernel-exploits/)
   - [windows-kernel-exploits](https://github.com/SecWiki/windows-kernel-exploits)
   - [Windows-Exploit-Suggester](https://github.com/AonCyberLabs/Windows-Exploit-Suggester)
+
 - 
 
 ### Linux System Attacks
