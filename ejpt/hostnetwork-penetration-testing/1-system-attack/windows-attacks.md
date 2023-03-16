@@ -208,7 +208,7 @@ The **Windows Kernel Exploitation** process will be different, depending on the 
 
 ![windows-kernel-exploits](.gitbook/assets/image-20230315153006697.png)
 
-> 🔬 Take a look at the Windows 2008 R2 home lab in the [Win Kernel section](winkernel.md)
+> 🔬 Take a look at the Windows 2008 R2 home lab in the [Win Kernel section](windows-attacks/winkernel.md)
 
 ### UAC Bypass
 
