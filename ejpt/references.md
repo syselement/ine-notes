@@ -81,6 +81,8 @@
 
 ## Assessment Methodologies
 
+### Information Gathering
+
 * [Passive Information Gathering](https://www.dummies.com/article/academics-the-arts/study-skills-test-prep/comptia-pentestplus/passive-information-gathering-for-pentesting-275726/)
   * [Wappalyzer](https://www.wappalyzer.com/)
   * [whois.domaintools.com](https://whois.domaintools.com/)
@@ -112,6 +114,9 @@
   * [nmap automator](https://github.com/21y4d/nmapAutomator)
   * [Rustscan](https://github.com/RustScan/RustScan)
   * [Autorecon](https://github.com/Tib3rius/AutoRecon)
+
+### Enumeration
+
 * [Enumeration](https://resources.infosecinstitute.com/topic/what-is-enumeration/)
   * [SMB Enum](https://www.hackingarticles.in/a-little-guide-to-smb-enumeration/)
     * [nmap Scripts](https://nmap.org/nsedoc/scripts/)
@@ -139,12 +144,12 @@
     * [curl](https://curl.se/)
     * [whatweb](https://github.com/urbanadventurer/WhatWeb)
   * [What is MySQL?](https://dev.mysql.com/doc/refman/8.0/en/what-is-mysql.html)
-  
+
     * [MySQL Enum](https://www.hackingarticles.in/mysql-penetration-testing-nmap/)
     * [mysql](https://dev.mysql.com/doc/refman/8.0/en/mysql.html)
-  
 
-## Vulnerability Assessment & Auditing
+
+### Vulnerability Assessment & Auditing
 
 - [Vulnerability](https://csrc.nist.gov/glossary/term/vulnerability)
 - [NIST - NVD](https://nvd.nist.gov/general)
@@ -171,45 +176,29 @@
 
 ## Host & Network PenTesting
 
+### Windows System Attacks
+
 - [Host and Network Based Attacks by Tim DeWeese](https://prezi.com/ytdm9nv2hxya/host-and-network-based-attacks/)
-
-  - [Microsoft Lear - IIS](https://learn.microsoft.com/en-us/iis/get-started/introduction-to-iis/iis-web-server-overview)
-
+- [Microsoft Learn - IIS](https://learn.microsoft.com/en-us/iis/get-started/introduction-to-iis/iis-web-server-overview)
   - [davtest](https://github.com/cldrn/davtest)
-
   - [cadaver](https://github.com/notroj/cadaver)
-
   - [msfvenom](https://docs.metasploit.com/docs/using-metasploit/basics/how-to-use-msfvenom.html)
-
-  - [PsExec](https://learn.microsoft.com/en-us/sysinternals/downloads/psexec)
-
+- [PsExec](https://learn.microsoft.com/en-us/sysinternals/downloads/psexec)
   - [impacket-scripts](https://www.kali.org/tools/impacket-scripts/)
-  
-    - [PsExec.py Linux](https://github.com/fortra/impacket/blob/master/examples/psexec.py)
-
-  - [CVE-2017-0143 - EternalBlue](https://nvd.nist.gov/vuln/detail/CVE-2017-0143)
-  
-    - [AutoBlue-MS17-010](https://github.com/3ndG4me/AutoBlue-MS17-010)
-    - [How to Exploit the BlueKeep Vulnerability with Metasploit - Pentest-Tools](https://pentest-tools.com/blog/bluekeep-exploit-metasploit)
-    - [Bluekeep CVE-2019–0708 Metasploit Module on Windows 7](https://alexandrevvo.medium.com/testing-bluekeep-cve-2019-0708-metasploit-module-on-windows-7-ef3f28217b7b)
-  
+  - [PsExec.py Linux](https://github.com/fortra/impacket/blob/master/examples/psexec.py)
+- [CVE-2017-0143 - EternalBlue](https://nvd.nist.gov/vuln/detail/CVE-2017-0143)
+  - [AutoBlue-MS17-010](https://github.com/3ndG4me/AutoBlue-MS17-010)
+- [How to Exploit the BlueKeep Vulnerability with Metasploit - Pentest-Tools](https://pentest-tools.com/blog/bluekeep-exploit-metasploit)
+  - [Bluekeep CVE-2019–0708 Metasploit Module on Windows 7](https://alexandrevvo.medium.com/testing-bluekeep-cve-2019-0708-metasploit-module-on-windows-7-ef3f28217b7b)
   - [CrackMapExec](https://github.com/Porchetta-Industries/CrackMapExec)
-  
   - [evil-winrm](https://github.com/Hackplayers/evil-winrm)
-  
-  - [Windows Kernel Exploits](https://pentestlab.blog/2017/04/24/windows-kernel-exploits/)
-  
-    - [windows-kernel-exploits](https://github.com/SecWiki/windows-kernel-exploits)
-  
-    - [Windows-Exploit-Suggester](https://github.com/AonCyberLabs/Windows-Exploit-Suggester)
-  
-  - 
-  
-    
-    
-    
-    
-    
-    
+- [Windows Kernel Exploits](https://pentestlab.blog/2017/04/24/windows-kernel-exploits/)
+  - [windows-kernel-exploits](https://github.com/SecWiki/windows-kernel-exploits)
+  - [Windows-Exploit-Suggester](https://github.com/AonCyberLabs/Windows-Exploit-Suggester)
+- 
+
+### Linux System Attacks
+
+
 
 ## Web App PenTesting
