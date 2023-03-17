@@ -19,7 +19,7 @@ ping 10.4.16.36
 nmap -sV -sC 10.4.16.36
 ```
 
-```
+```bash
 PORT     STATE SERVICE       VERSION
 135/tcp  open  msrpc         Microsoft Windows RPC
 139/tcp  open  netbios-ssn   Microsoft Windows netbios-ssn

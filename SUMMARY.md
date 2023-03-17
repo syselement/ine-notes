@@ -28,6 +28,7 @@
         * [🔬RDP](ejpt/hostnetwork-penetration-testing/1-system-attack/windows-attacks/rdp.md)
         * [🔬WinRM](ejpt/hostnetwork-penetration-testing/1-system-attack/windows-attacks/winrm.md)
         * [🔬Win Kernel Privesc](ejpt/hostnetwork-penetration-testing/1-system-attack/windows-attacks/winkernel.md)
+        * [🔬UAC Bypass](ejpt/hostnetwork-penetration-testing/1-system-attack/windows-attacks/uacme.md)
       * [🐧 Linux Attacks](ejpt/hostnetwork-penetration-testing/1-system-attack/linux-attacks.md)
     * [Network Based Attacks](ejpt/hostnetwork-penetration-testing/2-network-attack.md)
     * [The Metasploit Framework (MSF)](ejpt/hostnetwork-penetration-testing/3-metasploit.md)

@@ -212,7 +212,35 @@ The **Windows Kernel Exploitation** process will be different, depending on the 
 
 ### UAC Bypass
 
+🗒️ [**UAC**](https://learn.microsoft.com/en-us/windows/security/identity-protection/user-account-control/user-account-control-overview) (**U**ser **A**ccount **C**ontrol) - a Windows security feature used to prevent unauthorized changes to the operating system. Exception of cases when an administrator has deliberately granted administrator-level access to the system, *UAC ensures that programs and processes always operate in the security context of a **non-administrator account***.
 
+- It requires approval from a user that is part of the administrators group
+- On modern versions of Windows, since Win Vista
+- A **consent form** appears if the user is already a local administrator and he opens an app with `Run as administrator`:
+
+![UAC Consent Prompt](.gitbook/assets/image-20230317095407808.png)
+
+- A standard account instead, will be prompted with a **credential prompt**, to enter an administrator's credentials
+- Depending on the type of access to the Windows system, **attacks can bypass UAC**, in order to execute malicious programs.
+  - A **local administrators group** user account is necessary
+
+UAC has *integrity levels* ranging from Low to High.
+
+- The bypass tools depend on the Windows release and the UAC integrity level.
+
+![UAC Default Settings](.gitbook/assets/image-20230317101916225.png)
+
+> [**UACMe**](https://github.com/hfiref0x/UACME) - a privilege escalation tool used to bypass Windows UAC. *Defeating Windows User Account Control by abusing built-in **Windows AutoElevate backdoor**.*
+>
+> - the repository has a lot of exploits that can be used to bypass UAC
+
+```bash
+akagi32.exe [Key] [Param]
+```
+
+![UACMe Github](.gitbook/assets/image-20230317102225486.png)
+
+> 🔬 Jump to the hands-on labs in the [UAC Bypass section](windows-attacks/uacme.md)
 
 ### Access Token Impersonation
 
