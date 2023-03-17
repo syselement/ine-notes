@@ -179,31 +179,25 @@
 ### Windows System Attacks
 
 - [Host and Network Based Attacks by Tim DeWeese](https://prezi.com/ytdm9nv2hxya/host-and-network-based-attacks/)
-
 - [Microsoft Learn - IIS](https://learn.microsoft.com/en-us/iis/get-started/introduction-to-iis/iis-web-server-overview)
   - [davtest](https://github.com/cldrn/davtest)
   - [cadaver](https://github.com/notroj/cadaver)
   - [msfvenom](https://docs.metasploit.com/docs/using-metasploit/basics/how-to-use-msfvenom.html)
-  
 - [Microsoft Learn - SMB](https://learn.microsoft.com/en-us/windows-server/storage/file-server/file-server-smb-overview) 
   - [PsExec](https://learn.microsoft.com/en-us/sysinternals/downloads/psexec)
   - [impacket-scripts](https://www.kali.org/tools/impacket-scripts/)
   - [PsExec.py Linux](https://github.com/fortra/impacket/blob/master/examples/psexec.py)
   - [CVE-2017-0143 - EternalBlue](https://nvd.nist.gov/vuln/detail/CVE-2017-0143)
     - [AutoBlue-MS17-010](https://github.com/3ndG4me/AutoBlue-MS17-010)
-
 - [Microsoft Learn - RDP](https://learn.microsoft.com/en-us/troubleshoot/windows-server/remote/understanding-remote-desktop-protocol) 
   - [How to Exploit the BlueKeep Vulnerability with Metasploit - Pentest-Tools](https://pentest-tools.com/blog/bluekeep-exploit-metasploit)
   - [Bluekeep CVE-2019–0708 Metasploit Module on Windows 7](https://alexandrevvo.medium.com/testing-bluekeep-cve-2019-0708-metasploit-module-on-windows-7-ef3f28217b7b)
-
 -  [Microsoft Learn - WinRM](https://learn.microsoft.com/en-us/windows/win32/winrm/portal)
   - [CrackMapExec](https://github.com/Porchetta-Industries/CrackMapExec)
   - [evil-winrm](https://github.com/Hackplayers/evil-winrm)
-
 - [Privilege Escalation - Windows Kernel Exploits](https://pentestlab.blog/2017/04/24/windows-kernel-exploits/)
   - [windows-kernel-exploits](https://github.com/SecWiki/windows-kernel-exploits)
   - [Windows-Exploit-Suggester](https://github.com/AonCyberLabs/Windows-Exploit-Suggester)
-
 - [Microsoft Learn - UAC](https://learn.microsoft.com/en-us/windows/security/identity-protection/user-account-control/user-account-control-overview)
   - [UACMe](https://github.com/hfiref0x/UACME)
 
@@ -214,6 +208,13 @@
 
   - [Understanding Impersonation via Access Tokens](https://medium.com/securebit/understanding-impersonation-via-access-tokens-5e3e5946adb9)
 
+- [ADS Alternate Data Streams](https://www.malwarebytes.com/blog/news/2015/07/introduction-to-alternate-data-streams)
+- [SAM Database](https://www.windows-active-directory.com/windows-security-account-manager.html)
+  - [LSA](https://learn.microsoft.com/en-us/windows/win32/secauthn/lsa-authentication)
+  - [LSA protection by default in Windows Canary build - 2023](https://www.bleepingcomputer.com/news/microsoft/microsoft-enables-lsa-protection-by-default-in-windows-canary-build/)
+
+- [Windows authentication attacks - part 1 - RedForge](https://blog.redforce.io/windows-authentication-and-attacks-part-1-ntlm/)
+  - [LM, NTLM, Net-NTLMv2, oh my!](https://medium.com/@petergombos/lm-ntlm-net-ntlmv2-oh-my-a9b235c58ed4)
   - 
 
 
