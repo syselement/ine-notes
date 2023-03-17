@@ -204,7 +204,18 @@
   - [windows-kernel-exploits](https://github.com/SecWiki/windows-kernel-exploits)
   - [Windows-Exploit-Suggester](https://github.com/AonCyberLabs/Windows-Exploit-Suggester)
 
-- 
+- [Microsoft Learn - UAC](https://learn.microsoft.com/en-us/windows/security/identity-protection/user-account-control/user-account-control-overview)
+  - [UACMe](https://github.com/hfiref0x/UACME)
+
+- [Microsoft Learn - Access Tokens](https://learn.microsoft.com/en-us/windows/win32/secauthz/access-tokens)
+  - [Access Tokens - HackTricks](https://book.hacktricks.xyz/windows-hardening/windows-local-privilege-escalation/access-tokens)
+
+  - [Abusing Tokens - HackTricks](https://book.hacktricks.xyz/windows-hardening/windows-local-privilege-escalation/privilege-escalation-abusing-tokens)
+
+  - [Understanding Impersonation via Access Tokens](https://medium.com/securebit/understanding-impersonation-via-access-tokens-5e3e5946adb9)
+
+  - 
+
 
 ### Linux System Attacks
 
