@@ -289,6 +289,7 @@ For a successful **impersonation attack**, the following privileges are required
 
 - All the hashed user account passwords are stored in the SAM database
 - SAM db file cannot be copied while the O.S. is running
+- SAM db is encrypted with a `SysKey`
 
 🗒️ ***Hashing*** - the process of transforming any given piece of data into another value, using a **hash function** to generate the new value according to a algorithm.
 
@@ -338,11 +339,28 @@ The utility typically utilizes those [files](https://learn.microsoft.com/en-us/w
 
 - The stored passwords might be encoded in **`base64`** (easily decodable).
 
-> 🔬 Check the labs in the [Credentials Dumping section](windows-attacks/creds-dump.md)
+> 🔬 Check the `Lab 1` in the [Credentials Dumping section](windows-attacks/creds-dump.md#lab-1-unattended-files)
 
 ### Dumping Hashes with Mimikats 
 
+> [**Mimikats**](https://www.kali.org/tools/mimikatz/) - a tool that allows the extraction of clear-text passwords, hashes, PIN code and Kerberos tickets from memory.
+>
+> - *perform pass-the-hash, pass-the-ticket attacks, or build Golden tickets*
+> - extract hashes from the `lsass.exe` process memory
+> - **requires elevated privileges** (Administrator/SYSTEM)
+> - pre-packet on Kali Linux and Parrot OS
+> - **`Kiwi`** - `meterpreter` extension for hashes dumping from memory
 
+![mimikats](.gitbook/assets/image-20230318102148263.png)
 
 ### Pass-The-Hash
+
+ 🗒️ [**Pass-the-hash**](https://www.crowdstrike.com/cybersecurity-101/pass-the-hash/) (**PtH**) is an exploitation technique that involves harvesting NTLM hashes and reusing them to authenticate with the target legitimately.
+
+- It allows legitimate access to the target system, without exploitation
+- Administrator user's NTLM hash comes useful after a service is being patched or disabled and can no longer be exploited 
+
+> 🔬 Check the *Labs 2 and 3* in the [Credentials Dumping section](windows-attacks/creds-dump.md#lab-2-mimikats)
+
+------
 

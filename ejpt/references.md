@@ -215,7 +215,9 @@
 
 - [Windows authentication attacks - part 1 - RedForge](https://blog.redforce.io/windows-authentication-and-attacks-part-1-ntlm/)
   - [LM, NTLM, Net-NTLMv2, oh my!](https://medium.com/@petergombos/lm-ntlm-net-ntlmv2-oh-my-a9b235c58ed4)
-  - 
+  - [mimikats](https://github.com/gentilkiwi/mimikatz)
+  - [Pass-the-hash](https://www.crowdstrike.com/cybersecurity-101/pass-the-hash/)
+  -  
 
 
 ### Linux System Attacks
