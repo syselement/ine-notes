@@ -360,7 +360,7 @@ The utility typically utilizes those [files](https://learn.microsoft.com/en-us/w
 - It allows legitimate access to the target system, without exploitation
 - Administrator user's NTLM hash comes useful after a service is being patched or disabled and can no longer be exploited 
 
-> 🔬 Check the *Labs 2 and 3* in the [Credentials Dumping section](windows-attacks/creds-dump.md#lab-2-mimikats)
+> 🔬 Check the `Labs 2 and 3` in the [Credentials Dumping section](windows-attacks/creds-dump.md#lab-2-mimikats)
 
 ------
 
