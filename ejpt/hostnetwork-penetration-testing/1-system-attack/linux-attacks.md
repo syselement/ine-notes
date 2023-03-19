@@ -124,9 +124,19 @@ chmod +x linux-exploit-suggester.sh
 
 ### Misconfigured Cron Jobs
 
+🗒️ **Cron** - a time-based daemon/service, scheduler of applications, scripts and commands. It executed non-interactive jobs.
 
+- *Tasks scheduled in `cron` are called* **cron jobs**
+  - `e.g.` backups, o.s. upgrades, patches, scripts, commands etc
+- Default cron table/configuration file is **` /etc/crontab`**
+- Cron Jobs can be run as any user
 
+#### Cron Jobs Privesc
 
+- The attacker will target `root`'s privileged Cron Jobs
+- Find and identify cron jobs scheduled by the `root` user or the files processed by te cron job.
+
+> 🔬 Check the [Cron Jobs Lab here](linux-attacks/cron.md)
 
 ### SUID Binaries
 

@@ -36,6 +36,7 @@
         * [🔬FTP](ejpt/hostnetwork-penetration-testing/1-system-attack/linux-attacks/ftp-unix.md)
         * [🔬SSH](ejpt/hostnetwork-penetration-testing/1-system-attack/linux-attacks/ssh-unix.md)
         * [🔬SAMBA](ejpt/hostnetwork-penetration-testing/1-system-attack/linux-attacks/samba-unix.md)
+        * [🔬Cron Jobs](ejpt/hostnetwork-penetration-testing/1-system-attack/linux-attacks/cron.md)
     * [Network Based Attacks](ejpt/hostnetwork-penetration-testing/2-network-attack.md)
     * [The Metasploit Framework (MSF)](ejpt/hostnetwork-penetration-testing/3-metasploit.md)
     * [Exploitation](ejpt/hostnetwork-penetration-testing/4-exploitation.md)

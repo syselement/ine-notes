@@ -229,6 +229,9 @@
 - [Linux Privilege Escalation: Linux kernel / distribution exploits](https://infosecwriteups.com/linux-privilege-escalation-linux-kernel-distribution-exploits-you-should-now-about-1c46152d133d)
   - [linux-kernel-exploitation links](https://github.com/xairy/linux-kernel-exploitation)
   - [linux-exploit-suggester](https://github.com/The-Z-Labs/linux-exploit-suggester)
+
+- [Cron Jobs](https://www.hostinger.com/tutorials/cron-job)
+  - [Crontab Editor](https://crontab.guru/)
   - 
 
 
