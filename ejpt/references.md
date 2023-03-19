@@ -221,6 +221,11 @@
 
 ### Linux System Attacks
 
+- [Linux and GNU](https://www.gnu.org/gnu/linux-and-gnu.en.html)
+- [Apache Web Server](https://httpd.apache.org/)
+- [CVE-2014-6271 - ShellShock](https://nvd.nist.gov/vuln/detail/CVE-2014-6271)
+  - [Shellshock exploit + vulnerable environment](https://github.com/opsxcq/exploit-CVE-2014-6271)
+
 - 
 
 ## Web App PenTesting
