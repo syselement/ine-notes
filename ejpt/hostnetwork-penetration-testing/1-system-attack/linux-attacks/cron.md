@@ -4,9 +4,8 @@
 
 >  🔬 [Cron Jobs Gone Wild II](https://www.attackdefense.com/challengedetails?cid=77)
 >
->  - Target IP: `192.209.45.3`
 >  - **Cron Jobs** Privilege escalation
->  - Allready logged on as `student` unprivileged user
+>  - Already logged on as `student` unprivileged user
 
 ```bash
 whoami
