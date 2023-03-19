@@ -226,6 +226,10 @@
 - [CVE-2014-6271 - ShellShock](https://nvd.nist.gov/vuln/detail/CVE-2014-6271)
   - [Shellshock exploit + vulnerable environment](https://github.com/opsxcq/exploit-CVE-2014-6271)
 
-- 
+- [Linux Privilege Escalation: Linux kernel / distribution exploits](https://infosecwriteups.com/linux-privilege-escalation-linux-kernel-distribution-exploits-you-should-now-about-1c46152d133d)
+  - [linux-kernel-exploitation links](https://github.com/xairy/linux-kernel-exploitation)
+  - [linux-exploit-suggester](https://github.com/The-Z-Labs/linux-exploit-suggester)
+  - 
+
 
 ## Web App PenTesting

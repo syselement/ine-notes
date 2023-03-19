@@ -92,6 +92,32 @@ The exploitation can be done manually and automatically.
 
 ## Linux Privilege Escalation
 
+### Linux Kernel Exploits
+
+> ❗ **Targeting Kernel can cause system crashes, data loss, kernel panics etc** ❗
+
+Linux kernel vulnerabilities can be targetted to execute arbitrary code and obtain privileged system shell.
+
+- Kernel version and distribution is important
+
+The **Linux Privilege Exploitation** process consists of:
+
+1. Identify kernel vulnerabilities (`Linux Exploit Suggester`)
+2. Download, compile, transfer kernel exploits onto the target system
+
+> [**Linux-Exploit-Suggester**](https://www.kali.org/tools/linux-exploit-suggester/) - a tool designed to assist in *detecting security deficiencies for given Linux kernel/Linux-based machine*.
+>
+> - Assessing kernel exposure on publicly known exploits
+> - Verifying state of kernel hardening security measures
+
+### Misconfigured Cron Jobs
+
+
+
+
+
+### SUID Binaries
+
 
 
 
