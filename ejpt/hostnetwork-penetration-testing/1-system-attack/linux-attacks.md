@@ -110,6 +110,18 @@ The **Linux Privilege Exploitation** process consists of:
 > - Assessing kernel exposure on publicly known exploits
 > - Verifying state of kernel hardening security measures
 
+```bash
+wget https://raw.githubusercontent.com/mzet-/linux-exploit-suggester/master/linux-exploit-suggester.sh -O linux-exploit-suggester.sh
+
+chmod +x linux-exploit-suggester.sh
+
+./linux-exploit-suggester.sh
+```
+
+- Very useful to get Kernel version, possible Exploits with detailed information on the CVEs
+
+![linux-exploit-suggester - Kali Linux](.gitbook/assets/image-20230319182814197.png)
+
 ### Misconfigured Cron Jobs
 
 
