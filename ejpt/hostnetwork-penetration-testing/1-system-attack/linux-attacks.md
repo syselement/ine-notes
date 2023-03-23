@@ -136,15 +136,59 @@ chmod +x linux-exploit-suggester.sh
 - The attacker will target `root`'s privileged Cron Jobs
 - Find and identify cron jobs scheduled by the `root` user or the files processed by te cron job.
 
-> 🔬 Check the [Cron Jobs Lab here](linux-attacks/cron.md)
+> 
 
 ### SUID Binaries
 
+🗒️ [**SUID**](https://www.redhat.com/sysadmin/suid-sgid-sticky-bit) (**S**et owner **U**ser **ID**) - is a type of special access permission given to a file. A file with SUID *always executes as its the owner*, regardless of the user passing the command. 
 
+- Allows unprivileged users to *run scripts or binaries* with `root` permissions, and it's limited to the execution of that specific binary.
+- This is not privilege escalation, but can be used to obtain an elevated session
+  - `e.g.` the **`sudo`** binary
 
+![](.gitbook/assets/image-20230323095158202.png)
 
+- The exploitation of SUID binaries to get privesc depends on:
+  - the **owner** of the SUID file - `e.g.` look for `root` user's SUID binaries
+  - **access permissions** - `x` executable permissions are required to execute the SUID binary
+
+> 🔬 Check the [SUID Lab here](linux-attacks/suid.md)
 
 ## Linux Credential Dumping
 
+All the Linux accounts' information is store in the **`passwd`** file stored in `/etc/` directory.
 
+Linux has multi-user support, this can increase the overall risk of a server.
+
+```bash
+cat /etc/passwd
+```
+
+![cat /etc/passwd](.gitbook/assets/image-20230323101612008.png)
+
+Passwords cannot be viewed because they are **encrypted** and stored in the **`shadow`** file in the `/etc/` directory.
+
+- only `root` account can access `shadow` file
+
+```bash
+sudo cat /etc/shadow
+```
+
+![](.gitbook/assets/image-20230323102120677.png)
+
+### [Linux Password Hashes](https://www.baeldung.com/linux/shadow-passwords)
+
+The hashed password have a prefix `$id` value that indicates the type of **hashing algorithm** that is being used, `e.g.`:
+
+| Value | Hashing Algorithm                                            |
+| ----- | ------------------------------------------------------------ |
+| $1    | MD5 (easy to crack)                                          |
+| $2    | Blowfish (easy to crack)                                     |
+| $5    | SHA-256 (difficult to crack)                                 |
+| $6    | [SHA-512](https://www.baeldung.com/cs/md5-vs-sha-algorithms#1-security-1) (difficult to crack) |
+| $y    | [yescrypt](https://www.baeldung.com/linux/shadow-passwords)  |
+
+> 🔬 Check the [Dumping Linux Hashes Lab here](linux-attacks/creds-dump-unix.md)
+
+------
 

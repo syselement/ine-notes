@@ -4,7 +4,7 @@
 
 >  🔬 [Exploiting Setuid Programs](https://www.attackdefense.com/challengedetails?cid=73)
 >
->  - **Cron Jobs** Privilege escalation
+>  - **SUID** Privilege escalation
 >  - Already logged on as `student` unprivileged user
 
 ```bash

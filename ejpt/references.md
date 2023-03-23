@@ -225,14 +225,22 @@
 - [Apache Web Server](https://httpd.apache.org/)
 - [CVE-2014-6271 - ShellShock](https://nvd.nist.gov/vuln/detail/CVE-2014-6271)
   - [Shellshock exploit + vulnerable environment](https://github.com/opsxcq/exploit-CVE-2014-6271)
-
 - [Linux Privilege Escalation: Linux kernel / distribution exploits](https://infosecwriteups.com/linux-privilege-escalation-linux-kernel-distribution-exploits-you-should-now-about-1c46152d133d)
   - [linux-kernel-exploitation links](https://github.com/xairy/linux-kernel-exploitation)
   - [linux-exploit-suggester](https://github.com/The-Z-Labs/linux-exploit-suggester)
-
 - [Cron Jobs](https://www.hostinger.com/tutorials/cron-job)
   - [Crontab Editor](https://crontab.guru/)
-  - 
+- [SUID](https://www.redhat.com/sysadmin/suid-sgid-sticky-bit)
+  - [euid-ruid-suid - HackTricks](https://book.hacktricks.xyz/linux-hardening/privilege-escalation/euid-ruid-suid)
+
+- [Understanding /etc/shadow file format on Linux](https://www.cyberciti.biz/faq/understanding-etcshadow-file/)
+  - [Creating yescrypt, MD5, SHA-256, and SHA-512 Password Hashes](https://www.baeldung.com/linux/shadow-passwords)
+  - [yescrypt](https://www.openwall.com/yescrypt/)
+
+
+### Network Attacks
+
+
 
 
 ## Web App PenTesting
