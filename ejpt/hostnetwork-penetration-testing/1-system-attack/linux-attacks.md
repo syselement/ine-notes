@@ -156,7 +156,7 @@ chmod +x linux-exploit-suggester.sh
 
 ## Linux Credential Dumping
 
-All the Linux accounts' information is store in the **`passwd`** file stored in `/etc/` directory.
+All the Linux accounts' information is stored in the **`passwd`** file stored in `/etc/` directory.
 
 Linux has multi-user support, this can increase the overall risk of a server.
 
