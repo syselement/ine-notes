@@ -217,6 +217,7 @@
   - [LM, NTLM, Net-NTLMv2, oh my!](https://medium.com/@petergombos/lm-ntlm-net-ntlmv2-oh-my-a9b235c58ed4)
   - [mimikats](https://github.com/gentilkiwi/mimikatz)
   - [Pass-the-hash](https://www.crowdstrike.com/cybersecurity-101/pass-the-hash/)
+  - [Alternative ways to Pass the Hash](https://www.n00py.io/2020/12/alternative-ways-to-pass-the-hash-pth/)
 
 
 ### Linux System Attacks
