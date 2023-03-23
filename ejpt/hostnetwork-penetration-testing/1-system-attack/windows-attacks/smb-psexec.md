@@ -133,7 +133,7 @@ type flag.txt
 > - Host system: `Kali Linux`
 > - Target system: `Windown Server 2008 R2` - IP `192.168.31.131` - `Administrator`:`Eternal17010`
 > - Exploitation tool: [AutoBlue-MS17-010](https://github.com/3ndG4me/AutoBlue-MS17-010)
-> - Vulnerability: [CVE-2017-0143 - EternalBlue](https://nvd.nist.gov/vuln/detail/CVE-2017-0143)
+> - Vulnerability: [CVE-2017-0143 - EternalBlue](https://nvd.nist.gov/vuln/detail/CVE-2017-0143) + [CVE-2017-0144](https://nvd.nist.gov/vuln/detail/CVE-2017-0144)
 
 ### Enumeration
 

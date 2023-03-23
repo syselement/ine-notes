@@ -30,6 +30,7 @@
         * [🔬Win Kernel Privesc](ejpt/hostnetwork-penetration-testing/1-system-attack/windows-attacks/winkernel.md)
         * [🔬UAC Bypass](ejpt/hostnetwork-penetration-testing/1-system-attack/windows-attacks/uacme.md)
         * [🔬Access Token](ejpt/hostnetwork-penetration-testing/1-system-attack/windows-attacks/accesstoken.md)
+        * [🔬Alternate Data Stream](ejpt/hostnetwork-penetration-testing/1-system-attack/windows-attacks/ads.md)
         * [🔬Credentials Dumping](ejpt/hostnetwork-penetration-testing/1-system-attack/windows-attacks/creds-dump.md)
       * [🐧 Linux Attacks](ejpt/hostnetwork-penetration-testing/1-system-attack/linux-attacks.md)
         * [🔬Bash](ejpt/hostnetwork-penetration-testing/1-system-attack/linux-attacks/bash-shell.md)
