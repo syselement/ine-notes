@@ -5,8 +5,7 @@
 >  🔬 [Password Cracker: Linux](https://attackdefense.com/challengedetails?cid=1776)
 >
 >  - Target IP: `192.75.64.3`
->  - **Password Hashes** dumping
->  - `/usr/share/metasploit-framework/data/wordlists/unix_users.txt`
+>  - **Password Hashes** dumping - `/etc/shadow`
 
 ### Enumeration
 
