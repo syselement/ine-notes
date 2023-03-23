@@ -281,7 +281,7 @@ For a successful **impersonation attack**, the following privileges are required
 - With ADS, *malicious code can be hidden in legitimate files in order to evade detection* by basic signature Antiviruses
   - the payload is stored in the metadata of the file.
 
-> 🔬 Jump to the [ADS demonstration section](windows-attacks/alternate-ds.md)
+> 🔬 Jump to the [ADS demonstration section](windows-attacks/alternateds.md)
 
 ## Windows Credential Dumping
 
