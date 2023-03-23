@@ -136,7 +136,7 @@ chmod +x linux-exploit-suggester.sh
 - The attacker will target `root`'s privileged Cron Jobs
 - Find and identify cron jobs scheduled by the `root` user or the files processed by te cron job.
 
-> 
+> 🔬 Check the [Cron Jobs Lab here](linux-attacks/cron.md)
 
 ### SUID Binaries
 
