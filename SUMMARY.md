@@ -49,10 +49,10 @@
     * [Introduction to the Web and HTTP Protocol](ejpt/webapp-penetration-testing/1-webapp-http.md)
   * [🔬Exam Preparation - Labs](ejpt/exam-preparation-labs/README.md)
     * [PTSv1 Prerequisites Labs](ejpt/exam-preparation-labs/p.t.-prerequisites-labs/README.md)
-      * [HTTP(S) Traffic Sniffing](ejpt/exam-preparation-labs/p.t.-prerequisites-labs/http-s-traffic-sniffing.md)
-      * [Find the Secret Server](ejpt/exam-preparation-labs/p.t.-prerequisites-labs/find-the-secret-server.md)
-      * [Data Exfiltration](ejpt/exam-preparation-labs/p.t.-prerequisites-labs/data-exfiltration.md)
-      * [Burp Suite Basics - Directory Enumeration](ejpt/exam-preparation-labs/p.t.-prerequisites-labs/burp-suite-basics.md)
+      * [🔬HTTP(S) Traffic Sniffing](ejpt/exam-preparation-labs/p.t.-prerequisites-labs/http-s-traffic-sniffing.md)
+      * [🔬Find the Secret Server](ejpt/exam-preparation-labs/p.t.-prerequisites-labs/find-the-secret-server.md)
+      * [🔬Data Exfiltration](ejpt/exam-preparation-labs/p.t.-prerequisites-labs/data-exfiltration.md)
+      * [🔬Burp Suite Basics - Directory Enumeration](ejpt/exam-preparation-labs/p.t.-prerequisites-labs/burp-suite-basics.md)
   * [🌐References](ejpt/references.md)
   
   <!---

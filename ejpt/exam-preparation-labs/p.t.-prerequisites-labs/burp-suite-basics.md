@@ -1,6 +1,4 @@
-# Burp Suite Basics - Directory Enumeration
-
-## 🔬
+# 🔬Burp Suite Basics - Directory Enumeration
 
 The Kali OS GUI instance is web hosted on the INE website, where:
 
@@ -64,7 +62,7 @@ _**Tools**_ used:
     |   Salt: AsA)Gjb.[aT`hhRB4|54
     |_  Auth Plugin Name: mysql_native_password
     MAC Address: 02:42:C0:4F:71:03 (Unknown)
-
+    
     Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
     Nmap done: 1 IP address (1 host up) scanned in 6.74 seconds
     ```

@@ -241,7 +241,11 @@
 
 ### Network Attacks
 
+- [Man in the Middle (MITM) Attacks](https://www.rapid7.com/fundamentals/man-in-the-middle-attacks/)
 
+  - [What is MITM](https://www.crowdstrike.com/cybersecurity-101/man-in-the-middle-mitm-attacks/)
+
+  
 
 
 ## Web App PenTesting

