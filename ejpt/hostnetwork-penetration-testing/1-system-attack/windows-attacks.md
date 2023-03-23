@@ -341,9 +341,9 @@ The utility typically utilizes those [files](https://learn.microsoft.com/en-us/w
 
 > 🔬 Check the `Lab 1` in the [Credentials Dumping section](windows-attacks/creds-dump.md#lab-1-unattended-files)
 
-### Dumping Hashes with Mimikats 
+### Dumping Hashes with Mimikatz
 
-> [**Mimikats**](https://www.kali.org/tools/mimikatz/) - a tool that allows the extraction of clear-text passwords, hashes, PIN code and Kerberos tickets from memory.
+> [**Mimikatz**](https://www.kali.org/tools/mimikatz/) - a tool that allows the extraction of clear-text passwords, hashes, PIN code and Kerberos tickets from memory.
 >
 > - *perform pass-the-hash, pass-the-ticket attacks, or build Golden tickets*
 > - extract hashes from the `lsass.exe` process memory
@@ -351,7 +351,7 @@ The utility typically utilizes those [files](https://learn.microsoft.com/en-us/w
 > - pre-packet on Kali Linux and Parrot OS
 > - **`Kiwi`** - `meterpreter` extension for hashes dumping from memory
 
-![mimikats](.gitbook/assets/image-20230318102148263.png)
+![mimikatz](.gitbook/assets/image-20230318102148263.png)
 
 ### Pass-The-Hash
 
@@ -360,7 +360,7 @@ The utility typically utilizes those [files](https://learn.microsoft.com/en-us/w
 - It allows legitimate access to the target system, without exploitation
 - Administrator user's NTLM hash comes useful after a service is being patched or disabled and can no longer be exploited 
 
-> 🔬 Check the `Labs 2 and 3` in the [Credentials Dumping section](windows-attacks/creds-dump.md#lab-2-mimikats)
+> 🔬 Check the `Labs 2 and 3` in the [Credentials Dumping section](windows-attacks/creds-dump.md#lab-2-mimikatz)
 
 ------
 
