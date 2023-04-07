@@ -198,6 +198,7 @@
 - [Privilege Escalation - Windows Kernel Exploits](https://pentestlab.blog/2017/04/24/windows-kernel-exploits/)
   - [windows-kernel-exploits](https://github.com/SecWiki/windows-kernel-exploits)
   - [Windows-Exploit-Suggester](https://github.com/AonCyberLabs/Windows-Exploit-Suggester)
+  - [Windows Privilege Escalation - Resources - S1REN](https://sirensecurity.io/blog/windows-privilege-escalation-resources/)
 - [Microsoft Learn - UAC](https://learn.microsoft.com/en-us/windows/security/identity-protection/user-account-control/user-account-control-overview)
   - [UACMe](https://github.com/hfiref0x/UACME)
 
@@ -229,6 +230,8 @@
 - [Linux Privilege Escalation: Linux kernel / distribution exploits](https://infosecwriteups.com/linux-privilege-escalation-linux-kernel-distribution-exploits-you-should-now-about-1c46152d133d)
   - [linux-kernel-exploitation links](https://github.com/xairy/linux-kernel-exploitation)
   - [linux-exploit-suggester](https://github.com/The-Z-Labs/linux-exploit-suggester)
+  - [Basic Linux Privilege Escalation](https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/)
+  - [Linux Privilege Escalation - Resources - S1REN](https://sirensecurity.io/blog/linux-privilege-escalation-resources/)
 - [Cron Jobs](https://www.hostinger.com/tutorials/cron-job)
   - [Crontab Editor](https://crontab.guru/)
 - [SUID](https://www.redhat.com/sysadmin/suid-sgid-sticky-bit)
@@ -251,6 +254,11 @@
 
 ### Metasploit
 
+- [Metasploit Framework](https://www.metasploit.com/)
+  - [Metasploit Documentation](https://docs.metasploit.com/)
+
+- [Metasploit in Kali Linux](https://www.kali.org/docs/tools/starting-metasploit-framework-in-kali/)
+- [Metasploit Unleashed – Free Ethical Hacking Course by OffSec](https://www.offsec.com/metasploit-unleashed/)
 - 
 
 

@@ -3,7 +3,7 @@
 > #### ⚡ Prerequisites
 >
 > * Basic familiarity with Linux & Windows
-> * Basic familiarity TCP & UDP
+> * Basic familiarity with TCP & UDP
 >
 > #### 📕 Learning Objectives
 >
