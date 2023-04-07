@@ -17,7 +17,7 @@ description: >-
 
 ### Course duration & Topics
 
-~ 145 hours (*~56h of videos*)
+~ 145 hours (*`~56h of videos`*)
 
 Activities: 4 sections , 12 courses , 229 videos, 154 quizzes, 120 labs
 
