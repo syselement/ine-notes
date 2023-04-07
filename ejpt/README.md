@@ -7,7 +7,7 @@ description: >-
 
 # **eJPTv2 Certification**
 
-![eJPTv2 - © eLearnSecurity | INE](.gitbook/assets/eJPTv2.png)
+![eJPTv2 - © eLearnSecurity | INE](.gitbook/assets/eJPTv2-small.png)
 
 ## [PTSv2 Learning Path](https://my.ine.com/CyberSecurity/learning-paths/61f88d91-79ff-4d8f-af68-873883dbbd8c/penetration-testing-student)
 
