@@ -257,7 +257,9 @@
 - [PTES](http://www.pentest-standard.org/index.php/Main_Page)
   - [Guide to Modern Penetration Testing - Infopulse](https://www.infopulse.com/blog/guide-to-modern-penetration-testing-part-2-fifty-shades-of-grey-box)
 
-- 
+- [MSF Installer](https://docs.metasploit.com/docs/using-metasploit/getting-started/nightly-installers.html)
+
+- [How to Use Metasploit in Kali Linux + Metasploitable3](https://www.stationx.net/how-to-use-metasploit-in-kali-linux/)
 
 
 ## Web App PenTesting

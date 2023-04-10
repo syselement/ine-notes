@@ -178,9 +178,43 @@ ls /usr/share/metasploit-framework
 
 ## Metasploit Fundamentals
 
-- 
+### [Database](https://www.offsec.com/metasploit-unleashed/using-databases/)
+
+🗒️ The **Metasploit Framework Database** (**msfdb**) contains all the data used with MSF like assessments and scans data, etc.
+
+- Uses PostgreSQL as the primary database - `postgresql` service must be running
+- Facilitates the import and storage of scan results (from Nmap, Nessus, other tools)
+
+### MSF Kali Configuration
+
+- Use APT package manager on Kali Linux (or on Debian-based distros)
+
+```bash
+sudo apt update && sudo apt install metasploit-framework -y
+```
+
+- Enable `postgresql` at boot, start the service and initialize MSF database
+
+```bash
+sudo systemctl enable postgresql
+sudo systemctl restart postgresql
+sudo msfdb init
+```
+
+- Run **`msfconsole`** to start the Metasploit Framework Console
+
+```bash
+msfconsole
+```
 
 
+
+> 📌 Check this article by StationX ➡️ [How to Use Metasploit in Kali Linux + Metasploitable3](https://www.stationx.net/how-to-use-metasploit-in-kali-linux/) which will cover:
+>
+> - Deploying a Kali Linux virtual machine with Metasploit pre-installed
+> - Setting up a target in a virtual lab, Metasploitable3, with Vagrant
+> - A sample walkthrough against a vulnerable MySQL Server
+> - Frequently Asked Questions (FAQ)
 
 ## Information Gathering & Enumeration with MSF
 
