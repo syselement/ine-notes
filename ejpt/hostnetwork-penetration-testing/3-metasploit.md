@@ -9,13 +9,13 @@
 >
 > * Understand, install, configure and use **Metasploit Framework**
 > * Perform **info-gathering**, **enumeration**, **exploitation**, **post exploitation** with Metasploit
-> 
+>
 > #### 🔬 Training list - PentesterAcademy/INE Labs
 >
 > `subscription required`
 >
 > - [Metasploit Auxiliary modules](https://www.attackdefense.com/listingnoauth?labtype=metasploit&subtype=metasploit-auxiliary)
->- [MITRE ATT&CK Linux Discovery](https://attackdefense.com/listing?labtype=mitre&subtype=mitre-discovery)
+> - [MITRE ATT&CK Linux Discovery](https://attackdefense.com/listing?labtype=mitre&subtype=mitre-discovery)
 > - [Metasploit Meterpreter](https://attackdefense.com/listing?labtype=metasploit&subtype=metasploit-meterpreter)
 > - [Linux Vulnerable Servers Exploitation - Metasploit](https://www.attackdefense.com/listingnoauth?labtype=metasploit&subtype=metasploit-linux-exploitation)
 > - [Linux Exploitation - Metasploit](https://www.attackdefense.com/listingnoauth?labtype=linux-security-exploitation&subtype=linux-security-exploitation-metasploit)
@@ -40,6 +40,8 @@
 - **Metasploit Framework** is the Community Edition
 - Metasploit Pro & Express are Commercial versions
 
+> 📌 Check the [Metasploit Unleashed – Free Ethical Hacking Course by OffSec](https://www.offsec.com/metasploit-unleashed/)
+
 ### Terminology
 
 | Term              | Description                                                  |
@@ -55,11 +57,11 @@
 
 ### Interfaces
 
-🗒️ **Metasploit Framework Console** (**MSFconsole**) - an all in one interface that provides with access to all the functionality of the MSF.
+🗒️ **Metasploit Framework Console** (**[MSFconsole](https://www.offsec.com/metasploit-unleashed/msfconsole/)**) - an all in one interface that provides with access to all the functionality of the MSF.
 
 ![msfconsole](.gitbook/assets/image-20230409121754103.png)
 
-🗒️ **Metasploit Framework Command Line Interface** (**MSFcli**) - a command line utility used to facilitate the creation of automation scripts that utilize Metasploit modules.
+🗒️ **Metasploit Framework Command Line Interface** (**[MSFcli](https://www.offsec.com/metasploit-unleashed/msfcli/)**) - a command line utility used to facilitate the creation of automation scripts that utilize Metasploit modules.
 
 - Discontinued in 2015, MSFconsole can be used with the same functionality of *redirecting output from other tools into `msfcli` and vice versa.*
 
@@ -128,11 +130,55 @@ ls /usr/share/metasploit-framework
 
 ### Pentesting with MSF
 
+🗒️ [**PTES**](http://www.pentest-standard.org/index.php/Main_Page) (**P**enetration **T**esting **E**xecution **S**tandard) is a methodology that contains 7 main sections, defined by the standard as a comprehensive basis for penetration testing execution.
 
+- can be adopted as a roadmap for Metasploit integration and understanding of the phases of a penetration test.
+
+> The various phases involved in a typical pentest should be:
+>
+> 📌 **Pre-Engagement Interactions**
+>
+> ⬇️ 
+>
+> 📌 **Information Gathering**
+>
+> ⬇️
+>
+> 📌 **Enumeration**
+>
+> - Threat Modeling
+> - Vulnerability Analysis
+>
+> ⬇️
+>
+> 📌 **Exploitation**
+>
+> ⬇️
+>
+> 📌 **Post Exploitation**
+>
+> - Privilege Escalation
+> - Maintaining Persistent Access
+> - Clearing Tracks
+>
+> ⬇️
+>
+> 📌 **Reporting**
+
+|            Pentesting Phase             | MSF Implementation                     |
+| :-------------------------------------: | -------------------------------------- |
+| **Information Gathering & Enumeration** | Auxiliary Modules, `nmap` reports      |
+|       **Vulnerability Scanning**        | Auxiliary Modules, `nessus` reports    |
+|            **Exploitation**             | Exploit Modules & Payloads             |
+|          **Post Exploitation**          | Meterpreter                            |
+|        **Privilege Escalation**         | Post Exploitation Modules, Meterpreter |
+|    **Maintaining Persistent Access**    | Post Exploitation Modules, Persistence |
+
+![PTES - infopulse.com](.gitbook/assets/ptes-methodology-pic-1-infopulse.jpg)
 
 ## Metasploit Fundamentals
 
-- Installing
+- 
 
 
 

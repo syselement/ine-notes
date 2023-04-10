@@ -254,6 +254,10 @@
 - [Metasploit Unleashed – Free Ethical Hacking Course by OffSec](https://www.offsec.com/metasploit-unleashed/)
 - [Meterpreter](https://www.offsec.com/metasploit-unleashed/about-meterpreter/)
 - [Armitage](https://github.com/r00t0v3rr1d3/armitage)
+- [PTES](http://www.pentest-standard.org/index.php/Main_Page)
+  - [Guide to Modern Penetration Testing - Infopulse](https://www.infopulse.com/blog/guide-to-modern-penetration-testing-part-2-fifty-shades-of-grey-box)
+
+- 
 
 
 ## Web App PenTesting
