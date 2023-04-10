@@ -65,5 +65,5 @@
 
 ***
 
-- [🏠 syselement's Blog Home](https://syselement.gitbook.io/blog/)
+- [🏠 syselement's Blog Home](https://blog.syselement.com/home)
 
