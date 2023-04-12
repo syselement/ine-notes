@@ -12,7 +12,7 @@ sudo nmap -p21 -sV -sC -O <TARGET_IP>
 
 ## Lab 1
 
->  🔬 [ProFTP Recon: Basics](https://attackdefense.pentesteracademy.com/challengedetails?cid=518)
+>  🔬 [ProFTP Recon: Basics](https://attackdefense.com/challengedetails?cid=518)
 >
 >  - Target IP: `192.217.238.3`
 >  - Enumeration of [ProFTP](http://www.proftpd.org/) server
@@ -172,7 +172,7 @@ root@attackdefense:~# cat secret.txt
 
 ## Lab 2
 
->  🔬 [VSFTPD Recon: Basics](https://attackdefense.pentesteracademy.com/challengedetails?cid=519)
+>  🔬 [VSFTPD Recon: Basics](https://attackdefense.com/challengedetails?cid=519)
 >
 >  - Target IP: `192.119.169.3`
 >  - Enumeration of [vsftpd](https://security.appspot.com/vsftpd.html) server
@@ -248,7 +248,7 @@ root@attackdefense:~# cat flag
 
 ## Lab 3
 
->  🔬 [VSFTPD Recon: Dictionary Attack](https://attackdefense.pentesteracademy.com/challengedetails?cid=520)
+>  🔬 [VSFTPD Recon: Dictionary Attack](https://attackdefense.com/challengedetails?cid=520)
 >
 >  - Target IP: `192.14.30.3`
 >  - Dicotionary attack on `vsftpd` server

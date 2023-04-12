@@ -14,15 +14,15 @@
 >
 > `subscription required`
 >
-> - [SMB Servers Win Recon](https://attackdefense.pentesteracademy.com/listing?labtype=windows-recon&subtype=windows-recon-smb)
-> - [SMB Servers Network Recon](https://attackdefense.pentesteracademy.com/listing?labtype=network-recon&subtype=recon-smb)
-> - [FTP Servers Linux Recon](https://attackdefense.pentesteracademy.com/listing?labtype=linux-security-recon&subtype=recon-ftp)
-> - [SSH Servers Network Recon](https://attackdefense.pentesteracademy.com/listing?labtype=network-recon&subtype=recon-ssh)
-> - [IIS Servers Win Recon](https://attackdefense.pentesteracademy.com/listing?labtype=windows-recon&subtype=windows-recon-iis)
-> - [Webservers Network Recon](https://attackdefense.pentesteracademy.com/listing?labtype=network-recon&subtype=recon-webserver)
-> - [SQL Databases Linux Recon](https://attackdefense.pentesteracademy.com/listing?labtype=linux-security-recon&subtype=linux-security-recon-sqldbs)
-> - [SQL Databases Network Recon](https://attackdefense.pentesteracademy.com/listing?labtype=network-recon&subtype=recon-sqldb)
-> - [MSSQL Servers Win Recon](https://attackdefense.pentesteracademy.com/listing?labtype=windows-recon&subtype=windows-recon-mssql)
+> - [SMB Servers Win Recon](https://attackdefense.com/listing?labtype=windows-recon&subtype=windows-recon-smb)
+> - [SMB Servers Network Recon](https://attackdefense.com/listing?labtype=network-recon&subtype=recon-smb)
+> - [FTP Servers Linux Recon](https://attackdefense.com/listing?labtype=linux-security-recon&subtype=recon-ftp)
+> - [SSH Servers Network Recon](https://attackdefense.com/listing?labtype=network-recon&subtype=recon-ssh)
+> - [IIS Servers Win Recon](https://attackdefense.com/listing?labtype=windows-recon&subtype=windows-recon-iis)
+> - [Webservers Network Recon](https://attackdefense.com/listing?labtype=network-recon&subtype=recon-webserver)
+> - [SQL Databases Linux Recon](https://attackdefense.com/listing?labtype=linux-security-recon&subtype=linux-security-recon-sqldbs)
+> - [SQL Databases Network Recon](https://attackdefense.com/listing?labtype=network-recon&subtype=recon-sqldb)
+> - [MSSQL Servers Win Recon](https://attackdefense.com/listing?labtype=windows-recon&subtype=windows-recon-mssql)
 
 A **server** is a computer program or device that provides a **service** to another computer program and its user, also known as the **client**. It accepts and responds to request made over a network. The term _server_ can refer to a physical machine, a virtual machine or to software performing server services.
 

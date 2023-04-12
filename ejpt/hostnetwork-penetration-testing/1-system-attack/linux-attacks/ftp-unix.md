@@ -2,7 +2,7 @@
 
 ## Lab 1
 
->  🔬 [ProFTP Recon: Basics](https://attackdefense.pentesteracademy.com/challengedetails?cid=518)
+>  🔬 [ProFTP Recon: Basics](https://attackdefense.com/challengedetails?cid=518)
 >
 >  - Target IP: `192.209.45.3`
 >  - **Brute-force** of [ProFTP](http://www.proftpd.org/) server

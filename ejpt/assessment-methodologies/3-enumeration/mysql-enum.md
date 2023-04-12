@@ -10,7 +10,7 @@ sudo nmap -p3306 -sV -O <TARGET_IP>
 
 ## Lab 1
 
->  🔬 [MySQL Recon: Basics](https://attackdefense.pentesteracademy.com/challengedetails?cid=529)
+>  🔬 [MySQL Recon: Basics](https://attackdefense.com/challengedetails?cid=529)
 >
 >  - Target IP: `192.49.51.3`
 >  - `MySQL` server reconnaisance.
@@ -525,7 +525,7 @@ nmap --script=mysql-query --script-args="query='select count(*) from books.autho
 
 ## Lab 2
 
->  🔬 [MySQL Recon: Dictionary Attack](https://attackdefense.pentesteracademy.com/challengedetails?cid=532)
+>  🔬 [MySQL Recon: Dictionary Attack](https://attackdefense.com/challengedetails?cid=532)
 >
 >  - Target IP: `10.4.16.17`
 >  - `MySQL` server dictionary attack.
@@ -594,7 +594,7 @@ hydra -l root -P /usr/share/metasploit-framework/data/wordlists/unix_passwords.t
 
 ## Lab 3 - nmap
 
->  🔬 [Recon: MSSQL: Nmap Scripts](https://attackdefense.pentesteracademy.com/challengedetails?cid=2313)
+>  🔬 [Recon: MSSQL: Nmap Scripts](https://attackdefense.com/challengedetails?cid=2313)
 >
 >  - Target IP: `10.4.21.27`
 >  - `Windows MSSQL` server enumeration with `nmap`
@@ -750,7 +750,7 @@ nmap --script ms-sql-xp-cmdshell --script-args mssql.username=admin,mssql.passwo
 
 ## Lab 4 - metasploit
 
->  🔬 [Recon: MSSQL: Metasploit](https://attackdefense.pentesteracademy.com/challengedetails?cid=2314)
+>  🔬 [Recon: MSSQL: Metasploit](https://attackdefense.com/challengedetails?cid=2314)
 >
 >  - Target IP: `10.4.23.176`
 >  - `Windows MSSQL` server enumeration with `metasploit`

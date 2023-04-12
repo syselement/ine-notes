@@ -12,7 +12,7 @@ sudo nmap -p80 -sV -O <TARGET_IP>
 
 ## Lab 1
 
->  🔬 [Windows Recon: IIS](https://attackdefense.pentesteracademy.com/challengedetails?cid=2311)
+>  🔬 [Windows Recon: IIS](https://attackdefense.com/challengedetails?cid=2311)
 >
 >  - Target IP: `10.4.16.17`
 >  - Enumeration of an `IIS` HTTP server, without the usage of a browser
@@ -178,7 +178,7 @@ browsh --startup-url http://10.4.16.17/Default.aspx
 
 ## Lab 2
 
->  🔬 [Windows Recon: IIS: Nmap Scripts](https://attackdefense.pentesteracademy.com/challengedetails?cid=2312)
+>  🔬 [Windows Recon: IIS: Nmap Scripts](https://attackdefense.com/challengedetails?cid=2312)
 >
 >  - Target IP: `10.4.21.207`
 >  - Enumeration of an `IIS` HTTP server using `nmap` scripts
@@ -287,7 +287,7 @@ nmap --script=http-webdav-scan --script-args http-methods.url-path=/webdav/ -p80
 
 ## Lab 3
 
->  🔬 [Apache Recon: Dictionary Attack](https://attackdefense.pentesteracademy.com/challengedetails?cid=539)
+>  🔬 [Apache Recon: Dictionary Attack](https://attackdefense.com/challengedetails?cid=539)
 >
 >  - Target IP: `192.199.232.3`
 >  - Enumeration of an `Apache` HTTP server

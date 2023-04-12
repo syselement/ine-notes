@@ -15,7 +15,7 @@
 >
 > `subscription required`
 >
-> - [Host Discovery Win Recon](https://attackdefense.pentesteracademy.com/listing?labtype=windows-recon&subtype=windows-recon-host-discovery)
+> - [Host Discovery Win Recon](https://attackdefense.com/listing?labtype=windows-recon&subtype=windows-recon-host-discovery)
 
 > ❗***Never run these techniques on un-authorized addresses❗A proper authorization is required to conduct the footprinting and scanning activity.***
 

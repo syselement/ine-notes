@@ -16,7 +16,7 @@ sudo nmap -p445 -sV -sC -O <TARGET_IP>
 
 ## Lab 1
 
->  🔬 [Windows Recon: SMB Nmap Scripts](https://attackdefense.pentesteracademy.com/challengedetailsnoauth?cid=2222)
+>  🔬 [Windows Recon: SMB Nmap Scripts](https://attackdefense.com/challengedetailsnoauth?cid=2222)
 >
 >  - Target IP: `10.2.24.25`
 >  - Enumeration of SMB protocol dialects, security level information, active sessions, Windows users and shares, domains, services.
@@ -515,7 +515,7 @@ Host script results:
 
 ## Lab 2
 
->  🔬 [Windows Recon: SMBMap](https://attackdefense.pentesteracademy.com/challengedetails?cid=2221)
+>  🔬 [Windows Recon: SMBMap](https://attackdefense.com/challengedetails?cid=2221)
 >
 >  - Target IP: `10.2.21.233`
 >  - Use of [`smbmap`](https://www.kali.org/tools/smbmap/) to enumerate samba shares and permissions. Upload, download, delete files
@@ -680,7 +680,7 @@ cat 10.2.21.233-C_flag.txt
 
 ## Lab 3
 
->  🔬 [Samba Recon: Basics 1](https://attackdefense.pentesteracademy.com/challengedetails?cid=553)
+>  🔬 [Samba Recon: Basics 1](https://attackdefense.com/challengedetails?cid=553)
 >
 >  - Target IP: `192.28.157.3`
 >  - Linux SMB (**`smbd`**) enumeration
@@ -842,7 +842,7 @@ rpcclient -U "" -N 192.28.157.3
 
 ## Lab 4
 
->  🔬 [Samba Recon: Basics 2](https://attackdefense.pentesteracademy.com/challengedetails?cid=554)
+>  🔬 [Samba Recon: Basics 2](https://attackdefense.com/challengedetails?cid=554)
 >
 >  - Target IP: `192.230.128.3`
 >  - Linux SMB enumeration
@@ -1120,7 +1120,7 @@ admin S-1-5-21-4056189605-2085045094-1961111545-1005 (User: 1)
 
 ## Lab 5
 
->  🔬 [Samba Recon: Basics 3](https://attackdefense.pentesteracademy.com/challengedetails?cid=555)
+>  🔬 [Samba Recon: Basics 3](https://attackdefense.com/challengedetails?cid=555)
 >
 >  - Target IP: `192.187.39.3`
 >  - Linux SMB detailed enumeration
@@ -1385,7 +1385,7 @@ root@attackdefense:~# cat flag
 
 ## Lab 6
 
->  🔬 [Samba Recon: Dictionary Attack](https://attackdefense.pentesteracademy.com/challengedetails?cid=556)
+>  🔬 [Samba Recon: Dictionary Attack](https://attackdefense.com/challengedetails?cid=556)
 >
 >  - Target IP: `192.174.58.3`
 >  - Linux SMB detailed enumeration using `word lists`

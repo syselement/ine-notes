@@ -10,7 +10,7 @@ sudo nmap -p22 -sV -sC -O <TARGET_IP>
 
 ## Lab 1
 
->  🔬 [SSH Recon: Basic](https://attackdefense.pentesteracademy.com/challengedetails?cid=526)
+>  🔬 [SSH Recon: Basic](https://attackdefense.com/challengedetails?cid=526)
 >
 >  - Target IP: `192.8.3.3`
 >  - Enumeration of [OpenSSH](https://www.openssh.com/) server
@@ -202,7 +202,7 @@ PORT   STATE SERVICE
 
 ## Lab 2
 
->  🔬 [SSH Recon: Dictionary Attack](https://attackdefense.pentesteracademy.com/challengedetails?cid=527)
+>  🔬 [SSH Recon: Dictionary Attack](https://attackdefense.com/challengedetails?cid=527)
 >
 >  - Target IP: `192.230.83.3`
 >  - Detailed `SSH` Enumeration

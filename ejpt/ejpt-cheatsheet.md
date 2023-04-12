@@ -104,6 +104,10 @@
 
 ## [Metasploit](https://my.ine.com/CyberSecurity/courses/06040120/host-network-penetration-testing-the-metasploit-framework-msf)
 
+```bash
+service postgresql start && msfconsole -q
+```
+
 ### Info Gathering
 
 ```bash

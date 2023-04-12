@@ -2,7 +2,7 @@
 
 ## Lab 1
 
->  🔬 [Samba Recon: Dictionary Attack](https://attackdefense.pentesteracademy.com/challengedetails?cid=556)
+>  🔬 [Samba Recon: Dictionary Attack](https://attackdefense.com/challengedetails?cid=556)
 >
 >  - Target IP: `192.174.58.3`
 >  - **Brute-force** of SAMBA service
