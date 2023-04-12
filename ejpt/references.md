@@ -252,6 +252,8 @@
   - [Payloads](https://www.offsec.com/metasploit-unleashed/payloads/)
   - [MSFConsole](https://www.offsec.com/metasploit-unleashed/msfconsole/)
   - [Workspaces](https://docs.rapid7.com/metasploit/managing-workspaces/)
+  - [Database Usage](https://www.offsec.com/metasploit-unleashed/using-databases/)
+  - [Port Scanning](https://www.offsec.com/metasploit-unleashed/port-scanning/)
 - [Metasploit in Kali Linux](https://www.kali.org/docs/tools/starting-metasploit-framework-in-kali/)
 - [Metasploit Unleashed – Free Ethical Hacking Course by OffSec](https://www.offsec.com/metasploit-unleashed/)
 - [Meterpreter](https://www.offsec.com/metasploit-unleashed/about-meterpreter/)

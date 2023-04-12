@@ -376,10 +376,73 @@ workspace -d Test
 
 **`nmap`** enumeration results (*service versions, operating systems, etc*) can be exported into a file that can be imported into MSF and used for further detection and exploitation.
 
-> 🔬 Check some `nmap` information gathering in [this Nmap Host Discovery LAB](../assessment-methodologies/1-info-gathering.md#lab-with-nmap)
->
+> 🔬 Check the full `nmap` information gathering lab in [this Nmap Host Discovery Lab](../assessment-methodologies/1-info-gathering.md#lab-with-nmap) (at the end of the page).
 
-### MSF Import
+Some commands:
+
+```bash
+nmap <TARGET_IP>
+nmap -Pn <TARGET_IP>
+nmap -Pn -sV -O <TARGET_IP>
+```
+
+- Output the `nmap` scan results into an **`.XML`** format file that can be imported into MSF
+
+```bash
+nmap -Pn -sV -O 10.2.18.161 -oX windows_server_2012
+```
+
+### [MSFdb Import](https://www.offsec.com/metasploit-unleashed/using-databases/)
+
+-  In the same lab environment from above, use `msfconsole` to import the results into MSF with the `db_import` command
+
+```bash
+service postgresql start
+msfconsole
+```
+
+- Inside `msfconsole`
+
+```bash
+db_status
+workspace -a Win2k12
+```
+
+```bash
+db_import /root/windows_server_2012
+    [*] Importing 'Nmap XML' data
+    [*] Import: Parsing with 'Nokogiri v1.10.7'
+    [*] Importing host 10.2.18.161
+    [*] Successfully imported /root/windows_server_2012
+```
+
+```bash
+hosts
+services
+vulns
+```
+
+![](.gitbook/assets/image-20230412190333138.png)
+
+- Perform an `nmap` scan *within the MSF Console and import the results in a dedicated workspace*
+
+```bash
+workspace -a nmap_MSF
+```
+
+```bash
+db_nmap -Pn -sV -O <TARGET_IP>
+```
+
+![](.gitbook/assets/image-20230412190726940.png)
+
+### [Port Scanning](https://www.offsec.com/metasploit-unleashed/port-scanning/)
+
+MSF **Auxiliary modules** are used during the information gathering (similar to `nmap`) and the post exploitation phases of the pentest.
+
+- perform TCP/UDP port scanning
+- enumerate services
+- discover hosts on different network subnets (post-exploitation phase)
 
 
 
