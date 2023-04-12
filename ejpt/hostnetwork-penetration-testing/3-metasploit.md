@@ -559,7 +559,7 @@ Next, there are some MSF commands and modules for **service enumeration** on the
 
 - Auxiliary modules can be used for enumeration, brute-force attacks, etc
 
-On every attacker machine, run this command to start `msfconsole`:
+❗📝 **On every attacker machine, run this command to start `msfconsole`:**
 
 ```bash
 service postgresql start && msfconsole -q
