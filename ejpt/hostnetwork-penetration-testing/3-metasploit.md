@@ -207,6 +207,12 @@ sudo msfdb init
 msfconsole
 ```
 
+- Check the db connection is on in the `msfconsole`
+
+```bash
+db_status
+```
+
 
 
 > 📌 Check this article by StationX ➡️ [How to Use Metasploit in Kali Linux + Metasploitable3](https://www.stationx.net/how-to-use-metasploit-in-kali-linux/) which will cover:
@@ -216,9 +222,164 @@ msfconsole
 > - A sample walkthrough against a vulnerable MySQL Server
 > - Frequently Asked Questions (FAQ)
 
+### [MSFConsole](https://www.offsec.com/metasploit-unleashed/msfconsole/)
+
+🗒️ The **Metasploit Framework Console** (**msfconsole**) is an all-in-one interface and centralized console that allows access to all of the MSF options and features.
+
+- It is launched by running the `msfconsole` command
+
+```bash
+msfconsole
+```
+
+- Run it in quiet mode without the banner with
+
+```bash
+msfconsole -q
+```
+
+### Module Variables
+
+An MSF module requires additional information that can be configured through the use of MSF **variables**, both *local* or *global* variables, called **`options`** inside the msfconsole.
+
+**Variables e.g.** (they are based on the selected module):
+
+- `LHOST` - attacker's IP address
+- `LPORT` - attacker's port number (receive reverse connection)
+- `RHOST` - target's IP address
+- `RHOSTS` - multiple targets/networks IP addresses
+- `RPORT` - target port number
+
+### Useful Commands
+
+- Run `msfconsole` and check these useful commands:
+
+```bash
+help
+version
+
+show -h
+show all
+show exploits
+
+search <MODULE_DESCRIPTION/NAME>
+use <MODULE_NAME>
+set <OPTION>
+run
+execute # same as run
+
+sessions
+connect
+```
+
+![](.gitbook/assets/image-20230412141325709.png)
+
+![](.gitbook/assets/image-20230412141308687.png)
+
+#### Port Scan Example
+
+```bash
+search portscan
+use auxiliary/scanner/portscan/tcp
+show options
+set RHOSTS <TARGET_IP>
+set PORTS 1-1000
+run
+# CTRL+C to cancel the running process
+back
+```
+
+![](.gitbook/assets/image-20230412175031929.png)
+
+#### CVE Exploits Example
+
+```bash
+search cve:2017 type:exploit platform:window
+```
+
+![search cve:2017 type:exploit platform:window](.gitbook/assets/image-20230412175150747.png)
+
+#### Payload Options Example
+
+```bash
+search eternalblue
+use 0
+# specify the identifier
+set payload <PAYLOAD_NAME>
+set RHOSTS <TARGET_IP>
+run
+# or
+exploit
+```
+
+![](.gitbook/assets/image-20230412175427698.png)
+
+![](.gitbook/assets/image-20230412175734432.png)
+
+### [Workspaces](https://docs.rapid7.com/metasploit/managing-workspaces/)
+
+🗒️ Metasploit **Workspaces** allows to manage and organize the hosts, data, scans and activities stored in the `msfdb`.
+
+- Import, manipulate, export data
+- Create, manage, switch between workspaces
+- Sort and organize the assessments of the penetration test
+
+> 📌 *It's recommended to create a new workspace for each engagement.*
+
+```bash
+msfconsole -q
+db_status
+	[*] Connected to msf. Connection type: postgresql.
+```
+
+```bash
+workspace -h
+```
+
+![workspace -h](.gitbook/assets/image-20230412183240012.png)
+
+```bash
+workspace
+# current working workspace
+	* default
+```
+
+- **Create** a new workspace
+
+```bash
+workspace -a Test
+```
+
+![](.gitbook/assets/image-20230412183002282.png)
+
+- **Change** workspace
+
+```bash
+workspace <WORKSPACE_NAME>
+```
+
+```bash
+workspace -a INE
+```
+
+- **Delete** a workspace
+
+```bash
+workspace -d Test
+```
+
 ## Information Gathering & Enumeration with MSF
 
+- The Metasploit Framework allows to import `nmap` results.
 
+### Nmap Enumeration
+
+**`nmap`** enumeration results (*service versions, operating systems, etc*) can be exported into a file that can be imported into MSF and used for further detection and exploitation.
+
+> 🔬 Check some `nmap` information gathering in [this Nmap Host Discovery LAB](../assessment-methodologies/1-info-gathering.md#lab-with-nmap)
+>
+
+### MSF Import
 
 
 
