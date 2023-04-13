@@ -39,6 +39,7 @@ Chech the common services recon here:
 * [`SSH`](3-enumeration/ssh-enum.md)
 * [`HTTP`](3-enumeration/http-enum.md)
 * [`MYSQL`](3-enumeration/mysql-enum.md)
+* [`SMTP`](3-enumeration/smtp-enum.md)
 
 🗒️ **Enumeration** is a critical phase in a pentest, used to identify information about in-scope assets, discovering potential attack vectors and vulnerabilities.
 

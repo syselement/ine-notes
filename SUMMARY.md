@@ -18,6 +18,7 @@
       * [🔬SSH Enum](ejpt/assessment-methodologies/3-enumeration/ssh-enum.md)
       * [🔬HTTP Enum](ejpt/assessment-methodologies/3-enumeration/http-enum.md)
       * [🔬MYSQL Enum](ejpt/assessment-methodologies/3-enumeration/mysql-enum.md)
+      * [🔬SMTP Enum](ejpt/assessment-methodologies/3-enumeration/smtp-enum.md)
     * [Vulnerability Assessment](ejpt/assessment-methodologies/4-va.md)
     * [Auditing Fundamentals](ejpt/assessment-methodologies/5-audit.md)
   * [📒2. Host & Network Penetration Testing](ejpt/hostnetwork-penetration-testing/README.md)

