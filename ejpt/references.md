@@ -255,6 +255,8 @@
   - [Workspaces](https://docs.rapid7.com/metasploit/managing-workspaces/)
   - [Database Usage](https://www.offsec.com/metasploit-unleashed/using-databases/)
   - [Port Scanning](https://www.offsec.com/metasploit-unleashed/port-scanning/)
+  - [WMAP](https://www.offsec.com/metasploit-unleashed/wmap-web-scanner/)
+  - [Nessus - Import](https://www.offsec.com/metasploit-unleashed/working-with-nessus/)
 - [Metasploit in Kali Linux](https://www.kali.org/docs/tools/starting-metasploit-framework-in-kali/)
 - [Metasploit Unleashed – Free Ethical Hacking Course by OffSec](https://www.offsec.com/metasploit-unleashed/)
 - [Meterpreter](https://www.offsec.com/metasploit-unleashed/about-meterpreter/)
@@ -263,6 +265,7 @@
   - [Guide to Modern Penetration Testing - Infopulse](https://www.infopulse.com/blog/guide-to-modern-penetration-testing-part-2-fifty-shades-of-grey-box)
 - [MSF Installer](https://docs.metasploit.com/docs/using-metasploit/getting-started/nightly-installers.html)
 - [How to Use Metasploit in Kali Linux + Metasploitable3](https://www.stationx.net/how-to-use-metasploit-in-kali-linux/)
+- [Metasploitable3 - rapid7 Github](https://github.com/rapid7/metasploitable3)
 
 
 ## Web App PenTesting
