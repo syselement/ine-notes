@@ -1145,7 +1145,7 @@ MSF **Auxiliary** and **exploit** modules can be utilized to identify inherent v
 
 - **Metasploitable3** is a vulnerable virtual machine developed by Rapid7, intended to be used as a vulnerable target for testing exploits with Metasploit.
 
-> 🔬 You can find my the lab installation & configuration with Vagrant at [this page](https://blog.syselement.com/home/home-lab/redteam/metasploitable3), *set up for educational purposes*.
+> 🔬 You can find my lab installation & configuration with Vagrant at [this page](https://blog.syselement.com/home/home-lab/redteam/metasploitable3), *set up for educational purposes*.
 
 - Kali Linux attacker machine must be configured with **the same local network** of the Metasploitable3 VMs.
 
