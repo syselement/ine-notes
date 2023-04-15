@@ -167,7 +167,7 @@ From admin
 .
 ```
 
-![image-20230413151735850](.gitbook/assets/image-20230413151735850.png)
+![telnet 192.63.243.3 25](.gitbook/assets/image-20230413151735850.png)
 
 ### [sendmail](https://www.postfix.org/sendmail.1.html)
 

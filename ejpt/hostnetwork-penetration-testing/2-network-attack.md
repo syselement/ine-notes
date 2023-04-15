@@ -66,7 +66,7 @@
 
 > [**`arpspoof`**](https://www.kali.org/tools/dsniff/#arpspoof) - a (old) tool to send out unrequested (and possibly forged) `ARP` replies and intercept packets on a switched LAN
 
-![image-20230324130125228](.gitbook/assets/image-20230324130125228.png)
+![arpspoof -h](.gitbook/assets/image-20230324130125228.png)
 
 
 
