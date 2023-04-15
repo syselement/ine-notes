@@ -1354,7 +1354,97 @@ search PHP CGI Argument Injection
 
 ### VA with [WMAP](https://www.offsec.com/metasploit-unleashed/wmap-web-scanner/)
 
+🗒️ **WMAP** is a web application vulnerability scanner that allows to conduct and automate web server enumeration and scanning from within the Metasploit Framework.
 
+- Available as a fully integrated MSF plugin
+- Utilizes the in-built MSF auxiliary modules
+
+> 🔬 The lab is the same one from the HTTP Metasploit Enumeration section above - [Metasploit - Apache Enumeration Lab](https://www.attackdefense.com/challengedetails?cid=118)
+
+```bash
+ip -br -c a
+	192.28.60.3
+	# Target IP
+
+service postgresql start && msfconsole -q
+```
+
+```bash
+db_status
+setg RHOSTS 192.28.60.3
+setg RHOST 192.28.60.3
+workspace -a WMAP_SCAN
+```
+
+- Load WMAP extension within `msfconsole`
+
+```bash
+load wmap
+```
+
+![load wmap](.gitbook/assets/image-20230415164951596.png)
+
+- Add WMAP site
+
+```bash
+wmap_sites -a 192.28.60.3
+```
+
+- Specify the target URL
+
+```bash
+wmap_targets -t http://192.28.60.3
+```
+
+```bash
+wmap_sites -l
+wmap_targets -l
+```
+
+- Show only the MSF modules that will be able to be run against target
+
+```bash
+wmap_run -t
+```
+
+- Run the **web app vulnerability scan**
+  - this will run all enabled modules against the target web server
+
+```bash
+wmap_run -e
+```
+
+- *Analyze the results produced by WMAP.* 
+
+![wmap_run -t](.gitbook/assets/image-20230415165930386.png)
+
+![wmap_run -e](.gitbook/assets/image-20230415170207090.png)
+
+- List WMAP found vulnerabilities
+
+```bash
+wmap_vulns -l
+```
+
+- Since the allowed methods are `POST`, `OPTIONS`, `GET`, `HEAD`, exploit the vulnerability with the use of `auxiliary/scanner/http/http_put` module to upload a file into the `/data` directory
+  - 📌 A reverse shell payload can be uploaded and run on the target.
+
+```bash
+use auxiliary/scanner/http/http_put
+options
+set PATH /data/
+set FILEDATA "File uploaded"
+set FILENAME file.txt
+run
+```
+
+![Metasploit - auxiliary/scanner/http/http_put](.gitbook/assets/image-20230415171358249.png)
+
+- Test if the file has been uploaded correctly
+
+```bash
+curl http://192.28.60.3:80/data/file.txt
+```
 
 ## Client-Side Attacks with MSF
 
