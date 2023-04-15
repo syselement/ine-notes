@@ -1743,7 +1743,7 @@ run post/windows/manage/migrate
 
 ![](.gitbook/assets/image-20230415221432202.png)
 
-### Automation with Resource Scripts
+### Automation with [Resource Scripts](https://www.offsec.com/metasploit-unleashed/writing-meterpreter-scripts/)
 
 Repetitive tasks and commands can be automated using **MSF resource scripts** (same as batch scripts).
 
@@ -1833,7 +1833,7 @@ makerc /home/kali/certs/ejpt/resource_scripts/portscan2.rc
 
 ![](.gitbook/assets/image-20230415224836969.png)
 
-## Exploitation with MSF
+## [Exploitation](https://www.offsec.com/metasploit-unleashed/exploits/) with MSF
 
 
 

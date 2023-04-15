@@ -262,6 +262,8 @@
   - [Msfvenom](https://www.offsec.com/metasploit-unleashed/msfvenom/)
     - [Python HTTP Server](https://www.digitalocean.com/community/tutorials/python-simplehttpserver-http-server)
     - [How to use MSFvenom](https://docs.metasploit.com/docs/using-metasploit/basics/how-to-use-msfvenom.html)
+  - [Writing Resource Scripts](https://www.offsec.com/metasploit-unleashed/writing-meterpreter-scripts/)
+  - [Exploits](https://www.offsec.com/metasploit-unleashed/exploits/)
 - [Metasploit in Kali Linux](https://www.kali.org/docs/tools/starting-metasploit-framework-in-kali/)
 - [Metasploit Unleashed – Free Ethical Hacking Course by OffSec](https://www.offsec.com/metasploit-unleashed/)
 - [Meterpreter](https://www.offsec.com/metasploit-unleashed/about-meterpreter/)
