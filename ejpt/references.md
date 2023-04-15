@@ -255,8 +255,13 @@
   - [Workspaces](https://docs.rapid7.com/metasploit/managing-workspaces/)
   - [Database Usage](https://www.offsec.com/metasploit-unleashed/using-databases/)
   - [Port Scanning](https://www.offsec.com/metasploit-unleashed/port-scanning/)
-  - [WMAP](https://www.offsec.com/metasploit-unleashed/wmap-web-scanner/)
   - [Nessus - Import](https://www.offsec.com/metasploit-unleashed/working-with-nessus/)
+  - [WMAP](https://www.offsec.com/metasploit-unleashed/wmap-web-scanner/)
+  - [Client-Side Attacks](https://www.offsec.com/metasploit-unleashed/client-side-attacks/)
+    - [Types of client side attacks](https://www.geeksforgeeks.org/types-of-client-side-attacks/)
+  - [Msfvenom](https://www.offsec.com/metasploit-unleashed/msfvenom/)
+    - [Python HTTP Server](https://www.digitalocean.com/community/tutorials/python-simplehttpserver-http-server)
+    - [How to use MSFvenom](https://docs.metasploit.com/docs/using-metasploit/basics/how-to-use-msfvenom.html)
 - [Metasploit in Kali Linux](https://www.kali.org/docs/tools/starting-metasploit-framework-in-kali/)
 - [Metasploit Unleashed – Free Ethical Hacking Course by OffSec](https://www.offsec.com/metasploit-unleashed/)
 - [Meterpreter](https://www.offsec.com/metasploit-unleashed/about-meterpreter/)
@@ -266,6 +271,7 @@
 - [MSF Installer](https://docs.metasploit.com/docs/using-metasploit/getting-started/nightly-installers.html)
 - [How to Use Metasploit in Kali Linux + Metasploitable3](https://www.stationx.net/how-to-use-metasploit-in-kali-linux/)
 - [Metasploitable3 - rapid7 Github](https://github.com/rapid7/metasploitable3)
+- [Shikata Ga Nai Encoder Still Going Strong - Mandiant](https://www.mandiant.com/resources/blog/shikata-ga-nai-encoder-still-going-strong)
 
 
 ## Web App PenTesting
