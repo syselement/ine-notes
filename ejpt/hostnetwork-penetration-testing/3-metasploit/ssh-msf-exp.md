@@ -59,7 +59,7 @@ cat /etc/*release
 uname -r
 ```
 
-![image-20230416142810774](.gitbook/assets/image-20230416142810774.png)
+![](.gitbook/assets/image-20230416142810774.png)
 
 - Shell to `Meterpreter` post exploitation
 

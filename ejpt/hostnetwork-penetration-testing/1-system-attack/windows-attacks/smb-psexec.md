@@ -118,7 +118,7 @@ type flag.txt
 
 `e0da81a9cd42b261bc9b90d15f780433`
 
-![image-20230312191432614](.gitbook/assets/image-20230312191432614.png)
+![](.gitbook/assets/image-20230312191432614.png)
 
 </details>
 
