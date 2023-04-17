@@ -501,5 +501,85 @@ curl --digest -u alice:password1 http://192.199.232.3/poc/
 
 </details>
 
+
+
+## Lab 4
+
+>  🔬 [Apache Recon: Basics](https://www.attackdefense.com/challengedetails?cid=538)
+>
+>  - Target IP: `192.157.222.3`
+>  - Enumeration of an `Apache` HTTP server
+
+```bash
+ip -br -c a
+	eth1@if172533   UP   192.157.222.2/24 
+```
+
+```bash
+nmap -sV -sC 192.157.222.3
+```
+
+```bash
+80/tcp open  http    Apache httpd 2.4.18 ((Ubuntu))
+|_http-server-header: Apache/2.4.18 (Ubuntu)
+| http-robots.txt: 3 disallowed entries 
+|_/cgi-bin/ Disallow: /junk/ /no-badbot-dir/
+|_http-title: Apache2 Ubuntu Default Page: It works
+```
+
+> 📌 Running web server version is `Apache httpd 2.4.18`
+
+```bash
+curl http://192.157.222.3
+wget http://192.157.222.3
+	cat index.html 
+lynx http://192.157.222.3
+```
+
+```bash
+dirb http://192.157.222.3 /usr/share/metasploit-framework/data/wordlists/directory.txt
+```
+
+```bash
+---- Scanning URL: http://192.157.222.3/ ----
++ http://192.157.222.3//data (CODE:301|SIZE:313)                                           
++ http://192.157.222.3//dir (CODE:301|SIZE:312)  
+```
+
+- **Metasploit** modules
+
+```bash
+msfconsole -q
+```
+
+```bash
+setg RHOSTS 192.157.222.3
+setg RHOST 192.157.222.3
+
+use auxiliary/scanner/http/http_version
+run
+	[+] 192.157.222.3:80 Apache/2.4.18 (Ubuntu)
+
+use auxiliary/scanner/http/brute_dirs
+run
+    [+] Found http://192.157.222.3:80/dir/ 200
+    [+] Found http://192.157.222.3:80/src/ 200
+```
+
+```bash
+curl http://192.157.222.3/robots.txt
+```
+
+<details>
+<summary>Reveal Flag - poc directory flag is: 🚩</summary>
+
+
+
+`BadBot`
+
+![](.gitbook/assets/image-20230417190948253.png)
+
+</details>
+
 ------
 
