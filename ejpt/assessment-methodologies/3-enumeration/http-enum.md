@@ -463,6 +463,8 @@ curl -u bob:qwerty http://192.199.232.3/dir/
 
 </details>
 
+
+
 ```bash
 msfconsole
 ```
@@ -489,6 +491,8 @@ exploit
 ```bash
 curl --digest -u alice:password1 http://192.199.232.3/poc/
 ```
+
+
 
 
 <details>
@@ -533,6 +537,13 @@ nmap -sV -sC 192.157.222.3
 curl http://192.157.222.3
 wget http://192.157.222.3
 	cat index.html 
+```
+
+### [lynx](https://lynx.invisible-island.net/)
+
+> **`lynx`** - is a *text web browser*.
+
+```bash
 lynx http://192.157.222.3
 ```
 
@@ -580,6 +591,8 @@ curl http://192.157.222.3/robots.txt
 ![](.gitbook/assets/image-20230417190948253.png)
 
 </details>
+
+
 
 ------
 
