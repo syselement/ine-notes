@@ -257,7 +257,7 @@ akagi32.exe [Key] [Param]
 - `Delegate-level` - interactive login on Windows (traditional login, RDP)
   - *can be used to impersonate a token **on any system*** ❗
 
-**Windows Privileges** determine what the use can or can't do.
+**Windows Privileges** determine what the user can or can't do.
 
 For a successful **impersonation attack**, the following privileges are required:
 

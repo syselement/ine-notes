@@ -163,6 +163,8 @@ impersonate_token "NT AUTHORITY\SYSTEM"
 cd C:\\Users\\Administrator\\Desktop\\
 ```
 
+
+
 <details>
 <summary>Reveal Flag: 🚩</summary>
 

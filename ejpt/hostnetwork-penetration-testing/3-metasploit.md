@@ -1933,7 +1933,7 @@ exploit
 
 ### Apache Tomcat
 
-[**Apache Tomcat**](https://tomcat.apache.org/) is a free open source Java servlet web server, *build to host dynamic websites and web apps developed in **Java***.
+[**`Apache Tomcat`**](https://tomcat.apache.org/) is a free open source Java servlet web server, *build to host dynamic websites and web apps developed in **Java***.
 
 - Tomcat default TCP port is **`8080`**
 - Apache web server host HTML/PHP web apps, instead
@@ -1976,7 +1976,51 @@ exploit
 
 > 🔬 [SMTP - MSF Exploit](3-metasploit/smtp-msf-exp.md)
 
-## Post Exploitation with MSF
+## [Post Exploitation](https://www.offsec.com/metasploit-unleashed/msf-post-exploitation/) with MSF
+
+🗒️ **Post Exploitation** is the process of gaining further information or access to the target's internal network, after the initial exploitation phase, using various techniques like:
+
+- **local enumeration**
+- [**privilege escalation**](https://www.offsec.com/metasploit-unleashed/privilege-escalation/)
+- **maintaining persistent access**
+- [**pivoting**](https://www.offsec.com/metasploit-unleashed/pivoting/)
+- **dumping hashes**
+- **covering tracks**
+
+There are many post exploitation modules provided by the MSF.
+
+🗒️ **Persistence** consists of techniques used by adversaries *to maintain access to systems across restarts, changed credentials, or other interruptions*.
+
+🗒️ **Keylogging** is the action of (secretly) *recording/capturing the keystrokes entered on a target system*.
+
+🗒️ **Pivoting** is a post exploitation technique of using a compromised host, a **`foothold`** / **`plant`**, to attack other systems on its private internal network.
+
+### Fundamentals - [Meterpreter](https://www.offsec.com/metasploit-unleashed/about-meterpreter/)
+
+- Facilitates the execution of system commands, file system navigation, keylogging
+- Load custom scripts and plugins dynamically
+- 📌 **MSF has various types of `Meterpreter` payloads based on the target environment**
+
+> 🔬 Check the [Meterpreter Labs](3-metasploit/meterpreter-msf.md) for various `Meterpreter` commands and techniques examples and how to upgrade shells to Meterpreter sessions.
+
+### Windows PE Modules
+
+Windows post exploitation MSF modules can be used to:
+
+- Enumerate user privileges, logged on users, installed programs, Antiviruses, computers connected to a domain, installed patches, shares
+- VM check
+
+🗒️ **Windows Event Logs**, accessed via the `Event Viewer` on Windows, are categorized in:
+
+- `Application logs` - apps startups, crashes, etc
+- `System logs` - system startups, reboots, etc
+- `Security logs` - password changes, authentication failures/success, etc
+
+Clearing event logs is an important part of the system assessment.
+
+> 🔬 Check the [Windows Post Exploitation with MSF Labs](3-metasploit/win-post-msf.md) with **post-exploitation** techniques for various *Windows services*.
+
+### Linux PE Modules
 
 
 

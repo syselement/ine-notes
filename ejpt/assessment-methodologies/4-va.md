@@ -211,7 +211,7 @@ meterpreter > getuid
 Server username: WIN-OMCNBKR66MN\Administrator
 ```
 
-- Use [meterpreter](https://www.offensive-security.com/metasploit-unleashed/about-meterpreter/) commands to find the flag
+- Use [meterpreter](https://www.offsec.com/metasploit-unleashed/about-meterpreter/) commands to find the flag
 
 ```bash
 shell

@@ -50,6 +50,8 @@
       * [🔬Samba - MSF Exploit](ejpt/hostnetwork-penetration-testing/3-metasploit/samba-msf-exp.md)
       * [🔬SSH - MSF Exploit](ejpt/hostnetwork-penetration-testing/3-metasploit/ssh-msf-exp.md)
       * [🔬SMTP - MSF Exploit](ejpt/hostnetwork-penetration-testing/3-metasploit/smtp-msf-exp.md)
+      * [🔬Meterpreter - MSF](ejpt/hostnetwork-penetration-testing/3-metasploit/meterpreter-msf.md)
+      * [🔬Win Post Exploitation - MSF](ejpt/hostnetwork-penetration-testing/3-metasploit/win-post-msf.md)
     * [Exploitation](ejpt/hostnetwork-penetration-testing/4-exploitation.md)
     * [Post-Exploitation](ejpt/hostnetwork-penetration-testing/5-post-exploit.md)
     * [Social Engineering](ejpt/hostnetwork-penetration-testing/6-social-engineer.md)

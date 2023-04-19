@@ -415,6 +415,10 @@ getuid
 ### Hash Dumping - Kiwi
 
 ```bash
+load kiwi
+```
+
+```bash
 lsa_dump_sam
 ```
 

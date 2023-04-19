@@ -658,6 +658,8 @@ fierce --domain zonetransfer.me
 ### Host Discovery with Nmap
 
 > [**`nmap`**](https://nmap.org/) - open source security tool for network exploration, security scanning and auditing.
+>
+> - 📌 [NMap CheatSheet](https://www.stationx.net/nmap-cheat-sheet/)
 
 ![man nmap](.gitbook/assets/image-20230120153307558.png)
 
