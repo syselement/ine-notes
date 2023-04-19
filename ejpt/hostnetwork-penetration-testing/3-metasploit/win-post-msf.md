@@ -563,7 +563,7 @@ cat flag.txt
 > 🔬 [Windows: Meterpreter: Kiwi Extension](https://attackdefense.com/challengedetails?cid=2340)
 >
 > - Target IP: `10.2.17.39`
-> - Check the [🔬Lab 2 - Mimikatz lab here](../1-system-attack/windows-attacks/creds-dump.md) with full description of the commands
+> - Check the [🔬Lab 2 - Mimikatz lab here](../1-system-attack/windows-attacks/creds-dump.md#lab-2-mimikatz) with full description of the commands
 
 ```bash
 service postgresql start && msfconsole -q
@@ -661,7 +661,7 @@ sekurlsa::logonPasswords
 > 🔬 [Windows: Meterpreter: Kiwi Extension](https://attackdefense.com/challengedetails?cid=2340) - same lab as Lab 4
 >
 > - Target IP: `10.2.28.123`
-> - Check the [🔬Lab 3 - Pass-the-hash lab here](../1-system-attack/windows-attacks/creds-dump.md) for full description
+> - Check the [🔬Lab 3 - Pass-the-hash lab here](../1-system-attack/windows-attacks/creds-dump.md#lab-3-pass-the-hash) for full description
 > - Metasploit **PsExec** module
 
 ```bash
