@@ -185,7 +185,7 @@ ls /usr/share/metasploit-framework
 - Uses PostgreSQL as the primary database - `postgresql` service must be running
 - Facilitates the import and storage of scan results (from Nmap, Nessus, other tools)
 
-### MSF Kali Configuration
+### [MSF Kali Configuration](https://www.kali.org/docs/tools/starting-metasploit-framework-in-kali/)
 
 - Use APT package manager on Kali Linux (or on Debian-based distros)
 
@@ -425,6 +425,7 @@ services
 vulns
 loot
 creds
+notes
 ```
 
 ![](.gitbook/assets/image-20230412190333138.png)
@@ -1141,7 +1142,7 @@ MSF **Auxiliary** and **exploit** modules can be utilized to identify inherent v
 
 - Useful in the **Exploitation** phase of the pentest
 
-[Metasploitable3](https://github.com/rapid7/metasploitable3) lab environment will be used for the vulnerability scanning demonstration.
+🔬 [Metasploitable3](https://github.com/rapid7/metasploitable3) lab environment will be used for the vulnerability scanning demonstration.
 
 - **Metasploitable3** is a vulnerable virtual machine developed by Rapid7, intended to be used as a vulnerable target for testing exploits with Metasploit.
 
@@ -1991,7 +1992,7 @@ There are many post exploitation modules provided by the MSF.
 
 🗒️ **Persistence** consists of techniques used by adversaries *to maintain access to systems across restarts, changed credentials, or other interruptions*.
 
-🗒️ **Keylogging** is the action of (secretly) *recording/capturing the keystrokes entered on a target system*.
+🗒️ **[Keylogging](https://www.offsec.com/metasploit-unleashed/keylogging/)** is the action of (secretly) *recording/capturing the keystrokes entered on a target system*.
 
 🗒️ **Pivoting** is a post exploitation technique of using a compromised host, a **`foothold`** / **`plant`**, to attack other systems on its private internal network.
 
@@ -2007,10 +2008,10 @@ There are many post exploitation modules provided by the MSF.
 
 Windows post exploitation MSF modules can be used to:
 
-- Enumerate user privileges, logged on users, installed programs, Antiviruses, computers connected to a domain, installed patches, shares
+- Enumerate user privileges, logged-on users, installed programs, antiviruses, computers connected to a domain, installed patches and shares
 - VM check
 
-🗒️ **Windows Event Logs**, accessed via the `Event Viewer` on Windows, are categorized in:
+🗒️ **Windows Event Logs**, accessed via the `Event Viewer` on Windows, are categorized into:
 
 - `Application logs` - apps startups, crashes, etc
 - `System logs` - system startups, reboots, etc
@@ -2018,17 +2019,118 @@ Windows post exploitation MSF modules can be used to:
 
 Clearing event logs is an important part of the system assessment.
 
-> 🔬 Check the [Windows Post Exploitation with MSF Labs](3-metasploit/win-post-msf.md) with **post-exploitation** techniques for various *Windows services*.
+> 🔬 Check out the [Windows Post Exploitation with MSF Labs](3-metasploit/win-post-msf.md) with **post-exploitation** techniques for various *Windows services*.
 
 ### Linux PE Modules
 
+Linux post exploitation MSF modules can be used to:
 
+- Enumerate system configuration, environment variables, network configuration, user's history
+- VM check
 
+> 🔬 Check out the [Linux Post Exploitation with MSF Labs](3-metasploit/linux-post-msf.md) with **post-exploitation** techniques for various *Unix services*.
 
+## [Armitage](https://www.offsec.com/metasploit-unleashed/armitage/) - MSF GUI
 
-## Armitage - MSF GUI
+🗒️ **Armitage** is a Java-based GUI front-end for the MSF.
 
-### Kali Linux Installation
+- Automate port scanning, exploitation, post exploitation
+- Visualize targets
+- Requires MSFdb and services to be running
+- Pre-packed with Kali Linux
+
+> 🔬 **Port Scanning & Enumeration With Armitage** - lab by INE
+>
+> - Victim Machine 1: `10.2.21.86`
+> - Victim Machine 2: `10.2.25.150`
+
+```bash
+service postgresql start && msfconsole -q
+db_status
+	[*] Connected to msf. Connection type: postgresql.
+
+# Open a new tab and start Armitage
+armitage
+# Answer "YES" for the RPC server
+```
+
+![Armitage](.gitbook/assets/image-20230422172326118.png)
+
+- **Hosts - Add Hosts**
+  - Add victim 1 IP
+  - Set the lab as `Victim 1`
+- Right-click the target and **Scan** it
+
+![](.gitbook/assets/image-20230422172731476.png)
+
+- Check **Services**
+- Perform an **Nmap Scan** from the **Hosts** menu
+
+![](.gitbook/assets/image-20230422173026361.png)
+
+- Check **Services**
+
+![](.gitbook/assets/image-20230422173127590.png)
+
+### Exploitation
+
+- Search for `rejetto` and launch the exploit module
+
+![](.gitbook/assets/image-20230422173456328.png)
+
+![](.gitbook/assets/image-20230422173621170.png)
+
+- Try **Dump Hashes** via the `registry method`
+
+![Metasploit - post/windows/gather/smart_hashdump](.gitbook/assets/image-20230422174938564.png)
+
+- Saved hashes can be found under the **View - Loot** menu
+
+```bash
+Administrator:500:aad3b435b51404eeaad3b435b51404ee:5c4d59391f656d5958dab124ffeabc20:::
+```
+
+- **Browse Files**
+
+![](.gitbook/assets/image-20230422175355019.png)
+
+- **Show Processes**
+
+![](.gitbook/assets/image-20230422175459608.png)
+
+### Pivoting
+
+- Setup **Pivoting**
+
+![](.gitbook/assets/image-20230422175630076.png)
+
+- Add, Enumerate and Exploit `Victim 2`
+
+![](.gitbook/assets/image-20230422180124226.png)
+
+- Port forward the port `80` and use `nmap`
+
+```bash
+# In the Meterpreter tab
+portfwd add -l 1234 -p 80 -r 10.2.25.150
+```
+
+```bash
+# In the msf Console tab
+db_nmap -sV -p 1234 localhost
+```
+
+![](.gitbook/assets/image-20230422180508381.png)
+
+- Remove the created localhost `127.0.0.1`
+- Search for `BadBlue` and use the `badblue_passthru` exploit on `Victim 2`
+
+![](.gitbook/assets/image-20230422181450963.png)
+
+- Migrate to an `x64` from the **Processes** tab
+- Dump hashes with the `lsass method`
+
+### Armitage Kali Linux Install
 
 ```bash
 sudo apt install armitage -y
@@ -2051,4 +2153,6 @@ sudo systemctl restart postgresql
 ```bash
 sudo armitage
 ```
+
+------
 

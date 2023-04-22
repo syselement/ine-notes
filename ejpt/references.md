@@ -272,9 +272,11 @@
     - [PSExec Pass-the-hash](https://www.offsec.com/metasploit-unleashed/psexec-pass-hash/)
     - [Enabling RDP](https://www.offsec.com/metasploit-unleashed/enabling-remote-desktop/)
     - [Pivoting](https://www.offsec.com/metasploit-unleashed/pivoting/)
+    - [Keylogging](https://www.offsec.com/metasploit-unleashed/keylogging/)
 - [Metasploit in Kali Linux](https://www.kali.org/docs/tools/starting-metasploit-framework-in-kali/)
 - [Metasploit Unleashed – Free Ethical Hacking Course by OffSec](https://www.offsec.com/metasploit-unleashed/)
-- [Armitage](https://github.com/r00t0v3rr1d3/armitage)
+- [Armitage GUI](https://github.com/r00t0v3rr1d3/armitage)
+  - [Armitage](https://www.offsec.com/metasploit-unleashed/armitage/)
 - [PTES](http://www.pentest-standard.org/index.php/Main_Page)
   - [Guide to Modern Penetration Testing - Infopulse](https://www.infopulse.com/blog/guide-to-modern-penetration-testing-part-2-fifty-shades-of-grey-box)
 - [MSF Installer](https://docs.metasploit.com/docs/using-metasploit/getting-started/nightly-installers.html)
@@ -282,6 +284,7 @@
 - [Metasploitable3 - rapid7 Github](https://github.com/rapid7/metasploitable3)
 - [Shikata Ga Nai Encoder Still Going Strong - Mandiant](https://www.mandiant.com/resources/blog/shikata-ga-nai-encoder-still-going-strong)
 - [Haraka](https://haraka.github.io/)
+- [Methods Used by Linux for Hashing Passwords](https://www.baeldung.com/linux/hashing-methods-password)
 
 
 ## Web App PenTesting
