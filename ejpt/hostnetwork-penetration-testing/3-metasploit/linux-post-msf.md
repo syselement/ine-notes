@@ -119,7 +119,7 @@ ps aux
 env
 ```
 
-![](.gitbook/assets/image-20230422123421018.png)![image-20230422123415196](.gitbook/assets/image-20230422123415196.png)
+![](.gitbook/assets/image-20230422123421018.png)
 
 ### Some Post Exploitation
 
