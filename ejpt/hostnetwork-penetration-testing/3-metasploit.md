@@ -153,6 +153,12 @@ ls /usr/share/metasploit-framework
 >
 > 📌 **Exploitation**
 >
+> - Identify Vulnerable Services
+> - Prepare Exploit Code
+> - Gaining Access
+> - Bypass AV detection
+> - Pivoting
+>
 > ⬇️
 >
 > 📌 **Post Exploitation**

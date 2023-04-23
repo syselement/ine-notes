@@ -286,5 +286,24 @@
 - [Haraka](https://haraka.github.io/)
 - [Methods Used by Linux for Hashing Passwords](https://www.baeldung.com/linux/hashing-methods-password)
 
+## Exploitation
+
+- [Exploitation PTES](http://www.pentest-standard.org/index.php/Exploitation)
+- [Banner Grabbing](https://cyberexperts.com/encyclopedia/banner-grabbing/)
+- [Nmap Scripting Engine](https://nmap.org/book/nse)
+- [exploit-db.com](https://www.exploit-db.com/)
+  - [Dorks - Google Hacking Database](https://www.exploit-db.com/google-hacking-database)
+- [Rapid7 db](https://www.rapid7.com/db/)
+- [Searchsploit](https://www.exploit-db.com/searchsploit)
+- [Cross Compile to Win from Linux](https://www.crossmeta.io/mingw32-cross-compile-to-windows-from-linux/)
+  - [MinGW-w64](https://www.mingw-w64.org/)
+  - [ExploitDB bin-sploits](https://github.com/offensive-security/exploitdb-bin-sploits)
+- [Bind & Reverse Shells - Hacking with Netcat](https://www.hackingtutorials.org/networking/hacking-netcat-part-2-bind-reverse-shells/)
+- [PayloadsAllTheThings - Reverse Shell Cheatsheet](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md)
+- [Reverse Shell Generator](https://www.revshells.com/)
+- [PowerShell-Empire](https://github.com/BC-SECURITY/Empire)
+
 
 ## Web App PenTesting
+
+- [OWASP TOP 10](https://owasp.org/www-project-top-ten/)

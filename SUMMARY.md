@@ -54,6 +54,8 @@
       * [🔬Win Post Exploitation - MSF](ejpt/hostnetwork-penetration-testing/3-metasploit/win-post-msf.md)
       * [🔬Linux Post Exploitation - MSF](ejpt/hostnetwork-penetration-testing/3-metasploit/linux-post-msf.md)
     * [Exploitation](ejpt/hostnetwork-penetration-testing/4-exploitation.md)
+      * [🔬Fixing Exploits - HFS](ejpt/hostnetwork-penetration-testing/4-exploitation/fix-exp.md)
+      * [🔬Win Workflow Platform - MSF](ejpt/hostnetwork-penetration-testing/4-exploitation/workflow-exp.md)
     * [Post-Exploitation](ejpt/hostnetwork-penetration-testing/5-post-exploit.md)
     * [Social Engineering](ejpt/hostnetwork-penetration-testing/6-social-engineer.md)
   * [📒3. Web Application Penetration Testing](ejpt/webapp-penetration-testing/README.md)
