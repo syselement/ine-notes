@@ -56,6 +56,8 @@
     * [Exploitation](ejpt/hostnetwork-penetration-testing/4-exploitation.md)
       * [🔬Fixing Exploits - HFS](ejpt/hostnetwork-penetration-testing/4-exploitation/fix-exp.md)
       * [🔬Win Workflow Platform - MSF](ejpt/hostnetwork-penetration-testing/4-exploitation/workflow-exp.md)
+      * [🔬Win Black Box Pentest](ejpt/hostnetwork-penetration-testing/4-exploitation/win-blackbox-exp.md)
+      * [🔬Linux Black Box Pentest](ejpt/hostnetwork-penetration-testing/4-exploitation/linux-blackbox-exp.md)
     * [Post-Exploitation](ejpt/hostnetwork-penetration-testing/5-post-exploit.md)
     * [Social Engineering](ejpt/hostnetwork-penetration-testing/6-social-engineer.md)
   * [📒3. Web Application Penetration Testing](ejpt/webapp-penetration-testing/README.md)

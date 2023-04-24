@@ -302,6 +302,8 @@
 - [PayloadsAllTheThings - Reverse Shell Cheatsheet](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md)
 - [Reverse Shell Generator](https://www.revshells.com/)
 - [PowerShell-Empire](https://github.com/BC-SECURITY/Empire)
+- [Metasploitable2](https://docs.rapid7.com/metasploit/metasploitable-2/)
+- [Metasploitable3](https://github.com/rapid7/metasploitable3)
 
 
 ## Web App PenTesting
