@@ -304,6 +304,12 @@
 - [PowerShell-Empire](https://github.com/BC-SECURITY/Empire)
 - [Metasploitable2](https://docs.rapid7.com/metasploit/metasploitable-2/)
 - [Metasploitable3](https://github.com/rapid7/metasploitable3)
+- [What is Defense Evasion - Huntress](https://www.huntress.com/blog/what-is-defense-evasion)
+  - [Defense Evasion - MITRE ATT&CK](https://attack.mitre.org/tactics/TA0005/)
+  - [Antivirus Detection Methods](https://zeltser.com/how-antivirus-software-works/)
+  - [Shellter](https://www.shellterproject.com/introducing-shellter/)
+  - [Invoke-Obfuscation](https://github.com/danielbohannon/Invoke-Obfuscation) 
+
 
 
 ## Web App PenTesting
