@@ -59,6 +59,8 @@
       * [🔬Win Black Box Pentest](ejpt/hostnetwork-penetration-testing/4-exploitation/win-blackbox-exp.md)
       * [🔬Linux Black Box Pentest](ejpt/hostnetwork-penetration-testing/4-exploitation/linux-blackbox-exp.md)
     * [Post-Exploitation](ejpt/hostnetwork-penetration-testing/5-post-exploit.md)
+      * [🔬 Windows Post-Exploitation](ejpt/hostnetwork-penetration-testing/5-post-exploit/win-post-exp.md)
+      * [🔬 Linux Post-Exploitation](ejpt/hostnetwork-penetration-testing/5-post-exploit/linux-post-exp.md)
     * [Social Engineering](ejpt/hostnetwork-penetration-testing/6-social-engineer.md)
   * [📒3. Web Application Penetration Testing](ejpt/webapp-penetration-testing/README.md)
     * [Introduction to the Web and HTTP Protocol](ejpt/webapp-penetration-testing/1-webapp-http.md)

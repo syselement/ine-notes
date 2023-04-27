@@ -317,6 +317,10 @@
   - [PayloadsAllTheThings - Windows - Privilege Escalation](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Windows%20-%20Privilege%20Escalation.md)
   - [PayloadsAllTheThings - Linux - Privilege Escalation](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Linux%20-%20Privilege%20Escalation.md)
   - [PEASS-ng](https://github.com/carlospolop/PEASS-ng)
+    - [winPEAS](https://github.com/carlospolop/PEASS-ng/tree/master/winPEAS)
+    - [linPEAS](https://github.com/carlospolop/PEASS-ng/tree/master/linPEAS)
+  - [JAWS - Just Another Windows (Enum) Script](https://github.com/411Hall/JAWS)
+  - [LinEnum - rebootuser](https://github.com/rebootuser/LinEnum)
 
 
 ## Web App PenTesting
