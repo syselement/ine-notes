@@ -310,6 +310,13 @@
   - [Shellter](https://www.shellterproject.com/introducing-shellter/)
   - [Invoke-Obfuscation](https://github.com/danielbohannon/Invoke-Obfuscation) 
 
+## Post Exploitation
+
+- [Post-Exploitation](http://www.pentest-standard.org/index.php/Post_Exploitation)
+  - [Ignitetechnologies/Privilege-Escalation](https://github.com/Ignitetechnologies/Privilege-Escalation)
+  - [PayloadsAllTheThings - Windows - Privilege Escalation](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Windows%20-%20Privilege%20Escalation.md)
+  - [PayloadsAllTheThings - Linux - Privilege Escalation](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Linux%20-%20Privilege%20Escalation.md)
+  - [PEASS-ng](https://github.com/carlospolop/PEASS-ng)
 
 
 ## Web App PenTesting
