@@ -298,10 +298,20 @@
 - [Cross Compile to Win from Linux](https://www.crossmeta.io/mingw32-cross-compile-to-windows-from-linux/)
   - [MinGW-w64](https://www.mingw-w64.org/)
   - [ExploitDB bin-sploits](https://github.com/offensive-security/exploitdb-bin-sploits)
-- [Bind & Reverse Shells - Hacking with Netcat](https://www.hackingtutorials.org/networking/hacking-netcat-part-2-bind-reverse-shells/)
-- [PayloadsAllTheThings - Reverse Shell Cheatsheet](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md)
-- [Reverse Shell Generator](https://www.revshells.com/)
+
+### Shells
+
+- [Shells - HackTricks](https://book.hacktricks.xyz/generic-methodologies-and-resources/shells)
+  - [Bind & Reverse Shells - Hacking with Netcat](https://www.hackingtutorials.org/networking/hacking-netcat-part-2-bind-reverse-shells/)
+  - [PayloadsAllTheThings - Reverse Shell Cheatsheet](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md)
+  - [Reverse Shell Generator](https://www.revshells.com/)
+
+- [Reverse Shells - 0xffsec](https://0xffsec.com/handbook/shells/reverse-shells/)
+  
 - [PowerShell-Empire](https://github.com/BC-SECURITY/Empire)
+
+### Defense Evasion
+
 - [Metasploitable2](https://docs.rapid7.com/metasploit/metasploitable-2/)
 - [Metasploitable3](https://github.com/rapid7/metasploitable3)
 - [What is Defense Evasion - Huntress](https://www.huntress.com/blog/what-is-defense-evasion)
@@ -321,6 +331,15 @@
     - [linPEAS](https://github.com/carlospolop/PEASS-ng/tree/master/linPEAS)
   - [JAWS - Just Another Windows (Enum) Script](https://github.com/411Hall/JAWS)
   - [LinEnum - rebootuser](https://github.com/rebootuser/LinEnum)
+- [Python3 - http.server](https://docs.python.org/3/library/http.server.html)
+- [tmux](https://github.com/tmux/tmux/)
+
+### TTY Shells
+
+- [Full TTY Shells - HackTricks](https://book.hacktricks.xyz/generic-methodologies-and-resources/shells/full-ttys)
+- [Fully Interactive TTYs - 0xffsec](https://0xffsec.com/handbook/shells/full-tty/)
+  - [stty](https://man7.org/linux/man-pages/man1/stty.1.html)
+
 
 
 ## Web App PenTesting
