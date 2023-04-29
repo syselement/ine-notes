@@ -833,7 +833,7 @@ set SESSION 1
 run
 ```
 
-- Successfull maintained access. Once the persistent backdoor is installed, it's going to continue to run (across restarts) as a service and a multi handler listening to a connection will receive a connection from the service.
+- Successful maintained access. Once the persistent backdoor is installed, it's going to continue to run (across restarts) as a service and a multi handler listening to a connection will receive a connection from the service.
 
 ![Metasploit - exploit/windows/local/persistence_service](.gitbook/assets/image-20230419223324328.png)
 

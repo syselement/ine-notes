@@ -340,7 +340,28 @@
 - [Fully Interactive TTYs - 0xffsec](https://0xffsec.com/handbook/shells/full-tty/)
   - [stty](https://man7.org/linux/man-pages/man1/stty.1.html)
 
+### Privilege Escalation
 
+- [PrivescCheck](https://github.com/itm4n/PrivescCheck)
+- [Linux Privilege Escalation Guide(Updated For 2023 - by Rashid-Feroze](https://payatu.com/blog/a-guide-to-linux-privilege-escalation/)
+- [Linux Privilege Escalation using SUID Binaries](https://www.hackingarticles.in/linux-privilege-escalation-using-suid-binaries/)
+  - [FallOfSudo](https://github.com/CyberOne-TeamARES/FallOfSudo)
+
+### Persistence
+
+- [Persistence  - MITRE ATT&CK](https://attack.mitre.org/tactics/TA0003/)
+- [Enabling Remote Desktop - OffSec](https://www.offsec.com/metasploit-unleashed/enabling-remote-desktop/)
+- [SSH Penetration Testing](https://www.hackingarticles.in/ssh-penetration-testing-port-22/)
+- [Scheduled Task/Job - MITRE ATT&CK](https://attack.mitre.org/techniques/T1053/)
+
+### Cracking Hashes
+
+- [John The Ripper](https://github.com/openwall/john)
+- [Hashcat](https://hashcat.net/hashcat/)
+
+### Pivoting
+
+- [Pivoting](https://www.offsec.com/metasploit-unleashed/pivoting/)
 
 ## Web App PenTesting
 

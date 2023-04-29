@@ -168,7 +168,7 @@ cat /etc/passwd
 
 Passwords cannot be viewed because they are **encrypted** and stored in the **`shadow`** file in the `/etc/` directory.
 
-- only `root` account can access `shadow` file
+- 📌 Only `root` account can access `shadow` file
 
 ```bash
 sudo cat /etc/shadow
