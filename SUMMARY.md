@@ -66,6 +66,7 @@
       * [🔬Linux Privilege Escalation](ejpt/hostnetwork-penetration-testing/5-post-exploit/linux-privesc.md)
       * [🔬Linux Persistence](ejpt/hostnetwork-penetration-testing/5-post-exploit/linux-persistence.md)
       * [🔬Cracking Hashes](ejpt/hostnetwork-penetration-testing/5-post-exploit/crack-hashes.md)
+      * [🔬Pivoting](ejpt/hostnetwork-penetration-testing/5-post-exploit/pivoting.md)
     * [Social Engineering](ejpt/hostnetwork-penetration-testing/6-social-engineer.md)
   * [📒3. Web Application Penetration Testing](ejpt/webapp-penetration-testing/README.md)
     * [Introduction to the Web and HTTP Protocol](ejpt/webapp-penetration-testing/1-webapp-http.md)
