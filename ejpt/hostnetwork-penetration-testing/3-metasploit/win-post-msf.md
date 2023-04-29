@@ -1231,7 +1231,9 @@ ipconfig
     IPv6 Netmask : ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
 ```
 
-- Target2 is on the same Target1 subnet - **`10.2.30.0/24`** (look at the Interface 12)
+- Target2 is on the same Target1 subnet - **`	10.2.16.0/20`** (look at the Interface 12)
+  - ` 10.2.16.0/20` = from `10.2.16.1` to ` 10.2.31.254`
+
 
 ### Pivoting
 
@@ -1262,12 +1264,12 @@ run
 
 ![](.gitbook/assets/image-20230420000616301.png)
 
-- 📌 The route is only applicable to `MSFconsole`, not ouside of it
+- 📌 The route is only applicable to `MSFconsole`, not outside of it
 
 #### Port Forwarding
 
 - To perform an `nmap` scan on target2, a port forwarding need to be set up.
-  - **`e.g.`** formward the remote port 80 to an attacker machine local port, which will allow to perform a service version enumeration of the target2 service
+  - **`e.g.`** forward the remote port `80` to an attacker machine local port, which will allow to perform a service version enumeration of the target2 service
 
 ```bash
 sessions 1
