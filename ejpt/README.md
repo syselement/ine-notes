@@ -55,7 +55,7 @@ Activities: 4 sections , 12 courses , 229 videos, 154 quizzes, 120 labs
     - Locate hidden files and directories
     - *Exam Score to pass*: at least **`60%`**
 - *Overall Exam score*: **at least `70%` + above minimum score requirements in each domain section**
-- From a **technical perspective** the exam is set out to simulate a black block penetration test
+- From a **technical perspective** the exam is set out to simulate a black box penetration test
 
   - minimal amount of information about the target network
 
