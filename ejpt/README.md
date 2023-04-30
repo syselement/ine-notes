@@ -1,25 +1,25 @@
 ---
 description: >-
-  eLearnSecurity Junior Penetration Tester v2 (eJPTv2) - a practical certification on
+  eLearnSecurity Junior Penetration Tester (eJPT) - a practical certification on
   penetration testing and information security essentials - training by the INE
   PTSv2 learning path
 ---
 
-# **eJPTv2 Certification**
+# **eJPT Certification**
 
-![eJPTv2 - © eLearnSecurity | INE](.gitbook/assets/eJPTv2-small.png)
+![eJPT - © eLearnSecurity | INE](.gitbook/assets/eJPT-small.png)
 
 ## [PTSv2 Learning Path](https://my.ine.com/CyberSecurity/learning-paths/61f88d91-79ff-4d8f-af68-873883dbbd8c/penetration-testing-student)
 
 - covers pre-requisite topics introducing information security, programming and pentesting.
-- prepares for the eJPTv2 exam & certification.
+- prepares for the eJPT exam & certification.
 - provides the skills and practice to start a pentesting career as an entry-level position.
 
 ### Course duration & Topics
 
 ~ 145 hours (*`~56h of videos`*)
 
-Activities: 4 sections , 12 courses , 229 videos, 154 quizzes, 120 labs
+Activities: **4** sections , **12** courses , **229** videos, **154** quizzes, **120** labs
 
 - [**Assessment Methodologies & Auditing**](assessment-methodologies/README.md) ~ 27 hours (`11h` of videos)
 - [**Host & Network Penetration Testing**](hostnetwork-penetration-testing/README.md) ~ 108 hours (`42h` of videos)
@@ -28,11 +28,11 @@ Activities: 4 sections , 12 courses , 229 videos, 154 quizzes, 120 labs
 ### Useful links
 
 - Where to find the PTSv2 (Penetration Testing Student v2) course? - [INE Learning Paths](https://my.ine.com/learning-paths)
-- Where to find the eJPTv2 certification exam? - [eJPTv2](https://ine.com/learning/certifications/internal/elearnsecurity-junior-penetration-tester-v2)
+- Where to find the eJPT certification exam? - [eJPT](https://ine.com/learning/certifications/internal/elearnsecurity-junior-penetration-tester-cert)
 - As these notes started with my PTS v1 study, I've decided to keep my [**Penetration Testing Prerequisites** notes here](penetration-testing-prerequisites/README.md) based on the (discontinued) PTSv1 course.
 - 🔬 For the **training** part I will use the provided INE Labs Environment (with the `PTSv2 paid course`) and I will link the labs from the [Attack-Defense](https://attackdefense.com/members) platform by PentesterAcademy (`subscription required`)
 
-## [eJPTv2](https://ine.com/learning/certifications/internal/elearnsecurity-junior-penetration-tester-v2) Exam
+## [eJPT](https://ine.com/learning/certifications/internal/elearnsecurity-junior-penetration-tester-cert) Exam
 
 - Time limit: 2 days (**48 hours** lab on)
 - Questions: **35**
@@ -63,6 +63,7 @@ Activities: 4 sections , 12 courses , 229 videos, 154 quizzes, 120 labs
   - a complete unrestricted access to the lab environment for the entire duration of the exam
   - letter of engagement
 - Flexible structure for the user
+- Hands-on, open book
 - **Dynamic flags**: randomly generated flags injected into the lab environment
 - Testing your ability to **find the answer**. How you do it is up to you.
 
