@@ -363,6 +363,17 @@
 
 - [Pivoting](https://www.offsec.com/metasploit-unleashed/pivoting/)
 
+## Social Engineering
+
+- [What is Social Engineering?](https://www.kaspersky.com/resource-center/definitions/what-is-social-engineering)
+- [FBI IC3 Releases 2022 Internet Crime Report](https://octillolaw.com/insights/fbi-ic3-releases-2022-internet-crime-report)
+- [Trendmicro Security 101: Business Email Compromise (BEC) Schemes](https://www.trendmicro.com/vinfo/fr/security/news/cybercrime-and-digital-threats/business-email-compromise-bec-schemes)
+- [CEO Fraud Attacks - KnowBe4](https://www.knowbe4.com/ceo-fraud)
+- [NIST SP 800-115 - Technical Guide to Information Security Testing and Assessment](https://csrc.nist.gov/publications/detail/sp/800-115/final)
+- [Social Engineering Penetration Testing: Attacks, Methods, & Steps - Purplesec.us](https://purplesec.us/social-engineering-penetration-testing/)
+- [Gophish](https://getgophish.com/)
+  - [Creating the Gophish Demo](https://getgophish.com/blog/post/2019-01-04-creating-the-gophish-demo-part-one/)
+
 ## Web App PenTesting
 
 - [OWASP TOP 10](https://owasp.org/www-project-top-ten/)
