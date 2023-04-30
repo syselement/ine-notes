@@ -88,9 +88,9 @@ The purpose of **social engineering in a penetration test** is to *identify weak
 
 ```bash
 # Linux Install
-
 cd /opt/
 
+# Get the latest version link from https://github.com/gophish/gophish/releases/
 sudo wget https://github.com/gophish/gophish/releases/download/v0.12.1/gophish-v0.12.1-linux-64bit.zip
 
 sudo unzip -d gophish gophish-v0.12.1-linux-64bit.zip
