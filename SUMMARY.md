@@ -69,7 +69,7 @@
       * [🔬Pivoting](ejpt/hostnetwork-penetration-testing/5-post-exploit/pivoting.md)
     * [Social Engineering](ejpt/hostnetwork-penetration-testing/6-social-engineer.md)
   * [📒3. Web Application Penetration Testing](ejpt/webapp-penetration-testing/README.md)
-    * [Introduction to the Web and HTTP Protocol](ejpt/webapp-penetration-testing/1-webapp-http.md)
+    * [Intro to Web App Pentesting](ejpt/webapp-penetration-testing/1-webapp-http.md)
   * [🔬Exam Preparation - Labs](ejpt/exam-preparation-labs/README.md)
     * [PTSv1 Prerequisites Labs](ejpt/exam-preparation-labs/p.t.-prerequisites-labs/README.md)
       * [🔬HTTP(S) Traffic Sniffing](ejpt/exam-preparation-labs/p.t.-prerequisites-labs/http-s-traffic-sniffing.md)
@@ -77,12 +77,7 @@
       * [🔬Data Exfiltration](ejpt/exam-preparation-labs/p.t.-prerequisites-labs/data-exfiltration.md)
       * [🔬Burp Suite Basics - Directory Enumeration](ejpt/exam-preparation-labs/p.t.-prerequisites-labs/burp-suite-basics.md)
   * [🌐References](ejpt/references.md)
-  
-  <!---
-  
   * [📜eJPT Cheat Sheet](ejpt/ejpt-cheatsheet.md)
-  
-  --->
 
 
 ***

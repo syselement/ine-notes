@@ -1,12 +1,12 @@
 # 📜eJPT Cheat Sheet
 
-## [Information Gathering](https://my.ine.com/CyberSecurity/courses/454b33b7/assessment-methodologies-information-gathering)
+## [Information Gathering](assessment-methodologies/1-info-gathering.md)
 
 ```bash
 #
 ```
 
-## [Footprinting & Scanning](https://my.ine.com/CyberSecurity/courses/c41f9b11/assessment-methodologies-footprinting-scanning)
+## [Footprinting & Scanning](assessment-methodologies/2-footprint-scan.md)
 
 ```bash
 #
@@ -14,7 +14,7 @@
 
 
 
-## [Enumeration](https://my.ine.com/CyberSecurity/courses/eedd93a0/assessment-methodologies-enumeration)
+## [Enumeration](assessment-methodologies/3-enumeration.md)
 
 ### SMB
 
@@ -48,7 +48,7 @@
 
 
 
-## [Vulnerability Assessment](https://my.ine.com/CyberSecurity/courses/ceb30dd8/assessment-methodologies-vulnerability-assessment)
+## [Vulnerability Assessment](assessment-methodologies/4-va.md)
 
 ```bash
 #
@@ -58,7 +58,7 @@
 
 
 
-## [Host Based Attacks](https://my.ine.com/CyberSecurity/courses/67c3945f/host-network-penetration-testing-systemhost-based-attacks)
+## [Host Based Attacks](hostnetwork-penetration-testing/1-system-attack.md)
 
 ### Windows Exploitation
 
@@ -96,13 +96,13 @@
 #
 ```
 
-## [Network Based Attacks](https://my.ine.com/CyberSecurity/courses/10a889da/host-network-penetration-testing-network-based-attacks)
+## [Network Based Attacks](hostnetwork-penetration-testing/2-network-attack.md)
 
 ```bash
 #
 ```
 
-## [Metasploit](https://my.ine.com/CyberSecurity/courses/06040120/host-network-penetration-testing-the-metasploit-framework-msf)
+## [Metasploit )](hostnetwork-penetration-testing/3-metasploit.md)
 
 ```bash
 service postgresql start && msfconsole -q
@@ -162,7 +162,7 @@ service postgresql start && msfconsole -q
 #
 ```
 
-## [Exploitation](https://my.ine.com/CyberSecurity/courses/d95a1882/host-network-penetration-testing-exploitation)
+## [Exploitation](hostnetwork-penetration-testing/4-exploitation.md)
 
 ### Vulnerability Scanning
 
@@ -206,7 +206,7 @@ service postgresql start && msfconsole -q
 #
 ```
 
-## [Post-Exploitation](https://my.ine.com/CyberSecurity/courses/4350487c/host-network-penetration-testing-post-exploitation)
+## [Post-Exploitation](hostnetwork-penetration-testing/5-post-exploit.md)
 
 ### Win Local Enumeration
 
@@ -274,7 +274,7 @@ service postgresql start && msfconsole -q
 #
 ```
 
-## [Social Engineering](https://my.ine.com/CyberSecurity/courses/7c434ff4/host-network-penetration-testing-social-engineering)
+## [Social Engineering](hostnetwork-penetration-testing/6-social-engineer.md)
 
 ```bash
 #
@@ -282,7 +282,7 @@ service postgresql start && msfconsole -q
 
 
 
-## [Web Application Penetration Testing](https://my.ine.com/CyberSecurity/courses/ec4e1013/web-application-penetration-testing-introduction-to-the-web-and-http-protocol)
+## [Web Application Penetration Testing](webapp-penetration-testing/1-webapp-http.md)
 
 ```bash
 #

@@ -2,7 +2,7 @@
 
 ### Topics
 
-* [Introduction to the Web and HTTP Protocol](1-webapp-http.md)
+* [Intro to Web App Pentesting](1-webapp-http.md)
 
 > ### ❗ Disclaimer
 >

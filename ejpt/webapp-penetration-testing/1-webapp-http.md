@@ -1,4 +1,4 @@
-# Web Application Penetration Testing
+# Intro to Web App Pentesting
 
 > #### ⚡ Prerequisites
 >
