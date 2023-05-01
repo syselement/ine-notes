@@ -102,7 +102,7 @@
 #
 ```
 
-## [Metasploit )](hostnetwork-penetration-testing/3-metasploit.md)
+## [Metasploit](hostnetwork-penetration-testing/3-metasploit.md)
 
 ```bash
 service postgresql start && msfconsole -q
