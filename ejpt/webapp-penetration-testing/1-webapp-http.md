@@ -149,7 +149,7 @@ sudo apt update && sudo apt install -y zaproxy
 sudo apt update && sudo apt install -y nikto
 ```
 
-> 🔬 Check [HTTP Web App Scanning lab](1-webapp-http/webapp-scan.md) covering Web Apps scanning techniques
+> 🔬 Check [HTTP Web App Scanning lab](1-webapp-http/webapp-sca) covering Web Apps scanning techniques
 >
 
 ## Attacks
