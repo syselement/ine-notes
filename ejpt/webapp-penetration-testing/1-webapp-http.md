@@ -129,7 +129,7 @@ go install github.com/OJ/gobuster/v3@latest
 sudo apt update && sudo apt install -y burpsuite
 ```
 
-> 🔬 Check [HTTP Web App Enumeration lab](1-webapp-http/method-enum.md) covering HTTP Method and Directory Enumeration Techniques
+> 🔬 Check [HTTP Web App Enumeration lab](1-webapp-http/http-enum.md) covering HTTP Method and Directory Enumeration Techniques
 
 ### Scanning WebApp - [ZAProxy](https://www.zaproxy.org/)
 
@@ -149,7 +149,7 @@ sudo apt update && sudo apt install -y zaproxy
 sudo apt update && sudo apt install -y nikto
 ```
 
-> 🔬 Check [HTTP Web App Scanning lab](1-webapp-http/webapp-sca) covering Web Apps scanning techniques
+> 🔬 Check [HTTP Web App Scanning lab](1-webapp-http/webapp-scan.md) covering Web Apps scanning techniques
 >
 
 ## Attacks
