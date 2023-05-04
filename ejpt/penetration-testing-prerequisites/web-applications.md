@@ -13,7 +13,7 @@
 > * Ability to _exploit_ web applications and find _vulnerabilities_ in web servers and services
 > * Web app technology is used market-wide also by desktop and mobile apps
 
-**`HTTP`** (**H**ypertext **T**ransfer **P**rotocol) is one of the most used application protocol on the Internet, built on top of TCP.
+**`HTTP`** (**H**yper**T**ext **T**ransfer **P**rotocol) is one of the most used application protocol on the Internet, built on top of TCP.
 
 * It is the **client-server protocol** used to transfer web pages and web application data.
 * Is is a **stateless** protocol.
@@ -53,7 +53,7 @@
     Accept-Encoding: gzip, deflate
     Accept-Language: en-US,en;q=0.9
     Connection: close
-
+    
     (body)
     ```
 
@@ -111,7 +111,7 @@ Connection: close
 | **500** Internal Server Error | the server encountered an unexpected condition that prevented it from fulfilling the request (_**Server Error codes 5xx**_)                                                      |
 |      **502** Bad Gateway      | the server, while acting as a gateway or proxy, received an invalid response from an inbound server it accessed while attempting to fulfill the request (Server Error codes 5xx) |
 
-> 📌 For more in depth info refer to [RFC 7321 - Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content](https://httpwg.org/specs/rfc7231.html)
+> 📌 For more in depth info refer to [RFC 9110 - HTTP Semantics](https://httpwg.org/specs/rfc9110.html)
 
 ## HTTPS Protocol Basics
 

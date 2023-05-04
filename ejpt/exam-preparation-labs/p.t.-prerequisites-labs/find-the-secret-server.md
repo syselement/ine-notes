@@ -63,7 +63,9 @@ _Objective_: Configure the routes on the Kali machine to reach all the hosts in 
     10.175.34.0/24 dev eth1 proto kernel scope link src 10.175.34.140 
     172.16.88.0/24 via 10.175.34.1 dev eth1 
     192.168.241.0/24 via 10.175.34.1 dev eth1 
+    
     └─# ip route add 192.168.222.0/24 via 10.175.34.1 dev eth1
+    
     └─# route           
     Kernel IP routing table
     Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
@@ -73,6 +75,7 @@ _Objective_: Configure the routes on the Kali machine to reach all the hosts in 
     172.16.88.0     10.175.34.1     255.255.255.0   UG    0      0        0 eth1
     192.168.222.0   10.175.34.1     255.255.255.0   UG    0      0        0 eth1
     192.168.241.0   10.175.34.1     255.255.255.0   UG    0      0        0 eth1
+    
     └─# ping 192.168.222.199                                  
     PING 192.168.222.199 (192.168.222.199) 56(84) bytes of data.
     64 bytes from 192.168.222.199: icmp_seq=1 ttl=63 time=1.70 ms

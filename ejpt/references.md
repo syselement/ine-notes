@@ -146,7 +146,6 @@
     - [curl](https://curl.se/)
     - [whatweb](https://github.com/urbanadventurer/WhatWeb)
   - [What is MySQL?](https://dev.mysql.com/doc/refman/8.0/en/what-is-mysql.html)
-  
     - [MySQL Enum](https://www.hackingarticles.in/mysql-penetration-testing-nmap/)
     - [mysql](https://dev.mysql.com/doc/refman/8.0/en/mysql.html)
 
@@ -377,4 +376,35 @@
 ## Web App PenTesting
 
 - [OWASP TOP 10](https://owasp.org/www-project-top-ten/)
+  - [SQL Injection - OWASP](https://owasp.org/www-community/attacks/SQL_Injection)
+    - [What is a SQLi? - PortSwigger](https://portswigger.net/web-security/sql-injection)
+    - [SQLi CheatSheet - PortSwigger](https://portswigger.net/web-security/sql-injection/cheat-sheet)
+  - [XSS - OWASP](https://owasp.org/www-community/attacks/xss/#)
+    - [How does XSS Work? - PortSwigger](https://portswigger.net/web-security/cross-site-scripting)
+    - [XSS Cheatsheet - PortSwigger](https://portswigger.net/web-security/cross-site-scripting/cheat-sheet)
+- [PortSwigger Web Security Academy](https://portswigger.net/web-security/learning-path)
+- [HTTP Protocol](https://developer.mozilla.org/en-US/docs/Web/HTTP)
+  - [RFC 9110 - HTTP Semantics](https://httpwg.org/specs/rfc9110.html)
+
+### Vulnerable Web Apps
+
+- [bWAPP](http://www.itsecgames.com/)
+  - [Setting Up OWASP bWAPP With Docker - HackerSploit](https://www.youtube.com/watch?v=XMJuNRgPo-0)
+
+- [OWASP Juice Shop](https://github.com/juice-shop/juice-shop)
+- [Damn Vulnerable Web Application (DVWA)](https://github.com/digininja/DVWA)
+- [Mutillidae II](https://github.com/webpwnized/mutillidae)
+
+### Tools
+
+- [Gobuster](https://github.com/OJ/gobuster)
+- [ffuf](https://github.com/ffuf/ffuf)
+- [Burp Suite by PortSwigger](https://portswigger.net/burp)
+- [ZAProxy](https://www.zaproxy.org/)
+- [Nikto](https://github.com/sullo/nikto)
+- [SQLMap](https://sqlmap.org/)
+  - [SQLMap Cheatsheet](https://book.hacktricks.xyz/pentesting-web/sql-injection/sqlmap)
+- [XSSer](https://github.com/epsylon/xsser)
+
+------
 

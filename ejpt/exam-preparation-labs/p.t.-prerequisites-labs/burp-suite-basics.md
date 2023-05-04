@@ -15,61 +15,67 @@ _**Tools**_ used:
 * A web browser
 * Wordlist: `/usr/share/wordlists/dirb/common.txt`
 
-## SOLUTION
-
 * Check if the provided machine is reachable:
-  * **`ping demo.ine.local`**
+
+```bash
+ping demo.ine.local
+```
+
 * Scan for open ports:
-  * **`nmap demo.ine.local`**
+
+```bash
+nmap demo.ine.local
+```
 
 ![](.gitbook/assets/image-20220505162748923.png)
 
 *   For a more advanced scan:
 
-    * **`nmap -sC -sV demo.ine.local`**
+```bash
+nmap -sC -sV demo.ine.local
+```
 
-    ```shell
-    root@INE:~# nmap -sC -sV demo.ine.local
-    Starting Nmap 7.92 ( https://nmap.org ) at 2022-05-05 19:55 IST
-    Nmap scan report for demo.ine.local (192.79.113.3)
-    Host is up (0.0000080s latency).
-    Not shown: 998 closed tcp ports (reset)
-    PORT     STATE SERVICE VERSION
-    80/tcp   open  http    Apache httpd 2.4.7 ((Ubuntu))
-    | http-git: 
-    |   192.79.113.3:80/.git/
-    |     Git repository found!
-    |     Repository description: Unnamed repository; edit this file 'description' to name the...
-    |     Remotes:
-    |_      https://github.com/fermayo/hello-world-lamp.git
-    | http-cookie-flags: 
-    |   /: 
-    |     PHPSESSID: 
-    |_      httponly flag not set
-    | http-robots.txt: 5 disallowed entries 
-    |_/ /admin/ /documents/ /images/ /passwords/
-    | http-title: bWAPP - Login
-    |_Requested resource was login.php
-    |_http-server-header: Apache/2.4.7 (Ubuntu)
-    3306/tcp open  mysql   MySQL 5.5.47-0ubuntu0.14.04.1
-    | mysql-info: 
-    |   Protocol: 10
-    |   Version: 5.5.47-0ubuntu0.14.04.1
-    |   Thread ID: 10
-    |   Capabilities flags: 63487
-    |   Some Capabilities: ODBCClient, InteractiveClient, IgnoreSigpipes, SupportsCompression, DontAllowDatabaseTableColumn, LongColumnFlag, ConnectWithDatabase, Speaks41ProtocolOld, SupportsTransactions, FoundRows, LongPassword, SupportsLoadDataLocal, Support41Auth, Speaks41ProtocolNew, IgnoreSpaceBeforeParenthesis, SupportsMultipleStatments, SupportsMultipleResults, SupportsAuthPlugins
-    |   Status: Autocommit
-    |   Salt: AsA)Gjb.[aT`hhRB4|54
-    |_  Auth Plugin Name: mysql_native_password
-    MAC Address: 02:42:C0:4F:71:03 (Unknown)
-    
-    Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
-    Nmap done: 1 IP address (1 host up) scanned in 6.74 seconds
-    ```
+```bash
+Starting Nmap 7.92 ( https://nmap.org ) at 2022-05-05 19:55 IST
+Nmap scan report for demo.ine.local (192.79.113.3)
+Host is up (0.0000080s latency).
+Not shown: 998 closed tcp ports (reset)
+PORT     STATE SERVICE VERSION
+80/tcp   open  http    Apache httpd 2.4.7 ((Ubuntu))
+| http-git: 
+|   192.79.113.3:80/.git/
+|     Git repository found!
+|     Repository description: Unnamed repository; edit this file 'description' to name the...
+|     Remotes:
+|_      https://github.com/fermayo/hello-world-lamp.git
+| http-cookie-flags: 
+|   /: 
+|     PHPSESSID: 
+|_      httponly flag not set
+| http-robots.txt: 5 disallowed entries 
+|_/ /admin/ /documents/ /images/ /passwords/
+| http-title: bWAPP - Login
+|_Requested resource was login.php
+|_http-server-header: Apache/2.4.7 (Ubuntu)
+3306/tcp open  mysql   MySQL 5.5.47-0ubuntu0.14.04.1
+| mysql-info: 
+|   Protocol: 10
+|   Version: 5.5.47-0ubuntu0.14.04.1
+|   Thread ID: 10
+|   Capabilities flags: 63487
+|   Some Capabilities: ODBCClient, InteractiveClient, IgnoreSigpipes, SupportsCompression, DontAllowDatabaseTableColumn, LongColumnFlag, ConnectWithDatabase, Speaks41ProtocolOld, SupportsTransactions, FoundRows, LongPassword, SupportsLoadDataLocal, Support41Auth, Speaks41ProtocolNew, IgnoreSpaceBeforeParenthesis, SupportsMultipleStatments, SupportsMultipleResults, SupportsAuthPlugins
+|   Status: Autocommit
+|   Salt: AsA)Gjb.[aT`hhRB4|54
+|_  Auth Plugin Name: mysql_native_password
+MAC Address: 02:42:C0:4F:71:03 (Unknown)
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 6.74 seconds
+```
 
 Ports **80** (HTTP) and **3306** (MySQL) are open.
 
-### Burp Proxy
+## Burp Proxy
 
 * Start BurpSuite via the GUI or via terminal (`burpsuite`) and create a temporary project with default configurations.
 * Configure Proxy listener inside **Proxy - Options** window.
@@ -105,7 +111,7 @@ Ports **80** (HTTP) and **3306** (MySQL) are open.
 
 ![](.gitbook/assets/image-20220505165607729.png)
 
-### Burp Target
+## Burp Target
 
 > 📕 _The_ [_site map_](https://portswigger.net/burp/documentation/desktop/tools/target/site-map) _aggregates all of the information that Burp has gathered about applications. You can filter and annotate this information to help manage it, and also use the site map to drive your testing workflow._
 
@@ -125,7 +131,7 @@ Ports **80** (HTTP) and **3306** (MySQL) are open.
 
 * _Out-of-scope Proxy traffic is disabled_, so URLs with different prefix than the target are not logged in the HTTP history.
 
-### Burp Intruder
+## Burp Intruder
 
 * Burp intruder can be configured to launch a _**Directory Enumeration** attack_.
   * Right click a request in the HTTP history tab and send it to the Intruder (**`CTRL+I`**).
@@ -174,7 +180,7 @@ Ports **80** (HTTP) and **3306** (MySQL) are open.
 
 ![](.gitbook/assets/image-20220505174322498.png)
 
-### Burp Repeater
+## Burp Repeater
 
 * Select the `/passwords` Payload and send it to the Repeater (**`CTRL+R`**) for tampering with the request.
   * Meanwhile, Intruder attack can be stopped by closing its window.
