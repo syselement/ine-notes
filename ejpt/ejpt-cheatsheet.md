@@ -1,5 +1,61 @@
 # 📜eJPT Cheat Sheet
 
+## [Networking](penetration-testing-prerequisites/networking.md)
+
+```bash
+# Routing
+# Linux
+ip route
+
+# Windows
+route print
+
+# Mac OS X / Linux
+netstat -r
+```
+
+```bash
+# IP
+# Linux
+ip a
+ip -br -c a
+
+# Windows
+ipconfig /all
+
+# Mac OS X / Linux
+ifconfig
+```
+
+```bash
+# ARP
+# Linux
+ip neighbour
+
+# Windows
+arp -a
+
+# Mac OS X / Linux
+arp
+```
+
+```bash
+# PORTS
+# Linux
+netstat -tunp
+netstat -tulpn
+ss -tnl
+
+# Windows
+netstat -ano
+
+# Mac OS X / Linux
+netstat -p tcp -p udp
+lsof -n -i4TCP -i4UDP
+```
+
+
+
 ## [Information Gathering](assessment-methodologies/1-info-gathering.md)
 
 ```bash

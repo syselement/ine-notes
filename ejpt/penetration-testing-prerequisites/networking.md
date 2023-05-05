@@ -385,11 +385,11 @@ To **`forward a packet`**, the switch:
 
 > 💻 Check _listening ports_ and TCP connections on a host with the commands below:
 
-|                                                          Command                                                         | Operating System |
-| :----------------------------------------------------------------------------------------------------------------------: | :--------------: |
-| <p><strong><code>netstat -tunp</code></strong><br><strong><code>netstat -tulpn</code></strong> (listening ports too)</p> |       Linux      |
-|                                                    **`netstat -ano`**                                                    |      Windows     |
-|     <p><strong><code>netstat -p tcp -p udp</code></strong><br><strong><code>lsof -n -i4TCP -i4UDP</code></strong></p>    | \*nix / Mac OS X |
+|                           Command                            | Operating System |
+| :----------------------------------------------------------: | :--------------: |
+| <p><strong><code>netstat -tunp</code></strong><br><strong><code>netstat -tulpn</code></strong> (listening ports too)<br><strong><code>ss -tnl</code></strong></p> |      Linux       |
+|                      **`netstat -ano`**                      |     Windows      |
+| <p><strong><code>netstat -p tcp -p udp</code></strong><br><strong><code>lsof -n -i4TCP -i4UDP</code></strong></p> | \*nix / Mac OS X |
 
  _Linux_
 
