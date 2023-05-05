@@ -105,7 +105,7 @@ fping -I eth1 -g 192.168.31.0/24 -a
 * Launch `fping` without "Host Unreachable" errors
 
 ```bash
-fping -I eth1 -g 192.168.31.0/24 -a fping -I eth1 -g 192.168.31.0/24 -a 2>/dev/null
+fping -I eth1 -g 192.168.31.0/24 -a 2>/dev/null
 ```
 
 ![](.gitbook/assets/image-20230210214856675.png)

@@ -99,7 +99,7 @@ nmap -sV --script ssl-heartbleed -p 443 <TARGET>
 - Specific [nmap smb-vuln-ms17-010](https://nmap.org/nsedoc/scripts/smb-vuln-ms17-010.html) script
 
 ```bash
-nmap --script smb-vuln-ms17-010 -p445 <TARGET>
+nmap --script smb-vuln-ms17-010 -p 445 <TARGET>
 ```
 
 ![exploit-db.com - EternalBlue](.gitbook/assets/image-20230224192544226.png)

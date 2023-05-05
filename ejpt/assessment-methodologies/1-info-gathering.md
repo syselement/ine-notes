@@ -911,7 +911,7 @@ PORT      STATE SERVICE
 nmap -Pn -p- <TARGET_IP>
 ```
 
-> **`-p- <PORTS_LIST>`** - Scan a specific or more TCP **ports**:
+> **`-p <PORTS_LIST>`** - Scan a specific or more TCP **ports**:
 
 * if a port state is **filtered** it means the port is _blocked by a firewall_ or _closed_
 

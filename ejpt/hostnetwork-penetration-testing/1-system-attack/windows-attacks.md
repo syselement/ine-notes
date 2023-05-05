@@ -161,8 +161,8 @@ crackmapexec [OPTIONS]
 
 > [**`evil-winrm`**](https://www.kali.org/tools/evil-winrm/) - a Ruby script used to optain a command shell session on a target system
 
-```
- evil-winrm -i <IP> -u <USER> -p <PASSWORD>
+```bash
+evil-winrm -i <IP> -u <USER> -p <PASSWORD>
 ```
 
 ![evil-winrm](.gitbook/assets/image-20230314233819794.png)

