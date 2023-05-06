@@ -300,7 +300,7 @@ back
 #### CVE Exploits Example
 
 ```bash
-search cve:2017 type:exploit platform:window
+search cve:2017 type:exploit platform:windows
 ```
 
 ![search cve:2017 type:exploit platform:window](.gitbook/assets/image-20230412175150747.png)

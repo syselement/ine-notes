@@ -64,7 +64,7 @@ getuid
 
 ```bash
 help
-# Check Windows Mterpreter commands
+# Check Windows Meterpreter commands
 ```
 
 ```bash

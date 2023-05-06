@@ -195,6 +195,7 @@ background
 
 ```bash
 sessions
+# In msfconsole
 ```
 
 ```bash
