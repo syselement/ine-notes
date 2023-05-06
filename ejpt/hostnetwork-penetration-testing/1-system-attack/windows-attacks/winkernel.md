@@ -205,7 +205,7 @@ wget https://raw.githubusercontent.com/AonCyberLabs/Windows-Exploit-Suggester/f3
 # ^^ This is a python3 version of the script
 
 cd Windows-Exploit-Suggester
-python2 ./windows-exploit-suggester.py --update
+python ./windows-exploit-suggester.py --update
     [*] initiating winsploit version 3.3...
     [+] writing to file 2023-03-15-mssb.xls
     [*] done
