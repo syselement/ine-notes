@@ -1125,7 +1125,7 @@ sessions -n xoda -i 1
 sessions -C sysinfo -i 1
 # Terminate a specific session
 sessions -k 1
-# Terminat all sessions
+# Terminate all sessions
 sessions -K
 # Upgrade a shell session to a Meterpreter session
 sessions -u 1
