@@ -33,7 +33,7 @@ Before any type engangement the **purpose** of a pentest must be defined and neg
 
 * physical security - access controls, camera, guards
 * **`OSINT`** (**O**pen **S**ource **Int**elligence) - DNS records, websites, public IP addresses
-* **`Social Engineering`** - _psychological manipulation of people into performing security mistakes or giving awas sensitive information_
+* **`Social Engineering`** - _psychological manipulation of people into performing security mistakes or giving away sensitive information_
 * **`sniffing`** - (once connected) sniff network traffic through passive reconnaissance and packet capturing
   * collect IP address and MAC addresses for further enumeration
 * [**`ARP`**](../penetration-testing-prerequisites/networking.md#arp) (**A**ddress **R**esolution **P**rotocol) - take advantage of the ARP table and broadcast communications
