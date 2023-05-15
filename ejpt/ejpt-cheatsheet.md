@@ -286,7 +286,6 @@ exploit
 sudo nmap -p 21 -sV -sC -O <TARGET_IP>
 nmap -p 21 -sV -O <TARGET_IP>
 
-nmap -p 21 --script ftp-brute --script-args userdb=<USERS_LIST> <TARGET_IP>
 nmap -p 21 --script ftp-anon <TARGET_IP>
 nmap -p 21 --script ftp-brute --script-args userdb=<USERS_LIST> <TARGET_IP>
 ```
@@ -2533,6 +2532,19 @@ python -c 'import pty; pty.spawn("/bin/bash")'
 # Background (CTRL+Z) the current remote shell
 stty raw -echo && fg
 # Reinitialize the terminal with reset
+reset
+```
+
+```bash
+# FULL TTY PYTHON3 SHELL
+python3 -c 'import pty; pty.spawn("/bin/bash")'
+# Background CTRL+Z
+stty raw -echo && fg
+# ENTER
+export SHELL=/bin/bash
+export TERM=screen
+stty rows 36 columns 157
+# stty -a to get the rows & columns of the attacker terminal
 reset
 ```
 
