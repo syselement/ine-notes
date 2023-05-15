@@ -36,7 +36,7 @@
 
 🗒️ [**Active information gathering**](1-info-gathering.md#active-information-gathering) involves _obtaining as much information as possible by actively engaging with the target_.
 
-> ❗_**An authorization is required to conduct active information gathering.**_
+> ❗***An authorization is required to conduct active information gathering.***
 
 * The target will be aware of the attacker's engagement.
 * `E.g.` - Website: perform a port scan of the webserver IP address (found with passive info gathering) using **`nmap`** tool to identify the open ports and running services. Identify exploitable vulnerabilities on those services and consequently access the web server.
