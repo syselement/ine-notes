@@ -2739,6 +2739,12 @@ docker run -ti -p 3333:3333 --rm gophish/demo
 # Gobuster - Install
 sudo apt update && sudo apt install -y gobuster
 
+# Dirbuster - Install
+sudo apt update && sudo apt install -y dirb
+
+# Nikto - Install
+sudo apt update && sudo apt install -y nikto
+
 # BurpSuite - Install
 sudo apt update && sudo apt install -y burpsuite
 
@@ -2747,6 +2753,9 @@ sudo apt update && sudo apt install -y sqlmap
 
 # XSSer - Install
 sudo apt update && sudo apt install -y xsser
+
+# Hydra - Install
+sudo apt update && sudo apt install -y hydra
 ```
 
 ### Enumeration & Scanning
