@@ -152,8 +152,12 @@ nmap -Pn -F -A <TARGET_IP>
 ## Timing (T0=slow ... T5=insanely fast) scan
 nmap -Pn -F -T5 -sV -O -sC <TARGET_IP> -v
 ## Output scan
-nmap -Pn -F <TARGET_IP> -oN outputfile.txt
-nmap -Pn -F <TARGET_IP> -oX outputfile.xml
+nmap -Pn -F -oN outputfile.txt <TARGET_IP> 
+nmap -Pn -F -oX outputfile.xml <TARGET_IP> 
+## Output to all formats
+nmap -Pn -sV -sC -O -oA outputfile <TARGET_IP>
+nmap -Pn -sV -sC -O -oA outputfile <TARGET_IP>
+nmap -A -oA outputfile <TARGET_IP>
 ```
 
 ## [Footprinting & Scanning](assessment-methodologies/2-footprint-scan.md)
