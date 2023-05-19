@@ -2690,6 +2690,7 @@ run
 portfwd add -l <LOCAL_PORT> -p <TARGET_PORT> -r <TARGET_IP>
 
 db_nmap -sS -sV -p <LOCAL_PORT> localhost
+
 ```
 
 ### Clearing Tracks
