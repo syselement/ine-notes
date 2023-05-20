@@ -11,9 +11,9 @@ description: >-
 
 ## [PTSv2 Learning Path](https://my.ine.com/CyberSecurity/learning-paths/61f88d91-79ff-4d8f-af68-873883dbbd8c/penetration-testing-student)
 
-- covers pre-requisite topics introducing information security, programming and pentesting.
-- prepares for the eJPT exam & certification.
-- provides the skills and practice to start a pentesting career as an entry-level position.
+- covers pre-requisite topics introducing information security, programming and pentesting
+- prepares for the eJPT exam & certification
+- provides the skills and practice to start a pentesting career as an entry-level position
 
 ### Course duration & Topics
 
@@ -36,7 +36,7 @@ Activities: **4** sections , **12** courses , **229** videos, **154** quizzes, *
 
 - Time limit: 2 days (**48 hours** lab on)
 - Questions: **35**
-- Expiration date: yes
+- Expiration date: yes (3 years)
 - Objectives:
   - **Assessment Methodologies Domain (25% of exam):**
     - Evaluate information and criticality or impact of vulnerabilities

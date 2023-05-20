@@ -80,7 +80,7 @@
       * [🔬Data Exfiltration](ejpt/exam-preparation-labs/p.t.-prerequisites-labs/data-exfiltration.md)
       * [🔬Burp Suite Basics - Directory Enumeration](ejpt/exam-preparation-labs/p.t.-prerequisites-labs/burp-suite-basics.md)
     * [PTSv2 Practice Labs](ejpt/exam-preparation-labs/pts2-labs.md)
-  * [🌐References](ejpt/references.md)
+  * [🌐References](ejpt/ejpt-references.md)
   * [📜eJPT Cheat Sheet](ejpt/ejpt-cheatsheet.md)
 
 
