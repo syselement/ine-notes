@@ -5,7 +5,7 @@ description: >-
   PTSv2 learning path
 ---
 
-# **eJPT Certification**
+# eJPT - PTSv2
 
 ![eJPT - © eLearnSecurity | INE](.gitbook/assets/eJPT-small.png)
 
