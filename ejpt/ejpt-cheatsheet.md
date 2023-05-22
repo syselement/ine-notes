@@ -2757,6 +2757,9 @@ sudo apt update && sudo apt install -y sqlmap
 # XSSer - Install
 sudo apt update && sudo apt install -y xsser
 
+# WPScan - Install
+sudo apt update && sudo apt install -y wpscan
+
 # Hydra - Install
 sudo apt update && sudo apt install -y hydra
 ```

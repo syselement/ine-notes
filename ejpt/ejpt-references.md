@@ -345,6 +345,7 @@
 - [Linux Privilege Escalation Guide(Updated For 2023 - by Rashid-Feroze](https://payatu.com/blog/a-guide-to-linux-privilege-escalation/)
 - [Linux Privilege Escalation using SUID Binaries](https://www.hackingarticles.in/linux-privilege-escalation-using-suid-binaries/)
   - [FallOfSudo](https://github.com/CyberOne-TeamARES/FallOfSudo)
+  - [GTFOBins](https://gtfobins.github.io/)
 
 ### Persistence
 
@@ -405,6 +406,7 @@
 - [SQLMap](https://sqlmap.org/)
   - [SQLMap Cheatsheet](https://book.hacktricks.xyz/pentesting-web/sql-injection/sqlmap)
 - [XSSer](https://github.com/epsylon/xsser)
+- [WPScan](https://github.com/wpscanteam/wpscan)
 
 ------
 

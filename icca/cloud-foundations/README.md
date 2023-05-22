@@ -2,6 +2,6 @@
 
 ### Topics
 
-* 
+* [Cloud Management, Services and Providers](cloud-foundations.md)
 
 ***
