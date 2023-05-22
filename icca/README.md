@@ -3,7 +3,7 @@ description: >-
   INE Certified Cloud Associate (ICCA)
 ---
 
-# **ICCA Certification**
+# ☁️ICCA Certification
 
 ![ICCA - © INE](.gitbook/assets/ICCA-badge-small.png)
 
