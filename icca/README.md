@@ -3,11 +3,11 @@ description: >-
   INE Certified Cloud Associate (ICCA)
 ---
 
-# ☁️ICCA Certification
+# ICCA
 
 ![ICCA - © INE](.gitbook/assets/ICCA-badge-small.png)
 
-## [ICCA - Cloud Foundations & Management Learning Path](https://my.ine.com/Cloud/learning-paths/d9eeb38f-d936-42ca-993b-8e33fdd750e6/cloud-foundations-management-icca)
+## [☁️ ICCA - Cloud Foundations & Management Learning Path](https://my.ine.com/Cloud/learning-paths/d9eeb38f-d936-42ca-993b-8e33fdd750e6/cloud-foundations-management-icca)
 
 - covers understanding of cloud technologies
 - provides the essential cloud skills for managing cloud platforms (AWS, Azure, Google Cloud)
