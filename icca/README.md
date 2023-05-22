@@ -45,7 +45,6 @@ Instructor: [Tracy Wallace](https://twitter.com/TracyWallaceTec)
   - Describe cloud "Platform as a Service (PaaS)" and "Infrastructure as a Service (IaaS)"
   - Identify cloud monitoring and automation features, identity vulnerabilities and protection tools
 - In browser hands-on Cloud Lab, open book
-- ***Voucher expires Nov 16, 2023***
 
 ------
 
