@@ -306,6 +306,7 @@
   - [Reverse Shell Generator](https://www.revshells.com/)
 
 - [Reverse Shells - 0xffsec](https://0xffsec.com/handbook/shells/reverse-shells/)
+  - [Reverse-shell via Windows one-liner](https://www.hackingarticles.in/get-reverse-shell-via-windows-one-liner/)
   
 - [PowerShell-Empire](https://github.com/BC-SECURITY/Empire)
 
