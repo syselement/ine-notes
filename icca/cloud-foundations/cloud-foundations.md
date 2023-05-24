@@ -91,14 +91,38 @@ Cloud services can be accessed through the Internet or via a private VPN Connect
 #### [Amazon Web Services (AWS)](https://aws.amazon.com/what-is-aws/)
 
 - **AWS** is a leading cloud computing platform with a market share of around 33% (Q1 2022). It operates in 31 geographic launched regions, has over 200 services, and serves diverse industries. It offers job opportunities and certifications in AWS skills and is widely adopted by [companies](https://www.mytechmag.com/companies-that-use-aws/) like Airbnb, Kellogg’s, Netflix, McDonald's, The Guardian, etc.
+  - [EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html) (Elastic Compute) instance - virtual machines
+  - [S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) (Simple Storage Service) bucket - cloud storage space
+
+
+![AWS Home](.gitbook/assets/image-20230524142532754.png)
+
+![EC2 Instance](.gitbook/assets/image-20230524144115528.png)
+
+![S3 Bucket](.gitbook/assets/image-20230524144324268.png)
 
 #### [Microsoft Azure](https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-azure/)
 
 - **Azure** is a cloud computing platform with a worldwide presence (over 60 regions) and more than 600 services. Azure serves diverse industries and is used by notable [organizations](https://www.cisin.com/coffee-break/enterprise/who-are-biggest-customers-of-the-microsoft-azure-platform.html) such as eBay, BMW and Walmart. It offers certifications for professionals in Azure technologies.
+  - [Virtual Machines](https://learn.microsoft.com/en-us/azure/virtual-machines/)
+  - [Storage Account](https://learn.microsoft.com/en-us/azure/storage/)
+
+
+![Azure Services](.gitbook/assets/image-20230524150619515.png)
+
+![Azure Resources](.gitbook/assets/image-20230524152304131.png)
 
 #### [Google Cloud Platform (GCP)](https://cloud.google.com/docs/overview/)
 
 - **GCP** is a major cloud provider with a global infrastructure spanning over 70 zones and 20 regions, serving diverse industries and notable [customers](https://cloud.google.com/customers) such as Twitter and PayPal. In Q1 2021, Google Cloud reported revenue of $4.05 billion. GCP is known for its data analytics and machine learning capabilities and emphasizes sustainability. Certifications are available for professionals in GCP technologies.
+  - Compute Engine API - for virtual machines
+  - Cloud Storage Buckets
+  - Cloud Run - containerized applications
+
+
+![Google Cloud Console](.gitbook/assets/image-20230524155415333.png)
+
+![Google Cloud Compute Engine](.gitbook/assets/image-20230524155740987.png)
 
 ### Why Cloud
 
@@ -139,10 +163,10 @@ The key advantages of choosing cloud computing are:
 ### Tools
 
 - **Web based** cloud management tools
-
-  - [Azure Portal](https://portal.azure.com)
   - [AWS Console](https://console.aws.amazon.com/)
+  - [Azure Portal](https://portal.azure.com)
   - [GCP Console](https://console.cloud.google.com/)
+  
 - Command line interface (**CLI**) and Powershell CLI
   - [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
     - [PowerShell](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-getting-set-up.html)
@@ -151,6 +175,9 @@ The key advantages of choosing cloud computing are:
   - [Google Cloud SDK](https://cloud.google.com/sdk)
     - [Cloud Tools for PowerShell](https://cloud.google.com/tools/powershell/docs/quickstart)
   - Cloud shell ([AWS](https://docs.aws.amazon.com/cloudshell/latest/userguide/welcome.html), [Azure](https://learn.microsoft.com/en-us/azure/cloud-shell/overview), [GCP](https://cloud.google.com/shell))
+
+![AWS CloudShell](.gitbook/assets/image-20230524144600467.png)
+
 - [REST API](https://restfulapi.net/) - an **API** (Application Programming Interface) that conforms to the constraints of **REST** (Representational State Transfer) architectural style, allowing interaction with RESTful web services.
   - the cloud can be integrated into third parties management tools
   - [Google Cloud APIs](https://cloud.google.com/apis)
