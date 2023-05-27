@@ -34,3 +34,4 @@
 - [A Comparison of AWS vs Azure vs Google - VMware Blogs](https://blogs.vmware.com/cloudhealth/aws-vs-azure-vs-google/)
 - [Serverless Computing on AWS, Azure, and Google Cloud](https://www.ml4devs.com/articles/serverless-architecture-for-microservices-on-aws-vs-google-cloud-vs-azure-as-iaas-caas-paas-faas/)
 - [Top 14 SaaS Application Examples - Successful Strategies](https://taglineinfotech.com/saas-examples/)
+

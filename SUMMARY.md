@@ -83,7 +83,9 @@
   * [🌐References](ejpt/ejpt-references.md)
   * [📜eJPT Cheat Sheet](ejpt/ejpt-cheatsheet.md)
 * [ICCA](icca/README.md)
+  * [📒1. Cloud Foundations](icca/cloud-foundations/README.md)
   * [🌐References](icca/icca-references.md)
+  
 
 
 
