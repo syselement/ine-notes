@@ -38,6 +38,7 @@ Instructor: [Tracy Wallace](https://twitter.com/TracyWallaceTec)
 - Questions: **46**
 - Hands-on Lab Objectives: **4**
 - Expiration date: yes (3 years)
+- *Passing Exam score*: **`70%` with at least 2 points for each question**
 - Objectives:
   - Explain cloud management concepts
   - Describe the benefits of the cloud and cloud data protection concepts and tools
