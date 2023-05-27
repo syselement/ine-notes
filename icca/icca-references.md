@@ -38,13 +38,19 @@
 ## Cloud Management
 
 - [Shared Responsibility Model - Crowdstrike](https://www.crowdstrike.com/cybersecurity-101/cloud-security/shared-responsibility-model/)
+
   - [AWS Share Responsibility Model](https://aws.amazon.com/compliance/shared-responsibility-model/)
   - [Azure Shared responsibility in the cloud](https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility)
+
 - [NIST Cloud Computing Standards Roadmap](https://www.nist.gov/system/files/documents/itl/cloud/NIST_SP-500-291_Version-2_2013_June18_FINAL.pdf)
+
 - [Cloud Workload Security - Cyberark](https://www.cyberark.com/what-is/cloud-workload-security/)
+
 - [Resource Management Models in Cloud Computing - geeksforgeeks.org](https://www.geeksforgeeks.org/resource-management-models-in-cloud-computing/)
+
 - [Google Cloud Monitoring](https://cloud.google.com/monitoring)
-- 
+
+  
 
 ## Security
 
