@@ -17,6 +17,8 @@
 |                  Services                   |                                   |
 |                  Workload                   |                                   |
 
+![On-Premises - BMC](.gitbook/assets/image-20230527114751073.png)
+
 Cloud Architecture is the same as the above on-premises architecture, but it takes care of the physical infrastructure by providing it with built in security and redundancy at a large scale.
 
 In addition, the **management plane** relates to the management and control of the cloud infrastructure and services, with key functions like monitoring, resource provisioning/allocation, configuration, security controls, troubleshooting, etc.
@@ -51,7 +53,7 @@ When moving from IaaS to SaaS, *ease of administration* increases and *control* 
 
 
 
-![SaaS vs PaaS vs IaaS - BMC Software](.gitbook/assets/saas-vs-paas-vs-iaas.png)
+![SaaS vs PaaS vs IaaS - BMC](.gitbook/assets/saas-vs-paas-vs-iaas.png)
 
 ![wisedatadecisions.com](.gitbook/assets/iaas-paas-saas.png)
 
@@ -131,14 +133,14 @@ The key advantages of choosing cloud computing are:
 - Scalability - easily adjust resources based on demand.
   - capacity-based spending
 
-- Cost Efficiency - pay only for what you use, no upfront investment.
+- **Cost** Efficiency - pay only for what you use, no upfront investment.
   - **consumption-based spending** (functions, services, storage)
 
 - Accessibility and Flexibility - access applications and data from anywhere.
-- Reliability and Availability - high uptime and built-in redundancy.
+- Reliability and **Availability** - high uptime and built-in redundancy.
   - minimized administrative overhead
 
-- Data Security and Compliance - robust security measures and regulatory compliance.
+- Data **Security** and Compliance - robust security measures and regulatory compliance.
 - Disaster Recovery and Backup - automated backup and quick recovery options.
 - Collaboration and Productivity - real-time collaboration and increased efficiency.
 - Innovation and Agility - rapid adoption of new technologies and services.
@@ -184,16 +186,188 @@ The key advantages of choosing cloud computing are:
 
 ### Cost
 
+**Pricing Models**
 
+- *Capacity*: `e.g.` Virtual machines - per second/minute/hour basis
+- *Consumption*: `e.g.` Storage/functions/service - pay for the amount (transaction cost)
+- both
+- fixed cost
+- data transfer, egress cost
+- Marketplace Billing (3rd party vendor support additional cost)
 
+📌Calculators
 
+- 🔗 [Azure Pricing Calculator](https://azure.microsoft.com/en-us/pricing/calculator/)
+- 🔗 [AWS Pricing Calculator](https://calculator.aws/#/)
+- 🔗 [Google Cloud Pricing Calculator](https://cloud.google.com/products/calculator)
 
+**Billing**, **Monitoring**, **Optimization**
 
+There are different billing **entities** (what is being billed), with a billing **cycle** that is generally a month. Optimize billing **rate** with billing **management** tools.
+
+**Budgets** and **alerts** are useful for monitoring.
+
+**Agents** (Azure advisors, Google recommenders, AWS cost anomaly detection) monitor the cloud patterns and make recommendations for cost-cutting, **sizing** and **autoscale** strategies. *Serverless* options and long-term commitments (discounts, etc) can be useful too.
+
+![AWS Pricing](.gitbook/assets/image-20230527110307473.png)
+
+![Azure Pricing](.gitbook/assets/image-20230527113535921.png)
+
+![Google Cloud Pricing](.gitbook/assets/image-20230527113928988.png)
+
+### Support
+
+Cloud **resource responsibility** refer to the distribution of responsibilities between the cloud service provider (CSP) and the cloud customer regarding the management and maintenance of various aspects of the cloud environment.
+
+- The specific responsibilities allocated to each party can vary based on the cloud service model being used (`e.g.` IaaS, PaaS, SaaS) - shared responsibility model.
+  - CSP - infrastructure, data centers, networking, physical security, hardware maintenance
+  - Customer - resources and services management and configuration (data plane)
+
+![Defending the Whole, IaaS, PaaS, and SaaS from Mark Nunnikhoven](.gitbook/assets/image-20230527114523623.png)
+
+In terms of **SLA**s (**S**ervice **L**evel **A**greements), the customer can be responsible of the workload and services that are running. *The **SLA** is a contractual agreement between a service provider and a customer that defines the expected level of service and the metrics by which that service will be measured.*
+
+📌 SLAs
+
+- 🔗 [AWS - Service Level Agreements (SLAs)](https://aws.amazon.com/legal/service-level-agreements/)
+- 🔗 [Azure - Service Level Agreements (SLA) for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services)
+- 🔗 [Google Cloud Platform - Service Level Agreements](https://cloud.google.com/terms/sla/)
+
+Cloud **support** refers to the assistance and services provided by the CSP to support the customer in effectively utilizing and managing cloud resources and services. 
+
+`e.g.` Technical assistance, issue resolution, service monitoring, configuration and deployment assistance, kb and documentation, SLAs, service upgrades, training.
+
+📌 Support Plans
+
+- 🔗 [AWS Support Plan Pricing](https://aws.amazon.com/premiumsupport/pricing/)
+- 🔗 [Azure Support Plans](https://azure.microsoft.com/en-us/support/plans/)
+- 🔗 [Google Cloud Customer Care](https://cloud.google.com/support/)
 
 ## Services
 
+![Aws vs Azure vs GCP - blogs.vmware.com](.gitbook/assets/Aws-vs-Azure-vs-GCP.png)
 
+![Serverless on AWS vs Azure vs Google Cloud](.gitbook/assets/cloud-deployment-cheatsheet.png)
 
+### IaaS
 
+![IaaS - BMC](.gitbook/assets/image-20230527114712728.png)
 
-## Providers
+| Cloud Provider - Infrastructure as a Service |
+| :------------------------------------------: |
+|              Physical Facility               |
+|           Physical Infrastructure            |
+|                Virtualization                |
+|               Management Plane               |
+
+The customer is responsible for the **Virtual Machines, Services and Workload** levels.
+
+#### Networking
+
+A **VPC** (**V**irtual **P**rivate **C**loud) is a virtual network environment within a cloud computing platform, that provides isolated and secure networking capabilities, allowing users to create and manage their own virtual network infrastructure in the cloud.
+
+- Private networking, IP management, Subnets, Routing, DNS, Net Security/ACLs
+
+#### Computing
+
+A cloud **instance** (virtual machine - VM), is a virtualized computing environment created within a cloud computing platform. It represents a single, independent server instance that runs within the infrastructure of the cloud service provider.
+
+- Size
+  - Series/Size/CPU/Ram
+- Image (Win/Linux Operating System, Software, Custom)
+- Storage
+- Networking (VPC)
+- Security Access
+- Monitoring
+
+#### Storage
+
+Cloud **storage** refers to a data storage service provided by the CSP where data is stored and managed in a remote cloud infrastructure.
+
+- AWS
+  - S3 buckets, EFS, EBS
+- Azure
+  - Storage account, Managed disks
+- Google Cloud
+  - Storage buckets
+  - Compute engine disks and images
+
+![AWS nginx EC2 instance](.gitbook/assets/image-20230527123343418.png)
+
+![Azure nginx Virtual Machine](.gitbook/assets/image-20230527124825572.png)
+
+![GCP nginx VM instance](.gitbook/assets/image-20230527130055844.png)
+
+### PaaS
+
+![PaaS - BMC](.gitbook/assets/image-20230527114838554.png)
+
+| Cloud Provider - Platform as a Service |
+| :------------------------------------: |
+|           Physical Facility            |
+|        Physical Infrastructure         |
+|             Virtualization             |
+|            Management Plane            |
+|            Virtual Machines            |
+|                Services                |
+
+The customer is responsible only for the **workload** level.
+
+- Application Hosting
+  - Containers
+  - Various types of Apps
+
+- Data Hosting
+  - Various types of databases
+- Security, Media, Migration, Archiving, IoT, Cognitive, Machine learning Services, etc
+
+### SaaS
+
+![SaaS - BMC](.gitbook/assets/image-20230527114859519.png)
+
+| Cloud Provider - Software as a Service |
+| :------------------------------------: |
+|           Physical Facility            |
+|        Physical Infrastructure         |
+|             Virtualization             |
+|            Management Plane            |
+|            Virtual Machines            |
+|                Services                |
+|                Workload                |
+
+The cloud SaaS provider supplies every level, but gives the customer the ability to manage the **Workload** level.
+
+![Examples of SaaS software - taglineinfotech.com](.gitbook/assets/14-SaaS-Examples-You-Need-To-Know-in-2022-1024x512.png)
+
+📌 SaaS Examples
+
+- 🔗 [SalesForce](https://www.salesforce.com/)
+- 🔗 [Microsoft365](https://www.microsoft.com/)
+- 🔗 [Google Workspace (G Suite)](https://workspace.google.com/)
+- Collaboration
+  - 🔗 [Slack](https://slack.com/)
+  - 🔗 [Zoom](https://zoom.us/)
+  - 🔗 [Microsoft Teams](https://www.microsoft.com/en-us/microsoft-teams/group-chat-software)
+- Others like:
+  - CRM (customer relations management), 
+  - Resource planning (SAP), Business continuity
+  - Content management systems, etc
+
+### Scalability & Availability
+
+![GCP Global Locations](.gitbook/assets/regions.png)
+
+Cloud **regional computing** refers to the deployment of cloud computing resources within a specific geographic region.
+
+Cloud service providers typically have **multiple data centers** located in different regions around the world, and regional computing allows users to deploy and access their cloud resources in a specific geographic area/**availability zones**.
+
+- `e.g.` - [Google Cloud Global Locations](https://cloud.google.com/about/locations/)
+
+**Availability** refers to the measure of how accessible and operational cloud services an resources are to users (load balancing, disaster recovery, redundancy, failover). 
+
+**Cloud scale** refers to the ability of cloud computing systems to handle large-scale workloads and accommodate rapid growth and demand. It refers to the capacity and capability of cloud infrastructure to scale resources, such as computing power, storage and network bandwidth, in response to varying workloads and user demands, also minimizing costs by **auto-scaling**.
+
+- `e.g.` - [Google Cloud Load balancing and Scaling](https://cloud.google.com/compute/docs/load-balancing-and-autoscaling)
+
+------
+

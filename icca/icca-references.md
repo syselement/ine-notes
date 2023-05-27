@@ -11,6 +11,9 @@
 - [Amazon Web Services (AWS)](https://aws.amazon.com/what-is-aws/)
 - [Microsoft Azure](https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-azure/)
 - [Google Cloud Platform (GCP)](https://cloud.google.com/docs/overview/)
+
+### Management
+
 - [CapEx vs OpEx in Cloud Computing](https://www.cloudzero.com/blog/capex-vs-opex)
 - [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
 - [Azure Command Line tools](https://learn.microsoft.com/en-us/cli/azure/choose-the-right-azure-command-line-tool)
@@ -18,4 +21,16 @@
 - [What is a REST API?](https://www.redhat.com/en/topics/api/what-is-a-rest-api)
   - [Google Cloud APIs](https://cloud.google.com/apis)
   - [Postman tool](https://www.postman.com/)
-- 
+
+- [Azure Pricing Calculator](https://azure.microsoft.com/en-us/pricing/calculator/)
+- [AWS Pricing Calculator](https://calculator.aws/#/)
+- [Google Cloud Pricing Calculator](https://cloud.google.com/products/calculator)
+- [AWS - Service Level Agreements (SLAs)](https://aws.amazon.com/legal/service-level-agreements/)
+- [Azure - Service Level Agreements (SLA) for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services)
+
+### Services
+
+- [Google Cloud Platform - Service Level Agreements](https://cloud.google.com/terms/sla/)
+- [A Comparison of AWS vs Azure vs Google - VMware Blogs](https://blogs.vmware.com/cloudhealth/aws-vs-azure-vs-google/)
+- [Serverless Computing on AWS, Azure, and Google Cloud](https://www.ml4devs.com/articles/serverless-architecture-for-microservices-on-aws-vs-google-cloud-vs-azure-as-iaas-caas-paas-faas/)
+- [Top 14 SaaS Application Examples - Successful Strategies](https://taglineinfotech.com/saas-examples/)
