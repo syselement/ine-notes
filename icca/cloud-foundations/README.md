@@ -10,12 +10,12 @@
 
 | On-Premises Information System Architecture |                                   |
 | :-----------------------------------------: | --------------------------------- |
-|              Physical Facility              | Cost of space, Physical Security  |
-|           Physical Infrastructure           | Network, Power, Racks, Storage    |
-|               Virtualization                | Platforms, Maintenance, Licensing |
-|              Virtual Machines               |                                   |
-|                  Services                   |                                   |
 |                  Workload                   |                                   |
+|                  Services                   |                                   |
+|              Virtual Machines               |                                   |
+|               Virtualization                | Platforms, Maintenance, Licensing |
+|           Physical Infrastructure           | Network, Power, Racks, Storage    |
+|              Physical Facility              | Cost of space, Physical Security  |
 
 ![On-Premises - BMC](.gitbook/assets/image-20230527114751073.png)
 
@@ -25,13 +25,13 @@ In addition, the **management plane** relates to the management and control of t
 
 |   Cloud Architecture    |
 | :---------------------: |
-|    Physical Facility    |
-| Physical Infrastructure |
-|     Virtualization      |
-|    Management Plane     |
-|    Virtual Machines     |
-|        Services         |
 |        Workload         |
+|        Services         |
+|    Virtual Machines     |
+|    Management Plane     |
+|     Virtualization      |
+| Physical Infrastructure |
+|    Physical Facility    |
 
 ### Types of Cloud Services
 

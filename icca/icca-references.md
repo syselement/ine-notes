@@ -38,20 +38,34 @@
 ## Cloud Management
 
 - [Shared Responsibility Model - Crowdstrike](https://www.crowdstrike.com/cybersecurity-101/cloud-security/shared-responsibility-model/)
-
   - [AWS Share Responsibility Model](https://aws.amazon.com/compliance/shared-responsibility-model/)
   - [Azure Shared responsibility in the cloud](https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility)
-
+  
 - [NIST Cloud Computing Standards Roadmap](https://www.nist.gov/system/files/documents/itl/cloud/NIST_SP-500-291_Version-2_2013_June18_FINAL.pdf)
 
 - [Cloud Workload Security - Cyberark](https://www.cyberark.com/what-is/cloud-workload-security/)
 
 - [Resource Management Models in Cloud Computing - geeksforgeeks.org](https://www.geeksforgeeks.org/resource-management-models-in-cloud-computing/)
 
+### Monitoring
+
 - [Google Cloud Monitoring](https://cloud.google.com/monitoring)
 
-  
+- [AWS CloudWatch](https://aws.amazon.com/cloudwatch/)
+
+- [Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/overview)
+
+### Identity
+
+- [Google Identity and Access Management](https://cloud.google.com/iam)
+
+- [Azure IAM](https://learn.microsoft.com/en-us/azure/architecture/identity/identity-start-here)
+
+- [AWS IAM](https://aws.amazon.com/iam/)
 
 ## Security
 
 - [Public Cloud Security Breaches](https://www.breaches.cloud/)
+- [What is defense in depth? | Layered security - Cloudflare](https://www.cloudflare.com/learning/security/glossary/what-is-defense-in-depth/)
+  - [Infographic: Defense-in-Depth - colohouse.com](https://colohouse.com/infographic-defense-in-depth/)
+  - [ITSP.50.104 Guidance on defence in depth for cloud-based services - cyber.gc.ca](https://www.cyber.gc.ca/en/guidance/itsp50104-guidance-defence-depth-cloud-based-services)

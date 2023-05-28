@@ -123,21 +123,38 @@ It involves the use of monitoring tools, metrics and alerts to track and assess 
 
 ## Identity & Access Management
 
+Cloud **I**dentity and **A**ccess **M**anagement (**IAM**) refers to the set of practices, policies and tools used to manage user **identities**, control **access** to cloud resources and enforce **security** measures within a cloud computing environment.
 
+- management of user authentication, authorization, permissions
 
+❗ **Root** user - absolute full rights on everything
 
+**Federated** user - authenticated and authorized to access resources in a system or application through a trusted external identity provider.
 
+🔗 [Google IAM](https://cloud.google.com/iam)
 
+- Users, Groups, Roles, Policies
+- Federated Users
+- Policies (User, Role, Resource, Condition)
 
+![GCP IAM permission management](.gitbook/assets/iam-overview-basics.svg)
 
+🔗 [Azure IAM](https://learn.microsoft.com/en-us/azure/architecture/identity/identity-start-here)
 
+- Users, Groups, Roles
+- Federated Users
 
+![Azure AD - IAM](.gitbook/assets/identity-basic-architecture.png)
 
+🔗 [AWS IAM](https://aws.amazon.com/iam/)
 
+- Users, Groups, Permissions
+- Federated Users
+- Policies grant permissions (Effect, Action, Resources, Conditions)
 
+![AWS IAM](.gitbook/assets/iam-how-it-works-diagram.04a2c4e4a1e8848155840676fa97ff2146d19012.png)
 
-
-
+![AWS IAM](.gitbook/assets/image-20230528131353486.png)
 
 ------
 
