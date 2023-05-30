@@ -2,6 +2,7 @@
 
 ## Cloud Foundations
 
+- [Cloud Native Wiki - aquasec.com](https://www.aquasec.com/cloud-native-academy/)
 - [Cloud Computing Architecture](https://www.simplilearn.com/tutorials/cloud-computing-tutorial/cloud-computing-architecture)
 - [The Cloud Management Plane](https://cloudgal42.com/the-cloud-management-plane/)
 - [SaaS vs PaaS vs IaaS: What’s The Difference & How To Choose](https://www.bmc.com/blogs/saas-vs-paas-vs-iaas-whats-the-difference-and-how-to-choose/)
@@ -58,10 +59,14 @@
 ### Identity
 
 - [Google Identity and Access Management](https://cloud.google.com/iam)
+  - [Google Cloud IAM](https://cloud.google.com/iam/docs/overview)
 
-- [Azure IAM](https://learn.microsoft.com/en-us/azure/architecture/identity/identity-start-here)
+- [Azure Identity](https://learn.microsoft.com/en-us/azure/architecture/identity/identity-start-here)
+  - [Azure AD](https://learn.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis)
 
 - [AWS IAM](https://aws.amazon.com/iam/)
+  - [AWS IAM Identities](https://docs.aws.amazon.com/IAM/latest/UserGuide/id.html)
+
 
 ## Security
 
@@ -69,3 +74,8 @@
 - [What is defense in depth? | Layered security - Cloudflare](https://www.cloudflare.com/learning/security/glossary/what-is-defense-in-depth/)
   - [Infographic: Defense-in-Depth - colohouse.com](https://colohouse.com/infographic-defense-in-depth/)
   - [ITSP.50.104 Guidance on defence in depth for cloud-based services - cyber.gc.ca](https://www.cyber.gc.ca/en/guidance/itsp50104-guidance-defence-depth-cloud-based-services)
+- [The 2022 Top 7 Cloud Attack Paths - Lightspin](https://blog.lightspin.io/the-2022-top-7-cloud-attack-paths)
+- [Top 10 Cloud Attacks and What You Can Do About Them - aquasec.com](https://www.aquasec.com/cloud-native-academy/cloud-attacks/cloud-attacks/)
+  - [Credentials stuffing](https://www.cloudflare.com/learning/bots/what-is-credential-stuffing/)
+  - [HackTricks Cloud](https://cloud.hacktricks.xyz/welcome/readme)
+- [Principle of Least Privilege (POLP)](https://www.crowdstrike.com/cybersecurity-101/principle-of-least-privilege-polp/)

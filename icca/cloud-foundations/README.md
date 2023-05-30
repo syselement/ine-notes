@@ -79,14 +79,15 @@ Cloud services can be accessed through the Internet or via a private VPN Connect
 >
 > (not exhaustive list)
 
-- 🔗 About [Cloud Market Share](https://www.wpoven.com/blog/cloud-market-share/)
-- 🔗 By [IDC - Worldwide Public Cloud Services Revenue and Year-over-Year Growth 2021](https://www.idc.com/getdoc.jsp?containerId=prUS49420022)
+> 🔗 About [Cloud Market Share](https://www.wpoven.com/blog/cloud-market-share/)
+>
+> 🔗 By [IDC - Worldwide Public Cloud Services Revenue and Year-over-Year Growth 2021](https://www.idc.com/getdoc.jsp?containerId=prUS49420022)
 
 ![IDC Worldwide Semiannual Public Cloud Services Tracker, 2H 2021](.gitbook/assets/idc-market-share.png)
 
 ![Synergy Research Group](.gitbook/assets/cloud-infrastructure.jpg)
 
-- 🔗 [Gartner Says More Than Half of Enterprise IT Spending in Key Market Segments Will Shift to the Cloud by 2025](https://www.gartner.com/en/newsroom/press-releases/2022-02-09-gartner-says-more-than-half-of-enterprise-it-spending)
+> 🔗 [Gartner Says More Than Half of Enterprise IT Spending in Key Market Segments Will Shift to the Cloud by 2025](https://www.gartner.com/en/newsroom/press-releases/2022-02-09-gartner-says-more-than-half-of-enterprise-it-spending)
 
 ![Gartner - Feb 2022](.gitbook/assets/cloud-versus-traditonal.png)
 
@@ -147,7 +148,8 @@ The key advantages of choosing cloud computing are:
 - Green and Sustainable Computing - energy-efficient infrastructure.
 - Continuous Updates and Maintenance - provider handles maintenance and updates.
 
-🔗 [CapEx vs OpEx in Cloud Computing](https://www.cloudzero.com/blog/capex-vs-opex)
+> 🔗 [CapEx vs OpEx in Cloud Computing](https://www.cloudzero.com/blog/capex-vs-opex)
+>
 
 **CapEx** (Capital expenditure) - `e.g.` on-premises capacity expansion/reduction
 
@@ -195,11 +197,12 @@ The key advantages of choosing cloud computing are:
 - data transfer, egress cost
 - Marketplace Billing (3rd party vendor support additional cost)
 
-📌Calculators
-
-- 🔗 [Azure Pricing Calculator](https://azure.microsoft.com/en-us/pricing/calculator/)
-- 🔗 [AWS Pricing Calculator](https://calculator.aws/#/)
-- 🔗 [Google Cloud Pricing Calculator](https://cloud.google.com/products/calculator)
+> 📌 Calculators
+>
+> - 🔗 [Azure Pricing Calculator](https://azure.microsoft.com/en-us/pricing/calculator/)
+> - 🔗 [AWS Pricing Calculator](https://calculator.aws/#/)
+> - 🔗 [Google Cloud Pricing Calculator](https://cloud.google.com/products/calculator)
+>
 
 **Billing**, **Monitoring**, **Optimization**
 
@@ -227,21 +230,23 @@ Cloud **resource responsibility** refer to the distribution of responsibilities 
 
 In terms of **SLA**s (**S**ervice **L**evel **A**greements), the customer can be responsible of the workload and services that are running. *The **SLA** is a contractual agreement between a service provider and a customer that defines the expected level of service and the metrics by which that service will be measured.*
 
-📌 SLAs
-
-- 🔗 [AWS - Service Level Agreements (SLAs)](https://aws.amazon.com/legal/service-level-agreements/)
-- 🔗 [Azure - Service Level Agreements (SLA) for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services)
-- 🔗 [Google Cloud Platform - Service Level Agreements](https://cloud.google.com/terms/sla/)
+> 📌 SLAs
+>
+> - 🔗 [AWS - Service Level Agreements (SLAs)](https://aws.amazon.com/legal/service-level-agreements/)
+> - 🔗 [Azure - Service Level Agreements (SLA) for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services)
+> - 🔗 [Google Cloud Platform - Service Level Agreements](https://cloud.google.com/terms/sla/)
+>
 
 Cloud **support** refers to the assistance and services provided by the CSP to support the customer in effectively utilizing and managing cloud resources and services. 
 
 `e.g.` Technical assistance, issue resolution, service monitoring, configuration and deployment assistance, kb and documentation, SLAs, service upgrades, training.
 
-📌 Support Plans
-
-- 🔗 [AWS Support Plan Pricing](https://aws.amazon.com/premiumsupport/pricing/)
-- 🔗 [Azure Support Plans](https://azure.microsoft.com/en-us/support/plans/)
-- 🔗 [Google Cloud Customer Care](https://cloud.google.com/support/)
+> 📌 Support Plans
+>
+> - 🔗 [AWS Support Plan Pricing](https://aws.amazon.com/premiumsupport/pricing/)
+> - 🔗 [Azure Support Plans](https://azure.microsoft.com/en-us/support/plans/)
+> - 🔗 [Google Cloud Customer Care](https://cloud.google.com/support/)
+>
 
 ## Services
 
@@ -339,19 +344,20 @@ The cloud SaaS provider supplies every level, but gives the customer the ability
 
 ![Examples of SaaS software - taglineinfotech.com](.gitbook/assets/14-SaaS-Examples-You-Need-To-Know-in-2022-1024x512.png)
 
-📌 SaaS Examples
-
-- 🔗 [SalesForce](https://www.salesforce.com/)
-- 🔗 [Microsoft365](https://www.microsoft.com/)
-- 🔗 [Google Workspace (G Suite)](https://workspace.google.com/)
-- Collaboration
-  - 🔗 [Slack](https://slack.com/)
-  - 🔗 [Zoom](https://zoom.us/)
-  - 🔗 [Microsoft Teams](https://www.microsoft.com/en-us/microsoft-teams/group-chat-software)
-- Others like:
-  - CRM (customer relations management), 
-  - Resource planning (SAP), Business continuity
-  - Content management systems, etc
+> 📌 SaaS Examples
+>
+> - 🔗 [SalesForce](https://www.salesforce.com/)
+> - 🔗 [Microsoft365](https://www.microsoft.com/)
+> - 🔗 [Google Workspace (G Suite)](https://workspace.google.com/)
+> - Collaboration
+>   - 🔗 [Slack](https://slack.com/)
+>   - 🔗 [Zoom](https://zoom.us/)
+>   - 🔗 [Microsoft Teams](https://www.microsoft.com/en-us/microsoft-teams/group-chat-software)
+> - Others like:
+>   - CRM (customer relations management), 
+>   - Resource planning (SAP), Business continuity
+>   - Content management systems, etc
+>
 
 ### Scalability & Availability
 

@@ -49,7 +49,8 @@ Customer responsibility
 - Build resilient applications and integrate CSP built-in availability and resiliency
 - Implement data backup, replication, business continuity planning
 
-🔗 [AWS Shared Responsibility Model for Resiliency](https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/shared-responsibility-model-for-resiliency.html)
+> 🔗 [AWS Shared Responsibility Model for Resiliency](https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/shared-responsibility-model-for-resiliency.html)
+>
 
 ### Workload Responsibility
 
@@ -69,7 +70,8 @@ Customer is responsible of
 
 ## Resource Management
 
-🔗 [Resource Management Models in Cloud Computing - geeksforgeeks.org](https://www.geeksforgeeks.org/resource-management-models-in-cloud-computing/)
+> 🔗 [Resource Management Models in Cloud Computing - geeksforgeeks.org](https://www.geeksforgeeks.org/resource-management-models-in-cloud-computing/)
+>
 
 **Control Plane**
 
@@ -131,26 +133,29 @@ Cloud **I**dentity and **A**ccess **M**anagement (**IAM**) refers to the set of 
 
 **Federated** user - authenticated and authorized to access resources in a system or application through a trusted external identity provider.
 
-🔗 [Google IAM](https://cloud.google.com/iam)
-
-- Users, Groups, Roles, Policies
-- Federated Users
-- Policies (User, Role, Resource, Condition)
+> 🔗 [Google IAM](https://cloud.google.com/iam)
+>
+> - Users, Groups, Roles, Policies
+> - Federated Users
+> - Policies (User, Role, Resource, Condition)
+>
 
 ![GCP IAM permission management](.gitbook/assets/iam-overview-basics.svg)
 
-🔗 [Azure IAM](https://learn.microsoft.com/en-us/azure/architecture/identity/identity-start-here)
-
-- Users, Groups, Roles
-- Federated Users
+> 🔗 [Azure AD](https://learn.microsoft.com/en-us/azure/architecture/identity/identity-start-here)
+>
+> - Users, Groups, Roles
+> - Federated Users
+>
 
 ![Azure AD - IAM](.gitbook/assets/identity-basic-architecture.png)
 
-🔗 [AWS IAM](https://aws.amazon.com/iam/)
-
-- Users, Groups, Permissions
-- Federated Users
-- Policies grant permissions (Effect, Action, Resources, Conditions)
+> 🔗 [AWS IAM](https://aws.amazon.com/iam/)
+>
+> - Users, Groups, Permissions
+> - Federated Users
+> - Policies grant permissions (Effect, Action, Resources, Conditions)
+>
 
 ![AWS IAM](.gitbook/assets/iam-how-it-works-diagram.04a2c4e4a1e8848155840676fa97ff2146d19012.png)
 
