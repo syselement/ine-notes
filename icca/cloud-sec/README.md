@@ -30,7 +30,7 @@
 
 From a security standpoint, the responsibility depends on what level of service is used.
 
-A the level of **data plane** and **control plane** (tools, consoles, CLI, SDK), securing cloud resources is important and IAM is a key aspect of it.
+At the level of **data plane** and **control plane** (tools, consoles, CLI, SDK), securing cloud resources is important and IAM is a key aspect of it.
 
 - Identity protection
 - Strong authentication mechanisms
@@ -79,7 +79,7 @@ Workload
 
 ## Cloud Attacks
 
-Cloud platform attacks refer to security **incidents** and **vulnerabilities** that specifically *target the cloud computing platforms*.
+Cloud platform attacks refer to security **incidents** and **vulnerabilities** that specifically *target cloud computing platforms*.
 
 > 🔗 [Top 10 Cloud Attacks and What You Can Do About Them - aquasec.com](https://www.aquasec.com/cloud-native-academy/cloud-attacks/cloud-attacks/)
 
@@ -87,7 +87,7 @@ Cloud platform attacks refer to security **incidents** and **vulnerabilities** t
 
 ### Attacks targets
 
-- *Identities* - SaaS, Cloud platform, Data plane identities
+- *Identities* - SaaS, Cloud Platform, Data plane identities
   - `e.g.` - administrator Azure **AD** credentials/identities
 - *Data*
   - `e.g.` - AWS S3 **bucket**, or relational/non-relational data
@@ -97,7 +97,7 @@ Cloud platform attacks refer to security **incidents** and **vulnerabilities** t
 ### Attack Methods
 
 - *Misconfiguration* - intentional or unintentional
-  - `e.g.` - Publicly available data stores or services (db, public API, etc)
+  - `e.g.` - Publicly available data stores or services (DBs, public API, etc)
 - *Account hijacking*
   - `e.g.` - Brute force, Password spraying, [Credentials stuffing](https://www.cloudflare.com/learning/bots/what-is-credential-stuffing/)
 - *Service hijacking*
@@ -287,7 +287,7 @@ Additional network security services:
 Key aspects:
 
 - data protection regulations (GDPR, CCPA, HIPAA)
-- security standards (PCI DSS, ISO 27001, NIST Cybersec framework
+- security standards (PCI DSS, ISO 27001, NIST CyberSec framework
 - data residency and vendor due diligence
 - audit and reporting
 - incident response

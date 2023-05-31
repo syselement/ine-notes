@@ -13,11 +13,11 @@ description: >-
 - provides the essential cloud skills for managing cloud platforms (AWS, Azure, Google Cloud)
 - prepares for the ICCA exam & certification
 
-### Course duration & Topics
+### Course Duration & Topics
 
 ~ 17 hours
 
-Activities: **2** sections , **3** courses , **33** videos, **23** quizzes, **9** labs
+Activities: **2** sections, **3** courses, **33** videos, **23** quizzes, **9** labs
 
 - [**Cloud Foundations**](cloud-foundations/README.md) ~ 10 hours
 - [**Cloud Management Concepts**](cloud-management/README.md) ~ 2 hours
@@ -42,7 +42,7 @@ Instructor: [Tracy Wallace](https://twitter.com/TracyWallaceTec)
 - Objectives:
   - Explain cloud management concepts
   - Describe the benefits of the cloud and cloud data protection concepts and tools
-  - Explain cloud regulatory compliance, infrastructure protection, identify and access management
+  - Explain cloud regulatory compliance, infrastructure protection, identity and access management
   - Describe cloud "Platform as a Service (PaaS)" and "Infrastructure as a Service (IaaS)"
   - Identify cloud monitoring and automation features, identity vulnerabilities and protection tools
 - In browser hands-on Cloud Lab, open book
