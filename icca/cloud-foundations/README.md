@@ -19,7 +19,7 @@
 
 ![On-Premises - BMC](.gitbook/assets/image-20230527114751073.png)
 
-Cloud Architecture is the same as the above on-premises architecture, but it takes care of the physical infrastructure by providing it with built in security and redundancy at a large scale.
+Cloud Architecture is the same as the above on-premises architecture, but it takes care of the physical infrastructure by providing it with built-in security and redundancy at a large scale.
 
 In addition, the **management plane** relates to the management and control of the cloud infrastructure and services, with key functions like monitoring, resource provisioning/allocation, configuration, security controls, troubleshooting, etc.
 
@@ -155,10 +155,10 @@ The key advantages of choosing cloud computing are:
 
 - hardware and licensing, replace/sell equipment
 
-**OpEx** (Operating expenses) - `e.g.` cloud-base capacity expansion/reduction
+**OpEx** (Operating expenses) - `e.g.` cloud-based capacity expansion/reduction
 
 - pay for what is used, no hardware purchase
-- reduce monthly cost, no upgront capital costs
+- reduce monthly cost, no upfront capital costs
 
 *Moving to the cloud might not be a good idea in case of ongoing operational investments, regulatory compliance and data fencing.*
 
@@ -166,7 +166,7 @@ The key advantages of choosing cloud computing are:
 
 ### Tools
 
-- **Web based** cloud management tools
+- **Web-based** cloud management tools
   - [AWS Console](https://console.aws.amazon.com/)
   - [Azure Portal](https://portal.azure.com)
   - [GCP Console](https://console.cloud.google.com/)
@@ -220,7 +220,7 @@ There are different billing **entities** (what is being billed), with a billing 
 
 ### Support
 
-Cloud **resource responsibility** refer to the distribution of responsibilities between the cloud service provider (CSP) and the cloud customer regarding the management and maintenance of various aspects of the cloud environment.
+Cloud **resource responsibility** refers to the distribution of responsibilities between the cloud service provider (CSP) and the cloud customer regarding the management and maintenance of various aspects of the cloud environment.
 
 - The specific responsibilities allocated to each party can vary based on the cloud service model being used (`e.g.` IaaS, PaaS, SaaS) - shared responsibility model.
   - CSP - infrastructure, data centers, networking, physical security, hardware maintenance
@@ -228,7 +228,7 @@ Cloud **resource responsibility** refer to the distribution of responsibilities 
 
 ![Defending the Whole, IaaS, PaaS, and SaaS from Mark Nunnikhoven](.gitbook/assets/image-20230527114523623.png)
 
-In terms of **SLA**s (**S**ervice **L**evel **A**greements), the customer can be responsible of the workload and services that are running. *The **SLA** is a contractual agreement between a service provider and a customer that defines the expected level of service and the metrics by which that service will be measured.*
+In terms of **SLA**s (**S**ervice **L**evel **A**greements), the customer can be responsible for the workload and services that are running. *The **SLA** is a contractual agreement between a service provider and a customer that defines the expected level of service and the metrics by which that service will be measured.*
 
 > 📌 SLAs
 >
@@ -239,7 +239,7 @@ In terms of **SLA**s (**S**ervice **L**evel **A**greements), the customer can be
 
 Cloud **support** refers to the assistance and services provided by the CSP to support the customer in effectively utilizing and managing cloud resources and services. 
 
-`e.g.` Technical assistance, issue resolution, service monitoring, configuration and deployment assistance, kb and documentation, SLAs, service upgrades, training.
+`e.g.` Technical assistance, issue resolution, service monitoring, configuration and deployment assistance, kb and documentation, SLAs, service upgrades and training.
 
 > 📌 Support Plans
 >
@@ -365,11 +365,11 @@ The cloud SaaS provider supplies every level, but gives the customer the ability
 
 Cloud **regional computing** refers to the deployment of cloud computing resources within a specific geographic region.
 
-Cloud service providers typically have **multiple data centers** located in different regions around the world, and regional computing allows users to deploy and access their cloud resources in a specific geographic area/**availability zones**.
+Cloud service providers typically have **multiple data centers** located in different regions around the world, and regional computing allows users to deploy and access their cloud resources in specific geographic areas/**availability zones**.
 
 - `e.g.` - [Google Cloud Global Locations](https://cloud.google.com/about/locations/)
 
-**Availability** refers to the measure of how accessible and operational cloud services an resources are to users (load balancing, disaster recovery, redundancy, failover). 
+**Availability** refers to the measure of how accessible and operational cloud services and resources are to users (load balancing, disaster recovery, redundancy, failover). 
 
 **Cloud scale** refers to the ability of cloud computing systems to handle large-scale workloads and accommodate rapid growth and demand. It refers to the capacity and capability of cloud infrastructure to scale resources, such as computing power, storage and network bandwidth, in response to varying workloads and user demands, also minimizing costs by **auto-scaling**.
 
