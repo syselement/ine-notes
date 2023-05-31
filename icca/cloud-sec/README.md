@@ -271,7 +271,7 @@ Additional network security services:
 
 > 🔗 [Azure Confidential Computing](https://azure.microsoft.com/en-us/solutions/confidential-compute/)
 >
-> - [e.g. Azure - Confidential computing on a healthcare platform](https://learn.microsoft.com/en-us/azure/architecture/example-scenario/confidential/healthcare-inference#architecture)
+> - `e.g.` [Azure - Confidential computing on a healthcare platform](https://learn.microsoft.com/en-us/azure/architecture/example-scenario/confidential/healthcare-inference#architecture)
 
 **Monitoring** is a built-in feature into the cloud platform.
 

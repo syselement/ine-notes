@@ -21,7 +21,7 @@ Activities: **2** sections , **3** courses , **33** videos, **23** quizzes, **9*
 
 - [**Cloud Foundations**](cloud-foundations/README.md) ~ 10 hours
 - [**Cloud Management Concepts**](cloud-management/README.md) ~ 2 hours
-- [**Fundamentals of Cloud Identity, Security, and Compliance**](cloud-sec/README.md) ~ 5 hours
+- [**Fundamentals of Cloud Identity, Security, and Compliance**](cloud-sec/READ.md) ~ 5 hours
 
 Instructor: [Tracy Wallace](https://twitter.com/TracyWallaceTec)
 
