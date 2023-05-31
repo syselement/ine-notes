@@ -231,7 +231,6 @@ At tenant level, there are some layers to protect and that the customer is respo
 - [Azure Network Security](https://azure.microsoft.com/en-us/solutions/network-security)
   - Network Security Group - Subnet & Instance level
   - [Private Endpoint](https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-overview)
-  - Firewall, Application Gateway, FrontDoor
 - [Google Cloud Network Security](https://cloud.google.com/learn/what-is-cloud-network-security)
   - Firewall Rule - VPC, Subnet, VM Level
   - [VPC Service Controls](https://cloud.google.com/vpc-service-controls)
