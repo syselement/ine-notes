@@ -24,13 +24,13 @@ The **customer** is *always responsible for identities and subscription access*.
 
 ### Security Responsibility
 
-CSP is responsible of
+CSP is responsible for
 
 - Physical, Infrastructure, Platform security
 - Identity system security
 - ***Standards compliance***
 
-Customer is responsible of
+The customer is responsible for
 
 - Identity, Data, Application security (good practices)
 - ***Standards compliance***
@@ -56,13 +56,13 @@ Customer responsibility
 
 [Workload responsibility](https://www.cyberark.com/what-is/cloud-workload-security/) includes the tasks and considerations involved in deploying, configuring, monitoring and securing the specific applications, services and data that make up the workload.
 
-CSP is responsible of
+CSP is responsible for
 
-- SaaS out of the box workload failures (with no customization)
+- SaaS out-of-the-box workload failures (with no customization)
 
 📌 *Effective software lifecycle management techniques are essential.*
 
-Customer is responsible of
+The customer is responsible for
 
 - Workload configuration
 - App and Data security
@@ -75,36 +75,36 @@ Customer is responsible of
 
 **Control Plane**
 
-- The cloud is controlled by the **management plane**, that relates to the management and control of cloud infrastructure and services.
-  - Web based console
+- The cloud is controlled by the **management plane**, which relates to the management and control of cloud infrastructure and services.
+  - Web-based console
   - REST APIs
   -  Command line tool
 
 **Data Plane**
 
-- **Data plane** is the cloud workload
+- The **Data plane** is the cloud workload
   - VMs, Data, Applications, Services
 
-A workload, a custom application, needs ***maintaining** of its resources like code base, data, security.*
+A workload, a custom application, needs ***maintaining** of its resources like code base, data and security.*
 
 **Monitoring**
 
 - Provided built-in cloud tools to monitor spending, performance, automated alerting & actions
   - Applications need monitoring
 
-**Change Management** in the cloud refers to the process of effectively managing and controlling changes to cloud-based systems, services and infrastructure, by implementing procedures and policies to ensure changes planning, testing, deployment and so on.
+**Change Management** in the cloud refers to the process of effectively managing and controlling changes to cloud-based systems, services and infrastructure, by implementing procedures and policies to ensure change planning, testing, deployment and so on.
 
 - Governance is critical- relevant compliance requirements, industry regulations, and organizational policies
 - Documentation and tracking
 
 ### AWS
 
-- RDS - Create database (Platform service) - Templates & Settings
+- RDS - Create a database (Platform service) - Templates & Settings
   - Connectivity & Security, Monitoring, Logs, Configuration, Maintenance
 
 ### Azure
 
-- Azure PowerShell script as [template](https://learn.microsoft.com/en-us/samples/browse/?expanded=azure&products=azure-resource-manager) (template JSON files)
+- Azure PowerShell script as a [template](https://learn.microsoft.com/en-us/samples/browse/?expanded=azure&products=azure-resource-manager) (template JSON files)
 
 ## Monitoring & Alerts
 
@@ -119,7 +119,7 @@ It involves the use of monitoring tools, metrics and alerts to track and assess 
   - 🔗 [Google Cloud Monitoring](https://cloud.google.com/monitoring)
   - *Third parties*: [Splunk](https://www.splunk.com/en_us/solutions/cloud-monitoring.html?301=/en_us/it-operations/cloud-monitoring.html), [PRTG](https://www.paessler.com/cloud-monitoring), [Nagios](https://www.nagios.com/solutions/cloud-computing/)
 
-**Proactive Resource management**
+**Proactive Resource Management**
 
 - Cloud **Automation** & Alerting
 
