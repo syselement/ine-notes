@@ -678,6 +678,8 @@ hydra -L /usr/share/metasploit-framework/data/wordlists/common_users.txt -P /usr
 
 ```bash
 xfreerdp /u:<USER> /p:<PW> /v:<TARGET_IP>:<PORT>
+
+xfreerdp /u:<USER> /p:<PW> /v:<TARGET_IP>:<PORT> /w:1920 /h:1080 /fonts /smart-sizing
 ```
 
 #### WINRM
