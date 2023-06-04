@@ -1321,7 +1321,7 @@ vulns
 
 ### VA with [Nessus](https://www.offsec.com/metasploit-unleashed/working-with-nessus/)
 
-> 🔬 You can find my [**Nessus Essentials** install tutorial here](https://blog.syselement.com/home/operating-systems-notes/linux/tools/nessus).
+> 🔬 You can find my [**Nessus Essentials** install tutorial here](https://blog.syselement.com/home/operating-systems/linux/tools/nessus).
 
 - A vulnerability scan with Nessus result can be imported into the MSF for analysis and exploitation.
 - Nessus Essentials free version allows to scan up to 16 IPs.
