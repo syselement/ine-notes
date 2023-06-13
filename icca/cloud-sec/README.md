@@ -278,7 +278,8 @@ Additional network security services:
 
 > 🔗 [Azure Monitoring](https://learn.microsoft.com/en-us/azure/azure-monitor/overview)
 >
-> ![Azure Monitor](.gitbook/assets/azure-monitor.png)
+
+![Azure Monitor](.gitbook/assets/azure-monitor.png)
 
 ### Compliance
 
@@ -336,9 +337,9 @@ Protected data refers to sensitive information that requires special safeguards 
 > - [AWS HIPAA](https://aws.amazon.com/compliance/hipaa-compliance/)
 >   - Under the HIPAA regulations, cloud service providers (CSPs) such as AWS are considered *business associates*
 >
-> ![HIPAA Reference Architecture on AWS](.gitbook/assets/hipaa-compliance-architecture-diagram-aws.png)
->
 > 🔗 [Google Cloud HIPAA - Compliance](https://cloud.google.com/security/compliance/hipaa-compliance)
+
+![HIPAA Reference Architecture on AWS](.gitbook/assets/hipaa-compliance-architecture-diagram-aws.png)
 
 ***
 
