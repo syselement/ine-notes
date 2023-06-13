@@ -68,7 +68,7 @@ Workload
 
 - Authentication, Authorization, Auditing, Data access control, Monitoring, **Encryption** (in transit & at rest), MFA, etc
 
-![Defence in Depth Infographic - colohouse.com](.gitbook/assets/Defense-in-Depth-Infographic-2022.jpg)
+![Defence in Depth Infographic - colohouse.com](.gitbook/assets/Defense-in-Depth-Infographic-2022.png)
 
 ![Cloud Defence-in-Depth Concept - cyber.gc.ca](.gitbook/assets/itsp50104-Fig3.png)
 
@@ -83,7 +83,7 @@ Cloud platform attacks refer to security **incidents** and **vulnerabilities** t
 
 > 🔗 [Top 10 Cloud Attacks and What You Can Do About Them - aquasec.com](https://www.aquasec.com/cloud-native-academy/cloud-attacks/cloud-attacks/)
 
-![Cloud Attacks - aquasec.com](.gitbook/assets/cloud-attacks.jpg)
+![Cloud Attacks - aquasec.com](.gitbook/assets/cloud-attacks.png)
 
 ### Attacks targets
 
