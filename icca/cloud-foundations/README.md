@@ -85,7 +85,7 @@ Cloud services can be accessed through the Internet or via a private VPN Connect
 
 ![IDC Worldwide Semiannual Public Cloud Services Tracker, 2H 2021](.gitbook/assets/idc-market-share.png)
 
-![Synergy Research Group](.gitbook/assets/cloud-infrastructure.jpg)
+![Synergy Research Group](.gitbook/assets/cloud-infrastructure.png)
 
 > 🔗 [Gartner Says More Than Half of Enterprise IT Spending in Key Market Segments Will Shift to the Cloud by 2025](https://www.gartner.com/en/newsroom/press-releases/2022-02-09-gartner-says-more-than-half-of-enterprise-it-spending)
 

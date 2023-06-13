@@ -35,7 +35,7 @@ The customer is responsible for
 - Identity, Data, Application security (good practices)
 - ***Standards compliance***
 
-![AWS responsibility "Security of the Cloud"](.gitbook/assets/Shared-Responsibility-Model-aws.jpg)
+![AWS responsibility "Security of the Cloud"](.gitbook/assets/Shared-Responsibility-Model-aws.png)
 
 ### Resiliency Responsibility
 
