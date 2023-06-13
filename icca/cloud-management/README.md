@@ -140,7 +140,7 @@ Cloud **I**dentity and **A**ccess **M**anagement (**IAM**) refers to the set of 
 > - Policies (User, Role, Resource, Condition)
 >
 
-![GCP IAM permission management](.gitbook/assets/iam-overview-basics.svg)
+![GCP IAM permission management](.gitbook/assets/iam-overview-basics.png)
 
 > 🔗 [Azure AD](https://learn.microsoft.com/en-us/azure/architecture/identity/identity-start-here)
 >
@@ -157,7 +157,7 @@ Cloud **I**dentity and **A**ccess **M**anagement (**IAM**) refers to the set of 
 > - Policies grant permissions (Effect, Action, Resources, Conditions)
 >
 
-![AWS IAM](.gitbook/assets/iam-how-it-works-diagram.04a2c4e4a1e8848155840676fa97ff2146d19012.png)
+![AWS IAM](.gitbook/assets/iam-how-it-works-diagram.png)
 
 ![AWS IAM](.gitbook/assets/image-20230528131353486.png)
 
