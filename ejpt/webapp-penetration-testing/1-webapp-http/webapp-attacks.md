@@ -222,12 +222,12 @@ xsser --url 'http://192.131.167.3/index.php?page=dns-lookup.php' -p
 xsser --url 'http://192.131.167.3/index.php?page=dns-lookup.php' -p 'target_host=XSS&dns-lookup-php-submit-button=Lookup+DNS' --Fp "<script>alert(1)</script>"
 ```
 
-![](.gitbook/assets/image-20230504234951322.png)
+![](.gitbook/assets/image-20230504234951323.png)
 
 - Copy the `Final Attack` payload and use it in the browser or BurpSuite to trigger the XSS attack
   - `http://192.131.167.3/index.php?page=dns-lookup.php&target_host=%3Cscript%3Ealert%281%29%3C%2Fscript%3E&dns-lookup-php-submit-button=Lookup+DNS`
 
-![](.gitbook/assets/image-20230505000744559.png)
+![](.gitbook/assets/image-20230505000744558.png)
 
 ![](.gitbook/assets/image-20230505000524631.png)
 
@@ -355,7 +355,7 @@ nmap -sS -sV 192.190.241.3
 
   - Decode the `base64` string, it will become `test:test`, like the input data from the login form
 
-![](.gitbook/assets/image-20230505010744726.png)
+![](.gitbook/assets/image-20230505010744727.png)
 
 - Replace the credentials with a parameter to be substituted like `§credentials§`
 
@@ -373,7 +373,7 @@ nmap -sS -sV 192.190.241.3
 
 - Decoded as base64 string is `admin:cookie1`
 
-![](.gitbook/assets/image-20230505011939648.png)
+![](.gitbook/assets/image-20230505011939649.png)
 
 - Turn off BurpSuite interceptor, open the web page and insert the found credentials
 
