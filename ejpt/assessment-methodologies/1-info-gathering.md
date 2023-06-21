@@ -334,7 +334,7 @@ sublist3r -d hackersploit.com -o hs_sub_enum.txt
 
 * use it to search for Dorks by Category to find potentially unsecured files
 
-![Google Hacking Database - exploit-db.com](<.gitbook/assets/image-20230117183211722 (9).png>)
+![Google Hacking Database - exploit-db.com](<.gitbook/assets/image-20230117183211722.png>)
 
 [**Wayback Machine**](https://archive.org/web/)
 
