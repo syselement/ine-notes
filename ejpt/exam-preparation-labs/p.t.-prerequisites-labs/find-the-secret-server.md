@@ -47,7 +47,7 @@ _Objective_: Configure the routes on the Kali machine to reach all the hosts in 
     pipe 4
     ```
 
-![](../../penetration-testing-prerequisites/.gitbook/assets/image-20220224111826243.png)
+![](.gitbook/assets/image-20220224111826243.png)
 
 *   Secret server is not accessible at `192.168.222.199`. Manually add one more route in order to access its network `192.168.222.0/24` through Kali's gateway `10.175.34.1`.
 
@@ -83,6 +83,6 @@ _Objective_: Configure the routes on the Kali machine to reach all the hosts in 
     ```
 * After the route was successfully added, navigate to `http://192.168.222.199` in the web browser:
 
-![](../../penetration-testing-prerequisites/.gitbook/assets/image-20220224113119068.png)
+![](.gitbook/assets/image-20220224113119068.png)
 
 > 📍 Lab solved!
