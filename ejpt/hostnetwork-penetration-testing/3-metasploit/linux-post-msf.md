@@ -642,7 +642,7 @@ set SESSION 2
 run
 ```
 
-![Metasploit - post/linux/manage/sshkey_persistence](.gitbook/assets/image-20230422152922122.png)
+![Metasploit - post/linux/manage/sshkey_persistence](.gitbook/assets/image-20230422152922123.png)
 
 ------
 
