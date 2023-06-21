@@ -30,7 +30,7 @@ Usually a hacker approaches systems with curiosity, so he can:
 
 - To have an idea about the ideals of the underground hacking community read [The Conscience of a Hacker](http://phrack.org/issues/7/3.html).
 
-![](.gitbook/assets/TheConscienceOfAHacker_TheMentor_pic.jpg)
+![](.gitbook/assets/TheConscienceOfAHacker_TheMentor_pic.png)
 
 ### Career Opportunities
 
