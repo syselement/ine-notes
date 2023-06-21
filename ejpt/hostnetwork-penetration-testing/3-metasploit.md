@@ -180,7 +180,7 @@ ls /usr/share/metasploit-framework
 |        **Privilege Escalation**         | Post Exploitation Modules, Meterpreter |
 |    **Maintaining Persistent Access**    | Post Exploitation Modules, Persistence |
 
-![PTES - infopulse.com](.gitbook/assets/ptes-methodology-pic-1-infopulse.jpg)
+![PTES - infopulse.com](.gitbook/assets/ptes-methodology-pic-1-infopulse.png)
 
 ## Metasploit Fundamentals
 
