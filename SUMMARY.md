@@ -80,13 +80,13 @@
       * [🔬Data Exfiltration](ejpt/exam-preparation-labs/p.t.-prerequisites-labs/data-exfiltration.md)
       * [🔬Burp Suite Basics - Directory Enumeration](ejpt/exam-preparation-labs/p.t.-prerequisites-labs/burp-suite-basics.md)
     * [PTSv2 Practice Labs](ejpt/exam-preparation-labs/pts2-labs.md)
-  * [🌐References](ejpt/ejpt-references.md)
-  * [📜eJPT Cheat Sheet](ejpt/ejpt-cheatsheet.md)
+  * [🌐 eJPT References](ejpt/ejpt-references.md)
+  * [📜 eJPT Cheat Sheet](ejpt/ejpt-cheatsheet.md)
 * [ICCA](icca/README.md)
   * [📒1. Cloud Foundations](icca/cloud-foundations/README.md)
   * [📒2. Cloud Management Concepts](icca/cloud-management/README.md)
   * [📒3. Cloud Identity, Security, and Compliance](icca/cloud-sec/README.md)
-  * [🌐References](icca/icca-references.md)
+  * [🌐 Icca References](icca/icca-references.md)
   
 
 
