@@ -1,4 +1,4 @@
-# 📒1. Cloud Foundations
+# 1. Cloud Foundations
 
 > #### 📕 Learning Objectives
 >
