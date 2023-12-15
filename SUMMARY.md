@@ -83,7 +83,7 @@
   * [🌐 eJPT References](ejpt/ejpt-references.md)
   * [📜 eJPT Cheat Sheet](ejpt/ejpt-cheatsheet.md)
 * [ICCA](icca/README.md)
-  * [1. Cloud Foundations](icca/cloud-foundations/README.md)
+  * [1. Cloud Foundations](icca/cloud-foundations/README.msd)
   * [📒2. Cloud Management Concepts](icca/cloud-management/README.md)
   * [📒3. Cloud Identity, Security, and Compliance](icca/cloud-sec/README.md)
   * [🌐 Icca References](icca/icca-references.md)
