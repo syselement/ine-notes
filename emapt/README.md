@@ -22,7 +22,7 @@ description: >-
 Activities: **1** section, **2** courses , **17** videos
 
 - [Android](android/README.md) ~ 7 hours
-- [iOS] (ios/README.md) ~ 5 hours
+- [iOS](ios/README.md) ~ 5 hours
 
 Instructor: Anthony Trummer
 
