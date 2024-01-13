@@ -1013,7 +1013,7 @@ Check for `HostNameVerifier` misconfiguration.
 
 - Search for `com.microsoft.live.AuthorizationRequest` Class
 
-![image-20240108161457914](.gitbook/assets/image-20240108161457914.png)
+![AuthorizationRequest](.gitbook/assets/image-20240108161457914.png)
 
 ```java
 public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
