@@ -514,124 +514,125 @@ java -jar Bytecode-Viewer-2.11.2.jar
 
 ### 🧪 Practice Lab 1
 
-> `e.g.` - `LocatingSecrets` app debug
->
-> - `app-debug.apk` is inside the `/LocatingSecrets/app/build/outputs/apk/` directory
->
-> ```bash
-> # Decode the APK
-> apktool d app-debug.apk
-> ```
->
-> Check the `AndroidManifest.xml`
->
-> ![AndroidManifest.xml](.gitbook/assets/image-20231204114102892.png)
->
-> - `android.permission.INTERNET` is required - app contacts a remote server
-> - `Access` (MAIN activity - seen at app start), `Files` activities are used
->
-> ```bash
-> # Convert APK to .jar file
-> sh ~/tools/dex-tools-v2.4/d2j-dex2jar.sh -f app-debug.apk -o out_LocatingSecrets.jar
-> 
-> # Open the .jar file with JD-GUI
-> ```
->
-> - Or open the `app-debug.apk` with `Jadx-Gui`
->   - `dex` code is being automatically decompiled to java classes (pay attention to the decompiled code)
->
-> ![](.gitbook/assets/image-20231204120646126.png)
->
-> - Opening `out_LocatingSecrets.jar`, `onCreate` method can be found with resource id of `R.layout.activity_access`
->   - this id vale can be found in the `R` file
->
-> ![jadx-gui](.gitbook/assets/image-20231204123127000.png)
->
-> ![Access.class](.gitbook/assets/image-20231204123146810.png)
->
-> - `res/layout/activity_access.xml` - these elements build the first activity interface
->
-> ![activity_access.xml](.gitbook/assets/image-20231204123952386.png)
->
-> The `ACCESS` button calls the `access` method
->
-> - Gets and stores the input value into the code
-> - This value is called and sent to the `Files` activity
->
-> ![Access.class](.gitbook/assets/image-20231204124201874.png)
->
-> Open the `Files.class` file and analyze the `onCreate` method
->
-> - `username` and `password` are stored separately from the source code, in the `string` class
-> - check `res/values/strings.xml` for the 2 parameters values (hard-coded credentials)
-> - extra: using the `5v3f4g` string, will access more files
->
-> ![](.gitbook/assets/image-20231204125007590.png)
->
-> ![](.gitbook/assets/image-20231204125553398.png)
->
+`e.g.` - `LocatingSecrets` app debug
+
+- `app-debug.apk` is inside the `/LocatingSecrets/app/build/outputs/apk/` directory
+
+```bash
+# Decode the APK
+apktool d app-debug.apk
+```
+
+Check the `AndroidManifest.xml`
+
+![AndroidManifest.xml](.gitbook/assets/image-20231204114102892.png)
+
+- `android.permission.INTERNET` is required - app contacts a remote server
+- `Access` (MAIN activity - seen at app start), `Files` activities are used
+
+```bash
+# Convert APK to .jar file
+sh ~/tools/dex-tools-v2.4/d2j-dex2jar.sh -f app-debug.apk -o out_LocatingSecrets.jar
+
+# Open the .jar file with JD-GUI
+```
+
+- Or open the `app-debug.apk` with `Jadx-Gui`
+  - `dex` code is being automatically decompiled to java classes (pay attention to the decompiled code)
+
+![](.gitbook/assets/image-20231204120646126.png)
+
+- Opening `out_LocatingSecrets.jar`, `onCreate` method can be found with resource id of `R.layout.activity_access`
+  - this id vale can be found in the `R` file
+
+![jadx-gui](.gitbook/assets/image-20231204123127000.png)
+
+![Access.class](.gitbook/assets/image-20231204123146810.png)
+
+- `res/layout/activity_access.xml` - these elements build the first activity interface
+
+![activity_access.xml](.gitbook/assets/image-20231204123952386.png)
+
+The `ACCESS` button calls the `access` method
+
+- Gets and stores the input value into the code
+- This value is called and sent to the `Files` activity
+
+![Access.class](.gitbook/assets/image-20231204124201874.png)
+
+Open the `Files.class` file and analyze the `onCreate` method
+
+- `username` and `password` are stored separately from the source code, in the `string` class
+- check `res/values/strings.xml` for the 2 parameters values (hard-coded credentials)
+- extra: using the `5v3f4g` string, will access more files
+
+![](.gitbook/assets/image-20231204125007590.png)
+
+![](.gitbook/assets/image-20231204125553398.png)
+
+---
 
 ### 🧪 Practice Lab 2
 
-> `e.g.` - `BypassSecurityControls` app debug
->
-> - Review app's functionality, decode, decompile the app, extract critical information, identify how the PIN is calculated, access the restricted area
->
-> ```bash
-> apktool d BypassSecurityControls.apk
-> 
-> sh ~/tools/dex-tools-v2.4/d2j-dex2jar.sh -f BypassSecurityControls.apk -o BypassSecurityControls.jar
-> # Open the .jar file with JD-GUI
-> ```
->
-> `AndroidManifest.xml`
->
-> ![AndroidManifest.xml](.gitbook/assets/image-20231204160319419.png)
->
-> - `ELSApp` - main activity
-> - `Admin` - page accessible only with code
-> - `Verify` - insert the code here
->
-> `Verify.class` - `access` method
->
-> ![Verify.class](.gitbook/assets/image-20231204162022697.png)
->
-> - `editText` - retrieve input
-> - `str1` - manipulated string
-> - `str3` - device ID, cut to 5 chars
-> - `str4` - user's value
-> - `str5` - value defined in the string Resources at `strings.xml`
->
-> At each iteration, the app appends to `str1` the char at position `i` of the strings `str3` and `str5`, in a sequence of pairs repeating 5 times.
->
-> The input string (`str4`) is compared with the manipulated string (`str1`). If they match, an activity is started for the `Admin` class.
->
-> `strings.xml` - find the `str5` value under the node `seed`
->
-> - check the value in the `res/values/strings.xml` - `5f247F`
->
-> ![strings.xml](.gitbook/assets/image-20231204164101962.png)
->
-> ```bash
-> # res/values/strings.xml
-> [...]
-> <string name="seed">5f247F</string>
-> ```
->
-> At the fifth iteration of the `for` statement, `str1` will contain `5f247F`.
->
-> Access the Admin area using `5f247F` - not working on a physical device.
->
-> `tm.getDeviceID` is a number specific to the phone, `IMEI` / `MEID HEX`.
->
-> - (This method was **deprecated** in API level 26)
->
-> ![](.gitbook/assets/image-20231204165040430.png)
->
-> - `e.g.` In this case, using the first 5 chars of the IMEI (e.g. **35950**) and the **5f247F** string, the `str4` must be: `53f5294570` and the actual code only 5 chars long is not working since the used phone has no call permission and `getDeviceID` is not working.
-> - Since the `dev_id_complete = 0000000000` the actual working code is `50f02`
->
-> ![](.gitbook/assets/image-20231204170704710.png)
+`e.g.` - `BypassSecurityControls` app debug
+
+- Review app's functionality, decode, decompile the app, extract critical information, identify how the PIN is calculated, access the restricted area
+
+```bash
+apktool d BypassSecurityControls.apk
+
+sh ~/tools/dex-tools-v2.4/d2j-dex2jar.sh -f BypassSecurityControls.apk -o BypassSecurityControls.jar
+# Open the .jar file with JD-GUI
+```
+
+`AndroidManifest.xml`
+
+![AndroidManifest.xml](.gitbook/assets/image-20231204160319419.png)
+
+- `ELSApp` - main activity
+- `Admin` - page accessible only with code
+- `Verify` - insert the code here
+
+`Verify.class` - `access` method
+
+![Verify.class](.gitbook/assets/image-20231204162022697.png)
+
+- `editText` - retrieve input
+- `str1` - manipulated string
+- `str3` - device ID, cut to 5 chars
+- `str4` - user's value
+- `str5` - value defined in the string Resources at `strings.xml`
+
+At each iteration, the app appends to `str1` the char at position `i` of the strings `str3` and `str5`, in a sequence of pairs repeating 5 times.
+
+The input string (`str4`) is compared with the manipulated string (`str1`). If they match, an activity is started for the `Admin` class.
+
+`strings.xml` - find the `str5` value under the node `seed`
+
+- check the value in the `res/values/strings.xml` - `5f247F`
+
+![strings.xml](.gitbook/assets/image-20231204164101962.png)
+
+```bash
+# res/values/strings.xml
+[...]
+<string name="seed">5f247F</string>
+```
+
+At the fifth iteration of the `for` statement, `str1` will contain `5f247F`.
+
+Access the Admin area using `5f247F` - not working on a physical device.
+
+`tm.getDeviceID` is a number specific to the phone, `IMEI` / `MEID HEX`.
+
+- (This method was **deprecated** in API level 26)
+
+![](.gitbook/assets/image-20231204165040430.png)
+
+- `e.g.` In this case, using the first 5 chars of the IMEI (e.g. **35950**) and the **5f247F** string, the `str4` must be: `53f5294570` and the actual code only 5 chars long is not working since the used phone has no call permission and `getDeviceID` is not working.
+- Since the `dev_id_complete = 0000000000` the actual working code is `50f02`
+
+![](.gitbook/assets/image-20231204170704710.png)
 
 ------
 
@@ -686,232 +687,232 @@ apktool d example_obfuscated.apk -s
 
 ### 🧪 Practice Lab 3 - Reversing Applications
 
-> 🔗 [AndroGoat App](https://github.com/satishpatnayak/AndroGoat)
->
-> Download [AndroGoat.apk](https://github.com/satishpatnayak/MyTest/blob/master/AndroGoat.apk) and open it with `Jadx-Gui`.
->
-> - In the `AndroidManifest.xml` file check
->   - `android:exported="true"`
->   - Activities
->   - Permissions
->   - Intents
->
-> ```xml
-> <?xml version="1.0" encoding="utf-8"?>
-> <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="owasp.sat.agoat">
->     <uses-sdk android:minSdkVersion="18" android:targetSdkVersion="26"/>
->     <uses-permission android:name="android.permission.INTERNET"/>
->     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
->     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
->     <application android:theme="@style/AppTheme" android:label="@string/app_name" android:icon="@mipmap/ic_launcher" android:debuggable="true" android:allowBackup="true" android:supportsRtl="true" android:networkSecurityConfig="@xml/network_security_config" android:roundIcon="@mipmap/ic_launcher_round">
->         <activity android:name="owasp.sat.agoat.SplashActivity">
->             <intent-filter>
->                 <action android:name="android.intent.action.MAIN"/>
->                 <category android:name="android.intent.category.LAUNCHER"/>
->             </intent-filter>
->         </activity>
->         <activity android:label="@string/app_name" android:name="owasp.sat.agoat.MainActivity"/>
->         <activity android:label="@string/root" android:name="owasp.sat.agoat.RootDetectionActivity"/>
->         <activity android:label="@string/logging" android:name="owasp.sat.agoat.InsecureLoggingActivity"/>
->         <activity android:label="@string/xss" android:name="owasp.sat.agoat.XSSActivity"/>
->         <activity android:label="@string/sqli" android:name="owasp.sat.agoat.SQLinjectionActivity"/>
->         <activity android:label="@string/sp1" android:name="owasp.sat.agoat.InsecureStorageSharedPrefs"/>
->         <activity android:label="@string/tempFile" android:name="owasp.sat.agoat.InsecureStorageTempActivity"/>
->         <activity android:label="@string/activity" android:name="owasp.sat.agoat.AccessControlIssue1Activity"/>
->         <activity android:label="@string/activity" android:name="owasp.sat.agoat.AccessControl1ViewActivity">
->             <intent-filter>
->                 <action android:name="android.intent.action.VIEW"/>
->                 <category android:name="android.intent.category.DEFAULT"/>
->                 <data android:scheme="androgoat" android:host="vulnapp"/>
->             </intent-filter>
->         </activity>
->         <receiver android:name="owasp.sat.agoat.ShowDataReceiver" android:enabled="true" android:exported="true"/>
->         <activity android:label="@string/hardcode" android:name="owasp.sat.agoat.HardCodeActivity"/>
->         <activity android:label="@string/sql" android:name="owasp.sat.agoat.InsecureStorageSQLiteActivity"/>
->         <activity android:label="@string/sp2" android:name="owasp.sat.agoat.InsecureStorageSharedPrefs1Activity"/>
->         <activity android:label="@string/network" android:name="owasp.sat.agoat.TrafficActivity"/>
->         <activity android:name="owasp.sat.agoat.ContentProviderActivity"/>
->         <activity android:label="@string/emulator" android:name="owasp.sat.agoat.EmulatorDetectionActivity"/>
->         <activity android:label="@string/sdCard" android:name="owasp.sat.agoat.InsecureStorageSDCardActivity"/>
->         <activity android:label="@string/wbviewAccess" android:name="owasp.sat.agoat.InputValidationsWebViewURLActivity"/>
->         <activity android:label="@string/oscmd" android:name="owasp.sat.agoat.InputValidationsOSCMDInjectionMain2Activity"/>
->         <service android:name="owasp.sat.agoat.DownloadInvoiceService" android:enabled="true" android:exported="true"/>
->         <activity android:label="@string/BinaryPatching" android:name="owasp.sat.agoat.BinaryPatchingActivity"/>
->         <activity android:label="@string/clipboard" android:name="owasp.sat.agoat.ClipboardActivity"/>
->         <activity android:label="@string/InsecureStorage" android:name="owasp.sat.agoat.InsecureStorageActivity"/>
->         <activity android:label="@string/SideChannelLeakage" android:name="owasp.sat.agoat.SideChannelDataLeakageActivity"/>
->         <activity android:label="@string/InputValidations" android:name="owasp.sat.agoat.InputValidationsActivity"/>
->         <activity android:label="@string/dict" android:name="owasp.sat.agoat.KeyboardCacheActivity"/>
->         <meta-data android:name="android.support.VERSION" android:value="26.1.0"/>
->         <meta-data android:name="android.arch.lifecycle.VERSION" android:value="27.0.0-SNAPSHOT"/>
->     </application>
-> </manifest>
-> ```
->
-> - `classes.dex` is already decompiled from `dex` to `jar` by Jadx.
->   - check some of the Java classes inside `owasp.sat.agoat`
->   - check for hardcoded strings, misconfiguration, code vulnerabilities
->   - use Search tool
->   - methods (`onCreate`, `` etc)
->
-> ![](.gitbook/assets/image-20240108103541867.png)
->
-> ![](.gitbook/assets/image-20240108103915223.png)
->
-> ![](.gitbook/assets/image-20240108104008329.png)
->
-> - e.g. `ShowDataReceiver` class
->   - The provided code snippet contains a BroadcastReceiver in Android named `ShowDataReceiver` that in the `AndroidManifest.xml` file has the attribute `android:exported="true"`, meaning that `ShowDataReceiver` is exported and can be invoked by other apps
->   - The `Toast.makeText` method includes a hardcoded message that reveals sensitive information - exposed credentials in app's code.
->
->
-> ```bash
-> # AndroidManifest.xml
-> <receiver android:name="owasp.sat.agoat.ShowDataReceiver" android:enabled="true" android:exported="true"/>
-> ```
->
-> ```java
-> package owasp.sat.agoat;
-> 
-> import android.content.BroadcastReceiver;
-> import android.content.Context;
-> import android.content.Intent;
-> import android.widget.Toast;
-> import kotlin.Metadata;
-> import kotlin.jvm.internal.Intrinsics;
-> 
-> /* compiled from: ShowDataReceiver.kt */
-> @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001e\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\u0018\u00002\u00020\u0001B\u0005¢\u0006\u0002\u0010\u0002J\u0018\u0010\u0003\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u00062\u0006\u0010\u0007\u001a\u00020\bH\u0016¨\u0006\t"}, d2 = {"Lowasp/sat/agoat/ShowDataReceiver;", "Landroid/content/BroadcastReceiver;", "()V", "onReceive", "", "context", "Landroid/content/Context;", "intent", "Landroid/content/Intent;", "app_debug"}, k = 1, mv = {1, 1, 16})
-> /* loaded from: classes.dex */
-> public final class ShowDataReceiver extends BroadcastReceiver {
->     @Override // android.content.BroadcastReceiver
->     public void onReceive(Context context, Intent intent) {
->         Intrinsics.checkParameterIsNotNull(context, "context");
->         Intrinsics.checkParameterIsNotNull(intent, "intent");
->         Toast.makeText(context, "Username is CrazyUser, Password is CrazyPassword and Key is 123myKey456", 1).show();
->     }
-> }
-> ```
->
-> ![](.gitbook/assets/image-20240108121309671.png)
->
-> **SMALI Code Review**
->
-> - Download smali/backsmali jars from https://bitbucket.org/JesusFreke/smali/downloads/
->
-> ```bash
-> unzip AndroGoat.apk
-> 
-> # Disassemble a .dex file
-> java -jar ~/tools/baksmali-2.5.2.jar d classes.dex
-> # check the "out" folder
-> cd out/
-> 
-> code owasp/sat/agoat/ShowDataReceiver.smali
-> 
-> # Assemble a directory containing smali code
-> java -jar ~/tools/smali-2.5.2.jar a source/
-> ```
->
-> 1. **Class Definition:**
->    - The class is defined as `Lowasp/sat/agoat/ShowDataReceiver` and extends `android/content/BroadcastReceiver`.
-> 2. **Constructor:**
->    - The constructor is defined to call the constructor of the superclass (`android/content/BroadcastReceiver`).
-> 3. **`onReceive` Method:**
->    - The `onReceive` method is implemented, which is invoked when the `BroadcastReceiver` receives a broadcast.
->    - It takes two parameters: `context` (of type `Landroid/content/Context;`) and `intent` (of type `Landroid/content/Intent;`).
-> 4. **Annotations:**
->    - The Smali code includes metadata annotations (`Lkotlin/Metadata;`) generated from the Kotlin source code.
->    - Annotations provide additional information about the Kotlin class, including its structure and methods.
-> 5. **Toast Message:**
->    - The `onReceive` method creates a Toast message displaying the hardcoded string "*Username is CrazyUser, Password is CrazyPassword and Key is 123myKey456*"
-> 6. **Parameter Checking:**
->    - Parameter checking is performed using the `Intrinsics.checkParameterIsNotNull` method to ensure that the `context` and `intent` parameters are not null.
-> 7. **Initialization:**
->    - The `onReceive` method initializes a Toast message and shows it using the `makeText` and `show` methods, respectively.
->
-> ```bash
-> # SMALI #
-> # ShowDataReceiver.smali #
-> 
-> .class public final Lowasp/sat/agoat/ShowDataReceiver;
-> .super Landroid/content/BroadcastReceiver;
-> .source "ShowDataReceiver.kt"
-> 
-> 
-> # annotations
-> .annotation runtime Lkotlin/Metadata;
->     bv = {
->         0x1,
->         0x0,
->         0x3
->     }
->     d1 = {
->         "\u0000\u001e\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\u0018\u00002\u00020\u0001B\u0005\u00a2\u0006\u0002\u0010\u0002J\u0018\u0010\u0003\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u00062\u0006\u0010\u0007\u001a\u00020\u0008H\u0016\u00a8\u0006\t"
->     }
->     d2 = {
->         "Lowasp/sat/agoat/ShowDataReceiver;",
->         "Landroid/content/BroadcastReceiver;",
->         "()V",
->         "onReceive",
->         "",
->         "context",
->         "Landroid/content/Context;",
->         "intent",
->         "Landroid/content/Intent;",
->         "app_debug"
->     }
->     k = 0x1
->     mv = {
->         0x1,
->         0x1,
->         0x10
->     }
-> .end annotation
-> 
-> 
-> # direct methods
-> .method public constructor <init>()V
->     .registers 1
-> 
->     .line 14
->     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
-> 
->     return-void
-> .end method
-> 
-> 
-> # virtual methods
-> .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
->     .registers 5
->     .param p1, "context"    # Landroid/content/Context;
->     .param p2, "intent"    # Landroid/content/Intent;
-> 
->     const-string v0, "context"
-> 
->     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
-> 
->     const-string v0, "intent"
-> 
->     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
-> 
->     .line 17
->     const-string v0, "Username is CrazyUser, Password is CrazyPassword and Key is 123myKey456"
-> 
->     check-cast v0, Ljava/lang/CharSequence;
-> 
->     const/4 v1, 0x1
-> 
->     invoke-static {p1, v0, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
-> 
->     move-result-object v0
-> 
->     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
-> 
->     .line 19
->     return-void
-> .end method
-> ```
+🔗 [AndroGoat App](https://github.com/satishpatnayak/AndroGoat)
+
+Download [AndroGoat.apk](https://github.com/satishpatnayak/MyTest/blob/master/AndroGoat.apk) and open it with `Jadx-Gui`.
+
+- In the `AndroidManifest.xml` file check
+  - `android:exported="true"`
+  - Activities
+  - Permissions
+  - Intents
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="owasp.sat.agoat">
+    <uses-sdk android:minSdkVersion="18" android:targetSdkVersion="26"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <application android:theme="@style/AppTheme" android:label="@string/app_name" android:icon="@mipmap/ic_launcher" android:debuggable="true" android:allowBackup="true" android:supportsRtl="true" android:networkSecurityConfig="@xml/network_security_config" android:roundIcon="@mipmap/ic_launcher_round">
+        <activity android:name="owasp.sat.agoat.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:name="owasp.sat.agoat.MainActivity"/>
+        <activity android:label="@string/root" android:name="owasp.sat.agoat.RootDetectionActivity"/>
+        <activity android:label="@string/logging" android:name="owasp.sat.agoat.InsecureLoggingActivity"/>
+        <activity android:label="@string/xss" android:name="owasp.sat.agoat.XSSActivity"/>
+        <activity android:label="@string/sqli" android:name="owasp.sat.agoat.SQLinjectionActivity"/>
+        <activity android:label="@string/sp1" android:name="owasp.sat.agoat.InsecureStorageSharedPrefs"/>
+        <activity android:label="@string/tempFile" android:name="owasp.sat.agoat.InsecureStorageTempActivity"/>
+        <activity android:label="@string/activity" android:name="owasp.sat.agoat.AccessControlIssue1Activity"/>
+        <activity android:label="@string/activity" android:name="owasp.sat.agoat.AccessControl1ViewActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="androgoat" android:host="vulnapp"/>
+            </intent-filter>
+        </activity>
+        <receiver android:name="owasp.sat.agoat.ShowDataReceiver" android:enabled="true" android:exported="true"/>
+        <activity android:label="@string/hardcode" android:name="owasp.sat.agoat.HardCodeActivity"/>
+        <activity android:label="@string/sql" android:name="owasp.sat.agoat.InsecureStorageSQLiteActivity"/>
+        <activity android:label="@string/sp2" android:name="owasp.sat.agoat.InsecureStorageSharedPrefs1Activity"/>
+        <activity android:label="@string/network" android:name="owasp.sat.agoat.TrafficActivity"/>
+        <activity android:name="owasp.sat.agoat.ContentProviderActivity"/>
+        <activity android:label="@string/emulator" android:name="owasp.sat.agoat.EmulatorDetectionActivity"/>
+        <activity android:label="@string/sdCard" android:name="owasp.sat.agoat.InsecureStorageSDCardActivity"/>
+        <activity android:label="@string/wbviewAccess" android:name="owasp.sat.agoat.InputValidationsWebViewURLActivity"/>
+        <activity android:label="@string/oscmd" android:name="owasp.sat.agoat.InputValidationsOSCMDInjectionMain2Activity"/>
+        <service android:name="owasp.sat.agoat.DownloadInvoiceService" android:enabled="true" android:exported="true"/>
+        <activity android:label="@string/BinaryPatching" android:name="owasp.sat.agoat.BinaryPatchingActivity"/>
+        <activity android:label="@string/clipboard" android:name="owasp.sat.agoat.ClipboardActivity"/>
+        <activity android:label="@string/InsecureStorage" android:name="owasp.sat.agoat.InsecureStorageActivity"/>
+        <activity android:label="@string/SideChannelLeakage" android:name="owasp.sat.agoat.SideChannelDataLeakageActivity"/>
+        <activity android:label="@string/InputValidations" android:name="owasp.sat.agoat.InputValidationsActivity"/>
+        <activity android:label="@string/dict" android:name="owasp.sat.agoat.KeyboardCacheActivity"/>
+        <meta-data android:name="android.support.VERSION" android:value="26.1.0"/>
+        <meta-data android:name="android.arch.lifecycle.VERSION" android:value="27.0.0-SNAPSHOT"/>
+    </application>
+</manifest>
+```
+
+- `classes.dex` is already decompiled from `dex` to `jar` by Jadx.
+  - check some of the Java classes inside `owasp.sat.agoat`
+  - check for hardcoded strings, misconfiguration, code vulnerabilities
+  - use Search tool
+  - methods (`onCreate`, `` etc)
+
+![](.gitbook/assets/image-20240108103541867.png)
+
+![](.gitbook/assets/image-20240108103915223.png)
+
+![](.gitbook/assets/image-20240108104008329.png)
+
+- e.g. `ShowDataReceiver` class
+  - The provided code snippet contains a BroadcastReceiver in Android named `ShowDataReceiver` that in the `AndroidManifest.xml` file has the attribute `android:exported="true"`, meaning that `ShowDataReceiver` is exported and can be invoked by other apps
+  - The `Toast.makeText` method includes a hardcoded message that reveals sensitive information - exposed credentials in app's code.
+
+
+```bash
+# AndroidManifest.xml
+<receiver android:name="owasp.sat.agoat.ShowDataReceiver" android:enabled="true" android:exported="true"/>
+```
+
+```java
+package owasp.sat.agoat;
+
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.widget.Toast;
+import kotlin.Metadata;
+import kotlin.jvm.internal.Intrinsics;
+
+/* compiled from: ShowDataReceiver.kt */
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001e\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\u0018\u00002\u00020\u0001B\u0005¢\u0006\u0002\u0010\u0002J\u0018\u0010\u0003\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u00062\u0006\u0010\u0007\u001a\u00020\bH\u0016¨\u0006\t"}, d2 = {"Lowasp/sat/agoat/ShowDataReceiver;", "Landroid/content/BroadcastReceiver;", "()V", "onReceive", "", "context", "Landroid/content/Context;", "intent", "Landroid/content/Intent;", "app_debug"}, k = 1, mv = {1, 1, 16})
+/* loaded from: classes.dex */
+public final class ShowDataReceiver extends BroadcastReceiver {
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
+        Intrinsics.checkParameterIsNotNull(context, "context");
+        Intrinsics.checkParameterIsNotNull(intent, "intent");
+        Toast.makeText(context, "Username is CrazyUser, Password is CrazyPassword and Key is 123myKey456", 1).show();
+    }
+}
+```
+
+![](.gitbook/assets/image-20240108121309671.png)
+
+**SMALI Code Review**
+
+- Download smali/backsmali jars from https://bitbucket.org/JesusFreke/smali/downloads/
+
+```bash
+unzip AndroGoat.apk
+
+# Disassemble a .dex file
+java -jar ~/tools/baksmali-2.5.2.jar d classes.dex
+# check the "out" folder
+cd out/
+
+code owasp/sat/agoat/ShowDataReceiver.smali
+
+# Assemble a directory containing smali code
+java -jar ~/tools/smali-2.5.2.jar a source/
+```
+
+1. **Class Definition:**
+   - The class is defined as `Lowasp/sat/agoat/ShowDataReceiver` and extends `android/content/BroadcastReceiver`.
+2. **Constructor:**
+   - The constructor is defined to call the constructor of the superclass (`android/content/BroadcastReceiver`).
+3. **`onReceive` Method:**
+   - The `onReceive` method is implemented, which is invoked when the `BroadcastReceiver` receives a broadcast.
+   - It takes two parameters: `context` (of type `Landroid/content/Context;`) and `intent` (of type `Landroid/content/Intent;`).
+4. **Annotations:**
+   - The Smali code includes metadata annotations (`Lkotlin/Metadata;`) generated from the Kotlin source code.
+   - Annotations provide additional information about the Kotlin class, including its structure and methods.
+5. **Toast Message:**
+   - The `onReceive` method creates a Toast message displaying the hardcoded string "*Username is CrazyUser, Password is CrazyPassword and Key is 123myKey456*"
+6. **Parameter Checking:**
+   - Parameter checking is performed using the `Intrinsics.checkParameterIsNotNull` method to ensure that the `context` and `intent` parameters are not null.
+7. **Initialization:**
+   - The `onReceive` method initializes a Toast message and shows it using the `makeText` and `show` methods, respectively.
+
+```bash
+# SMALI #
+# ShowDataReceiver.smali #
+
+.class public final Lowasp/sat/agoat/ShowDataReceiver;
+.super Landroid/content/BroadcastReceiver;
+.source "ShowDataReceiver.kt"
+
+
+# annotations
+.annotation runtime Lkotlin/Metadata;
+    bv = {
+        0x1,
+        0x0,
+        0x3
+    }
+    d1 = {
+        "\u0000\u001e\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\u0018\u00002\u00020\u0001B\u0005\u00a2\u0006\u0002\u0010\u0002J\u0018\u0010\u0003\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u00062\u0006\u0010\u0007\u001a\u00020\u0008H\u0016\u00a8\u0006\t"
+    }
+    d2 = {
+        "Lowasp/sat/agoat/ShowDataReceiver;",
+        "Landroid/content/BroadcastReceiver;",
+        "()V",
+        "onReceive",
+        "",
+        "context",
+        "Landroid/content/Context;",
+        "intent",
+        "Landroid/content/Intent;",
+        "app_debug"
+    }
+    k = 0x1
+    mv = {
+        0x1,
+        0x1,
+        0x10
+    }
+.end annotation
+
+
+# direct methods
+.method public constructor <init>()V
+    .registers 1
+
+    .line 14
+    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+    .registers 5
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
+
+    const-string v0, "context"
+
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+
+    const-string v0, "intent"
+
+    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 17
+    const-string v0, "Username is CrazyUser, Password is CrazyPassword and Key is 123myKey456"
+
+    check-cast v0, Ljava/lang/CharSequence;
+
+    const/4 v1, 0x1
+
+    invoke-static {p1, v0, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
+
+    .line 19
+    return-void
+.end method
+```
 
 ---
 
@@ -972,108 +973,108 @@ The host and the device must be on the same network and able to communicate with
 
 ### 🧪 Practice Lab 4
 
-> **Objectives**
->
-> - Understand and reproduce common certificate validation vulnerabilities
-> - Reverse apps and locate certificate validation vulns in the source code
->
-> Install the app.
->
-> ```bash
-> adb install com.outlook.apk
-> adb install com.ubercab
-> ```
->
-> Capture network traffic with a proxy (Zaproxy, BurpSuite).
->
-> - `com.outlook.apk` - HTTPS traffic visible, Outlook is trusting all certificates.
->   - 📌 even with a *CA-signed certificate with a specific hostname* or without a trusted certificate installed, this vulnerable Outlook app **does not perform any kind of hostname validation or trusted CA check**
->
-> ![](.gitbook/assets/image-20240108155924801.png)
->
-> - `com.ubercab` - HTTPS traffic not captured and app errors "*Network error*"
->
-> Decode and decompile the apps.
->
-> ```bash
-> apktool d com.outlook.apk
-> apktool d com.ubercab.apk
-> ```
->
-> 📌 Open `com.outlook.apk` with `Jadx-GUI`
->
-> Check for `HostNameVerifier` misconfiguration.
->
-> - Search for `ALLOW_ALL` and check the `Connectivity` class
->
-> ![](.gitbook/assets/image-20240108161022538.png)
->
-> - This insecure             `aVar.setHostnameVerifier(SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER);` implementation is the cause of the ***certificate validation vulnerability***
->
-> - Search for `com.microsoft.live.AuthorizationRequest` Class
->
-> ![image-20240108161457914](.gitbook/assets/image-20240108161457914.png)
->
-> ```java
-> public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
->     OAuthDialog.this.setLiveSdkProvProgressStatus(false);
->     handler.proceed();
-> }
-> ```
->
-> - This code is part of a WebView implementation, specifically within the `onReceivedSslError` method. This method is typically called when there is an SSL error during the loading of a web page over HTTPS. The SSL error is being ignored by calling `handler.proceed()` without any further checks or validations, and this might allow the WebView to continue loading the page despite SSL errors.
->
-> 📌 Open `com.ubercab.apk` with `Jadx-GUI`
->
-> Check the `UBTrustManager` class for certificate validation vulnerabilities, and `HostNameVerifier` for host name validation issues.
->
-> ![](.gitbook/assets/image-20240108163812803.png)
->
-> ```java
-> package com.ubercab.networking;
-> 
-> import java.security.cert.CertificateException;
-> import java.security.cert.X509Certificate;
-> import javax.net.ssl.X509TrustManager;
-> 
-> /* loaded from: classes.dex */
-> public class UBTrustManager implements X509TrustManager {
->     @Override // javax.net.ssl.X509TrustManager
->     public void checkClientTrusted(X509Certificate[] arg0, String arg1) throws CertificateException {
->     }
-> 
->     @Override // javax.net.ssl.X509TrustManager
->     public void checkServerTrusted(X509Certificate[] chain, String authType) throws CertificateException {
->     }
-> 
->     @Override // javax.net.ssl.X509TrustManager
->     public X509Certificate[] getAcceptedIssuers() {
->         return new X509Certificate[0];
->     }
-> }
-> ```
->
-> - This `UBTrustManager` defines a custom `X509TrustManager` named `UBTrustManager` that lacks proper certificate validation. The `checkClientTrusted` and `checkServerTrusted` methods do not contain any validation logic, making the ***trust manager susceptible to accepting any certificate without verification***. This exposes the application to potential man-in-the-middle attacks
->
-> Check for `HostNameVerifier` misconfiguration.
->
-> - Search for `HostNameVerifier` and check the `com.google.api.client.http.apache.TrustAllSSLSocketFactory` class
->
-> ![](.gitbook/assets/image-20240108164833770.png)
->
-> ```java
-> public TrustAllSSLSocketFactory() throws GeneralSecurityException {
->     super(KeyStore.getInstance(KeyStore.getDefaultType()));
->     this.socketFactory = SslUtils.trustAllSSLContext().getSocketFactory();
->     setHostnameVerifier(SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER);
-> }
-> ```
->
-> - The class uses `SslUtils.trustAllSSLContext()` to obtain an `SSLContext` that trusts all certificates, effectively disabling SSL/TLS certificate validation.
->   - The `setHostnameVerifier(SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER)` method is called, disabling hostname verification. This allows connections to hosts with different names than the one to which the certificate was issued
-> - e.g. **Mitigations**: 
->   - Implement proper certificate validation checks instead of blindly trusting all certificates.
->   - Enable hostname verification to ensure that the certificate matches the host.
+**Objectives**
+
+- Understand and reproduce common certificate validation vulnerabilities
+- Reverse apps and locate certificate validation vulns in the source code
+
+Install the app.
+
+```bash
+adb install com.outlook.apk
+adb install com.ubercab
+```
+
+Capture network traffic with a proxy (Zaproxy, BurpSuite).
+
+- `com.outlook.apk` - HTTPS traffic visible, Outlook is trusting all certificates.
+  - 📌 even with a *CA-signed certificate with a specific hostname* or without a trusted certificate installed, this vulnerable Outlook app **does not perform any kind of hostname validation or trusted CA check**
+
+![](.gitbook/assets/image-20240108155924801.png)
+
+- `com.ubercab` - HTTPS traffic not captured and app errors "*Network error*"
+
+Decode and decompile the apps.
+
+```bash
+apktool d com.outlook.apk
+apktool d com.ubercab.apk
+```
+
+📌 Open `com.outlook.apk` with `Jadx-GUI`
+
+Check for `HostNameVerifier` misconfiguration.
+
+- Search for `ALLOW_ALL` and check the `Connectivity` class
+
+![](.gitbook/assets/image-20240108161022538.png)
+
+- This insecure             `aVar.setHostnameVerifier(SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER);` implementation is the cause of the ***certificate validation vulnerability***
+
+- Search for `com.microsoft.live.AuthorizationRequest` Class
+
+![image-20240108161457914](.gitbook/assets/image-20240108161457914.png)
+
+```java
+public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
+    OAuthDialog.this.setLiveSdkProvProgressStatus(false);
+    handler.proceed();
+}
+```
+
+- This code is part of a WebView implementation, specifically within the `onReceivedSslError` method. This method is typically called when there is an SSL error during the loading of a web page over HTTPS. The SSL error is being ignored by calling `handler.proceed()` without any further checks or validations, and this might allow the WebView to continue loading the page despite SSL errors.
+
+📌 Open `com.ubercab.apk` with `Jadx-GUI`
+
+Check the `UBTrustManager` class for certificate validation vulnerabilities, and `HostNameVerifier` for host name validation issues.
+
+![](.gitbook/assets/image-20240108163812803.png)
+
+```java
+package com.ubercab.networking;
+
+import java.security.cert.CertificateException;
+import java.security.cert.X509Certificate;
+import javax.net.ssl.X509TrustManager;
+
+/* loaded from: classes.dex */
+public class UBTrustManager implements X509TrustManager {
+    @Override // javax.net.ssl.X509TrustManager
+    public void checkClientTrusted(X509Certificate[] arg0, String arg1) throws CertificateException {
+    }
+
+    @Override // javax.net.ssl.X509TrustManager
+    public void checkServerTrusted(X509Certificate[] chain, String authType) throws CertificateException {
+    }
+
+    @Override // javax.net.ssl.X509TrustManager
+    public X509Certificate[] getAcceptedIssuers() {
+        return new X509Certificate[0];
+    }
+}
+```
+
+- This `UBTrustManager` defines a custom `X509TrustManager` named `UBTrustManager` that lacks proper certificate validation. The `checkClientTrusted` and `checkServerTrusted` methods do not contain any validation logic, making the ***trust manager susceptible to accepting any certificate without verification***. This exposes the application to potential man-in-the-middle attacks
+
+Check for `HostNameVerifier` misconfiguration.
+
+- Search for `HostNameVerifier` and check the `com.google.api.client.http.apache.TrustAllSSLSocketFactory` class
+
+![](.gitbook/assets/image-20240108164833770.png)
+
+```java
+public TrustAllSSLSocketFactory() throws GeneralSecurityException {
+    super(KeyStore.getInstance(KeyStore.getDefaultType()));
+    this.socketFactory = SslUtils.trustAllSSLContext().getSocketFactory();
+    setHostnameVerifier(SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER);
+}
+```
+
+- The class uses `SslUtils.trustAllSSLContext()` to obtain an `SSLContext` that trusts all certificates, effectively disabling SSL/TLS certificate validation.
+  - The `setHostnameVerifier(SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER)` method is called, disabling hostname verification. This allows connections to hosts with different names than the one to which the certificate was issued
+- e.g. **Mitigations**: 
+  - Implement proper certificate validation checks instead of blindly trusting all certificates.
+  - Enable hostname verification to ensure that the certificate matches the host.
 
 ---
 
@@ -1099,255 +1100,255 @@ To test an app with certificate pinning implemented, it must be disabled by
 
 ### 🧪 Practice Lab 5
 
-> **Objectives**
->
-> - Understand cert pinning, its implementation and bypass
->
-> 1. The `PinTester` lab app pins the certificate for `https://www.elearnsecurity.com` to a specific public key, using [a library](https://github.com/moxie0/AndroidPinning) that pins by comparing a hex-encoded hash of an X.509 certificate's `SubjectPublicKeyInfo` field containing the public key. This exact public key (expected in the TLS handshake) has been hardcoded into the application.
->
-> Open `PinTest.apk` with Jadx-GUI and search for `X509Certificate`.
->
-> Open the `org.thoughtcrime.ssl.pinning.PinningTrustManager` class.
->
-> ![](.gitbook/assets/image-20240109084634396.png)
->
-> ```java
-> package org.thoughtcrime.ssl.pinning;
-> 
-> import android.util.Log;
-> import java.security.KeyStoreException;
-> import java.security.MessageDigest;
-> import java.security.NoSuchAlgorithmException;
-> import java.security.cert.CertificateException;
-> import java.security.cert.X509Certificate;
-> import java.util.Arrays;
-> import java.util.Collections;
-> import java.util.HashSet;
-> import java.util.LinkedList;
-> import java.util.List;
-> import java.util.Set;
-> import javax.net.ssl.TrustManager;
-> import javax.net.ssl.TrustManagerFactory;
-> import javax.net.ssl.X509TrustManager;
-> 
-> /* loaded from: classes.dex */
-> public class PinningTrustManager implements X509TrustManager {
->     private final long enforceUntilTimestampMillis;
->     private final SystemKeyStore systemKeyStore;
->     private final TrustManager[] systemTrustManagers;
->     private final List<byte[]> pins = new LinkedList();
->     private final Set<X509Certificate> cache = Collections.synchronizedSet(new HashSet());
-> 
->     public PinningTrustManager(SystemKeyStore keyStore, String[] pins, long enforceUntilTimestampMillis) {
->         this.systemTrustManagers = initializeSystemTrustManagers(keyStore);
->         this.systemKeyStore = keyStore;
->         this.enforceUntilTimestampMillis = enforceUntilTimestampMillis;
->         for (String pin : pins) {
->             this.pins.add(hexStringToByteArray(pin));
->         }
->     }
-> 
->     private TrustManager[] initializeSystemTrustManagers(SystemKeyStore keyStore) {
->         try {
->             TrustManagerFactory tmf = TrustManagerFactory.getInstance("X509");
->             tmf.init(keyStore.trustStore);
->             return tmf.getTrustManagers();
->         } catch (KeyStoreException e) {
->             throw new AssertionError(e);
->         } catch (NoSuchAlgorithmException nsae) {
->             throw new AssertionError(nsae);
->         }
->     }
-> 
->     private boolean isValidPin(X509Certificate certificate) throws CertificateException {
->         try {
->             MessageDigest digest = MessageDigest.getInstance("SHA1");
->             byte[] spki = certificate.getPublicKey().getEncoded();
->             byte[] pin = digest.digest(spki);
->             for (byte[] validPin : this.pins) {
->                 if (Arrays.equals(validPin, pin)) {
->                     return true;
->                 }
->             }
->             return false;
->         } catch (NoSuchAlgorithmException nsae) {
->             throw new CertificateException(nsae);
->         }
->     }
-> 
->     private void checkSystemTrust(X509Certificate[] chain, String authType) throws CertificateException {
->         TrustManager[] arr$ = this.systemTrustManagers;
->         for (TrustManager systemTrustManager : arr$) {
->             ((X509TrustManager) systemTrustManager).checkServerTrusted(chain, authType);
->         }
->     }
-> 
->     private void checkPinTrust(X509Certificate[] chain) throws CertificateException {
->         if (this.enforceUntilTimestampMillis != 0 && System.currentTimeMillis() > this.enforceUntilTimestampMillis) {
->             Log.w("PinningTrustManager", "Certificate pins are stale, falling back to system trust.");
->             return;
->         }
->         X509Certificate[] cleanChain = CertificateChainCleaner.getCleanChain(chain, this.systemKeyStore);
->         for (X509Certificate certificate : cleanChain) {
->             if (isValidPin(certificate)) {
->                 return;
->             }
->         }
->         throw new CertificateException("No valid pins found in chain!");
->     }
-> 
->     @Override // javax.net.ssl.X509TrustManager
->     public void checkClientTrusted(X509Certificate[] chain, String authType) throws CertificateException {
->         throw new CertificateException("Client certificates not supported!");
->     }
-> 
->     @Override // javax.net.ssl.X509TrustManager
->     public void checkServerTrusted(X509Certificate[] chain, String authType) throws CertificateException {
->         if (!this.cache.contains(chain[0])) {
->             checkSystemTrust(chain, authType);
->             checkPinTrust(chain);
->             this.cache.add(chain[0]);
->         }
->     }
-> 
->     @Override // javax.net.ssl.X509TrustManager
->     public X509Certificate[] getAcceptedIssuers() {
->         return null;
->     }
-> 
->     private byte[] hexStringToByteArray(String s) {
->         int len = s.length();
->         byte[] data = new byte[len / 2];
->         for (int i = 0; i < len; i += 2) {
->             data[i / 2] = (byte) ((Character.digit(s.charAt(i), 16) << 4) + Character.digit(s.charAt(i + 1), 16));
->         }
->         return data;
->     }
-> 
->     public void clearCache() {
->         this.cache.clear();
->     }
-> }
-> ```
->
-> - **Static Pins:** The public key pins (`pins`) are hardcoded in the `PinningTrustManager` constructor, limiting the app to accept only these specific certificates.
->   - The constructor takes an array of strings (`pins`) representing the hexadecimal representation of public key hashes. These values are then converted to byte arrays using the `hexStringToByteArray` method and added to the `pins` list. The pins in this list are later used for comparison during the certificate pinning process in the `isValidPin` method.
-> - **SHA-1 Algorithm Usage:** The code uses SHA-1 for hashing the public keys, which is considered weak and deprecated
-> - **No Pin Expiry Check**
->
-> Check the `MainActivity` class for `pins` string.
->
-> ![](.gitbook/assets/image-20240109085349777.png)
->
-> Extract the remote's server certificate.
->
-> ```bash
-> echo -n | openssl s_client -connect www.elearnsecurity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > /tmp/els.cert
-> ```
->
-> - Create a new Python script to generate SPKI pin hashes from X.509 files (based on the [pin.py - moxie0](https://github.com/moxie0/AndroidPinning/blob/master/tools/pin.py) tool). 
->   - **❗️ This method is considered insecure due to vulnerabilities of `SHA-1` used in the script without any salt, making it vulnerable to collision attacks. Use it only for testing environment like this laboratory.**
->
-> ```bash
-> nano ~/tools/pin3.py
-> ```
->
-> ```python
-> #!/usr/bin/env python3
-> """pin generates SPKI pin hashes from X.509 PEM files."""
-> 
-> """"Moxie Marlinspike" https://github.com/moxie0/AndroidPinning/blob/master/tools/pin.py Script upgraded to Python3
-> **This method is considered insecure due to vulnerabilities of `SHA-1` used in the script without any salt, making it vulnerable to collision attacks. Use it only for testing environment like this laboratory.**
-> """
-> 
-> import sys
-> import binascii
-> import hashlib
-> from cryptography import x509
-> from cryptography.hazmat.backends import default_backend
-> from cryptography.hazmat.primitives import serialization
-> 
-> def main(argv):
->     if len(argv) < 1:
->         print("Usage: pin.py <certificate_path>")
->         return
-> 
->     with open(argv[0], 'rb') as cert_file:
->         cert_data = cert_file.read()
->         cert = x509.load_pem_x509_certificate(cert_data, default_backend())
->     
->     spki = cert.public_key().public_bytes(
->         encoding=serialization.Encoding.DER,
->         format=serialization.PublicFormat.SubjectPublicKeyInfo
->     )
-> 
->     digest = hashlib.sha1()
->     digest.update(spki)
-> 
->     print("Calculating PIN for certificate: " + cert.subject.rfc4514_string())
->     print("Pin Value: " + binascii.hexlify(digest.digest()).decode())
-> 
-> if __name__ == '__main__':
->     main(sys.argv[1:])
-> ```
->
-> > - More on Certificate Pin calculation - [How to calculate certificate pin for OkHttp](https://weidianhuang.medium.com/how-to-calculate-certificate-pin-for-okhttp-1fba86b2c5f1)
->
-> ```bash
-> python ~/tools/pin3.py /tmp/els.cert
->     Calculating PIN for certificate: CN=*.elearnsecurity.com
->     Pin Value: c19e11308c73545ab7814fae1ebde8ad8f73ed1
-> ```
->
-> Today's certificate Pin Value is not equal to the hardcoded one.
->
-> ```bash
-> 8eb1d3f3eeec15af4bacad5ab6e8ea67b1a5f3a9
-> vs
-> c19e11308c73545ab7814fae1ebde8ad8f73ed1
-> ```
->
-> Decompile, modify the string to `c19e11308c73545ab7814fae1ebde8ad8f73ed1` in the `MainActivity.smali` file, recompile, sign and reinstall apk.
->
-> ```bash
-> apktool d PinTester.apk
-> code PinTester/smali/com/elearnsecurity/android/pintest/MainActivity.smali
-> 
-> # modify const-string v5, "8eb1d3f3eeec15af4bacad5ab6e8ea67b1a5f3a9" to
-> 
-> const-string v5, "c19e11308c73545ab7814fae1ebde8ad8f73ed1"
-> 
-> # Re-compile the app
-> apktool b PinTester/ -o PinTester_new.apk
-> 
->     I: Using Apktool 2.9.2
->     I: Checking whether sources has changed...
->     I: Checking whether resources has changed...
->     I: Building resources...
->     I: Building apk file...
->     I: Copying unknown files/dir...
->     I: Built apk into: PinTester_new.apk
-> 
-> # Sign the app and install it
-> keytool -genkey -v -keystore test.keystore -alias testalias -keyalg RSA -keysize 2048 -validity 10000
-> 
-> jarsigner -sigalg SHA1withRSA -digestalg SHA1 -keystore test.keystore PinTester_new.apk testalias
-> 
-> jarsigner -verify -verbose -certs PinTester_new.apk
-> 
-> adb install PinTester_new.apk
-> ```
->
-> - Testing the app, it crashes with `FATAL EXCEPTION: AsyncTask #1 java.lang.RuntimeException: An error occurred while executing doIn
->   Background()` - I won't continue further troubleshooting in this notes.
->
-> 2. The `PatchMe` lab app implements certificate pinning trusting `https://wwww.bing.com` certificate, based on this project [https://github.com/ikust/hello-pinnedcerts](https://github.com/ikust/hello-pinnedcerts). Bypass certificate pinning.
->
-> ```bash
-> objection -g com.patchme.app explore -s "android sslpinning disable"
-> ```
->
-> ![](.gitbook/assets/image-20240109100319744.png)
+**Objectives**
+
+- Understand cert pinning, its implementation and bypass
+
+1. The `PinTester` lab app pins the certificate for `https://www.elearnsecurity.com` to a specific public key, using [a library](https://github.com/moxie0/AndroidPinning) that pins by comparing a hex-encoded hash of an X.509 certificate's `SubjectPublicKeyInfo` field containing the public key. This exact public key (expected in the TLS handshake) has been hardcoded into the application.
+
+Open `PinTest.apk` with Jadx-GUI and search for `X509Certificate`.
+
+Open the `org.thoughtcrime.ssl.pinning.PinningTrustManager` class.
+
+![](.gitbook/assets/image-20240109084634396.png)
+
+```java
+package org.thoughtcrime.ssl.pinning;
+
+import android.util.Log;
+import java.security.KeyStoreException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.security.cert.CertificateException;
+import java.security.cert.X509Certificate;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Set;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.TrustManagerFactory;
+import javax.net.ssl.X509TrustManager;
+
+/* loaded from: classes.dex */
+public class PinningTrustManager implements X509TrustManager {
+    private final long enforceUntilTimestampMillis;
+    private final SystemKeyStore systemKeyStore;
+    private final TrustManager[] systemTrustManagers;
+    private final List<byte[]> pins = new LinkedList();
+    private final Set<X509Certificate> cache = Collections.synchronizedSet(new HashSet());
+
+    public PinningTrustManager(SystemKeyStore keyStore, String[] pins, long enforceUntilTimestampMillis) {
+        this.systemTrustManagers = initializeSystemTrustManagers(keyStore);
+        this.systemKeyStore = keyStore;
+        this.enforceUntilTimestampMillis = enforceUntilTimestampMillis;
+        for (String pin : pins) {
+            this.pins.add(hexStringToByteArray(pin));
+        }
+    }
+
+    private TrustManager[] initializeSystemTrustManagers(SystemKeyStore keyStore) {
+        try {
+            TrustManagerFactory tmf = TrustManagerFactory.getInstance("X509");
+            tmf.init(keyStore.trustStore);
+            return tmf.getTrustManagers();
+        } catch (KeyStoreException e) {
+            throw new AssertionError(e);
+        } catch (NoSuchAlgorithmException nsae) {
+            throw new AssertionError(nsae);
+        }
+    }
+
+    private boolean isValidPin(X509Certificate certificate) throws CertificateException {
+        try {
+            MessageDigest digest = MessageDigest.getInstance("SHA1");
+            byte[] spki = certificate.getPublicKey().getEncoded();
+            byte[] pin = digest.digest(spki);
+            for (byte[] validPin : this.pins) {
+                if (Arrays.equals(validPin, pin)) {
+                    return true;
+                }
+            }
+            return false;
+        } catch (NoSuchAlgorithmException nsae) {
+            throw new CertificateException(nsae);
+        }
+    }
+
+    private void checkSystemTrust(X509Certificate[] chain, String authType) throws CertificateException {
+        TrustManager[] arr$ = this.systemTrustManagers;
+        for (TrustManager systemTrustManager : arr$) {
+            ((X509TrustManager) systemTrustManager).checkServerTrusted(chain, authType);
+        }
+    }
+
+    private void checkPinTrust(X509Certificate[] chain) throws CertificateException {
+        if (this.enforceUntilTimestampMillis != 0 && System.currentTimeMillis() > this.enforceUntilTimestampMillis) {
+            Log.w("PinningTrustManager", "Certificate pins are stale, falling back to system trust.");
+            return;
+        }
+        X509Certificate[] cleanChain = CertificateChainCleaner.getCleanChain(chain, this.systemKeyStore);
+        for (X509Certificate certificate : cleanChain) {
+            if (isValidPin(certificate)) {
+                return;
+            }
+        }
+        throw new CertificateException("No valid pins found in chain!");
+    }
+
+    @Override // javax.net.ssl.X509TrustManager
+    public void checkClientTrusted(X509Certificate[] chain, String authType) throws CertificateException {
+        throw new CertificateException("Client certificates not supported!");
+    }
+
+    @Override // javax.net.ssl.X509TrustManager
+    public void checkServerTrusted(X509Certificate[] chain, String authType) throws CertificateException {
+        if (!this.cache.contains(chain[0])) {
+            checkSystemTrust(chain, authType);
+            checkPinTrust(chain);
+            this.cache.add(chain[0]);
+        }
+    }
+
+    @Override // javax.net.ssl.X509TrustManager
+    public X509Certificate[] getAcceptedIssuers() {
+        return null;
+    }
+
+    private byte[] hexStringToByteArray(String s) {
+        int len = s.length();
+        byte[] data = new byte[len / 2];
+        for (int i = 0; i < len; i += 2) {
+            data[i / 2] = (byte) ((Character.digit(s.charAt(i), 16) << 4) + Character.digit(s.charAt(i + 1), 16));
+        }
+        return data;
+    }
+
+    public void clearCache() {
+        this.cache.clear();
+    }
+}
+```
+
+- **Static Pins:** The public key pins (`pins`) are hardcoded in the `PinningTrustManager` constructor, limiting the app to accept only these specific certificates.
+  - The constructor takes an array of strings (`pins`) representing the hexadecimal representation of public key hashes. These values are then converted to byte arrays using the `hexStringToByteArray` method and added to the `pins` list. The pins in this list are later used for comparison during the certificate pinning process in the `isValidPin` method.
+- **SHA-1 Algorithm Usage:** The code uses SHA-1 for hashing the public keys, which is considered weak and deprecated
+- **No Pin Expiry Check**
+
+Check the `MainActivity` class for `pins` string.
+
+![](.gitbook/assets/image-20240109085349777.png)
+
+Extract the remote's server certificate.
+
+```bash
+echo -n | openssl s_client -connect www.elearnsecurity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > /tmp/els.cert
+```
+
+- Create a new Python script to generate SPKI pin hashes from X.509 files (based on the [pin.py - moxie0](https://github.com/moxie0/AndroidPinning/blob/master/tools/pin.py) tool). 
+  - **❗️ This method is considered insecure due to vulnerabilities of `SHA-1` used in the script without any salt, making it vulnerable to collision attacks. Use it only for testing environment like this laboratory.**
+
+```bash
+nano ~/tools/pin3.py
+```
+
+```python
+#!/usr/bin/env python3
+"""pin generates SPKI pin hashes from X.509 PEM files."""
+
+""""Moxie Marlinspike" https://github.com/moxie0/AndroidPinning/blob/master/tools/pin.py Script upgraded to Python3
+**This method is considered insecure due to vulnerabilities of `SHA-1` used in the script without any salt, making it vulnerable to collision attacks. Use it only for testing environment like this laboratory.**
+"""
+
+import sys
+import binascii
+import hashlib
+from cryptography import x509
+from cryptography.hazmat.backends import default_backend
+from cryptography.hazmat.primitives import serialization
+
+def main(argv):
+    if len(argv) < 1:
+        print("Usage: pin.py <certificate_path>")
+        return
+
+    with open(argv[0], 'rb') as cert_file:
+        cert_data = cert_file.read()
+        cert = x509.load_pem_x509_certificate(cert_data, default_backend())
+
+    spki = cert.public_key().public_bytes(
+        encoding=serialization.Encoding.DER,
+        format=serialization.PublicFormat.SubjectPublicKeyInfo
+    )
+
+    digest = hashlib.sha1()
+    digest.update(spki)
+
+    print("Calculating PIN for certificate: " + cert.subject.rfc4514_string())
+    print("Pin Value: " + binascii.hexlify(digest.digest()).decode())
+
+if __name__ == '__main__':
+    main(sys.argv[1:])
+```
+
+> - More on Certificate Pin calculation - [How to calculate certificate pin for OkHttp](https://weidianhuang.medium.com/how-to-calculate-certificate-pin-for-okhttp-1fba86b2c5f1)
+
+```bash
+python ~/tools/pin3.py /tmp/els.cert
+    Calculating PIN for certificate: CN=*.elearnsecurity.com
+    Pin Value: c19e11308c73545ab7814fae1ebde8ad8f73ed1
+```
+
+Today's certificate Pin Value is not equal to the hardcoded one.
+
+```bash
+8eb1d3f3eeec15af4bacad5ab6e8ea67b1a5f3a9
+vs
+c19e11308c73545ab7814fae1ebde8ad8f73ed1
+```
+
+Decompile, modify the string to `c19e11308c73545ab7814fae1ebde8ad8f73ed1` in the `MainActivity.smali` file, recompile, sign and reinstall apk.
+
+```bash
+apktool d PinTester.apk
+code PinTester/smali/com/elearnsecurity/android/pintest/MainActivity.smali
+
+# modify const-string v5, "8eb1d3f3eeec15af4bacad5ab6e8ea67b1a5f3a9" to
+
+const-string v5, "c19e11308c73545ab7814fae1ebde8ad8f73ed1"
+
+# Re-compile the app
+apktool b PinTester/ -o PinTester_new.apk
+
+    I: Using Apktool 2.9.2
+    I: Checking whether sources has changed...
+    I: Checking whether resources has changed...
+    I: Building resources...
+    I: Building apk file...
+    I: Copying unknown files/dir...
+    I: Built apk into: PinTester_new.apk
+
+# Sign the app and install it
+keytool -genkey -v -keystore test.keystore -alias testalias -keyalg RSA -keysize 2048 -validity 10000
+
+jarsigner -sigalg SHA1withRSA -digestalg SHA1 -keystore test.keystore PinTester_new.apk testalias
+
+jarsigner -verify -verbose -certs PinTester_new.apk
+
+adb install PinTester_new.apk
+```
+
+- Testing the app, it crashes with `FATAL EXCEPTION: AsyncTask #1 java.lang.RuntimeException: An error occurred while executing doIn
+  Background()` - I won't continue further troubleshooting in this notes.
+
+2. The `PatchMe` lab app implements certificate pinning trusting `https://wwww.bing.com` certificate, based on this project [https://github.com/ikust/hello-pinnedcerts](https://github.com/ikust/hello-pinnedcerts). Bypass certificate pinning.
+
+```bash
+objection -g com.patchme.app explore -s "android sslpinning disable"
+```
+
+![](.gitbook/assets/image-20240109100319744.png)
 
 ---
 
@@ -1402,27 +1403,27 @@ Android defines the following storage-related permissions:
 
 ### 🧪 Practice Lab 6
 
-> **Objectives**
->
-> - Understand level of data storage security on various Android API levels
->
-> Install labs apps to the (emulated) devices (one with API Level <=17, one with API Level >17).
->
-> ```bash
-> adb install InsecureExternalStorage.apk
-> adb install ReadExternalStorage.apk
-> ```
->
-> Test the app and data storage.
->
-> With the `InsecureExternalStorage` app it saves a file in the `/sdcard/Android/data/com.els.insecureexternalstorage/files/FileContainer` directory.
->
-> With the `ReadExternalStorage` app tries to read the file.
->
-> - 📌 Device with API Level 17 (**Android 4.2**) or lower, any files stored by an application in the external storage are accessible by other applications on the device.
-> - 📌 Device with API Level over 17 (e.g. **Android 9**), any files stored by an application in the external storage is not accessible by other applications on the device. (Permission denied error)
->
-> ![](.gitbook/assets/image-20240109124345588.png)
+**Objectives**
+
+- Understand level of data storage security on various Android API levels
+
+Install labs apps to the (emulated) devices (one with API Level <=17, one with API Level >17).
+
+```bash
+adb install InsecureExternalStorage.apk
+adb install ReadExternalStorage.apk
+```
+
+Test the app and data storage.
+
+With the `InsecureExternalStorage` app it saves a file in the `/sdcard/Android/data/com.els.insecureexternalstorage/files/FileContainer` directory.
+
+With the `ReadExternalStorage` app tries to read the file.
+
+- 📌 Device with API Level 17 (**Android 4.2**) or lower, any files stored by an application in the external storage are accessible by other applications on the device.
+- 📌 Device with API Level over 17 (e.g. **Android 9**), any files stored by an application in the external storage is not accessible by other applications on the device. (Permission denied error)
+
+![](.gitbook/assets/image-20240109124345588.png)
 
 ---
 
@@ -1499,71 +1500,71 @@ Creating a threat model for Android apps requires enumerating unprotected export
 
 ### 🧪 Practice Lab 7
 
-> > [goatdroid.apk](https://github.com/linkedin/qark/blob/master/tests/goatdroid.apk) + lab files will be used
->
-> **Objectives**
->
-> - Static analysis with vulnerability identification
-> - Reverse the in scope app
-> - Exploit non secure app's receiver
->
-> Decompile the app and examine the source code. Identify insecure broadcast receiver based vulnerabilities and create evidence.
->
-> ```bash
-> apktool d goatdroid.apk
-> 
-> # Open goatdroid.apk in Jadx-GUI
-> ```
->
-> ![AndroidManifest.xml](.gitbook/assets/image-20240109154303690.png)
->
-> ```bash
-> <receiver android:label="Send SMS" android:name="org.owasp.goatdroid.fourgoats.broadcastreceivers.SendSMSNowReceiver">
->     <intent-filter>
->         <action android:name="org.owasp.goatdroid.fourgoats.SOCIAL_SMS"/>
->     </intent-filter> &gt;\10
-> </receiver>
-> ```
->
-> - This receiver is implicitly exported due to the `intent-filter` presence. Since it's not protected, any other app can pass an **Intent** to it and trigger the receiver.
-> - Check the `SendSMSNowReceiver` class
->
-> ![SendSMSNowReceiver](.gitbook/assets/image-20240109154642872.png)
->
-> ```java
-> package org.owasp.goatdroid.fourgoats.broadcastreceivers;
-> 
-> import android.content.BroadcastReceiver;
-> import android.content.Context;
-> import android.content.Intent;
-> import android.os.Bundle;
-> import android.telephony.SmsManager;
-> import org.owasp.goatdroid.fourgoats.misc.Constants;
-> import org.owasp.goatdroid.fourgoats.misc.Utils;
-> 
-> /* loaded from: classes.dex */
-> public class SendSMSNowReceiver extends BroadcastReceiver {
->     Context context;
-> 
->     @Override // android.content.BroadcastReceiver
->     public void onReceive(Context arg0, Intent arg1) {
->         this.context = arg0;
->         SmsManager sms = SmsManager.getDefault();
->         Bundle bundle = arg1.getExtras();
->         sms.sendTextMessage(bundle.getString("phoneNumber"), null, bundle.getString("message"), null, null);
->         Utils.makeToast(this.context, Constants.TEXT_MESSAGE_SENT, 1);
->     }
-> }
-> ```
->
-> - The `onReceive` method retrieves **Extras** from the `Intent` using `Bundle bundle = arg1.getExtras()`. The values of those Extras are used in the `sendTextMessage` sensitive method (it allows an application to send SMS messages without user interaction).
->
-> **Vulnerability**
->
-> - Any app on the device can broadcast the `org.owasp.goatdroid.fourgoats.SOCIAL_SMS` action, triggering the `SendSMSNowReceiver` to send SMS messages.
-> - An attacker can craft broadcasts with arbitrary content for the `phoneNumber` and `message` Extras, potentially leading to SMS spoofing.
->
-> Check [Drozer Tool](#drozer) for the exploitation.
+> [goatdroid.apk](https://github.com/linkedin/qark/blob/master/tests/goatdroid.apk) + lab files will be used
+
+**Objectives**
+
+- Static analysis with vulnerability identification
+- Reverse the in scope app
+- Exploit non secure app's receiver
+
+Decompile the app and examine the source code. Identify insecure broadcast receiver based vulnerabilities and create evidence.
+
+```bash
+apktool d goatdroid.apk
+
+# Open goatdroid.apk in Jadx-GUI
+```
+
+![AndroidManifest.xml](.gitbook/assets/image-20240109154303690.png)
+
+```bash
+<receiver android:label="Send SMS" android:name="org.owasp.goatdroid.fourgoats.broadcastreceivers.SendSMSNowReceiver">
+    <intent-filter>
+        <action android:name="org.owasp.goatdroid.fourgoats.SOCIAL_SMS"/>
+    </intent-filter> &gt;\10
+</receiver>
+```
+
+- This receiver is implicitly exported due to the `intent-filter` presence. Since it's not protected, any other app can pass an **Intent** to it and trigger the receiver.
+- Check the `SendSMSNowReceiver` class
+
+![SendSMSNowReceiver](.gitbook/assets/image-20240109154642872.png)
+
+```java
+package org.owasp.goatdroid.fourgoats.broadcastreceivers;
+
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.telephony.SmsManager;
+import org.owasp.goatdroid.fourgoats.misc.Constants;
+import org.owasp.goatdroid.fourgoats.misc.Utils;
+
+/* loaded from: classes.dex */
+public class SendSMSNowReceiver extends BroadcastReceiver {
+    Context context;
+
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context arg0, Intent arg1) {
+        this.context = arg0;
+        SmsManager sms = SmsManager.getDefault();
+        Bundle bundle = arg1.getExtras();
+        sms.sendTextMessage(bundle.getString("phoneNumber"), null, bundle.getString("message"), null, null);
+        Utils.makeToast(this.context, Constants.TEXT_MESSAGE_SENT, 1);
+    }
+}
+```
+
+- The `onReceive` method retrieves **Extras** from the `Intent` using `Bundle bundle = arg1.getExtras()`. The values of those Extras are used in the `sendTextMessage` sensitive method (it allows an application to send SMS messages without user interaction).
+
+**Vulnerability**
+
+- Any app on the device can broadcast the `org.owasp.goatdroid.fourgoats.SOCIAL_SMS` action, triggering the `SendSMSNowReceiver` to send SMS messages.
+- An attacker can craft broadcasts with arbitrary content for the `phoneNumber` and `message` Extras, potentially leading to SMS spoofing.
+
+Check [Drozer Tool](#drozer) for the exploitation.
 
 ---
 
@@ -1685,64 +1686,64 @@ These vulnerabilities can manifest in the **Content Providers** in Android apps,
 
 ### 🧪 Practice Lab 8
 
-> > `InjectMe` app lab files will be used.
->
-> **Objectives**
->
-> - Enumerate URIs and exploit the app's content provider to inject SQL query.
->
-> Decompile the app and examine the source code. Identify content URI in the application and as much as possible about the app's attack surface.
->
-> ```bash
-> adb install InjectMe/app/build/outputs/apk/app-debug.apk
-> ```
->
-> - Create and store some credentials - `CredentialProvider` is used
->
-> Check `InjectMe/app/src/main/AndroidManifest.xml`
->
-> ![InjectMe - AndroidManifest.xml](.gitbook/assets/image-20240110082928833.png)
->
-> ```bash
-> <provider android:name=".CredentialProvider"
->   	android:authorities="com.elearnsecurity.injectme.provider.CredentialProvider">
-> </provider>
-> ```
->
-> - **Physical Local Attacks** - On devices with **API Levels 8 - 23**, Content providers can be queried from a privileged context (e.g. ADB shell) even if `android:exported="false"`, but not on devices with API Level 24+
-> - The content provider is accessible by third-party apps with no permissions, on devices with **API Level <17** (since the content provider is explicitly exported)
->
-> To enumerate all the content URIs extract `classes.dex` file from the built `apk` and check it with `strings` command
->
-> ```bash
-> unzip app-debug.apk
-> 
-> strings classes.dex | grep "content://"
-> 	content://com.elearnsecurity.injectme.provider.CredentialProvider/credentials
-> ```
->
-> Explore the `CredentialProvider.java` class in the source code
->
-> ![CredentialProvider.java](.gitbook/assets/image-20240110083826325.png)
->
-> - Check the source code for `Query` (retrieve) methods, parameterized queries or input sanitization.
->   - `switch` statement - as long as the URI is valid, it will match one of the two options and take the URI input into the query
->   - The code concatenates the `uri.getLastPathSegment()` directly into the SQL query for the `CREDENTIALS_ID` case. If the `getLastPathSegment()` method returns user-controlled input, it could lead to **SQL injection** vulnerabilities. There is no explicit usage of parameterized queries or input sanitization.
->   - The code logs information using `Log.v("InjectMe", ...)`. Logging sensitive information like database queries or IDs might expose details to potential attackers
->
-> ![](.gitbook/assets/image-20240110084500958.png)
->
-> Exploit the vulnerability, by interacting with the insecure content provider.
->
-> ```bash
-> adb shell content query --uri content://com.elearnsecurity.injectme.provider.CredentialProvider/credentials
-> 
-> # Permission denied on Android 9 (API Level 28) device
-> ```
->
-> - Try the same on an Android 6 (API level 23) device, permissions should be granted.
->
-> ![](.gitbook/assets/image-20240110091833240.png)
+> `InjectMe` app lab files will be used.
+
+**Objectives**
+
+- Enumerate URIs and exploit the app's content provider to inject SQL query.
+
+Decompile the app and examine the source code. Identify content URI in the application and as much as possible about the app's attack surface.
+
+```bash
+adb install InjectMe/app/build/outputs/apk/app-debug.apk
+```
+
+- Create and store some credentials - `CredentialProvider` is used
+
+Check `InjectMe/app/src/main/AndroidManifest.xml`
+
+![InjectMe - AndroidManifest.xml](.gitbook/assets/image-20240110082928833.png)
+
+```bash
+<provider android:name=".CredentialProvider"
+  	android:authorities="com.elearnsecurity.injectme.provider.CredentialProvider">
+</provider>
+```
+
+- **Physical Local Attacks** - On devices with **API Levels 8 - 23**, Content providers can be queried from a privileged context (e.g. ADB shell) even if `android:exported="false"`, but not on devices with API Level 24+
+- The content provider is accessible by third-party apps with no permissions, on devices with **API Level <17** (since the content provider is explicitly exported)
+
+To enumerate all the content URIs extract `classes.dex` file from the built `apk` and check it with `strings` command
+
+```bash
+unzip app-debug.apk
+
+strings classes.dex | grep "content://"
+	content://com.elearnsecurity.injectme.provider.CredentialProvider/credentials
+```
+
+Explore the `CredentialProvider.java` class in the source code
+
+![CredentialProvider.java](.gitbook/assets/image-20240110083826325.png)
+
+- Check the source code for `Query` (retrieve) methods, parameterized queries or input sanitization.
+  - `switch` statement - as long as the URI is valid, it will match one of the two options and take the URI input into the query
+  - The code concatenates the `uri.getLastPathSegment()` directly into the SQL query for the `CREDENTIALS_ID` case. If the `getLastPathSegment()` method returns user-controlled input, it could lead to **SQL injection** vulnerabilities. There is no explicit usage of parameterized queries or input sanitization.
+  - The code logs information using `Log.v("InjectMe", ...)`. Logging sensitive information like database queries or IDs might expose details to potential attackers
+
+![](.gitbook/assets/image-20240110084500958.png)
+
+Exploit the vulnerability, by interacting with the insecure content provider.
+
+```bash
+adb shell content query --uri content://com.elearnsecurity.injectme.provider.CredentialProvider/credentials
+
+# Permission denied on Android 9 (API Level 28) device
+```
+
+- Try the same on an Android 6 (API level 23) device, permissions should be granted.
+
+![](.gitbook/assets/image-20240110091833240.png)
 
 ---
 
@@ -1757,132 +1758,134 @@ This vulnerability impacts Android content providers and services, enabling expl
 content://com.adobe.reader.fileprovider/../../../file_to_read
 ```
 
+---
+
 ### 🧪 Practice Lab 9
 
-> > `FileBrowser` app lab files will be used.
->
-> **Objectives**
->
-> - Exploit app's user input sanitization to perform a path traversal attack
-> - Create a POC (Proof of Concept) exploit app `FileBrowserExploit.apk`
->
-> Install both `FileBrowser.apk` and `FileBrowserExploit.apk`
->
-> Understand application's attack surface - `AndroidManifest.xml`.
->
-> - `FileBrowser.apk` allows to read the contents of different files stored on the SD card
->
-> ![](.gitbook/assets/image-20240110110447642.png)
->
-> ```bash
-> # Focus on
-> <provider
-> 	android:name="com.els.filebrowser.accessfile"
-> 	android:enabled="true"
-> 	android:exported="true"
-> 	android:authorities="com.els.filebrowser"
-> 	android:grantUriPermissions="true"
-> />
-> ```
->
-> Examine source code for possible user input sanitization inefficiencies.
->
-> - The content provider of the application is explicitly exposed and provides file operations. Through this content provider implementation, file access to the application (or other apps) is granted when provided with a URI.
->   - It has to implement the `openFile` method (`accessfile` class)
->
-> ![accessfile class](.gitbook/assets/image-20240110111134379.png)
->
-> ```java
-> public ParcelFileDescriptor openFile(Uri uri, String mode) throws FileNotFoundException {
->     
->     int uriType = sURIMatcher.match(uri);
->     
->     if (uriType == 10) {
->         throw new FileNotFoundException(uri.getPath());
->     }
->     
->     File f = new File(uri.getPath()); //get file located in the specified URI path
->     
->     if (f.exists()) {
->         return ParcelFileDescriptor.open(f, 268435456);
->     } // if file exists, return it
->     
->     throw new FileNotFoundException(uri.getPath());
-> }
-> ```
->
-> - The method, when provided with a URI, returns a `ParcelFileDescriptor` file object, allowing the application to perform operations on it.
->   - The `File` object is created directly from the URI path without proper validation, allowing the possibility of directory traversal attacks.
->
-> ```bash
-> # Focus on
-> <activity android:name="com.els.filebrowser.Content"/>
-> ```
->
-> Opening the `Content` class, check how the app opens and reads a file.
->
-> ![Content class](.gitbook/assets/image-20240110112056183.png)
->
-> ```java
-> package com.els.filebrowser;
-> 
-> import android.app.Activity;
-> import android.net.Uri;
-> import android.os.Bundle;
-> import android.text.method.ScrollingMovementMethod;
-> import android.widget.TextView;
-> import android.widget.Toast;
-> import java.io.BufferedReader;
-> import java.io.FileNotFoundException;
-> import java.io.IOException;
-> import java.io.InputStream;
-> import java.io.InputStreamReader;
-> 
-> /* loaded from: classes.dex */
-> public class Content extends Activity {
->     @Override // android.app.Activity
->     protected void onCreate(Bundle savedInstanceState) {
->         super.onCreate(savedInstanceState);
->         setContentView(R.layout.activity_content);
->         TextView text = (TextView) findViewById(R.id.textView1);
->         text.setMovementMethod(new ScrollingMovementMethod());
->         Uri path = getIntent().getData();
->         //Lack of Input Validation/Sanitization
->         try {
->             InputStream content = getContentResolver().openInputStream(path);
->             // opens a stream to the content associated with a content URI, path=file URI
->             
->             BufferedReader reader = new BufferedReader(new InputStreamReader(content));
->             while (true) {
->                 String line = reader.readLine();
->                 if (line != null) {
->                     text.append(line);
->                 } else {
->                     return;
->                 }
->             }
->             //open the file, read it line by line and append it to the TextView component
->             
->         } catch (FileNotFoundException e) {
->             e.printStackTrace();
->             Toast.makeText(getApplicationContext(), "Can't handle this file", 0).show();
->             finish();
->         } catch (IOException e2) {
->             e2.printStackTrace();
->             Toast.makeText(getApplicationContext(), "Can't handle this file", 0).show();
->             finish();
->         }
->     }
-> }
-> ```
->
-> - **Lack of Input Validation/Sanitization** - The code does not validate or sanitize the URI obtained from `getIntent().getData()`. 
->
-> ❗️ This could lead to **path traversal attacks** or unintended access to sensitive files, allowing any external app to use a **directory traversal attack** to request other files by supplying a URI with `../` repeated characters and the name of the files to read.
->
-> Prove the vulnerability by using the `FileBrowserExploit.apk` to read the `/etc/hosts` file.
->
-> ![](.gitbook/assets/image-20240110115656319.png)
+> `FileBrowser` app lab files will be used.
+
+**Objectives**
+
+- Exploit app's user input sanitization to perform a path traversal attack
+- Create a POC (Proof of Concept) exploit app `FileBrowserExploit.apk`
+
+Install both `FileBrowser.apk` and `FileBrowserExploit.apk`
+
+Understand application's attack surface - `AndroidManifest.xml`.
+
+- `FileBrowser.apk` allows to read the contents of different files stored on the SD card
+
+![](.gitbook/assets/image-20240110110447642.png)
+
+```bash
+# Focus on
+<provider
+	android:name="com.els.filebrowser.accessfile"
+	android:enabled="true"
+	android:exported="true"
+	android:authorities="com.els.filebrowser"
+	android:grantUriPermissions="true"
+/>
+```
+
+Examine source code for possible user input sanitization inefficiencies.
+
+- The content provider of the application is explicitly exposed and provides file operations. Through this content provider implementation, file access to the application (or other apps) is granted when provided with a URI.
+  - It has to implement the `openFile` method (`accessfile` class)
+
+![accessfile class](.gitbook/assets/image-20240110111134379.png)
+
+```java
+public ParcelFileDescriptor openFile(Uri uri, String mode) throws FileNotFoundException {
+
+    int uriType = sURIMatcher.match(uri);
+
+    if (uriType == 10) {
+        throw new FileNotFoundException(uri.getPath());
+    }
+
+    File f = new File(uri.getPath()); //get file located in the specified URI path
+
+    if (f.exists()) {
+        return ParcelFileDescriptor.open(f, 268435456);
+    } // if file exists, return it
+
+    throw new FileNotFoundException(uri.getPath());
+}
+```
+
+- The method, when provided with a URI, returns a `ParcelFileDescriptor` file object, allowing the application to perform operations on it.
+  - The `File` object is created directly from the URI path without proper validation, allowing the possibility of directory traversal attacks.
+
+```bash
+# Focus on
+<activity android:name="com.els.filebrowser.Content"/>
+```
+
+Opening the `Content` class, check how the app opens and reads a file.
+
+![Content class](.gitbook/assets/image-20240110112056183.png)
+
+```java
+package com.els.filebrowser;
+
+import android.app.Activity;
+import android.net.Uri;
+import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
+import android.widget.TextView;
+import android.widget.Toast;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+
+/* loaded from: classes.dex */
+public class Content extends Activity {
+    @Override // android.app.Activity
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_content);
+        TextView text = (TextView) findViewById(R.id.textView1);
+        text.setMovementMethod(new ScrollingMovementMethod());
+        Uri path = getIntent().getData();
+        //Lack of Input Validation/Sanitization
+        try {
+            InputStream content = getContentResolver().openInputStream(path);
+            // opens a stream to the content associated with a content URI, path=file URI
+
+            BufferedReader reader = new BufferedReader(new InputStreamReader(content));
+            while (true) {
+                String line = reader.readLine();
+                if (line != null) {
+                    text.append(line);
+                } else {
+                    return;
+                }
+            }
+            //open the file, read it line by line and append it to the TextView component
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            Toast.makeText(getApplicationContext(), "Can't handle this file", 0).show();
+            finish();
+        } catch (IOException e2) {
+            e2.printStackTrace();
+            Toast.makeText(getApplicationContext(), "Can't handle this file", 0).show();
+            finish();
+        }
+    }
+}
+```
+
+- **Lack of Input Validation/Sanitization** - The code does not validate or sanitize the URI obtained from `getIntent().getData()`. 
+
+❗️ This could lead to **path traversal attacks** or unintended access to sensitive files, allowing any external app to use a **directory traversal attack** to request other files by supplying a URI with `../` repeated characters and the name of the files to read.
+
+Prove the vulnerability by using the `FileBrowserExploit.apk` to read the `/etc/hosts` file.
+
+![](.gitbook/assets/image-20240110115656319.png)
 
 ---
 
