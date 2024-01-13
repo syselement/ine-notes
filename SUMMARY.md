@@ -88,7 +88,9 @@
   * [📒3. Cloud Identity, Security, and Compliance](icca/cloud-sec/README.md)
   * [🌐 Icca References](icca/icca-references.md)
   
-
+* [eMAPT](emapt/README.md)
+  * [📒Android](emapt/android/README.md)
+  * [🌐 eMAPT References](emapt/emapt-references.md)
 
 
 ***
