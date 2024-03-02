@@ -1,5 +1,12 @@
 # 📜 eJPT Cheat Sheet
 
+> ⬇️ Feel free to download the version of your choice and kindly mention my blog when utilizing it
+>
+> - [MARKDOWN](cheatsheet-files/ejpt-cheatsheet_nolinks.md)
+> - [PDF](cheatsheet-files/ejpt-cheatsheet_nolinks.pdf)
+> - [HTML](ejpt/cheatsheet-files/ejpt-cheatsheet_nolinks.html)
+> - [DOCX](cheatsheet-files/ejpt-cheatsheet_nolinks.docx)
+
 ## [Networking](penetration-testing-prerequisites/networking.md)
 
 ```bash
