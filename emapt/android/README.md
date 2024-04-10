@@ -543,7 +543,7 @@ sh ~/tools/dex-tools-v2.4/d2j-dex2jar.sh -f app-debug.apk -o out_LocatingSecrets
 ![](.gitbook/assets/image-20231204120646126.png)
 
 - Opening `out_LocatingSecrets.jar`, `onCreate` method can be found with resource id of `R.layout.activity_access`
-  - this id vale can be found in the `R` file
+  - this id value can be found in the `R` file
 
 ![jadx-gui](.gitbook/assets/image-20231204123127000.png)
 
@@ -753,7 +753,7 @@ Download [AndroGoat.apk](https://github.com/satishpatnayak/MyTest/blob/master/An
   - check some of the Java classes inside `owasp.sat.agoat`
   - check for hardcoded strings, misconfiguration, code vulnerabilities
   - use Search tool
-  - methods (`onCreate`, `` etc)
+  - methods (`onCreate`, `onReceive` etc)
 
 ![](.gitbook/assets/image-20240108103541867.png)
 
@@ -798,7 +798,7 @@ public final class ShowDataReceiver extends BroadcastReceiver {
 
 **SMALI Code Review**
 
-- Download smali/backsmali jars from https://bitbucket.org/JesusFreke/smali/downloads/
+- Download smali/backsmali jars from [https://bitbucket.org/JesusFreke/smali/downloads/](https://bitbucket.org/JesusFreke/smali/downloads/)
 
 ```bash
 unzip AndroGoat.apk
