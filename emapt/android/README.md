@@ -2079,7 +2079,7 @@ run app.broadcast.info -a org.owasp.goatdroid.fourgoats
 
 ![](.gitbook/assets/image-20240110165704512.png)
 
-- Check Vulnerability in the [🧪 Practice Lab 7](##practice-lab-7) and exploit it with the following commands
+- Check Vulnerability in the [🧪 Practice Lab 7](#practice-lab-7) and exploit it with the following commands
 
 ```bash
 run app.broadcast.info –-package org.owasp.goatdroid.fourgoats
