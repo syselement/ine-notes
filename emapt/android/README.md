@@ -1572,7 +1572,7 @@ Check [Drozer Tool](#drozer) for the exploitation.
 
 If the source-sink is user-controllable input, there exists a potential vulnerability known as **SQL Injection**, where the sink is the query itself (input not sanitized, etc) being altered.
 
-SQL Query: **Projection** (select specific table columns) + **Selection** ("where", select specific table rows base on a condition)
+SQL Query: **Projection** (select specific table columns) + **Selection** ("where", select specific table rows based on a condition)
 
 ```sql
 SELECT * FROM table_name WHERE condition;
