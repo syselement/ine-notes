@@ -28,5 +28,6 @@
   - [Android Debug Bridge](https://github.com/lana-20/android-debug-bridge)
 - [sievePWN - vulnerable app](https://github.com/tanprathan/sievePWN)
 - [TCM - Mobile Application Penetration Testing - syselement](https://blog.syselement.com/tcm/courses/mapt)
+- [awesome-mobile-security](https://github.com/vaib25vicky/awesome-mobile-security)
 ---
 
